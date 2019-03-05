@@ -1,0 +1,9 @@
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/bin/Debug/netcoreapp2.2/Monivault.Core.deps.json
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/bin/Debug/netcoreapp2.2/Monivault.Core.dll
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/bin/Debug/netcoreapp2.2/Monivault.Core.pdb
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.csprojAssemblyReference.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.csproj.CoreCompileInputs.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.AssemblyInfoInputs.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.AssemblyInfo.cs
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.dll
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/Debug/netcoreapp2.2/Monivault.Core.pdb

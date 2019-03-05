@@ -1,0 +1,68 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/Monivault.Core.csproj",
+    "projectName": "Monivault.Core",
+    "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/Monivault.Core.csproj",
+    "outputPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Abp.AutoMapper": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Abp.ZeroCore.EntityFrameworkCore": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Castle.Windsor.MsDependencyInjection": {
+          "target": "Package",
+          "version": "[3.3.1, )"
+        },
+        "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.Extensions.Configuration.Json": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.Extensions.Configuration.UserSecrets": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "portable-net45+win8+wp8+wpa81",
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

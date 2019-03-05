@@ -1,0 +1,12 @@
+.m-login.m-login--1.m-login--contact-detail .m-login__contact-detail {
+    display: block; 
+}
+.m-login.m-login--1.m-login--contact-detail .m-login__personal-detail {
+    display: none; 
+}
+.m-login.m-login--1.m-login--personal-detail .m-login__contact-detail {
+    display: none;
+}
+.m-login.m-login--1.m-login--personal-detail .m-login__personal-detail {
+    display: block;
+}

@@ -1,0 +1,93 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/Monivault.Web.Host.csproj",
+    "projectName": "Monivault.Web.Host",
+    "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/Monivault.Web.Host.csproj",
+    "outputPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {
+          "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Monivault.Web.Core.csproj": {
+            "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Monivault.Web.Core.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Abp.Castle.Log4Net": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Castle.LoggingFacility.MsLogging": {
+          "target": "Package",
+          "version": "[3.1.0, )"
+        },
+        "Microsoft.AspNetCore.Diagnostics": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.AspNetCore.Mvc": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.AspNetCore.Server.IISIntegration": {
+          "target": "Package",
+          "version": "[2.2.1, )"
+        },
+        "Microsoft.AspNetCore.Server.Kestrel": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.AspNetCore.StaticFiles": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.Extensions.Logging": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.Extensions.Options.ConfigurationExtensions": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        },
+        "Microsoft.VisualStudio.Web.BrowserLink": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.1, )"
+        }
+      },
+      "imports": [
+        "portable-net45+win8+wp8+wpa81",
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

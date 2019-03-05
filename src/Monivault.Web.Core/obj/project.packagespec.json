@@ -1,0 +1,79 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Monivault.Web.Core.csproj",
+    "projectName": "Monivault.Web.Core",
+    "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Monivault.Web.Core.csproj",
+    "outputPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {
+          "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Monivault.Application.csproj": {
+            "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Monivault.Application.csproj"
+          },
+          "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/Monivault.EntityFrameworkCore.csproj": {
+            "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/Monivault.EntityFrameworkCore.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Abp.AspNetCore": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Abp.AspNetCore.SignalR": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Abp.ZeroCore": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "Microsoft.AspNetCore": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.AspNetCore.Authentication.JwtBearer": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        },
+        "Swashbuckle.AspNetCore": {
+          "target": "Package",
+          "version": "[3.0.0, )"
+        },
+        "System.ValueTuple": {
+          "target": "Package",
+          "version": "[4.5.0, )"
+        }
+      },
+      "imports": [
+        "portable-net45+win8+wp8+wpa81",
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

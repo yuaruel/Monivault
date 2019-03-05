@@ -1,0 +1,95 @@
+@{
+    Layout = "_OutsideLayout";
+}
+
+@section styles
+{
+    <link href="~/view-resources/Views/SignUp/Index.css" rel="stylesheet" asp-append-version="true"/>
+}
+@section scripts
+{
+	<script src="~/lib/inputmask/dist/jquery.inputmask.bundle.js" type="text/javascript"></script>
+    <script src="~/view-resources/Views/SignUp/Index.js"></script>
+}
+
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--contact-detail" id="m_signup">
+	<div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
+		<div class="m-stack m-stack--hor m-stack--desktop">
+			<div class="m-stack__item m-stack__item--fluid">
+				<div class="m-login__wrapper">
+					<div class="m-login__logo">
+						<a href="#">
+							<img src="~/images/logo-big.png">
+						</a>
+					</div>
+					<div class="m-login__contact-detail">
+						<div class="m-login__head">
+							<h3 class="m-login__title">Sign Up</h3>
+							<div class="m-login__desc">Enter your contact detail for verification:</div>
+						</div>
+						<form class="m-login__form m-form" asp-action="SendUpVerificationCode">
+							<div class="form-group m-form__group">
+								<input id="PhoneNumber" class="form-control m-input" type="text" placeholder="Phone Number" name="PhoneNumber">
+							</div>
+							<div class="form-group m-form__group">
+								<input id="Email" class="form-control m-input" type="text" placeholder="Email" name="Email" autocomplete="off">
+							</div>
+							
+							<div class="m-login__form-action">
+								<button id="m_login_signup_next" type="button" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Next</button>
+								<a asp-controller="Login" asp-action="Index" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">Cancel</a>
+							</div>
+						</form>
+					</div>
+					<div class="m-login__personal-detail">
+						<div class="m-login__head">
+							<h3 class="m-login__title">Sign Up</h3>
+							<div class="m-login__desc">Enter your personal details to create your account:</div>
+						</div>
+						<form class="m-login__form m-form" action="">
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="text" placeholder="Verification Code" name="VerifcationCode">
+							</div>
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="text" placeholder="First Name" name="FirstName">
+							</div>
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="text" placeholder="Last Name" name="LastName">
+							</div>
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="text" placeholder="Username" name="Username" autocomplete="off">
+							</div>
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="password" placeholder="Password" name="Password">
+							</div>
+							<div class="form-group m-form__group">
+								<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="ConfirmPassword">
+							</div>
+							<div class="row form-group m-form__group m-login__form-sub">
+								<div class="col m--align-left">
+									<label class="m-checkbox m-checkbox--focus">
+										<input type="checkbox" name="agree"> I Agree the <a href="#" class="m-link m-link--focus">terms and conditions</a>.
+										<span></span>
+									</label>
+									<span class="m-form__help"></span>
+								</div>
+							</div>
+							<div class="m-login__form-action">
+								<button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Sign Up</button>
+								<a asp-controller="Login" asp-action="Index" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">Cancel</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content m-grid-item--center" style="background-image: url(/images/bg-4.jpg)">
+		<div class="m-grid__item">
+			<h3 class="m-login__welcome">Join Our Community</h3>
+			<p class="m-login__msg">
+				Save | Grow your wealth | Pay Utilities
+			</p>
+		</div>
+	</div>
+</div>

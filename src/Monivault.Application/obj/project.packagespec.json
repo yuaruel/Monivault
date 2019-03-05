@@ -1,0 +1,48 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Monivault.Application.csproj",
+    "projectName": "Monivault.Application",
+    "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Monivault.Application.csproj",
+    "outputPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {
+          "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/Monivault.Core.csproj": {
+            "projectPath": "/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Core/Monivault.Core.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "portable-net45+win8+wp8+wpa81",
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

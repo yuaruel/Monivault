@@ -1,0 +1,16 @@
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.dll.config
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.deps.json
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.runtimeconfig.json
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.runtimeconfig.dev.json
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.dll
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.pdb
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.Core.dll
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/bin/Debug/netcoreapp2.2/Monivault.Core.pdb
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.csprojAssemblyReference.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.dll.config
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.csproj.CoreCompileInputs.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.AssemblyInfoInputs.cache
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.AssemblyInfo.cs
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.csproj.CopyComplete
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.dll
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/obj/Debug/netcoreapp2.2/Monivault.EntityFrameworkCore.pdb

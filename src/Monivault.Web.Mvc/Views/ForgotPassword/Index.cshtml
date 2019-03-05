@@ -1,0 +1,41 @@
+@{
+	Layout = "_OutsideLayout";
+}
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--forget-password" id="m_login">
+	<div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
+		<div class="m-stack m-stack--hor m-stack--desktop">
+			<div class="m-stack__item m-stack__item--fluid">
+				<div class="m-login__wrapper">
+					<div class="m-login__logo">
+						<a href="#">
+							<img src="~/images/logo-big.png">
+						</a>
+					</div>
+					<div class="m-login__forget-password">
+						<div class="m-login__head">
+							<h3 class="m-login__title">Forgotten Password ?</h3>
+							<div class="m-login__desc">Enter your email to reset your password:</div>
+						</div>
+						<form class="m-login__form m-form" action="">
+							<div class="form-group m-form__group">
+								<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
+							</div>
+							<div class="m-login__form-action">
+								<button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Request</button>
+								<a asp-controller="Login" asp-action="Index" id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">Cancel</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content m-grid-item--center" style="background-image: url(/images/bg-4.jpg)">
+		<div class="m-grid__item">
+			<h3 class="m-login__welcome">Join Our Community</h3>
+			<p class="m-login__msg">
+				Save | Grow your wealth | Pay Utilities
+			</p>
+		</div>
+	</div>
+</div>
