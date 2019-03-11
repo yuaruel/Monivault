@@ -55,8 +55,5 @@
 /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_OutsideLayout.g.cshtml.cs
 /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/SignUp/Index.g.cshtml.cs
 /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Login/Index.g.cshtml.cs
-/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Login/Register.g.cshtml.cs
-/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Login/RegisterResult.g.cshtml.cs
-/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Login/_Layout.g.cshtml.cs
-/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/Login/_ViewStart.g.cshtml.cs
 /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/ForgotPassword/Index.g.cshtml.cs
+/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/obj/Debug/netcoreapp2.2/Razor/Views/SignUp/SuccessfulSignUp.g.cshtml.cs

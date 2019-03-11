@@ -56,7 +56,7 @@ namespace Monivault.Authorization.Users
         {
         }
 
-        public async Task<User> FindByPhoneNumber(string phoneNumber)
+        public async Task<User> FindByPhoneNumberAsync(string phoneNumber)
         {
             var phoneUser = await AbpUserStore.UserRepository.FirstOrDefaultAsync(p => p.PhoneNumber == phoneNumber);
 

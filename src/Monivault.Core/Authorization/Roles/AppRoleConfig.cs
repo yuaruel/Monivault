@@ -12,7 +12,8 @@ namespace Monivault.Authorization.Roles
             roleManagementConfig.StaticRoles.Add(
                 new StaticRoleDefinition(
                     StaticRoleNames.Host.Admin,
-                    MultiTenancySides.Host
+                    MultiTenancySides.Host,
+                    false
                 )
             );
 
@@ -21,7 +22,15 @@ namespace Monivault.Authorization.Roles
             roleManagementConfig.StaticRoles.Add(
                 new StaticRoleDefinition(
                     StaticRoleNames.Tenants.Admin,
-                    MultiTenancySides.Tenant
+                    MultiTenancySides.Tenant,
+                    false
+                )
+            );
+            roleManagementConfig.StaticRoles.Add(
+                new StaticRoleDefinition(
+                    StaticRoleNames.Tenants.AccountHolder,
+                    MultiTenancySides.Tenant,
+                    false
                 )
             );
         }

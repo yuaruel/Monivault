@@ -1,11 +1,18 @@
 $(function() {
+
+    $('#PhoneNumber').inputmask({
+        'mask': '99999999999',
+        'greedy': true,
+        placeholder: ""
+    });
+    
     var signup = $('#m_signup');
     
     var displayPersonalDetail = function(){
         signup.removeClass('m-login--contact-detail');
         
         signup.addClass('m-login--personal-detail');
-        mUtil.animateClass(signup.find('.m-login__personal_detail')[0], 'flipInX animated');
+        mUtil.animateClass(signup.find('.m-login__personal-detail')[0], 'flipInX animated');
     };
     
     $('#m_login_signup_next').click(function(e){
@@ -44,31 +51,114 @@ $(function() {
         
         contactForm.ajaxSubmit({
            success: function(response, status, xhr, $form){
-               console.log('status: ' + status);
-               console.log('response: ' + JSON.stringify(response));
+               //Move to the next form for Personal details
+               console.log('returned status: ' + status);
+               displayPersonalDetail();
            },
            error: function(jqXHR, textStatus, err){
-               console.log('error thrown: ' + err);
-               console.log('jqXHR: ' + jqXHR.responseText );
                var respObj = JSON.parse(jqXHR.responseText);
-               console.log('error message: ' + respObj.error.message);
                abp.message.error(respObj.error.message, "SignUp Error");
            },
            complete: function(jqXHR, textStatus){
                nextBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
            } 
         });
+    });
+    
+    $('#m_login_signup_submit').click(function(e){
+        var submitBtn = $(this);
+        var personalForm = $(this).closest('form');
         
-        //displayPersonalDetail();
+        personalForm.validate({
+            rules: {
+                VerificationCode: {
+                    required: true,
+                    rangelength: [5, 5]
+                },
+                FirstName: {
+                    required: true
+                },
+                LastName: {
+                    required: true
+                },
+                UserName: {
+                    required: true
+                },
+                Password: {
+                    required: true
+                },
+                ConfirmPassword: {
+                    equalTo: '#Password'
+                }
+            },
+            messages: {
+                VerificationCode: {
+                    required: 'Verification code is required',
+                    rangelength: 'Invalid verification code'
+                },
+                FirstName: {
+                    required: 'First name is required'
+                },
+                LastName: {
+                    required: 'Last name is required'
+                },
+                UserName: {
+                    required: 'User name is required'
+                },
+                Password: {
+                    required: 'Password is required'
+                }
+            }
+        });
+        
+        if(!personalForm.valid()){
+            return;
+        }
+        
+        submitBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
+        
+        /*var signUpData = {
+            PhoneNumber: $('#PhoneNumber').val(),
+            Email: $('#Email').val(),
+            VerificationCode : $('input[name=VerificationCode]').val(),
+            FirstName: $('input[name=FirstName]').val(),
+            LastName: $('input[name=LastName]').val(),
+            UserName: $('input[name=UserName]').val(),
+            Password: $('#Password').val()
+        };
+        
+        abp.ajax({
+           url: personalForm.attr('action'),
+           data: JSON.stringify(signUpData)
+        }).done(function(data){
+            
+        }).fail(function(data){
+            console.log(data);
+            swal("Oops", data.message, "error");
+        }).always(function(){
+            //nextBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+        });*/
+        
+        personalForm.ajaxSubmit({
+            data: { PhoneNumber: $('#PhoneNumber').val(), Email: $('#Email').val() },
+            success: function(response, status, xhr, $form){
+                //console.log('response: ' + JSON.stringify(response));
+                //console.log('xhr status: ' + xhr.status);
+                //redirect to signup successful page.
+                window.location.replace(response.targetUrl);
+            },
+            error: function(jqXHR, textStatus, err){
+                //console.log(err);
+                var respObj = JSON.parse(jqXHR.responseText);
+                
+                swal("Oops", respObj.error.message, "error");
+            },
+            complete: function(jqXHR, textStatus){
+                submitBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+            }
+        });
+        
     });
-
-    $('#PhoneNumber').inputmask({
-        'mask': '99999999999',
-        'greedy': true,
-        placeholder: ""
-    });
-    
-    
     
     //Login.init();
     //jqXHR.setRequestHeader($('meta[name=_csrf_header]').attr('content'), $('meta[name=_csrf]').attr('content'));

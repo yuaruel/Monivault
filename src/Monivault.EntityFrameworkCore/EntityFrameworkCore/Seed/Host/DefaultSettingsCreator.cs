@@ -18,8 +18,8 @@ namespace Monivault.EntityFrameworkCore.Seed.Host
         public void Create()
         {
             // Emailing
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@mydomain.com");
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "mydomain.com mailer");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "info@monivault.ng");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "Monivault");
 
             // Languages
             AddSettingIfNotExists(LocalizationSettingNames.DefaultLanguage, "en");

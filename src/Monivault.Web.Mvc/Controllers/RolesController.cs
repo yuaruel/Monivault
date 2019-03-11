@@ -10,7 +10,7 @@ using Monivault.Web.Models.Roles;
 
 namespace Monivault.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Roles)]
+    [AbpMvcAuthorize(PermissionNames.Pages_RoleManagement)]
     public class RolesController : MonivaultControllerBase
     {
         private readonly IRoleAppService _roleAppService;

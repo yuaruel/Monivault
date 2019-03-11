@@ -1083,7 +1083,7 @@ namespace Monivault.Migrations
                     b.ToTable("AbpTenants");
                 });
 
-            modelBuilder.Entity("Monivault.SignUp.SignUpVerificationCode", b =>
+            modelBuilder.Entity("Monivault.SignUp.VerificationCode", b =>
                 {
                     b.Property<int>("Id");
 

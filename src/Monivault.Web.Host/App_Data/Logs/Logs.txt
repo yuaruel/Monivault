@@ -1,0 +1,439 @@
+DEBUG 2019-03-07 19:07:34,753 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-07 19:07:34,794 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-07 19:07:34,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,822 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,822 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,822 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,823 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,826 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,829 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,829 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,829 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:34,834 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-07 19:07:34,926 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:07:34,926 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:07:34,926 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:07:34,926 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:07:35,373 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:07:35,930 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-07 19:07:36,270 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-07 19:07:36,758 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-07 19:07:36,970 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-07 19:07:37,256 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-07 19:07:37,306 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-07 19:07:37,380 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-07 19:07:37,380 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-07 19:07:37,391 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-07 19:07:37,392 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-07 19:07:37,392 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-07 19:07:37,393 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-07 19:07:37,393 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-07 19:07:37,393 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-07 19:07:37,393 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-07 19:07:37,394 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-07 19:07:37,394 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+FATAL 2019-03-07 19:07:40,197 [1    ] Abp.AbpBootstrapper                      - System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 39
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 17
+   at Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule.PostInitialize() in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/MonivaultEntityFrameworkModule.cs:line 46
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+ClientConnectionId:6b4cdd66-e264-46c6-8101-4befdd26e164
+Error Number:18456,State:1,Class:14
+System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 39
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 17
+   at Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule.PostInitialize() in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/MonivaultEntityFrameworkModule.cs:line 46
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+ClientConnectionId:6b4cdd66-e264-46c6-8101-4befdd26e164
+Error Number:18456,State:1,Class:14
+FATAL 2019-03-07 19:07:40,221 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.WithDbContext[TDbContext](IIocResolver iocResolver, Action`1 contextAction) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 39
+   at Monivault.EntityFrameworkCore.Seed.SeedHelper.SeedHostDb(IIocResolver iocResolver) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs:line 17
+   at Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule.PostInitialize() in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.EntityFrameworkCore/EntityFrameworkCore/MonivaultEntityFrameworkModule.cs:line 46
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at Monivault.Web.Host.Startup.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/Startup/Startup.cs:line 90
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+ClientConnectionId:6b4cdd66-e264-46c6-8101-4befdd26e164
+Error Number:18456,State:1,Class:14
+DEBUG 2019-03-07 19:08:47,865 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-07 19:08:47,916 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-07 19:08:47,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,952 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,953 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,954 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,954 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,955 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,955 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:47,962 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-07 19:08:48,090 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:08:48,090 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:08:48,090 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:08:48,090 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:08:48,623 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:08:49,427 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-07 19:08:49,761 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-07 19:08:50,316 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-07 19:08:50,571 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-07 19:08:50,893 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-07 19:08:50,944 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-07 19:08:51,051 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-07 19:08:51,051 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-07 19:08:51,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-07 19:08:51,065 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-07 19:08:51,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-07 19:08:51,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-07 19:08:51,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-07 19:08:51,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-07 19:08:51,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-07 19:08:51,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-07 19:08:51,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+INFO  2019-03-07 19:09:01,464 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-07 19:09:04,260 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host)
+INFO  2019-03-07 19:09:05,326 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) - Validation state: Valid
+INFO  2019-03-07 19:09:05,336 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 5.8454ms.
+INFO  2019-03-07 19:09:06,683 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-07 19:09:06,726 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) in 2455.0409ms
+INFO  2019-03-07 19:09:06,911 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5473.263ms 302 
+INFO  2019-03-07 19:09:06,914 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-03-07 19:09:06,949 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 35.636ms 301 
+INFO  2019-03-07 19:09:06,957 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-07 19:09:07,063 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 105.0458ms 200 text/html
+INFO  2019-03-07 19:09:07,130 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-07 19:09:07,131 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-07 19:09:07,145 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-07 19:09:07,148 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-03-07 19:09:07,224 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.js'
+INFO  2019-03-07 19:09:07,224 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 76.3814ms 200 application/javascript
+INFO  2019-03-07 19:09:07,225 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-03-07 19:09:07,230 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.swagger.js'
+INFO  2019-03-07 19:09:07,230 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.9355ms 200 application/javascript
+INFO  2019-03-07 19:09:07,233 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-03-07 19:09:07,255 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-03-07 19:09:07,370 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-03-07 19:09:07,375 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 244.8512ms 200 text/css
+INFO  2019-03-07 19:09:07,375 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 229.5096ms 200 application/javascript
+INFO  2019-03-07 19:09:07,375 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 243.722ms 200 application/javascript
+INFO  2019-03-07 19:09:41,814 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2019-03-07 19:09:41,817 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2019-03-07 19:09:41,817 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.2734ms 200 image/png
+INFO  2019-03-07 19:09:42,495 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-07 19:09:43,042 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 547.144ms 200 application/json;charset=utf-8
+INFO  2019-03-07 19:10:05,140 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 54
+INFO  2019-03-07 19:10:05,224 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core)
+INFO  2019-03-07 19:10:05,815 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) with arguments (Monivault.Models.TokenAuth.AuthenticateModel) - Validation state: Valid
+INFO  2019-03-07 19:10:07,228 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1412.571ms.
+INFO  2019-03-07 19:10:07,291 [17   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-07 19:10:07,318 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) in 2094.0449ms
+INFO  2019-03-07 19:10:07,320 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2179.7758ms 200 application/json; charset=utf-8
+INFO  2019-03-07 19:10:36,402 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Role/Create application/json-patch+json 143
+INFO  2019-03-07 19:10:36,422 [17   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-07 19:10:36,423 [17   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-07 19:10:36,537 [17   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-03-07 19:10:36,639 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "Create", controller = "Role"}. Executing action Monivault.Roles.RoleAppService.Create (Monivault.Application)
+INFO  2019-03-07 19:10:36,640 [16   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-07 19:10:36,640 [16   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-07 19:10:37,286 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Roles.RoleAppService.Create (Monivault.Application) with arguments (Monivault.Roles.Dto.CreateRoleDto) - Validation state: Valid
+INFO  2019-03-07 19:10:37,582 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Roles.RoleAppService.Create (Monivault.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 296.3874ms.
+INFO  2019-03-07 19:10:37,620 [16   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-07 19:10:37,625 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Roles.RoleAppService.Create (Monivault.Application) in 985.1951ms
+INFO  2019-03-07 19:10:37,629 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1226.7047ms 200 application/json; charset=utf-8
+INFO  2019-03-07 19:44:36,955 [60   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Role/Create application/json-patch+json 178
+INFO  2019-03-07 19:44:36,994 [60   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-07 19:44:36,996 [60   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-07 19:44:37,069 [60   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-03-07 19:44:37,293 [60   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "Create", controller = "Role"}. Executing action Monivault.Roles.RoleAppService.Create (Monivault.Application)
+INFO  2019-03-07 19:44:37,293 [60   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-07 19:44:37,294 [60   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-07 19:44:37,333 [60   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Roles.RoleAppService.Create (Monivault.Application) with arguments (Monivault.Roles.Dto.CreateRoleDto) - Validation state: Valid
+INFO  2019-03-07 19:44:37,426 [63   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Roles.RoleAppService.Create (Monivault.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 92.679ms.
+INFO  2019-03-07 19:44:37,466 [63   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-07 19:44:37,468 [63   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Roles.RoleAppService.Create (Monivault.Application) in 174.822ms
+INFO  2019-03-07 19:44:37,469 [63   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 525.9347ms 200 application/json; charset=utf-8
+DEBUG 2019-03-07 19:46:15,506 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-07 19:46:15,537 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-07 19:46:15,556 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,559 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,560 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,560 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,560 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:15,569 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-07 19:46:15,645 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:46:15,645 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:46:15,645 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:46:15,645 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 19:46:15,996 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 19:46:16,525 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-07 19:46:16,798 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-07 19:46:17,224 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-07 19:46:17,427 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-07 19:46:17,705 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-07 19:46:17,754 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-07 19:46:17,817 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-07 19:46:17,817 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-07 19:46:17,827 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-07 19:46:17,827 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-07 19:46:17,828 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-07 19:46:17,828 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-07 19:46:17,829 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-07 19:46:17,829 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-07 19:46:17,829 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-07 19:46:17,830 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-07 19:46:17,831 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+INFO  2019-03-07 19:46:24,934 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-07 19:46:26,630 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host)
+INFO  2019-03-07 19:46:27,094 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) - Validation state: Valid
+INFO  2019-03-07 19:46:27,101 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 2.8305ms.
+INFO  2019-03-07 19:46:27,438 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-07 19:46:27,456 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) in 818.7991ms
+INFO  2019-03-07 19:46:27,550 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2637.2654ms 302 
+INFO  2019-03-07 19:46:27,553 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-07 19:46:27,611 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 57.9537ms 200 text/html
+INFO  2019-03-07 19:46:27,654 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-07 19:46:27,658 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-07 19:46:27,658 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-07 19:46:27,689 [9    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-03-07 19:46:27,689 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-03-07 19:46:27,689 [5    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-03-07 19:46:27,695 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.1226ms 304 application/javascript
+INFO  2019-03-07 19:46:27,696 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.3369ms 304 application/javascript
+INFO  2019-03-07 19:46:27,695 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 41.5776ms 304 text/css
+INFO  2019-03-07 19:46:28,169 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-07 19:46:28,355 [6    ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-03-07 19:46:28,798 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 629.4961ms 200 application/json;charset=utf-8
+DEBUG 2019-03-10 17:22:35,648 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-10 17:22:35,683 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-10 17:22:35,707 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,710 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,713 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,713 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,714 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,714 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,714 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,714 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,715 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,715 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,715 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:35,719 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-10 17:22:35,807 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-10 17:22:35,807 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-10 17:22:35,807 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-10 17:22:35,807 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-10 17:22:36,183 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-10 17:22:36,700 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-10 17:22:36,996 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-10 17:22:37,428 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-10 17:22:37,640 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-10 17:22:37,936 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-10 17:22:37,982 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-10 17:22:38,053 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-10 17:22:38,053 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-10 17:22:38,064 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-10 17:22:38,065 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-10 17:22:38,065 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-10 17:22:38,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-10 17:22:38,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-10 17:22:38,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-10 17:22:38,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-10 17:22:38,067 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-10 17:22:38,068 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+INFO  2019-03-10 17:22:44,767 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-10 17:22:46,385 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host)
+INFO  2019-03-10 17:22:46,815 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) - Validation state: Valid
+INFO  2019-03-10 17:22:46,820 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 2.2048ms.
+INFO  2019-03-10 17:22:47,149 [9    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-10 17:22:47,166 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) in 776.886ms
+INFO  2019-03-10 17:22:47,263 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2503.0846ms 302 
+INFO  2019-03-10 17:22:47,264 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-03-10 17:22:47,280 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 15.9747ms 301 
+INFO  2019-03-10 17:22:47,285 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-10 17:22:47,325 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 40.6143ms 200 text/html
+INFO  2019-03-10 17:22:47,359 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-10 17:22:47,364 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-10 17:22:47,364 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-10 17:22:47,367 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-03-10 17:22:47,367 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-03-10 17:22:47,411 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.swagger.js'
+INFO  2019-03-10 17:22:47,411 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.js'
+INFO  2019-03-10 17:22:47,411 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 44.2986ms 200 application/javascript
+INFO  2019-03-10 17:22:47,411 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 44.118ms 200 application/javascript
+INFO  2019-03-10 17:22:47,426 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-03-10 17:22:47,428 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-03-10 17:22:47,434 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 69.44ms 200 application/javascript
+INFO  2019-03-10 17:22:47,437 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-03-10 17:22:47,437 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.6947ms 200 application/javascript
+INFO  2019-03-10 17:22:47,438 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 76.3852ms 200 text/css
+INFO  2019-03-10 17:22:48,678 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2019-03-10 17:22:48,682 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2019-03-10 17:22:48,682 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.1493ms 200 image/png
+INFO  2019-03-10 17:22:48,756 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-10 17:22:49,161 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 405.0487ms 200 application/json;charset=utf-8
+INFO  2019-03-10 17:23:16,557 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 50
+INFO  2019-03-10 17:23:16,616 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core)
+INFO  2019-03-10 17:23:17,071 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) with arguments (Monivault.Models.TokenAuth.AuthenticateModel) - Validation state: Valid
+WARN  2019-03-10 17:23:17,396 [14   ] icrosoft.AspNetCore.Identity.UserManager - Invalid password for user 2.
+WARN  2019-03-10 17:23:18,197 [6    ] Mvc.ExceptionHandling.AbpExceptionFilter - Login failed!
+Abp.UI.UserFriendlyException: Login failed!
+   at Monivault.Controllers.TokenAuthController.GetLoginResultAsync(String usernameOrEmailAddress, String password, String tenancyName) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Controllers/TokenAuthController.cs:line 192
+   at Monivault.Controllers.TokenAuthController.Authenticate(AuthenticateModel model) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Controllers/TokenAuthController.cs:line 55
+   at lambda_method(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+INFO  2019-03-10 17:23:18,229 [6    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-10 17:23:18,258 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) in 1642.1823ms
+INFO  2019-03-10 17:23:18,259 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1702.223ms 500 application/json; charset=utf-8
+INFO  2019-03-10 17:23:39,169 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 50
+INFO  2019-03-10 17:23:39,182 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core)
+INFO  2019-03-10 17:23:39,191 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) with arguments (Monivault.Models.TokenAuth.AuthenticateModel) - Validation state: Valid
+WARN  2019-03-10 17:23:39,241 [18   ] icrosoft.AspNetCore.Identity.UserManager - Invalid password for user 2.
+WARN  2019-03-10 17:23:39,290 [18   ] Mvc.ExceptionHandling.AbpExceptionFilter - Login failed!
+Abp.UI.UserFriendlyException: Login failed!
+   at Monivault.Controllers.TokenAuthController.GetLoginResultAsync(String usernameOrEmailAddress, String password, String tenancyName) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Controllers/TokenAuthController.cs:line 192
+   at Monivault.Controllers.TokenAuthController.Authenticate(AuthenticateModel model) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Core/Controllers/TokenAuthController.cs:line 55
+   at lambda_method(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+INFO  2019-03-10 17:23:39,291 [18   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-10 17:23:39,292 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) in 109.0268ms
+INFO  2019-03-10 17:23:39,292 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 122.5789ms 500 application/json; charset=utf-8
+INFO  2019-03-10 17:24:20,766 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 54
+INFO  2019-03-10 17:24:20,776 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core)
+INFO  2019-03-10 17:24:20,782 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) with arguments (Monivault.Models.TokenAuth.AuthenticateModel) - Validation state: Valid
+INFO  2019-03-10 17:24:21,301 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 518.5358ms.
+INFO  2019-03-10 17:24:21,342 [22   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-10 17:24:21,345 [22   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Controllers.TokenAuthController.Authenticate (Monivault.Web.Core) in 568.2063ms
+INFO  2019-03-10 17:24:21,345 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 578.8434ms 200 application/json; charset=utf-8
+INFO  2019-03-10 17:25:21,089 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Role/Create application/json-patch+json 154
+INFO  2019-03-10 17:25:21,106 [18   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-10 17:25:21,106 [18   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-10 17:25:21,178 [18   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-03-10 17:25:21,256 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "Create", controller = "Role"}. Executing action Monivault.Roles.RoleAppService.Create (Monivault.Application)
+INFO  2019-03-10 17:25:21,256 [23   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-10 17:25:21,256 [23   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-10 17:25:21,661 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Roles.RoleAppService.Create (Monivault.Application) with arguments (Monivault.Roles.Dto.CreateRoleDto) - Validation state: Valid
+ERROR 2019-03-10 17:25:21,886 [27   ] Mvc.ExceptionHandling.AbpExceptionFilter - Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Monivault.Roles.RoleAppService.<>c__DisplayClass3_0.<Create>b__0(Permission p) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Roles/RoleAppService.cs:line 44
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Monivault.Roles.RoleAppService.Create(CreateRoleDto input) in /Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Application/Roles/RoleAppService.cs:line 42
+   at Abp.Threading.InternalAsyncHelper.AwaitTaskWithPostActionAndFinallyAndGetResult[T](Task`1 actualReturnValue, Func`1 postAction, Action`1 finalAction)
+   at lambda_method(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+INFO  2019-03-10 17:25:21,913 [27   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-10 17:25:21,916 [27   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Roles.RoleAppService.Create (Monivault.Application) in 659.8915ms
+INFO  2019-03-10 17:25:21,918 [27   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 828.6559ms 500 application/json; charset=utf-8
+INFO  2019-03-10 17:26:52,873 [30   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/Role/Create application/json-patch+json 177
+INFO  2019-03-10 17:26:52,876 [30   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-10 17:26:52,877 [30   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-10 17:26:52,878 [30   ] uthentication.JwtBearer.JwtBearerHandler - Successfully validated the token.
+INFO  2019-03-10 17:26:52,888 [30   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "Create", controller = "Role"}. Executing action Monivault.Roles.RoleAppService.Create (Monivault.Application)
+INFO  2019-03-10 17:26:52,888 [30   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-03-10 17:26:52,888 [30   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-03-10 17:26:52,903 [30   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Roles.RoleAppService.Create (Monivault.Application) with arguments (Monivault.Roles.Dto.CreateRoleDto) - Validation state: Valid
+INFO  2019-03-10 17:26:52,968 [30   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Roles.RoleAppService.Create (Monivault.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 64.3079ms.
+INFO  2019-03-10 17:26:52,991 [27   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-10 17:26:52,993 [27   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Roles.RoleAppService.Create (Monivault.Application) in 105.7995ms
+INFO  2019-03-10 17:26:52,994 [27   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 120.943ms 200 application/json; charset=utf-8

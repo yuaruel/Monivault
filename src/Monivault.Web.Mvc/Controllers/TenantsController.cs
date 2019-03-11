@@ -9,7 +9,6 @@ using Monivault.MultiTenancy.Dto;
 
 namespace Monivault.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Tenants)]
     public class TenantsController : MonivaultControllerBase
     {
         private readonly ITenantAppService _tenantAppService;

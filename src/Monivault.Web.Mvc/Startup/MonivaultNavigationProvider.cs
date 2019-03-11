@@ -22,19 +22,11 @@ namespace Monivault.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        PageNames.Tenants,
-                        L("Tenants"),
-                        url: "Tenants",
-                        icon: "business",
-                        requiredPermissionName: PermissionNames.Pages_Tenants
-                    )
-                ).AddItem(
-                    new MenuItemDefinition(
                         PageNames.Users,
                         L("Users"),
                         url: "Users",
                         icon: "people",
-                        requiredPermissionName: PermissionNames.Pages_Users
+                        requiredPermissionName: PermissionNames.Pages_UserManagement
                     )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -42,7 +34,7 @@ namespace Monivault.Web.Startup
                         L("Roles"),
                         url: "Roles",
                         icon: "local_offer",
-                        requiredPermissionName: PermissionNames.Pages_Roles
+                        requiredPermissionName: PermissionNames.Pages_RoleManagement
                     )
                 )
                 .AddItem(

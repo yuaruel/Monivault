@@ -10,7 +10,7 @@ using Monivault.Users.Dto;
 
 namespace Monivault.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    [AbpMvcAuthorize(PermissionNames.Pages_UserManagement)]
     public class UsersController : MonivaultControllerBase
     {
         private readonly IUserAppService _userAppService;

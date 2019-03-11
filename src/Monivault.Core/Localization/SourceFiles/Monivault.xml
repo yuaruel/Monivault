@@ -96,5 +96,15 @@
     <text name="Settings">Settings</text>
     <text name="Filter">Filter</text>
     <text name="UserAlreadyExist">User already exist</text>
+    <text name="UserManagement">User Management</text>
+    <text name="UserManagementCreate">User Management Create</text>
+    <text name="UserManagementEdit">User Management Edit</text>
+    <text name="UserManagementDelete">User Management Delete</text>
+    <text name="RoleManagement">Role Management</text>
+    <text name="RoleManagementCreate">Role Management Create</text>
+    <text name="RoleManagementEdit">Role Management Edit</text>
+    <text name="RoleManagementDelete">Role Management Delete</text>
+    <text name="AccountHolderDashboard">Account Holder Dashboard</text>
+    <text name="AdminDashboard">Admin Dashboard</text>
   </texts>
 </localizationDictionary>
