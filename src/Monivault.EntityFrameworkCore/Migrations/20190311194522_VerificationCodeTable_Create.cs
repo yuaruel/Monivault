@@ -8,7 +8,7 @@ namespace Monivault.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SignUpVerificationCodes",
+                name: "VerificationCodes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
@@ -17,14 +17,14 @@ namespace Monivault.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SignUpVerificationCodes", x => x.Id);
+                    table.PrimaryKey("PK_VerificationCodes", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SignUpVerificationCodes");
+                name: "VerificationCodes");
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monivault.EntityFrameworkCore;
 
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    partial class MonivaultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190311194522_VerificationCodeTable_Create")]
+    partial class VerificationCodeTable_Create
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1033,43 +1035,6 @@ namespace Monivault.Migrations
                     b.ToTable("AbpUsers");
                 });
 
-            modelBuilder.Entity("Monivault.Models.AccountHolder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<Guid>("AccountHolderKey");
-
-                    b.Property<string>("AccountIdentity");
-
-                    b.Property<decimal>("AvailableBalance");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<long?>("DeleterUserId");
-
-                    b.Property<DateTime?>("DeletionTime");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<decimal>("LedgerBalance");
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AccountHolders");
-                });
-
             modelBuilder.Entity("Monivault.Models.VerificationCode", b =>
                 {
                     b.Property<int>("Id");
@@ -1281,14 +1246,6 @@ namespace Monivault.Migrations
                     b.HasOne("Monivault.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("Monivault.Models.AccountHolder", b =>
-                {
-                    b.HasOne("Monivault.Authorization.Users.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Monivault.MultiTenancy.Tenant", b =>

@@ -54,13 +54,9 @@ namespace Monivault.Authorization.Users
                 IsEmailConfirmed = isEmailConfirmed,
                 Roles = new List<UserRole>()
             };
-
-            Logger.Info("Username: " + user.UserName);
-            //user.NormalizedUserName = user.UserName.ToUpperInvariant();
-            //user.NormalizedEmailAddress = user.EmailAddress.ToUpperInvariant();
-            Logger.Info("Tenant Id: " + AbpSession.TenantId);
+            
             user.SetNormalizedNames();
-           Logger.Info("Normalized name: " + user.NormalizedUserName);
+
             foreach (var defaultRole in await _roleManager.Roles.Where(r => r.IsDefault).ToListAsync())
             {
                 user.Roles.Add(new UserRole(tenant.Id, user.Id, defaultRole.Id));

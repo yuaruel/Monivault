@@ -14752,3 +14752,437 @@ INFO  2019-03-10 17:29:15,872 [18   ] ore.Mvc.Internal.ControllerActionInvoker -
 INFO  2019-03-10 17:29:15,873 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 71.667ms 200 text/html; charset=utf-8
 INFO  2019-03-10 17:29:16,014 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/assets/app/media/img//bg/bg-3.jpg  
 INFO  2019-03-10 17:29:16,016 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.4364ms 404 
+DEBUG 2019-03-11 20:39:18,132 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-11 20:39:18,173 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-11 20:39:18,226 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Startup.MonivaultWebMvcModule, Monivault.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,230 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,231 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,231 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,232 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,232 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,232 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,233 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,234 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,234 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:18,242 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-11 20:39:18,368 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:39:18,368 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:39:18,368 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:39:18,368 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:39:18,921 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:39:19,572 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-11 20:39:19,869 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-11 20:39:20,331 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-11 20:39:20,542 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-11 20:39:20,838 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-11 20:39:20,888 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-11 20:39:20,960 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2019-03-11 20:39:20,960 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-11 20:39:20,971 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-11 20:39:20,971 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-11 20:39:20,972 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-11 20:39:20,972 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-11 20:39:20,973 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-11 20:39:20,973 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-11 20:39:20,973 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-11 20:39:20,974 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-11 20:39:20,974 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+DEBUG 2019-03-11 20:39:20,974 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-03-11 20:39:20,974 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Models.Roles.EditRoleModalViewModel
+INFO  2019-03-11 20:39:29,401 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/  
+INFO  2019-03-11 20:39:31,598 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc)
+WARN  2019-03-11 20:39:31,906 [6    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2019-03-11 20:39:31,919 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-03-11 20:39:31,939 [6    ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-03-11 20:39:31,989 [6    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-03-11 20:39:32,005 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc) in 395.1125ms
+INFO  2019-03-11 20:39:32,152 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2769.4479ms 302 
+INFO  2019-03-11 20:39:32,161 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/Login?ReturnUrl=%2F  
+INFO  2019-03-11 20:39:32,202 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Login", area = ""}. Executing action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc)
+INFO  2019-03-11 20:39:32,299 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 20:39:32,323 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 17.5357ms.
+INFO  2019-03-11 20:39:32,825 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-03-11 20:39:33,476 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 724.0412ms.
+INFO  2019-03-11 20:39:33,487 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) in 1285.5406ms
+INFO  2019-03-11 20:39:33,530 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1374.0105ms 200 text/html; charset=utf-8
+INFO  2019-03-11 20:39:33,606 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/perfect-scrollbar/css/perfect-scrollbar.css  
+INFO  2019-03-11 20:39:33,609 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/css/outer/style.bundle.css  
+INFO  2019-03-11 20:39:33,609 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/view-resources/Views/Account/Login.min.css?v=C1N2RGvGybeu14I0hh9JKmAG1PwIODiJ9pPWhS9Xn30  
+INFO  2019-03-11 20:39:33,615 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery/dist/jquery.js  
+INFO  2019-03-11 20:39:33,617 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/popper.js/dist/umd/popper.js  
+INFO  2019-03-11 20:39:33,705 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.min.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/view-resources/Views/Account/Login.min.css'
+INFO  2019-03-11 20:39:33,705 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 96.0183ms 200 text/css
+INFO  2019-03-11 20:39:33,705 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.min.js  
+INFO  2019-03-11 20:39:33,707 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js'
+INFO  2019-03-11 20:39:33,707 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.4852ms 200 application/javascript
+INFO  2019-03-11 20:39:33,707 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/perfect-scrollbar/css/perfect-scrollbar.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/perfect-scrollbar/css/perfect-scrollbar.css'
+INFO  2019-03-11 20:39:33,707 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 101.296ms 200 text/css
+INFO  2019-03-11 20:39:33,717 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/popper.js/dist/umd/popper.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/popper.js/dist/umd/popper.js'
+INFO  2019-03-11 20:39:33,718 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 100.6942ms 200 application/javascript
+INFO  2019-03-11 20:39:33,718 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/js-cookie/src/js.cookie.js  
+INFO  2019-03-11 20:39:33,718 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/tooltip.js/dist/umd/tooltip.min.js  
+INFO  2019-03-11 20:39:33,719 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/js-cookie/src/js.cookie.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/js-cookie/src/js.cookie.js'
+INFO  2019-03-11 20:39:33,719 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.1127ms 200 application/javascript
+INFO  2019-03-11 20:39:33,718 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/moment/min/moment.min.js  
+INFO  2019-03-11 20:39:33,918 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/moment/min/moment.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/moment/min/moment.min.js'
+INFO  2019-03-11 20:39:33,918 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 200.2221ms 200 application/javascript
+INFO  2019-03-11 20:39:33,926 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/tooltip.js/dist/umd/tooltip.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/tooltip.js/dist/umd/tooltip.min.js'
+INFO  2019-03-11 20:39:33,926 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 208.3257ms 200 application/javascript
+INFO  2019-03-11 20:39:33,927 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/wnumb/wNumb.js  
+INFO  2019-03-11 20:39:33,926 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/perfect-scrollbar/dist/perfect-scrollbar.js  
+INFO  2019-03-11 20:39:33,928 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/wnumb/wNumb.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/wnumb/wNumb.js'
+INFO  2019-03-11 20:39:33,928 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.0618ms 200 application/javascript
+INFO  2019-03-11 20:39:33,928 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/sweetalert/dist/sweetalert.min.js?v=aPktydUv1rN3mouQeXoKi3ioFTIQlULuqYeoTAA2ihY  
+INFO  2019-03-11 20:39:33,928 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/sweetalert/dist/sweetalert.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/sweetalert/dist/sweetalert.min.js'
+INFO  2019-03-11 20:39:33,928 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/perfect-scrollbar/dist/perfect-scrollbar.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/perfect-scrollbar/dist/perfect-scrollbar.js'
+INFO  2019-03-11 20:39:33,928 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.5784ms 200 application/javascript
+INFO  2019-03-11 20:39:33,929 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-form/dist/jquery.form.min.js  
+INFO  2019-03-11 20:39:33,928 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.0273ms 200 application/javascript
+INFO  2019-03-11 20:39:33,930 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-form/dist/jquery.form.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/jquery-form/dist/jquery.form.min.js'
+INFO  2019-03-11 20:39:33,931 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.9465ms 200 application/javascript
+INFO  2019-03-11 20:39:33,932 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/jquery.validate.js  
+INFO  2019-03-11 20:39:33,933 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/jquery-validation/dist/jquery.validate.js'
+INFO  2019-03-11 20:39:33,934 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.1343ms 200 application/javascript
+INFO  2019-03-11 20:39:33,934 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/additional-methods.js  
+INFO  2019-03-11 20:39:33,936 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/jquery/dist/jquery.js'
+INFO  2019-03-11 20:39:33,936 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 320.9151ms 200 application/javascript
+INFO  2019-03-11 20:39:33,936 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/dist/additional-methods.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/jquery-validation/dist/additional-methods.js'
+INFO  2019-03-11 20:39:33,936 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.2396ms 200 application/javascript
+INFO  2019-03-11 20:39:33,937 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/js/jquery-validation.init.js?v=wugmLXUjro4p0s0AiJUl3ZkCUn-RHh6q31Yvdmg8ygQ  
+INFO  2019-03-11 20:39:33,937 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/jquery-validation.init.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/js/jquery-validation.init.js'
+INFO  2019-03-11 20:39:33,937 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.7097ms 200 application/javascript
+INFO  2019-03-11 20:39:33,940 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/abp-web-resources/Abp/Framework/scripts/abp.js?v=FGfi3RfHf06ftjVdq2JaO16cF9CPZNPvujmuYBacXxg  
+INFO  2019-03-11 20:39:33,940 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/abp.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/abp-web-resources/Abp/Framework/scripts/abp.js'
+INFO  2019-03-11 20:39:33,941 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.937ms 200 application/javascript
+INFO  2019-03-11 20:39:33,941 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js?v=lMgLZMlGsipWDxpvEPxfKVREzRedV_ygRnTj2kvADpw  
+INFO  2019-03-11 20:39:33,941 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js?v=guLvtVJMvLobKpGAlQigrGWMQ1sGQo4yTL46zjGQUUY  
+INFO  2019-03-11 20:39:33,941 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js'
+INFO  2019-03-11 20:39:33,941 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.7614ms 200 application/javascript
+INFO  2019-03-11 20:39:33,942 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js'
+INFO  2019-03-11 20:39:33,942 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/js/outer/scripts.bundle.js  
+INFO  2019-03-11 20:39:33,942 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.4496ms 200 application/javascript
+INFO  2019-03-11 20:39:33,942 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpServiceProxies/GetAll?v=636879335608909690  
+INFO  2019-03-11 20:39:33,943 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpScripts/GetScripts?v=636879335608909690  
+INFO  2019-03-11 20:39:33,945 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/view-resources/Views/Account/Login.js?v=JrlaM9pM2Gx9Qd7E3G9XR4l9Q2p7IPS0GOksulP8dsM  
+INFO  2019-03-11 20:39:33,946 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/view-resources/Views/Account/Login.js'
+INFO  2019-03-11 20:39:33,946 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.9061ms 200 application/javascript
+INFO  2019-03-11 20:39:33,951 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/outer/scripts.bundle.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/js/outer/scripts.bundle.js'
+INFO  2019-03-11 20:39:33,951 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.8344ms 200 application/javascript
+INFO  2019-03-11 20:39:34,001 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-03-11 20:39:34,012 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-03-11 20:39:34,094 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-03-11 20:39:34,169 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-03-11 20:39:34,299 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/outer/style.bundle.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/css/outer/style.bundle.css'
+INFO  2019-03-11 20:39:34,299 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 690.0738ms 200 text/css
+INFO  2019-03-11 20:39:34,715 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 545.3243ms.
+INFO  2019-03-11 20:39:34,718 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 623.6734ms.
+INFO  2019-03-11 20:39:34,727 [10   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-03-11 20:39:34,728 [5    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:39:34,729 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 716.8441ms
+INFO  2019-03-11 20:39:34,730 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 788.3385ms 200 application/x-javascript
+INFO  2019-03-11 20:39:34,735 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 733.7272ms
+INFO  2019-03-11 20:39:34,735 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 792.0495ms 200 application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:40:43,609 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+INFO  2019-03-11 20:40:43,609 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/images/logo-big.png  
+INFO  2019-03-11 20:40:43,614 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon.ico'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/favicon.ico'
+INFO  2019-03-11 20:40:43,614 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.5871ms 200 image/x-icon
+INFO  2019-03-11 20:40:43,615 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/logo-big.png'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/images/logo-big.png'
+INFO  2019-03-11 20:40:43,615 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.3978ms 200 image/png
+INFO  2019-03-11 20:40:43,964 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/images/bg-4.jpg  
+INFO  2019-03-11 20:40:43,970 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/bg-4.jpg'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/images/bg-4.jpg'
+INFO  2019-03-11 20:40:43,970 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5.8915ms 200 image/jpeg
+DEBUG 2019-03-11 20:46:18,552 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-11 20:46:18,602 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-11 20:46:18,643 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Startup.MonivaultWebMvcModule, Monivault.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,647 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,648 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,648 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,649 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,649 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,650 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,651 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,651 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,651 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,652 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,652 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,653 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,653 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,653 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:18,660 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-11 20:46:18,807 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:46:18,807 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:46:18,807 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:46:18,807 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 20:46:19,408 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 20:46:20,173 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-11 20:46:20,538 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-11 20:46:21,036 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-11 20:46:21,316 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-11 20:46:21,621 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-11 20:46:21,672 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-11 20:46:21,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2019-03-11 20:46:21,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-11 20:46:21,750 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-11 20:46:21,751 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-11 20:46:21,752 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-11 20:46:21,752 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-11 20:46:21,752 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-11 20:46:21,752 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-11 20:46:21,752 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-11 20:46:21,753 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-11 20:46:21,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+DEBUG 2019-03-11 20:46:21,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-03-11 20:46:21,754 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Models.Roles.EditRoleModalViewModel
+INFO  2019-03-11 20:46:28,748 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/  
+INFO  2019-03-11 20:46:30,934 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc)
+WARN  2019-03-11 20:46:31,171 [9    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2019-03-11 20:46:31,185 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-03-11 20:46:31,208 [9    ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-03-11 20:46:31,255 [9    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-03-11 20:46:31,260 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc) in 317.8305ms
+INFO  2019-03-11 20:46:31,380 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2645.4085ms 302 
+INFO  2019-03-11 20:46:31,383 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/Login?ReturnUrl=%2F  
+INFO  2019-03-11 20:46:31,403 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Login", area = ""}. Executing action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc)
+INFO  2019-03-11 20:46:31,504 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 20:46:31,514 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 8.2581ms.
+INFO  2019-03-11 20:46:31,982 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-03-11 20:46:32,617 [12   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 712.6481ms.
+INFO  2019-03-11 20:46:32,654 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) in 1250.8769ms
+INFO  2019-03-11 20:46:32,697 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpServiceProxies/GetAll?v=636879339816741580  
+INFO  2019-03-11 20:46:32,710 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpScripts/GetScripts?v=636879339816741580  
+INFO  2019-03-11 20:46:32,788 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1404.5607ms 200 text/html; charset=utf-8
+INFO  2019-03-11 20:46:32,809 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-03-11 20:46:32,857 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-03-11 20:46:32,974 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-03-11 20:46:33,061 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-03-11 20:46:33,415 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 439.7508ms.
+INFO  2019-03-11 20:46:33,430 [9    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:46:33,453 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 643.2269ms
+INFO  2019-03-11 20:46:33,484 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 773.3019ms 200 application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:46:33,486 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 425.3729ms.
+INFO  2019-03-11 20:46:33,488 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-03-11 20:46:33,491 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 632.1114ms
+INFO  2019-03-11 20:46:33,493 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 796.2881ms 200 application/x-javascript
+INFO  2019-03-11 20:47:47,140 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/SignUp  
+INFO  2019-03-11 20:47:47,149 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc)
+INFO  2019-03-11 20:47:47,382 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 20:47:47,383 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2182ms.
+INFO  2019-03-11 20:47:47,410 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-03-11 20:47:47,495 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 90.4505ms.
+INFO  2019-03-11 20:47:47,496 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc) in 346.0286ms
+INFO  2019-03-11 20:47:47,496 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 356.4466ms 200 text/html; charset=utf-8
+INFO  2019-03-11 20:47:47,541 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/animate.css/animate.css  
+INFO  2019-03-11 20:47:47,544 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/sweetalert2/dist/sweetalert2.min.css  
+INFO  2019-03-11 20:47:47,546 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/view-resources/Views/SignUp/Index.css?v=VQDIdYzRM0TA0tf86rDkTNmlsN-4PAW9pysc8HsMDnc  
+INFO  2019-03-11 20:47:47,550 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/sweetalert2/dist/sweetalert2.min.js  
+INFO  2019-03-11 20:47:47,629 [16   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/sweetalert2/dist/sweetalert2.min.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/sweetalert2/dist/sweetalert2.min.js'
+INFO  2019-03-11 20:47:47,629 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/sweetalert2/dist/sweetalert2.min.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/sweetalert2/dist/sweetalert2.min.css'
+INFO  2019-03-11 20:47:47,629 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 79.2302ms 200 application/javascript
+INFO  2019-03-11 20:47:47,629 [17   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/SignUp/Index.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/view-resources/Views/SignUp/Index.css'
+INFO  2019-03-11 20:47:47,629 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 82.7659ms 200 text/css
+INFO  2019-03-11 20:47:47,629 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpScripts/GetScripts?v=636879339816741580  
+INFO  2019-03-11 20:47:47,629 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpServiceProxies/GetAll?v=636879339816741580  
+INFO  2019-03-11 20:47:47,629 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.14ms 200 text/css
+INFO  2019-03-11 20:47:47,642 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-03-11 20:47:47,644 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/js/sweetalert2.init.js  
+INFO  2019-03-11 20:47:47,647 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-03-11 20:47:47,647 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/sweetalert2.init.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/js/sweetalert2.init.js'
+INFO  2019-03-11 20:47:47,647 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.5889ms 200 application/javascript
+INFO  2019-03-11 20:47:47,647 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-03-11 20:47:47,648 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/lib/inputmask/dist/jquery.inputmask.bundle.js  
+INFO  2019-03-11 20:47:47,653 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-03-11 20:47:47,658 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 10.2959ms.
+INFO  2019-03-11 20:47:47,659 [17   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-03-11 20:47:47,660 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 17.1949ms
+INFO  2019-03-11 20:47:47,660 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 30.8726ms 200 application/x-javascript
+INFO  2019-03-11 20:47:47,660 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/view-resources/Views/SignUp/Index.js  
+INFO  2019-03-11 20:47:47,697 [17   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/SignUp/Index.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/view-resources/Views/SignUp/Index.js'
+INFO  2019-03-11 20:47:47,698 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.5966ms 200 application/javascript
+INFO  2019-03-11 20:47:47,705 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/animate.css/animate.css'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/animate.css/animate.css'
+INFO  2019-03-11 20:47:47,713 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 171.8842ms 200 text/css
+INFO  2019-03-11 20:47:47,708 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/inputmask/dist/jquery.inputmask.bundle.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/lib/inputmask/dist/jquery.inputmask.bundle.js'
+INFO  2019-03-11 20:47:47,714 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 66.2998ms 200 application/javascript
+INFO  2019-03-11 20:47:47,760 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 106.8601ms.
+INFO  2019-03-11 20:47:47,760 [16   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:47:47,761 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 113.3129ms
+INFO  2019-03-11 20:47:47,761 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 132.1121ms 200 application/x-javascript; charset=utf-8
+INFO  2019-03-11 20:49:24,491 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:5000/SignUp/SendUpVerificationCode application/x-www-form-urlencoded; charset=UTF-8 213
+INFO  2019-03-11 20:49:24,510 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SendUpVerificationCode", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc)
+INFO  2019-03-11 20:49:24,682 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc) with arguments (Monivault.Web.Models.SignUp.ContactDetailViewModel) - Validation state: Valid
+INFO  2019-03-11 20:49:24,778 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.StatusCodeResult in 95.4723ms.
+INFO  2019-03-11 20:49:24,800 [16   ] icrosoft.AspNetCore.Mvc.StatusCodeResult - Executing HttpStatusCodeResult, setting HTTP status code 200
+INFO  2019-03-11 20:49:24,800 [16   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc) in 290.4449ms
+INFO  2019-03-11 20:49:24,800 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 309.6403ms 200 
+INFO  2019-03-11 21:26:58,704 [37   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:5000/SignUp/SignUpAccountHolder application/x-www-form-urlencoded; charset=UTF-8 343
+INFO  2019-03-11 21:26:58,763 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SignUpAccountHolder", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc)
+INFO  2019-03-11 21:26:58,789 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc) with arguments (Monivault.Web.Models.SignUp.SignUpAccountHolderViewModel) - Validation state: Valid
+INFO  2019-03-11 21:27:00,113 [40   ] lt.Authorization.Users.UserSignUpManager - User Id before calling UOW: 6
+INFO  2019-03-11 21:27:00,115 [40   ] lt.Authorization.Users.UserSignUpManager - UserId after calling UOW: 6
+INFO  2019-03-11 21:27:00,116 [40   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1326.6032ms.
+INFO  2019-03-11 21:27:00,480 [42   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-11 21:27:00,494 [42   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc) in 1730.9081ms
+INFO  2019-03-11 21:27:00,495 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1791.6937ms 200 application/json; charset=utf-8
+INFO  2019-03-11 21:27:00,511 [37   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/SignUp/SuccessfulSignUp  
+INFO  2019-03-11 21:27:00,527 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SuccessfulSignUp", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc)
+INFO  2019-03-11 21:27:00,536 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 21:27:00,537 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3319ms.
+INFO  2019-03-11 21:27:00,572 [37   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view SuccessfulSignUp.
+INFO  2019-03-11 21:27:00,603 [37   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view SuccessfulSignUp executed in 36.0694ms.
+INFO  2019-03-11 21:27:00,604 [37   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc) in 76.275ms
+INFO  2019-03-11 21:27:00,604 [37   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 93.307ms 200 text/html; charset=utf-8
+INFO  2019-03-11 21:27:00,667 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/images/app-logo.png  
+INFO  2019-03-11 21:27:00,670 [40   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/app-logo.png'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Mvc/wwwroot/images/app-logo.png'
+INFO  2019-03-11 21:27:00,670 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2.6961ms 200 image/png
+INFO  2019-03-11 21:27:00,887 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/assets/app/media/img//bg/bg-3.jpg  
+INFO  2019-03-11 21:27:00,891 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.6545ms 404 
+DEBUG 2019-03-11 21:32:09,027 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-11 21:32:09,089 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-11 21:32:09,208 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Startup.MonivaultWebMvcModule, Monivault.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,215 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,216 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,233 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,233 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,234 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:09,246 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-11 21:32:09,455 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 21:32:09,455 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 21:32:09,455 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 21:32:09,455 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-11 21:32:10,916 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-11 21:32:12,046 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-11 21:32:12,519 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-11 21:32:13,562 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-11 21:32:13,982 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-11 21:32:14,539 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-11 21:32:14,710 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-11 21:32:14,838 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2019-03-11 21:32:14,838 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-11 21:32:14,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-11 21:32:14,855 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-11 21:32:14,857 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-11 21:32:14,857 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-11 21:32:14,858 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-11 21:32:14,858 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-11 21:32:14,858 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-11 21:32:14,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-11 21:32:14,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+DEBUG 2019-03-11 21:32:14,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-03-11 21:32:14,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Web.Models.Roles.EditRoleModalViewModel
+INFO  2019-03-11 21:32:25,518 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/  
+INFO  2019-03-11 21:32:27,859 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc)
+WARN  2019-03-11 21:32:28,135 [10   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2019-03-11 21:32:28,146 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-03-11 21:32:28,172 [10   ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-03-11 21:32:28,217 [10   ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-03-11 21:32:28,222 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.HomeController.Index (Monivault.Web.Mvc) in 355.9771ms
+INFO  2019-03-11 21:32:28,345 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2833.6807ms 302 
+INFO  2019-03-11 21:32:28,347 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/Login?ReturnUrl=%2F  
+INFO  2019-03-11 21:32:28,375 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Login", area = ""}. Executing action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc)
+INFO  2019-03-11 21:32:28,474 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 21:32:28,488 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 10.5283ms.
+INFO  2019-03-11 21:32:28,986 [9    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-03-11 21:32:29,674 [9    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 770.858ms.
+INFO  2019-03-11 21:32:29,686 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.LoginController.Index (Monivault.Web.Mvc) in 1311.4003ms
+INFO  2019-03-11 21:32:29,721 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1374.6841ms 200 text/html; charset=utf-8
+INFO  2019-03-11 21:32:29,756 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpServiceProxies/GetAll?v=636879367347141550  
+INFO  2019-03-11 21:32:29,760 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpScripts/GetScripts?v=636879367347141550  
+INFO  2019-03-11 21:32:29,823 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-03-11 21:32:29,842 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-03-11 21:32:30,008 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-03-11 21:32:30,316 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-03-11 21:32:30,728 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 720.1259ms.
+INFO  2019-03-11 21:32:30,744 [5    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-03-11 21:32:30,749 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 432.7279ms.
+INFO  2019-03-11 21:32:30,750 [9    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-03-11 21:32:30,754 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 930.1719ms
+INFO  2019-03-11 21:32:30,754 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 911.8763ms
+INFO  2019-03-11 21:32:30,755 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 994.69ms 200 application/x-javascript; charset=utf-8
+INFO  2019-03-11 21:32:30,756 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 999.2374ms 200 application/x-javascript
+INFO  2019-03-11 21:32:31,961 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/SignUp  
+INFO  2019-03-11 21:32:31,969 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc)
+INFO  2019-03-11 21:32:32,435 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 21:32:32,437 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3322ms.
+INFO  2019-03-11 21:32:32,472 [9    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-03-11 21:32:32,561 [9    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 94.2376ms.
+INFO  2019-03-11 21:32:32,561 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.Index (Monivault.Web.Mvc) in 591.8942ms
+INFO  2019-03-11 21:32:32,562 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 600.5167ms 200 text/html; charset=utf-8
+INFO  2019-03-11 21:32:32,632 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpServiceProxies/GetAll?v=636879367347141550  
+INFO  2019-03-11 21:32:32,644 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/AbpScripts/GetScripts?v=636879367347141550  
+INFO  2019-03-11 21:32:32,647 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-03-11 21:32:32,653 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-03-11 21:32:32,654 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-03-11 21:32:32,664 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 10.7436ms.
+INFO  2019-03-11 21:32:32,665 [6    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-03-11 21:32:32,665 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 16.4976ms
+INFO  2019-03-11 21:32:32,665 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 32.7681ms 200 application/x-javascript
+INFO  2019-03-11 21:32:32,678 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-03-11 21:32:32,761 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 82.198ms.
+INFO  2019-03-11 21:32:32,762 [9    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-03-11 21:32:32,762 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 108.0016ms
+INFO  2019-03-11 21:32:32,763 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 118.5197ms 200 application/x-javascript; charset=utf-8
+INFO  2019-03-11 21:32:37,738 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:5000/SignUp/SendUpVerificationCode application/x-www-form-urlencoded; charset=UTF-8 213
+INFO  2019-03-11 21:32:37,756 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SendUpVerificationCode", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc)
+INFO  2019-03-11 21:32:37,971 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc) with arguments (Monivault.Web.Models.SignUp.ContactDetailViewModel) - Validation state: Valid
+INFO  2019-03-11 21:32:38,090 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.StatusCodeResult in 119.4871ms.
+INFO  2019-03-11 21:32:38,142 [5    ] icrosoft.AspNetCore.Mvc.StatusCodeResult - Executing HttpStatusCodeResult, setting HTTP status code 200
+INFO  2019-03-11 21:32:38,144 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SendUpVerificationCode (Monivault.Web.Mvc) in 387.8884ms
+INFO  2019-03-11 21:32:38,144 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 407.0021ms 200 
+INFO  2019-03-11 21:32:52,995 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:5000/SignUp/SignUpAccountHolder application/x-www-form-urlencoded; charset=UTF-8 343
+INFO  2019-03-11 21:32:53,015 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SignUpAccountHolder", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc)
+INFO  2019-03-11 21:32:53,030 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc) with arguments (Monivault.Web.Models.SignUp.SignUpAccountHolderViewModel) - Validation state: Valid
+INFO  2019-03-11 21:32:54,111 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1081.1107ms.
+INFO  2019-03-11 21:32:54,508 [9    ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-11 21:32:54,523 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SignUpAccountHolder (Monivault.Web.Mvc) in 1507.4502ms
+INFO  2019-03-11 21:32:54,524 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1529.1678ms 200 application/json; charset=utf-8
+INFO  2019-03-11 21:32:54,536 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/SignUp/SuccessfulSignUp  
+INFO  2019-03-11 21:32:54,544 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "SuccessfulSignUp", controller = "SignUp", area = ""}. Executing action Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc)
+INFO  2019-03-11 21:32:54,551 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc) - Validation state: Valid
+INFO  2019-03-11 21:32:54,552 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.4327ms.
+INFO  2019-03-11 21:32:54,578 [5    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view SuccessfulSignUp.
+INFO  2019-03-11 21:32:54,607 [5    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view SuccessfulSignUp executed in 40.0508ms.
+INFO  2019-03-11 21:32:54,607 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Controllers.SignUpController.SuccessfulSignUp (Monivault.Web.Mvc) in 62.765ms
+INFO  2019-03-11 21:32:54,608 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 71.8171ms 200 text/html; charset=utf-8
+INFO  2019-03-11 21:32:54,797 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:5000/assets/app/media/img//bg/bg-3.jpg  
+INFO  2019-03-11 21:32:54,801 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4.5767ms 404 
+WARN  2019-03-12 07:30:08,504 [21   ] Microsoft.AspNetCore.Server.Kestrel      - Heartbeat took longer than "00:00:01" at "03/12/2019 06:30:07 +00:00".

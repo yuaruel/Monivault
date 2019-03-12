@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Monivault.Authorization.Users;
 using Monivault.Controllers;
+using Monivault.ModelManagers;
 using Monivault.Services;
 using Monivault.SignUp;
 using Monivault.Web.Models.SignUp;
@@ -20,20 +21,20 @@ namespace Monivault.Web.Controllers
         private readonly SmsService _smsService;
         private readonly UserSignUpManager _userSignUpManager;
         private readonly UserManager _userManager;
-        private readonly UserRegistrationManager _userRegistrationManager;
+        private readonly AccountHolderManager _accountHolderManager;
         
         public SignUpController(
             IVerificationCodeService verificationCodeService,
             SmsService smsService,
             UserSignUpManager userSignUpManager,
             UserManager userManager,
-            UserRegistrationManager userRegistrationManager)
+            AccountHolderManager accountHolderManager)
         {
             _verificationCodeService = verificationCodeService;
             _smsService = smsService;
             _userSignUpManager = userSignUpManager;
             _userManager = userManager;
-            _userRegistrationManager = userRegistrationManager;
+            _accountHolderManager = accountHolderManager;
         }
         // GET
         public IActionResult Index()
@@ -47,18 +48,18 @@ namespace Monivault.Web.Controllers
         {
             var verificationCode = await _verificationCodeService.GetVerificationCode(int.Parse(model.VerificationCode), model.PhoneNumber);
             if (verificationCode == null) throw new UserFriendlyException("Invalid verification code");
-            
-            Logger.Info($"Verification form the db: {verificationCode}");
 
-            await _userSignUpManager.SignUpAsync(
-                    model.FirstName,
-                    model.LastName,
-                    model.Email,
-                    model.PhoneNumber,
-                    model.UserName,
-                    model.Password,
-                    true
-                );
+            var user = await _userSignUpManager.SignUpAsync(
+                                                    model.FirstName,
+                                           model.LastName,
+                                       model.Email,
+                                                    model.PhoneNumber,
+                                                    model.UserName,
+                                                    model.Password,
+                                    true);
+
+            //TODO Create account holder information.
+            _accountHolderManager.CreateAccountHolder(user.Id);
             
             return Json(new AjaxResponse{TargetUrl = "/SignUp/SuccessfulSignUp"});
         }

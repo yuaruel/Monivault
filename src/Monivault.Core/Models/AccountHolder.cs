@@ -4,7 +4,7 @@ using Monivault.Authorization.Users;
 
 namespace Monivault.Models
 {
-    public class AccountHolder : FullAuditedEntity<long>
+    public class AccountHolder : FullAuditedEntity
     {
         public Guid AccountHolderKey { get; set; }
 

@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using Abp;
+using Abp.Application.Services;
 using Abp.Domain.Repositories;
-using Monivault.AppModels;
+using Monivault.Models;
 
 namespace Monivault.Services
 {
+    [RemoteService(false)]
     public class VerificationCodeService : MonivaultAppServiceBase, IVerificationCodeService
     {
         private readonly IRepository<VerificationCode> _verificationCodeRepository;
