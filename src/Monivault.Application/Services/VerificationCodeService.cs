@@ -47,5 +47,10 @@ namespace Monivault.Services
 
             return verificationCode;
         }
+
+        public void ClearVerificationCode(VerificationCode verificationCode)
+        {
+            _verificationCodeRepository.Delete(verificationCode);
+        }
     }
 }

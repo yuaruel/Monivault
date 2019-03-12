@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Abp.Hangfire;
+using Abp.Hangfire.Configuration;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
@@ -7,6 +9,7 @@ using Monivault.Configuration;
 namespace Monivault.Web.Startup
 {
     [DependsOn(typeof(MonivaultWebCoreModule))]
+    [DependsOn(typeof(AbpHangfireAspNetCoreModule))]
     public class MonivaultWebMvcModule : AbpModule
     {
         private readonly IHostingEnvironment _env;
@@ -21,6 +24,7 @@ namespace Monivault.Web.Startup
         public override void PreInitialize()
         {
             Configuration.Navigation.Providers.Add<MonivaultNavigationProvider>();
+            Configuration.BackgroundJobs.UseHangfire();
         }
 
         public override void Initialize()

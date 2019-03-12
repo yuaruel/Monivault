@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Threading.Tasks;
 using Abp;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
@@ -17,7 +18,7 @@ namespace Monivault.ModelManagers
             _accountHolderRepository = accountHolderRepository;
         }
         
-        public void CreateAccountHolder(long userId)
+        public async Task<AccountHolder> CreateAccountHolder(long userId)
         {
             var accountHolder = new AccountHolder
             {
@@ -28,7 +29,9 @@ namespace Monivault.ModelManagers
                 UserId = userId
             };
 
-            _accountHolderRepository.Insert(accountHolder);
+            accountHolder = await _accountHolderRepository.InsertAsync(accountHolder);
+
+            return accountHolder;
         }
         
         private string GenerateAccountHolderIdentity()

@@ -8,5 +8,6 @@ namespace Monivault.Services
     {
         Task GenerateAndSendVerificationCode(string phoneNumber);
         Task<VerificationCode> GetVerificationCode(int code, string phoneNumber);
+        void ClearVerificationCode(VerificationCode verificationCode);
     }
 }

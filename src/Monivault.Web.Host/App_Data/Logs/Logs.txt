@@ -437,3 +437,134 @@ INFO  2019-03-10 17:26:52,968 [30   ] ore.Mvc.Internal.ControllerActionInvoker -
 INFO  2019-03-10 17:26:52,991 [27   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
 INFO  2019-03-10 17:26:52,993 [27   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Roles.RoleAppService.Create (Monivault.Application) in 105.7995ms
 INFO  2019-03-10 17:26:52,994 [27   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 120.943ms 200 application/json; charset=utf-8
+DEBUG 2019-03-12 10:47:03,360 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-12 10:47:03,402 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-12 10:47:03,429 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,434 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,434 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,434 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,435 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,435 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,436 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,436 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,437 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,438 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:03,442 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-12 10:47:03,540 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:03,540 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:03,540 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:03,540 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:03,988 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:04,815 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-12 10:47:05,357 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-12 10:47:05,959 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-12 10:47:06,210 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-12 10:47:06,506 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-12 10:47:06,564 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-12 10:47:06,675 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-12 10:47:06,675 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-12 10:47:06,685 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-12 10:47:06,686 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-12 10:47:06,687 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-12 10:47:06,687 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-12 10:47:06,687 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-12 10:47:06,687 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-12 10:47:06,687 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-12 10:47:06,689 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-12 10:47:06,689 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+INFO  2019-03-12 10:47:14,405 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-12 10:47:16,336 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host)
+INFO  2019-03-12 10:47:16,855 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) - Validation state: Valid
+INFO  2019-03-12 10:47:16,860 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 2.7384ms.
+INFO  2019-03-12 10:47:17,205 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-12 10:47:17,224 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) in 882.9684ms
+INFO  2019-03-12 10:47:17,328 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2932.9744ms 302 
+INFO  2019-03-12 10:47:17,330 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-03-12 10:47:17,352 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 21.8783ms 301 
+INFO  2019-03-12 10:47:17,356 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-12 10:47:17,409 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.26ms 200 text/html
+INFO  2019-03-12 10:47:17,478 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-12 10:47:17,480 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-12 10:47:17,490 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-12 10:47:17,560 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-03-12 10:47:17,597 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.js'
+INFO  2019-03-12 10:47:17,597 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.7398ms 200 application/javascript
+INFO  2019-03-12 10:47:17,597 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-03-12 10:47:17,598 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: '/Users/henryezeanya/Projects/DevCodes/Monivault/src/Monivault.Web.Host/wwwroot/swagger/ui/abp.swagger.js'
+INFO  2019-03-12 10:47:17,598 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 0.8431ms 200 application/javascript
+INFO  2019-03-12 10:47:17,620 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-03-12 10:47:17,624 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 133.986ms 200 application/javascript
+INFO  2019-03-12 10:47:17,631 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-03-12 10:47:17,637 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 159.3757ms 200 text/css
+INFO  2019-03-12 10:47:17,688 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-03-12 10:47:17,688 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 210.4355ms 200 application/javascript
+INFO  2019-03-12 10:47:18,300 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2019-03-12 10:47:18,301 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2019-03-12 10:47:18,301 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1.6ms 200 image/png
+INFO  2019-03-12 10:47:18,424 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-12 10:47:19,100 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 675.6758ms 200 application/json;charset=utf-8
+DEBUG 2019-03-12 10:47:53,084 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-12 10:47:53,114 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-12 10:47:53,177 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.Web.Host.Startup.MonivaultWebHostModule, Monivault.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,180 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultWebCoreModule, Monivault.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultApplicationModule, Monivault.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.MonivaultCoreModule, Monivault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,182 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,182 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,183 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Monivault.EntityFrameworkCore.MonivaultEntityFrameworkModule, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,183 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,184 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,184 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,184 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,184 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,185 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:53,189 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-12 10:47:53,266 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:53,266 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:53,266 [1    ] o.Configuration.LanguageManagementConfig - Converted Monivault (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:53,266 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-12 10:47:53,606 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: Monivault.EntityFrameworkCore.MonivaultDbContext, Monivault.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-12 10:47:54,127 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-12 10:47:54,466 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-12 10:47:54,939 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-12 10:47:55,143 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Monivault
+DEBUG 2019-03-12 10:47:55,415 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-12 10:47:55,460 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-12 10:47:55,526 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-12 10:47:55,526 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-12 10:47:55,538 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.CreateUserDto
+DEBUG 2019-03-12 10:47:55,539 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Users.Dto.UserDto
+DEBUG 2019-03-12 10:47:55,540 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-12 10:47:55,540 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-12 10:47:55,540 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-12 10:47:55,540 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.PermissionDto
+DEBUG 2019-03-12 10:47:55,541 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.Roles.Dto.RoleDto
+DEBUG 2019-03-12 10:47:55,542 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-12 10:47:55,542 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Monivault.MultiTenancy.Dto.TenantDto
+INFO  2019-03-12 10:48:02,348 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-12 10:48:04,346 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host)
+INFO  2019-03-12 10:48:04,784 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) - Validation state: Valid
+INFO  2019-03-12 10:48:04,790 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 3.1199ms.
+INFO  2019-03-12 10:48:05,137 [5    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-12 10:48:05,156 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Monivault.Web.Host.Controllers.HomeController.Index (Monivault.Web.Host) in 803.4787ms
+INFO  2019-03-12 10:48:05,252 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2916.2905ms 302 
+INFO  2019-03-12 10:48:05,259 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-12 10:48:05,319 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 60.4665ms 200 text/html
+INFO  2019-03-12 10:48:05,346 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-12 10:48:05,359 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-12 10:48:05,366 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-12 10:48:05,392 [6    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-03-12 10:48:05,392 [5    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui.css was not modified
+INFO  2019-03-12 10:48:05,392 [10   ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-03-12 10:48:05,397 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 31.1855ms 304 application/javascript
+INFO  2019-03-12 10:48:05,398 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.6698ms 304 text/css
+INFO  2019-03-12 10:48:05,398 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.6945ms 304 application/javascript
+INFO  2019-03-12 10:48:06,169 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-12 10:48:06,801 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 631.8502ms 200 application/json;charset=utf-8

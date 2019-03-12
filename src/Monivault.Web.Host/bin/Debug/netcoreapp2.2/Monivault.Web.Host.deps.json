@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "6d2cb27a4c35a39b19603cda964fad7fb3866175"
+    "signature": "259b490f040225ea0cd95976c6507de1fc5251d7"
   },
   "compilationOptions": {
     "defines": [
@@ -45,7 +45,7 @@
           "Monivault.Web.Host.dll": {}
         }
       },
-      "Abp/4.3.0": {
+      "Abp/4.4.0": {
         "dependencies": {
           "Castle.Core": "4.3.1",
           "Castle.LoggingFacility": "4.1.1",
@@ -69,8 +69,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Abp.dll": {
-            "assemblyVersion": "4.3.0.0",
-            "fileVersion": "4.3.0.0"
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
           }
         },
         "compile": {
@@ -98,7 +98,7 @@
       },
       "Abp.AspNetCore.SignalR/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0",
+          "Abp": "4.4.0",
           "Microsoft.AspNetCore.SignalR": "1.1.0"
         },
         "runtime": {
@@ -113,7 +113,7 @@
       },
       "Abp.AutoMapper/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0",
+          "Abp": "4.4.0",
           "AutoMapper": "8.0.0",
           "AutoMapper.Collection": "5.0.0"
         },
@@ -129,7 +129,7 @@
       },
       "Abp.Castle.Log4Net/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0",
+          "Abp": "4.4.0",
           "log4net": "2.0.8"
         },
         "runtime": {
@@ -144,7 +144,7 @@
       },
       "Abp.EntityFramework.Common/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0"
+          "Abp": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/Abp.EntityFramework.Common.dll": {
@@ -172,9 +172,25 @@
           "lib/netstandard2.0/Abp.EntityFrameworkCore.dll": {}
         }
       },
+      "Abp.HangFire.AspNetCore/4.4.0": {
+        "dependencies": {
+          "Abp": "4.4.0",
+          "Hangfire.AspNetCore": "1.6.22",
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Abp.HangFire.AspNetCore.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Abp.HangFire.AspNetCore.dll": {}
+        }
+      },
       "Abp.Web.Common/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0",
+          "Abp": "4.4.0",
           "NUglify": "1.5.12"
         },
         "runtime": {
@@ -189,7 +205,7 @@
       },
       "Abp.Zero.Common/4.3.0": {
         "dependencies": {
-          "Abp": "4.3.0"
+          "Abp": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/Abp.Zero.Common.dll": {
@@ -348,6 +364,106 @@
         },
         "compile": {
           "lib/netstandard2.0/Castle.Windsor.MsDependencyInjection.dll": {}
+        }
+      },
+      "Dapper/1.50.1": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Collections.NonGeneric": "4.3.0",
+          "System.Data.SqlClient": "4.6.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Dapper.dll": {
+            "assemblyVersion": "1.50.1.0",
+            "fileVersion": "1.50.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Dapper.dll": {}
+        }
+      },
+      "Hangfire.AspNetCore/1.6.22": {
+        "dependencies": {
+          "Hangfire.Core": "1.6.22",
+          "Microsoft.AspNetCore.Antiforgery": "2.2.0",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+          "NETStandard.Library": "2.0.3",
+          "System.ComponentModel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Hangfire.AspNetCore.dll": {
+            "assemblyVersion": "1.6.22.0",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Hangfire.AspNetCore.dll": {}
+        }
+      },
+      "Hangfire.Core/1.6.22": {
+        "dependencies": {
+          "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Hangfire.Core.dll": {
+            "assemblyVersion": "1.6.22.0",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.3/es/Hangfire.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard1.3/zh-TW/Hangfire.Core.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/netstandard1.3/zh/Hangfire.Core.resources.dll": {
+            "locale": "zh"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Hangfire.Core.dll": {}
+        }
+      },
+      "Hangfire.SqlServer/1.6.22": {
+        "dependencies": {
+          "Dapper": "1.50.1",
+          "Hangfire.Core": "1.6.22",
+          "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+          "NETStandard.Library": "2.0.3",
+          "System.Data.Common": "4.3.0",
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Hangfire.SqlServer.dll": {
+            "assemblyVersion": "1.6.22.0",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Hangfire.SqlServer.dll": {}
         }
       },
       "JetBrains.Annotations/2018.3.0": {
@@ -2333,6 +2449,28 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "Microsoft.NETCore.Jit/1.0.2": {},
+      "Microsoft.NETCore.Portable.Compatibility/1.0.1": {
+        "dependencies": {
+          "Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.ServiceModel.dll": {
+            "assemblyVersion": "2.0.5.0",
+            "fileVersion": "4.6.24214.0"
+          }
+        },
+        "compile": {
+          "ref/netstandard1.0/System.ServiceModel.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Runtime.CoreCLR/1.0.2": {
+        "dependencies": {
+          "Microsoft.NETCore.Jit": "1.0.2",
+          "Microsoft.NETCore.Windows.ApiSets": "1.0.1"
+        }
+      },
+      "Microsoft.NETCore.Windows.ApiSets/1.0.1": {},
       "Microsoft.VisualStudio.Web.BrowserLink/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
@@ -4398,6 +4536,9 @@
       },
       "Monivault.Application/1.0.0": {
         "dependencies": {
+          "Abp.HangFire.AspNetCore": "4.4.0",
+          "Hangfire.AspNetCore": "1.6.22",
+          "Hangfire.SqlServer": "1.6.22",
           "Monivault.Core": "1.0.0"
         },
         "runtime": {
@@ -4644,12 +4785,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Abp/4.3.0": {
+    "Abp/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ISDT7j9CtNJpERKrvWJsp75w/9quZ7ZjZOW8NPyDoKghMSaHVdt/GuVZtvZ8z/7iQ+gUkgz/c8BCYiPof6kkQA==",
-      "path": "abp/4.3.0",
-      "hashPath": "abp.4.3.0.nupkg.sha512"
+      "sha512": "sha512-7spTZzVim2VCaOYVkzynzceEnyofiAiTs7PLEQVb0aCfSAMqSTd34WZcoOR9vpvC/Y5Zqk6ZUxR4twDwfLfNUw==",
+      "path": "abp/4.4.0",
+      "hashPath": "abp.4.4.0.nupkg.sha512"
     },
     "Abp.AspNetCore/4.3.0": {
       "type": "package",
@@ -4692,6 +4833,13 @@
       "sha512": "sha512-OvhH0S7lWHM+rN2Q8oT3LDvlhbt5IjXJpM8hycCSP5hvtZPZ+vGMpJU5ZugG3t/2AtDhkKLzwu0YfGwGzQo4VA==",
       "path": "abp.entityframeworkcore/4.3.0",
       "hashPath": "abp.entityframeworkcore.4.3.0.nupkg.sha512"
+    },
+    "Abp.HangFire.AspNetCore/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GRGc5gX+HRJRQTYcw5xlbZY4rIm2/9hTUDMxrHfl2DrPwfC1bo/PgJQSTNdztcxY3QIKMysJsLrSgM39BhF+lA==",
+      "path": "abp.hangfire.aspnetcore/4.4.0",
+      "hashPath": "abp.hangfire.aspnetcore.4.4.0.nupkg.sha512"
     },
     "Abp.Web.Common/4.3.0": {
       "type": "package",
@@ -4769,6 +4917,34 @@
       "sha512": "sha512-AK5ClaDRtP6YxSdCZTngnfMYstRkglxKrYrfWdq6H9QPQguB5Fdq300euqsNMd3CO4qn6tp2Ln4AdrQdmEkL0w==",
       "path": "castle.windsor.msdependencyinjection/3.3.1",
       "hashPath": "castle.windsor.msdependencyinjection.3.3.1.nupkg.sha512"
+    },
+    "Dapper/1.50.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d00Wvqd5xsMwSdNuzLYtmxxTrI8etG02P1rzGYRPZNBKMc7PdxyrU4/sRhEffDCCfLqqJ2wyha7pghPI0I3vHQ==",
+      "path": "dapper/1.50.1",
+      "hashPath": "dapper.1.50.1.nupkg.sha512"
+    },
+    "Hangfire.AspNetCore/1.6.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NYKn47AJ7oEDu889ixIPQtAw86g+TQIHdeBP9UoJJKAegSmj5QQIEr3adcw0F7x+pGZb2fvXWlEULlUPcrIicg==",
+      "path": "hangfire.aspnetcore/1.6.22",
+      "hashPath": "hangfire.aspnetcore.1.6.22.nupkg.sha512"
+    },
+    "Hangfire.Core/1.6.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AyI4lefZPdF0F8hbHv1ut/CQiRhTfBUSApHAzPDTdnvT53+vAOjxczS+bwux25quu+QWljIbnY7nU01Eq6vqbg==",
+      "path": "hangfire.core/1.6.22",
+      "hashPath": "hangfire.core.1.6.22.nupkg.sha512"
+    },
+    "Hangfire.SqlServer/1.6.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5ZJfRfGr6zhdFnAtLbhTdXebV3jjDF0tqG6/RT5ruMuEkDh+a3rigWokwoM3n3Ch63YIuy6QzDJLMdqc5w71bw==",
+      "path": "hangfire.sqlserver/1.6.22",
+      "hashPath": "hangfire.sqlserver.1.6.22.nupkg.sha512"
     },
     "JetBrains.Annotations/2018.3.0": {
       "type": "package",
@@ -5623,6 +5799,34 @@
       "sha512": "sha512-iZNkjYqlo8sIOI0bQfpsSoMTmB/kyvmV2h225ihyZT33aTp48ZpF6qYnXxzSXmHt8DpBAwBTX+1s1UFLbYfZKg==",
       "path": "microsoft.net.http.headers/2.2.0",
       "hashPath": "microsoft.net.http.headers.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Jit/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ok2vWofa6X8WD9vc4pfLHwvJz1/B6t3gOAoZcjrjrQf7lQOlNIuZIZtLn3wnWX28DuQGpPJkRlBxFj7Z5txNqw==",
+      "path": "microsoft.netcore.jit/1.0.2",
+      "hashPath": "microsoft.netcore.jit.1.0.2.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Portable.Compatibility/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vd+lvLcGwvkedxtKn0U8s9uR4p0Lm+0U2QvDsLaw7g4S1W4KfPDbaW+ROhhLCSOx/gMYC72/b+z+o4fqS/oxVg==",
+      "path": "microsoft.netcore.portable.compatibility/1.0.1",
+      "hashPath": "microsoft.netcore.portable.compatibility.1.0.1.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Runtime.CoreCLR/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A0x1xtTjYJWZr2DRzgfCOXgB0JkQg8twnmtTJ79wFje+IihlLbXtx6Z2AxyVokBM5ruwTedR6YdCmHk39QJdtQ==",
+      "path": "microsoft.netcore.runtime.coreclr/1.0.2",
+      "hashPath": "microsoft.netcore.runtime.coreclr.1.0.2.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SaToCvvsGMxTgtLv/BrFQ5IFMPRE1zpWbnqbpwykJa8W5XiX82CXI6K2o7yf5xS7EP6t/JzFLV0SIDuWpvBZVw==",
+      "path": "microsoft.netcore.windows.apisets/1.0.1",
+      "hashPath": "microsoft.netcore.windows.apisets.1.0.1.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.2.0": {
       "type": "package",

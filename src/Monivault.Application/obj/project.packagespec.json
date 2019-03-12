@@ -30,6 +30,18 @@
   "frameworks": {
     "netcoreapp2.2": {
       "dependencies": {
+        "Abp.HangFire.AspNetCore": {
+          "target": "Package",
+          "version": "[4.4.0, )"
+        },
+        "Hangfire.AspNetCore": {
+          "target": "Package",
+          "version": "[1.6.22, )"
+        },
+        "Hangfire.SqlServer": {
+          "target": "Package",
+          "version": "[1.6.22, )"
+        },
         "Microsoft.NETCore.App": {
           "suppressParent": "All",
           "target": "Package",

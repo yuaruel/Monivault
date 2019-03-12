@@ -22,19 +22,22 @@ namespace Monivault.Web.Controllers
         private readonly UserSignUpManager _userSignUpManager;
         private readonly UserManager _userManager;
         private readonly AccountHolderManager _accountHolderManager;
+        private readonly NotificationScheduler _notificationScheduler;
         
         public SignUpController(
             IVerificationCodeService verificationCodeService,
             SmsService smsService,
             UserSignUpManager userSignUpManager,
             UserManager userManager,
-            AccountHolderManager accountHolderManager)
+            AccountHolderManager accountHolderManager,
+            NotificationScheduler notificationScheduler)
         {
             _verificationCodeService = verificationCodeService;
             _smsService = smsService;
             _userSignUpManager = userSignUpManager;
             _userManager = userManager;
             _accountHolderManager = accountHolderManager;
+            _notificationScheduler = notificationScheduler;
         }
         // GET
         public IActionResult Index()
@@ -48,6 +51,9 @@ namespace Monivault.Web.Controllers
         {
             var verificationCode = await _verificationCodeService.GetVerificationCode(int.Parse(model.VerificationCode), model.PhoneNumber);
             if (verificationCode == null) throw new UserFriendlyException("Invalid verification code");
+            
+            //Delete verificationCode.
+            _verificationCodeService.ClearVerificationCode(verificationCode);
 
             var user = await _userSignUpManager.SignUpAsync(
                                                     model.FirstName,
@@ -58,8 +64,12 @@ namespace Monivault.Web.Controllers
                                                     model.Password,
                                     true);
 
-            //TODO Create account holder information.
-            _accountHolderManager.CreateAccountHolder(user.Id);
+            var accountHolder = await _accountHolderManager.CreateAccountHolder(user.Id);
+            
+            //Send a welcome text and email, with AccountHolder Identity.
+            Logger.Info("About to set notification job...");
+            _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
+            Logger.Info("Successfully set notification job...");
             
             return Json(new AjaxResponse{TargetUrl = "/SignUp/SuccessfulSignUp"});
         }
@@ -78,7 +88,7 @@ namespace Monivault.Web.Controllers
             //If user exists with either phone number or email end verification sending.
             if (signUpUser != null) throw new UserFriendlyException(L("UserAlreadyExist"));
 
-            //_verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
+            _verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
             
             return StatusCode(200);
 

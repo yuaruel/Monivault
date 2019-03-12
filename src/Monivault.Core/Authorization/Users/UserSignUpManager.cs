@@ -49,6 +49,7 @@ namespace Monivault.Authorization.Users
                 Name = name,
                 Surname = surname,
                 EmailAddress = emailAddress ?? String.Empty,
+                PhoneNumber = phone,
                 IsActive = true,
                 UserName = userName,
                 IsEmailConfirmed = isEmailConfirmed,
