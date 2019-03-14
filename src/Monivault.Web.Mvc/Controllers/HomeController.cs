@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Abp.AspNetCore.Mvc.Authorization;
+using Abp.Authorization;
+using Monivault.Authorization;
 using Monivault.Controllers;
 
 namespace Monivault.Web.Controllers
@@ -9,6 +11,13 @@ namespace Monivault.Web.Controllers
     {
         public ActionResult Index()
         {
+            if (PermissionChecker.IsGranted(PermissionNames.Pages_Admin_Dashboard))
+            {
+                return RedirectToAction("Index", "AdminHome");
+            }else if (PermissionChecker.IsGranted(PermissionNames.Pages_Account_Holder_Dashboard))
+            {
+                return RedirectToAction("Index", "AccountHolderHome");
+            }
             return View();
         }
 	}

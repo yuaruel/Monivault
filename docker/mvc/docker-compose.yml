@@ -3,7 +3,7 @@ version: '2'
 services:
 
     abp_mvc:
-        image: abp/mvc
+        image: monivault-app
         environment:
             - ASPNETCORE_ENVIRONMENT=Staging
         ports:

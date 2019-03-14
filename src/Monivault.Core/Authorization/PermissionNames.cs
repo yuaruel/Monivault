@@ -3,6 +3,7 @@
     public static class PermissionNames
     {
         public const string Pages_Admin_Dashboard = "Pages.Admin.Dashboard";
+        public const string Pages_Admin_Reports = "Pages.Admin.Reports";
         public const string Pages_Settings = "Pages.Settings";
         public const string Pages_UserManagement = "Pages.UserManagement";
         public const string Pages_UserManagement_Create = "Pages.UserManagement.Create";

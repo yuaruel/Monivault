@@ -1,6 +1,7 @@
 ﻿using Abp.Authorization;
 using Abp.Localization;
 using Abp.MultiTenancy;
+using Monivault.MultiTenancy;
 
 namespace Monivault.Authorization
 {
@@ -9,6 +10,7 @@ namespace Monivault.Authorization
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
             context.CreatePermission(PermissionNames.Pages_Admin_Dashboard, L("AdminDashboard"), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.Pages_Admin_Reports, L("AdminReports"), multiTenancySides: MultiTenancySides.Tenant);
             
             var userPermission = context.CreatePermission(PermissionNames.Pages_UserManagement, L("UserManagement"), multiTenancySides: MultiTenancySides.Tenant);
             userPermission.CreateChildPermission(PermissionNames.Pages_UserManagement_Create, L("UserManagementCreate"));

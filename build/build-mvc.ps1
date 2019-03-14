@@ -25,8 +25,8 @@ dotnet publish --output (Join-Path $outputFolder "Mvc")
 # Mvc
 Set-Location (Join-Path $outputFolder "Mvc")
 
-docker rmi abp/mvc -f
-docker build -t abp/mvc .
+docker rmi monivault-app -f
+docker build -t monivault-app .
 
 ## DOCKER COMPOSE FILES #######################################################
 

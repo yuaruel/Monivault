@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Auditing;
 
-namespace Monivault.Web.Models.Account
+namespace Monivault.Web.Models.Login
 {
     public class LoginViewModel
     {
         [Required]
-        public string UsernameOrEmailAddress { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [DisableAuditing]

@@ -29,6 +29,7 @@ using Monivault.Identity;
 using Monivault.MultiTenancy;
 using Monivault.Sessions;
 using Monivault.Web.Models.Account;
+using Monivault.Web.Models.Login;
 using Monivault.Web.Views.Shared.Components.TenantChange;
 
 namespace Monivault.Web.Controllers
@@ -101,7 +102,7 @@ namespace Monivault.Web.Controllers
                 returnUrl = returnUrl + returnUrlHash;
             }
 
-            var loginResult = await GetLoginResultAsync(loginModel.UsernameOrEmailAddress, loginModel.Password, GetTenancyNameOrNull());
+            var loginResult = await GetLoginResultAsync(loginModel.Username, loginModel.Password, GetTenancyNameOrNull());
 
             await _signInManager.SignInAsync(loginResult.Identity, loginModel.RememberMe);
             await UnitOfWorkManager.Current.SaveChangesAsync();
