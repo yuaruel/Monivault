@@ -57,6 +57,12 @@ namespace Monivault.Web.Controllers
             return Json(new AjaxResponse { TargetUrl = returnUrl });
         }
         
+        public async Task<ActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
+        
         public ActionResult RedirectToAppHome()
         {
             return RedirectToAction("Index", "Home");

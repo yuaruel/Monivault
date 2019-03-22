@@ -14,111 +14,85 @@ namespace Monivault.Web.Startup
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        PageNames.Home,
-                        L("HomePage"),
+                        PageNames.AdminDashboard,
+                        L("Dashboard"),
                         url: "",
-                        icon: "home",
-                        requiresAuthentication: true
+                        icon: "flaticon-imac",
+                        requiredPermissionName: PermissionNames.Pages_Admin_Dashboard
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        PageNames.Users,
-                        L("Users"),
-                        url: "Users",
-                        icon: "people",
+                        PageNames.AccountHolderDashboard,
+                        L("Dashboard"),
+                        url: "AccountHolderHome",
+                        icon: "flaticon-imac",
+                        requiredPermissionName: PermissionNames.Pages_AccountHolder_Dashboard
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Transfers,
+                        L("Transfers"),
+                        url: "Roles",
+                        icon: "flaticon-diagram",
+                        requiredPermissionName: PermissionNames.Pages_Transfer
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            PageNames.BankAccount,
+                            L("BankAccount"),
+                            requiredPermissionName: PermissionNames.Pages_Transfer_BankAccount  
+                        )
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            PageNames.PayCode,
+                            L("PayCode"),
+                            requiredPermissionName: PermissionNames.Pages_Transfer_PayCode
+                        )
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Utilities,
+                        L("Utilities"),
+                        url: "About",
+                        icon: "flaticon-interface-6",
+                        requiredPermissionName: PermissionNames.Pages_Utilities
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            PageNames.TaxPayment,
+                            L("TaxPayment"),
+                            requiredPermissionName: PermissionNames.Pages_Utilities_TaxPayment
+                        )
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.AccountHolders,
+                        L("AccountHolders"),
+                        url: "",
+                        icon: "flaticon-profile-1",
+                        requiredPermissionName: PermissionNames.Pages_AccountHolder_Management
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Settings,
+                        L("Settings"),
+                        url: "",
+                        icon: "flaticon-cogwheel-2",
+                        requiredPermissionName: PermissionNames.Pages_Settings
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.UserManagement,
+                        L("UserManagement"),
+                        url: "",
+                        icon: "flaticon-users",
                         requiredPermissionName: PermissionNames.Pages_UserManagement
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        PageNames.Roles,
-                        L("Roles"),
-                        url: "Roles",
-                        icon: "local_offer",
+                        PageNames.RolesAndPermissions,
+                        L("RolesPermissions"),
+                        url: "",
+                        icon: "flaticon-web",
                         requiredPermissionName: PermissionNames.Pages_RoleManagement
-                    )
-                )
-                .AddItem(
-                    new MenuItemDefinition(
-                        PageNames.About,
-                        L("About"),
-                        url: "About",
-                        icon: "info"
-                    )
-                ).AddItem( // Menu items below is just for demonstration!
-                    new MenuItemDefinition(
-                        "MultiLevelMenu",
-                        L("MultiLevelMenu"),
-                        icon: "menu"
-                    ).AddItem(
-                        new MenuItemDefinition(
-                            "AspNetBoilerplate",
-                            new FixedLocalizableString("ASP.NET Boilerplate")
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetBoilerplateHome",
-                                new FixedLocalizableString("Home"),
-                                url: "https://aspnetboilerplate.com?ref=abptmpl"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetBoilerplateTemplates",
-                                new FixedLocalizableString("Templates"),
-                                url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetBoilerplateSamples",
-                                new FixedLocalizableString("Samples"),
-                                url: "https://aspnetboilerplate.com/Samples?ref=abptmpl"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetBoilerplateDocuments",
-                                new FixedLocalizableString("Documents"),
-                                url: "https://aspnetboilerplate.com/Pages/Documents?ref=abptmpl"
-                            )
-                        )
-                    ).AddItem(
-                        new MenuItemDefinition(
-                            "AspNetZero",
-                            new FixedLocalizableString("ASP.NET Zero")
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroHome",
-                                new FixedLocalizableString("Home"),
-                                url: "https://aspnetzero.com?ref=abptmpl"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroDescription",
-                                new FixedLocalizableString("Description"),
-                                url: "https://aspnetzero.com/?ref=abptmpl#description"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroFeatures",
-                                new FixedLocalizableString("Features"),
-                                url: "https://aspnetzero.com/?ref=abptmpl#features"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroPricing",
-                                new FixedLocalizableString("Pricing"),
-                                url: "https://aspnetzero.com/?ref=abptmpl#pricing"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroFaq",
-                                new FixedLocalizableString("Faq"),
-                                url: "https://aspnetzero.com/Faq?ref=abptmpl"
-                            )
-                        ).AddItem(
-                            new MenuItemDefinition(
-                                "AspNetZeroDocuments",
-                                new FixedLocalizableString("Documents"),
-                                url: "https://aspnetzero.com/Documents?ref=abptmpl"
-                            )
-                        )
                     )
                 );
         }

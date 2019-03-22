@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Abp.BackgroundJobs;
 using Abp.Dependency;
 using Monivault.Exceptions;
-using Monivault.Services;
+using Monivault.ModelServices;
 
 namespace Monivault.BackgroundJobs
 {

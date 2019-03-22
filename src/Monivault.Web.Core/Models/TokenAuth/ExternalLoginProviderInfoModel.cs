@@ -1,7 +1,7 @@
 ﻿using Abp.AutoMapper;
 using Monivault.Authentication.External;
 
-namespace Monivault.Models.TokenAuth
+namespace Monivault.AppModels.TokenAuth
 {
     [AutoMapFrom(typeof(ExternalLoginProviderInfo))]
     public class ExternalLoginProviderInfoModel

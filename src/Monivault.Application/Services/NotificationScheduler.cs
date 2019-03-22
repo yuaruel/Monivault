@@ -6,7 +6,7 @@ using Castle.Core.Logging;
 using Hangfire;
 using Monivault.BackgroundJobs;
 
-namespace Monivault.Services
+namespace Monivault.ModelServices
 {
     public class NotificationScheduler : ISingletonDependency
     {

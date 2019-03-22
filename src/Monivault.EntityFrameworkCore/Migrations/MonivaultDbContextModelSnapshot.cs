@@ -877,6 +877,160 @@ namespace Monivault.Migrations
                     b.ToTable("AbpOrganizationUnitRoles");
                 });
 
+            modelBuilder.Entity("Monivault.AppModels.AccountHolder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid>("AccountHolderKey")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AccountIdentity");
+
+                    b.Property<decimal>("AvailableBalance");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<long?>("DeleterUserId");
+
+                    b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<decimal>("LedgerBalance");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AccountHolders");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.OneCardPinRedeemLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountHolderId");
+
+                    b.Property<string>("AgentTransactionId")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(15);
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("varchar(150)")
+                        .HasMaxLength(150);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<Guid>("OneCardPinRedeemKey")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("PinNo")
+                        .IsRequired()
+                        .HasColumnType("varchar(16)")
+                        .HasMaxLength(16);
+
+                    b.Property<string>("ProductCode")
+                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(15);
+
+                    b.Property<string>("SerialNo")
+                        .HasColumnType("varchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("ServiceId")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<long?>("TransactionLogId");
+
+                    b.Property<string>("VendorCode")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(15);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountHolderId");
+
+                    b.HasIndex("TransactionLogId");
+
+                    b.ToTable("OneCardPinRedeemLogs");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.TransactionLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountHolderId");
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("varchar(150)")
+                        .HasMaxLength(150);
+
+                    b.Property<string>("PlatformSpecificDetail")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("RequestOriginatingPlatform")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasMaxLength(10);
+
+                    b.Property<Guid>("TransactionKey")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("TransactionService")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("TransactionType")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountHolderId");
+
+                    b.ToTable("TransactionLogs");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.VerificationCode", b =>
+                {
+                    b.Property<int>("Id");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VerificationCodes");
+                });
+
             modelBuilder.Entity("Monivault.Authorization.Roles.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -1031,56 +1185,6 @@ namespace Monivault.Migrations
                     b.HasIndex("TenantId", "NormalizedUserName");
 
                     b.ToTable("AbpUsers");
-                });
-
-            modelBuilder.Entity("Monivault.Models.AccountHolder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<Guid>("AccountHolderKey");
-
-                    b.Property<string>("AccountIdentity");
-
-                    b.Property<decimal>("AvailableBalance");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<long?>("DeleterUserId");
-
-                    b.Property<DateTime?>("DeletionTime");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<decimal>("LedgerBalance");
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AccountHolders");
-                });
-
-            modelBuilder.Entity("Monivault.Models.VerificationCode", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VerificationCodes");
                 });
 
             modelBuilder.Entity("Monivault.MultiTenancy.Tenant", b =>
@@ -1253,6 +1357,34 @@ namespace Monivault.Migrations
                         .HasForeignKey("ParentId");
                 });
 
+            modelBuilder.Entity("Monivault.AppModels.AccountHolder", b =>
+                {
+                    b.HasOne("Monivault.Authorization.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.OneCardPinRedeemLog", b =>
+                {
+                    b.HasOne("Monivault.AppModels.AccountHolder", "AccountHolder")
+                        .WithMany()
+                        .HasForeignKey("AccountHolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Monivault.AppModels.TransactionLog", "TransactionLog")
+                        .WithMany()
+                        .HasForeignKey("TransactionLogId");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.TransactionLog", b =>
+                {
+                    b.HasOne("Monivault.AppModels.AccountHolder", "AccountHolder")
+                        .WithMany()
+                        .HasForeignKey("AccountHolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Monivault.Authorization.Roles.Role", b =>
                 {
                     b.HasOne("Monivault.Authorization.Users.User", "CreatorUser")
@@ -1281,14 +1413,6 @@ namespace Monivault.Migrations
                     b.HasOne("Monivault.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("Monivault.Models.AccountHolder", b =>
-                {
-                    b.HasOne("Monivault.Authorization.Users.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Monivault.MultiTenancy.Tenant", b =>

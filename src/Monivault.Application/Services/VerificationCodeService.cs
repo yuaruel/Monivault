@@ -2,9 +2,9 @@ using System.Threading.Tasks;
 using Abp;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
-using Monivault.Models;
+using Monivault.AppModels;
 
-namespace Monivault.Services
+namespace Monivault.ModelServices
 {
     [RemoteService(false)]
     public class VerificationCodeService : MonivaultAppServiceBase, IVerificationCodeService
@@ -26,6 +26,7 @@ namespace Monivault.Services
                 //User is signed in, and just needs verification code to cary out transaction.
                 var currentUserTask = await GetCurrentUserAsync();
                 phoneNumber = currentUserTask.PhoneNumber;
+               
             }
             
             var verificationCode = RandomHelper.GetRandom(10000, 99999);

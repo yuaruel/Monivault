@@ -1,0 +1,93 @@
+@section scripts
+{
+	<script src="~/lib/inputmask/dist/jquery.inputmask.bundle.js"></script>
+	<script src="~/lib/jquery-form/dist/jquery.form.min.js"></script>
+	<script src="~/view-resources/Views/TopUpSaving/Index.js"></script>
+}
+
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+
+	<!-- BEGIN: Subheader -->
+	<div class="m-subheader ">
+		<div class="d-flex align-items-center">
+			<div class="mr-auto">
+				<h3 class="m-subheader__title m-subheader__title--separator">Top Up</h3>
+				<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+					<li class="m-nav__item m-nav__item--home">
+						<a href="#" class="m-nav__link m-nav__link--icon">
+							<i class="m-nav__link-icon la la-home"></i>
+						</a>
+					</li>
+					<li class="m-nav__separator">-</li>
+					<li class="m-nav__item">
+						<a href="" class="m-nav__link">
+							<span class="m-nav__link-text">Top Up</span>
+						</a>
+					</li>
+					<li class="m-nav__separator">-</li>
+					<li class="m-nav__item">
+						<a href="" class="m-nav__link">
+							<span class="m-nav__link-text">One Card</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- END: Subheader -->
+	<div class="m-content">
+
+		<!--Begin::Section-->
+		<div class="m-portlet">
+			<div class="m-portlet__body">
+				<div class="row m-row--no-padding">
+					<div class="col-lg-12">
+						<div class="m-form__group form-group">
+							<label for="">Select the deposit option you want to use:</label>
+							<div class="m-radio-inline">
+								<label class="m-radio">
+									<input type="radio" name="example_3" value="1"> One Card
+									<span></span>
+								</label>
+								<label class="m-radio">
+									<input type="radio" name="example_3" value="2"> Debit Card
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row m-row--no-padding">
+					<div class="col-lg-12">
+						<form class="m-form" asp-action="ProcessOneCardPin">
+							<div class="m-portlet__body">
+								<div class="m-form__section m-form__section--first">
+									<div class="form-group m-form__group row">
+										<label class="col-form-label">One Card PIN</label>
+										<div class="col-lg-6">
+											<input class="form-control m-input" id="CardPin" name="CardPin"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="m-portlet__foot m-portlet__foot--fit">
+								<div class="m-form__actions m-form__actions">
+									<div class="row">
+										<div class="col-lg-3"></div>
+										<div class="col-lg-6">
+											<button id="SubmitOneCardPinBtn" type="button" class="btn btn-success">Submit</button>
+											<button type="reset" class="btn btn-secondary">Cancel</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--End::Section-->
+	</div>
+</div>

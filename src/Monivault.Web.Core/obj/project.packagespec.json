@@ -63,6 +63,14 @@
           "target": "Package",
           "version": "[3.0.0, )"
         },
+        "System.ServiceModel.Http": {
+          "target": "Package",
+          "version": "[4.5.3, )"
+        },
+        "System.ServiceModel.Primitives": {
+          "target": "Package",
+          "version": "[4.5.3, )"
+        },
         "System.ValueTuple": {
           "target": "Package",
           "version": "[4.5.0, )"

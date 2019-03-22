@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Users;
 
-namespace Monivault.Models.TokenAuth
+namespace Monivault.AppModels.TokenAuth
 {
     public class ExternalAuthenticateModel
     {

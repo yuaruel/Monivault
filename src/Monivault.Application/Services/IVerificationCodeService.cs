@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Monivault.Models;
+using Monivault.AppModels;
 
-namespace Monivault.Services
+namespace Monivault.ModelServices
 {
     public interface IVerificationCodeService
     {

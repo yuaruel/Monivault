@@ -1,6 +1,7 @@
 
 @section scripts{
 	<script src="~/view-resources/Views/AccountHolderHome/Index.js"></script>
+	<script src="~/lib/jquery-number/jquery.number.min.js"></script>
 }
 
 <div class="m-grid__item m-grid__item--fluid m-wrapper">
@@ -31,15 +32,12 @@
 				</ul>
 			</div>
 			<div>
-				<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
-					<span class="m-subheader__daterange-label">
-						<span class="m-subheader__daterange-title"></span>
-						<span class="m-subheader__daterange-date m--font-brand"></span>
+				<a asp-controller="TopUpSaving" asp-action="Index" class="btn btn-primary m-btn m-btn--icon m-btn--pill m-btn--air">
+					<span>
+						<i class="la la-archive"></i>
+						<span>Top up savings</span>
 					</span>
-					<a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
-						<i class="la la-angle-down"></i>
-					</a>
-				</span>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -62,7 +60,7 @@
 										<span class="m-widget1__desc">Available Balance</span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-brand">N17,800</span>
+										<span id="availableBalance" class="m-widget1__number m--font-brand"></span>
 									</div>
 								</div>
 							</div>
@@ -73,18 +71,18 @@
 										<span class="m-widget1__desc">Year 2019</span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-success">N1,800</span>
+										<span id="interestReceived" class="m-widget1__number m--font-success"></span>
 									</div>
 								</div>
 							</div>
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Amount Withdrawn</h3>
+										<h2 class="m-widget1__title" style="font-size: 0.95rem">Total Amount Withdrawn</h2>
 										<span class="m-widget1__desc">Year 2019</span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-danger">-N2,500</span>
+										<span id="amountWithdrawn" class="m-widget1__number m--font-danger"></span>
 									</div>
 								</div>
 							</div>
@@ -99,33 +97,33 @@
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Curent Balance</h3>
-										<span class="m-widget1__desc">Available Balance</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-brand">N17,800</span>
+										<span class="m-widget1__number m--font-brand"></span>
 									</div>
 								</div>
 							</div>
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Interest Received</h3>
-										<span class="m-widget1__desc">Year 2019</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-success">N1,800</span>
+										<span class="m-widget1__number m--font-success"></span>
 									</div>
 								</div>
 							</div>
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Amount Withdrawn</h3>
-										<span class="m-widget1__desc">Year 2019</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-danger">-N2,500</span>
+										<span class="m-widget1__number m--font-danger"></span>
 									</div>
 								</div>
 							</div>
@@ -140,33 +138,33 @@
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Curent Balance</h3>
-										<span class="m-widget1__desc">Available Balance</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-brand">N17,800</span>
+										<span class="m-widget1__number m--font-brand"></span>
 									</div>
 								</div>
 							</div>
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Interest Received</h3>
-										<span class="m-widget1__desc">Year 2019</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-success">N1,800</span>
+										<span class="m-widget1__number m--font-success"></span>
 									</div>
 								</div>
 							</div>
 							<div class="m-widget1__item">
 								<div class="row m-row--no-padding align-items-center">
 									<div class="col">
-										<h3 class="m-widget1__title">Amount Withdrawn</h3>
-										<span class="m-widget1__desc">Year 2019</span>
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
 									</div>
 									<div class="col m--align-right">
-										<span class="m-widget1__number m--font-danger">-N2,500</span>
+										<span class="m-widget1__number m--font-danger"></span>
 									</div>
 								</div>
 							</div>
@@ -179,5 +177,33 @@
 		</div>
 
 		<!--End::Section-->
+		<!-- Start::Transaction Section -->
+		<div class="m-portlet m-portlet--accent" m-portlet="true">
+			<div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon">
+							<i class="flaticon-list-2"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+							Recent Transactions <!--<small>click on the right icon to expand</small>-->
+						</h3>
+					</div>
+				</div>
+				<div class="m-portlet__head-tools">
+					<ul class="m-portlet__nav">
+						<li class="m-portlet__nav-item">
+							<!--<a href="#" m-portlet-tool="fullscreen" class="m-portlet__nav-link m-portlet__nav-link--icon"><i class="la la-expand"></i></a>-->
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="m-portlet__body">
+				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="300" style="overflow: hidden; height: 300px;">
+					<span>Recent transactions body...</span>
+				</div>
+			</div>
+		</div>
+		<!-- End::Transaction Section -->
 	</div>
 </div>

@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Monivault.Authorization.Users;
 using Monivault.Controllers;
-using Monivault.ModelManagers;
-using Monivault.Services;
+using Monivault.ModelServices;
 using Monivault.SignUp;
 using Monivault.Web.Models.SignUp;
 
@@ -21,7 +20,7 @@ namespace Monivault.Web.Controllers
         private readonly SmsService _smsService;
         private readonly UserSignUpManager _userSignUpManager;
         private readonly UserManager _userManager;
-        private readonly AccountHolderManager _accountHolderManager;
+        private readonly AccountHolderService _accountHolderService;
         private readonly NotificationScheduler _notificationScheduler;
         
         public SignUpController(
@@ -29,14 +28,14 @@ namespace Monivault.Web.Controllers
             SmsService smsService,
             UserSignUpManager userSignUpManager,
             UserManager userManager,
-            AccountHolderManager accountHolderManager,
+            AccountHolderService accountHolderService,
             NotificationScheduler notificationScheduler)
         {
             _verificationCodeService = verificationCodeService;
             _smsService = smsService;
             _userSignUpManager = userSignUpManager;
             _userManager = userManager;
-            _accountHolderManager = accountHolderManager;
+            _accountHolderService = accountHolderService;
             _notificationScheduler = notificationScheduler;
         }
         // GET
@@ -64,12 +63,10 @@ namespace Monivault.Web.Controllers
                                                     model.Password,
                                     true);
 
-            var accountHolder = await _accountHolderManager.CreateAccountHolder(user.Id);
+            var accountHolder = await _accountHolderService.CreateAccountHolder(user.Id);
             
             //Send a welcome text and email, with AccountHolder Identity.
-            Logger.Info("About to set notification job...");
             _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
-            Logger.Info("Successfully set notification job...");
             
             return Json(new AjaxResponse{TargetUrl = "/SignUp/SuccessfulSignUp"});
         }

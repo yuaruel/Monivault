@@ -1,4 +1,4 @@
-﻿namespace Monivault.Models.TokenAuth
+﻿namespace Monivault.AppModels.TokenAuth
 {
     public class ExternalAuthenticateResultModel
     {

@@ -15,7 +15,7 @@ using Monivault.Authentication.External;
 using Monivault.Authentication.JwtBearer;
 using Monivault.Authorization;
 using Monivault.Authorization.Users;
-using Monivault.Models.TokenAuth;
+using Monivault.AppModels.TokenAuth;
 using Monivault.MultiTenancy;
 
 namespace Monivault.Controllers

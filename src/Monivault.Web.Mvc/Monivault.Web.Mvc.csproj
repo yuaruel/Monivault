@@ -310,6 +310,10 @@
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\src\localization\methods_nl.js" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\src\localization\methods_pt.js" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\validation.jquery.json" />
+    <_ContentIncludedByDefault Remove="Views\About\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Tenants\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Tenants\_EditTenantModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="wwwroot\lib\jquery-form\.circleci\config.yml" />

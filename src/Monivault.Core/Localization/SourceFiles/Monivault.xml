@@ -107,5 +107,6 @@
     <text name="AccountHolderDashboard">Account Holder Dashboard</text>
     <text name="AdminDashboard">Admin Dashboard</text>
     <text name="AdminReports">Admin Reports</text>
+    <text name="Dashboard">Dashboard</text>
   </texts>
 </localizationDictionary>

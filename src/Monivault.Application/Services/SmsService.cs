@@ -12,7 +12,7 @@ using Monivault.Exceptions;
 using Newtonsoft.Json;
 using ILogger = Castle.Core.Logging.ILogger;
 
-namespace Monivault.Services
+namespace Monivault.ModelServices
 {
     public class SmsService : ISingletonDependency
     {
@@ -35,6 +35,7 @@ namespace Monivault.Services
             query["dnd"] = "5";
 
             urlBuilder.Query = query.ToString();*/
+            
             var query = new Dictionary<string, string>();
             query.Add("api_token", "YUqX8aO6YPsdYwcidhnVTkzSyYbTZPdlhVzLhBpqmApQNnEKH9vYVgacNBpI");
             query.Add("from", "MONIVAULT");

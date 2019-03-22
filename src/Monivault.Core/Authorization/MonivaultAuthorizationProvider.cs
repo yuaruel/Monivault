@@ -22,8 +22,18 @@ namespace Monivault.Authorization
             rolePermission.CreateChildPermission(PermissionNames.Pages_RoleManagement_Edit, L("RoleManagementEdit"));
             rolePermission.CreateChildPermission(PermissionNames.Pages_RoleManagement_Delete, L("RoleManagementDelete"));
 
-            context.CreatePermission(PermissionNames.Pages_Account_Holder_Dashboard, L("AccountHolderDashboard"));
+            context.CreatePermission(PermissionNames.Pages_AccountHolder_Dashboard, L("AccountHolderDashboard"), multiTenancySides: MultiTenancySides.Tenant);
 
+            var transferPermission = context.CreatePermission(PermissionNames.Pages_Transfer, L("Transfer"), multiTenancySides: MultiTenancySides.Tenant);
+            transferPermission.CreateChildPermission(PermissionNames.Pages_Transfer_PayCode, L("TransferPayCode"));
+            transferPermission.CreateChildPermission(PermissionNames.Pages_Transfer_BankAccount, L("TransferBankAccount"));
+
+            var utilitiesPermission = context.CreatePermission(PermissionNames.Pages_Utilities, L("Utilities"), multiTenancySides: MultiTenancySides.Tenant);
+            utilitiesPermission.CreateChildPermission(PermissionNames.Pages_Utilities_TaxPayment, L("UtilitiesTaxPayment"));
+
+            context.CreatePermission(PermissionNames.Pages_AccountHolder_Management, L("AccountHoldersManagement"), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.Pages_Settings, L("Settings"),
+                multiTenancySides: MultiTenancySides.Tenant);
         }
 
         private static ILocalizableString L(string name)

@@ -1,0 +1,1300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns12="http://fmtopup.support.services.estel.com" xmlns:tns6="http://pinverify.support.services.estel.com" xmlns:tns3="http://balance.support.services.estel.com" xmlns:tns1="http://namequery.support.services.estel.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns7="http://redeem.support.services.estel.com" xmlns:tns2="http://transactionstatus.support.services.estel.com" xmlns:tns9="http://bundlelist.support.services.estel.com" xmlns:tns11="http://smilebalance.support.services.estel.com" xmlns:impl="http://services.estel.com" xmlns:tns10="http://buybundle.support.services.estel.com" xmlns:tns8="http://bankdetails.support.services.estel.com" xmlns:tns5="http://fundstransfer.support.services.estel.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns4="http://topup.support.services.estel.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:intf="http://services.estel.com" targetNamespace="http://services.estel.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:element name="main">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="args" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mainResponse">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getName">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nameQueryRequest" type="tns1:NameQueryRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNameResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getNameReturn" type="tns1:NameQueryResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTransactionStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="transactionStatusRequest" type="tns2:TransactionStatusRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTransactionStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTransactionStatusReturn" type="tns2:TransactionStatusResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="balanceRequest" type="tns3:BalanceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getBalanceReturn" type="tns3:BalanceResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTopup">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="topupRequest" type="tns4:TopupRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTopupResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTopupReturn" type="tns4:TopupResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFundsTransfer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fundsTransferRequest" type="tns5:FundsTransferRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFundsTransferResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getFundsTransferReturn" type="tns5:FundsTransferResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPinVerify">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pinVerifyRequest" type="tns6:PinVerifyRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPinVerifyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPinVerifyReturn" type="tns6:PinVerifyResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPinRedeem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pinRedeemRequest" type="tns7:PinRedeemRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPinRedeemResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPinRedeemReturn" type="tns7:PinRedeemResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBankDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bankDetailsRequest" type="tns8:BankDetailsRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBankDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getBankDetailsReturn" type="tns8:BankDetailsResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOf_xsd_anyType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="checklength">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="strtocheck" type="xsd:string" />
+            <xsd:element name="strlength" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checklengthResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="checklengthReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isNumericForMobile">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="checkstr" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isNumericForMobileResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isNumericForMobileReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBundleList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bundleListRequest" type="tns9:BundleListRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBundleListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getBundleListReturn" type="tns9:BundleListResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOf_tns9_BundleListDetail">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns9:BundleListDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getBuyBundle">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="buyBundleRequest" type="tns10:BuyBundleRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBuyBundleResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getBuyBundleReturn" type="tns10:BuyBundleResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSmileBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="smileBalanceRequest" type="tns11:SmileBalanceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSmileBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getSmileBalanceReturn" type="tns11:SmileBalanceResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFMTopup">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="topupFMRequest" type="tns12:TopupFMRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFMTopupResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getFMTopupReturn" type="tns12:TopupFMResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validateMobileNumber">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mobile" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validateMobileNumberResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="validateMobileNumberReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://namequery.support.services.estel.com">
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="NameQueryRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="productCode" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+          <xsd:element name="action" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="NameQueryResponse">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="pramt" nillable="true" type="xsd:string" />
+          <xsd:element name="poamt" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="walletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="preWalletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="fee" nillable="true" type="xsd:string" />
+          <xsd:element name="processingfee" nillable="true" type="xsd:string" />
+          <xsd:element name="range" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetax" nillable="true" type="xsd:string" />
+          <xsd:element name="ecess" nillable="true" type="xsd:string" />
+          <xsd:element name="hcess" nillable="true" type="xsd:string" />
+          <xsd:element name="entax" nillable="true" type="xsd:string" />
+          <xsd:element name="vat" nillable="true" type="xsd:string" />
+          <xsd:element name="tax" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responseValue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="smsval" nillable="true" type="xsd:string" />
+          <xsd:element name="oprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="preoprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="customerId" nillable="true" type="xsd:string" />
+          <xsd:element name="customerAccountId" nillable="true" type="xsd:string" />
+          <xsd:element name="refillId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgAuthId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransname" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+          <xsd:element name="posCode" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetype" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransId" nillable="true" type="xsd:string" />
+          <xsd:element name="channelId" nillable="true" type="xsd:string" />
+          <xsd:element name="validity" nillable="true" type="xsd:string" />
+          <xsd:element name="pre_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="post_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="circleid" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="distributerid" nillable="true" type="xsd:string" />
+          <xsd:element name="authId" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="reason" nillable="true" type="xsd:string" />
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="customerName" nillable="true" type="xsd:string" />
+          <xsd:element name="totalUnits" nillable="true" type="xsd:string" />
+          <xsd:element name="unitsCost" nillable="true" type="xsd:string" />
+          <xsd:element name="unitsVat" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://transactionstatus.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="TransactionStatusRequest">
+        <xsd:sequence>
+          <xsd:element name="agentcode" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="refid" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransactionStatusResponse">
+        <xsd:sequence>
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="refid" type="xsd:string" />
+          <xsd:element name="resultcode" type="xsd:string" />
+          <xsd:element name="agentcode" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" type="xsd:string" />
+          <xsd:element name="responsects" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="transtype" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://balance.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="BalanceRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BalanceResponse">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="agentname" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="responsevalue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://topup.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:complexType name="TopupRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="productCode" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TopupResponse">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="pramt" nillable="true" type="xsd:string" />
+          <xsd:element name="poamt" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="walletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="preWalletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="fee" nillable="true" type="xsd:string" />
+          <xsd:element name="processingfee" nillable="true" type="xsd:string" />
+          <xsd:element name="range" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetax" nillable="true" type="xsd:string" />
+          <xsd:element name="ecess" nillable="true" type="xsd:string" />
+          <xsd:element name="hcess" nillable="true" type="xsd:string" />
+          <xsd:element name="entax" nillable="true" type="xsd:string" />
+          <xsd:element name="vat" nillable="true" type="xsd:string" />
+          <xsd:element name="tax" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responseValue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="smsval" nillable="true" type="xsd:string" />
+          <xsd:element name="oprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="preoprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="customerId" nillable="true" type="xsd:string" />
+          <xsd:element name="customerAccountId" nillable="true" type="xsd:string" />
+          <xsd:element name="refillId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgAuthId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransname" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+          <xsd:element name="posCode" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetype" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransId" nillable="true" type="xsd:string" />
+          <xsd:element name="channelId" nillable="true" type="xsd:string" />
+          <xsd:element name="validity" nillable="true" type="xsd:string" />
+          <xsd:element name="pre_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="post_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="circleid" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="distributerid" nillable="true" type="xsd:string" />
+          <xsd:element name="authId" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="reason" nillable="true" type="xsd:string" />
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="customerName" nillable="true" type="xsd:string" />
+          <xsd:element name="totalUnits" nillable="true" type="xsd:string" />
+          <xsd:element name="unitsCost" nillable="true" type="xsd:string" />
+          <xsd:element name="unitsVat" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fundstransfer.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="FundsTransferRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="productCode" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="action" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FundsTransferResponse">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="walletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="preWalletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="fee" nillable="true" type="xsd:string" />
+          <xsd:element name="vat" nillable="true" type="xsd:string" />
+          <xsd:element name="tax" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responseValue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="smsval" nillable="true" type="xsd:string" />
+          <xsd:element name="oprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="preoprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+          <xsd:element name="channelId" nillable="true" type="xsd:string" />
+          <xsd:element name="pre_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="post_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="reason" nillable="true" type="xsd:string" />
+          <xsd:element name="sourcename" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://pinverify.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="PinVerifyRequest">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="pin" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+          <xsd:element name="mobileno" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PinVerifyResponse">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="prewalletbalance" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responsevalue" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="serialno" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceid" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="walletbalance" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://redeem.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="PinRedeemRequest">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="pin" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+          <xsd:element name="serialno" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PinRedeemResponse">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="prewalletbalance" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responsevalue" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="serialno" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceid" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="walletbalance" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://bankdetails.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="BankDetailsRequest">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BankDetailsResponse">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="bankDetailList" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="recordCount" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="Vector">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://bundlelist.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="BundleListRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BundleListDetail">
+        <xsd:sequence>
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="producttype" nillable="true" type="xsd:string" />
+          <xsd:element name="productdesc" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BundleListResponse">
+        <xsd:sequence>
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="recordCount" nillable="true" type="xsd:string" />
+          <xsd:element name="records" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="BundleListDetail" nillable="true" type="intf:ArrayOf_tns9_BundleListDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://buybundle.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="BuyBundleRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" type="xsd:string" />
+          <xsd:element name="amount" type="xsd:string" />
+          <xsd:element name="qty" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="productCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BuyBundleResponse">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="pramt" nillable="true" type="xsd:string" />
+          <xsd:element name="poamt" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="walletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="preWalletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="fee" nillable="true" type="xsd:string" />
+          <xsd:element name="processingfee" nillable="true" type="xsd:string" />
+          <xsd:element name="range" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetax" nillable="true" type="xsd:string" />
+          <xsd:element name="ecess" nillable="true" type="xsd:string" />
+          <xsd:element name="hcess" nillable="true" type="xsd:string" />
+          <xsd:element name="entax" nillable="true" type="xsd:string" />
+          <xsd:element name="vat" nillable="true" type="xsd:string" />
+          <xsd:element name="tax" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responseValue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="smsval" nillable="true" type="xsd:string" />
+          <xsd:element name="oprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="preoprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="customerId" nillable="true" type="xsd:string" />
+          <xsd:element name="customerAccountId" nillable="true" type="xsd:string" />
+          <xsd:element name="refillId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgAuthId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransname" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+          <xsd:element name="posCode" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetype" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransId" nillable="true" type="xsd:string" />
+          <xsd:element name="channelId" nillable="true" type="xsd:string" />
+          <xsd:element name="validity" nillable="true" type="xsd:string" />
+          <xsd:element name="pre_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="post_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="circleid" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="distributerid" nillable="true" type="xsd:string" />
+          <xsd:element name="authId" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://smilebalance.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fmtopup.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="SmileBalanceRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SmileBalanceResponse">
+        <xsd:sequence>
+          <xsd:element name="agentcode" nillable="true" type="xsd:string" />
+          <xsd:element name="agentname" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="responsevalue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fmtopup.support.services.estel.com">
+      <xsd:import namespace="http://namequery.support.services.estel.com" />
+      <xsd:import namespace="http://fundstransfer.support.services.estel.com" />
+      <xsd:import namespace="http://pinverify.support.services.estel.com" />
+      <xsd:import namespace="http://smilebalance.support.services.estel.com" />
+      <xsd:import namespace="http://transactionstatus.support.services.estel.com" />
+      <xsd:import namespace="http://services.estel.com" />
+      <xsd:import namespace="http://balance.support.services.estel.com" />
+      <xsd:import namespace="http://buybundle.support.services.estel.com" />
+      <xsd:import namespace="http://redeem.support.services.estel.com" />
+      <xsd:import namespace="http://bundlelist.support.services.estel.com" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://bankdetails.support.services.estel.com" />
+      <xsd:import namespace="http://topup.support.services.estel.com" />
+      <xsd:complexType name="TopupFMRequest">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="mpin" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="productCode" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TopupFMResponse">
+        <xsd:sequence>
+          <xsd:element name="agentCode" nillable="true" type="xsd:string" />
+          <xsd:element name="source" nillable="true" type="xsd:string" />
+          <xsd:element name="vendortransid" nillable="true" type="xsd:string" />
+          <xsd:element name="vendorcode" nillable="true" type="xsd:string" />
+          <xsd:element name="productcode" nillable="true" type="xsd:string" />
+          <xsd:element name="destination" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="agenttransid" nillable="true" type="xsd:string" />
+          <xsd:element name="amount" nillable="true" type="xsd:string" />
+          <xsd:element name="pramt" nillable="true" type="xsd:string" />
+          <xsd:element name="poamt" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+          <xsd:element name="walletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="preWalletBalance" nillable="true" type="xsd:string" />
+          <xsd:element name="fee" nillable="true" type="xsd:string" />
+          <xsd:element name="processingfee" nillable="true" type="xsd:string" />
+          <xsd:element name="range" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetax" nillable="true" type="xsd:string" />
+          <xsd:element name="ecess" nillable="true" type="xsd:string" />
+          <xsd:element name="hcess" nillable="true" type="xsd:string" />
+          <xsd:element name="entax" nillable="true" type="xsd:string" />
+          <xsd:element name="vat" nillable="true" type="xsd:string" />
+          <xsd:element name="tax" nillable="true" type="xsd:string" />
+          <xsd:element name="clienttype" nillable="true" type="xsd:string" />
+          <xsd:element name="resultcode" nillable="true" type="xsd:string" />
+          <xsd:element name="resultdescription" nillable="true" type="xsd:string" />
+          <xsd:element name="requestcts" nillable="true" type="xsd:string" />
+          <xsd:element name="responsects" nillable="true" type="xsd:string" />
+          <xsd:element name="responseValue" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="smsval" nillable="true" type="xsd:string" />
+          <xsd:element name="oprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="preoprwallet" nillable="true" type="xsd:string" />
+          <xsd:element name="customerId" nillable="true" type="xsd:string" />
+          <xsd:element name="customerAccountId" nillable="true" type="xsd:string" />
+          <xsd:element name="refillId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgAuthId" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransname" nillable="true" type="xsd:string" />
+          <xsd:element name="servicename" nillable="true" type="xsd:string" />
+          <xsd:element name="posCode" nillable="true" type="xsd:string" />
+          <xsd:element name="servicetype" nillable="true" type="xsd:string" />
+          <xsd:element name="pgtransId" nillable="true" type="xsd:string" />
+          <xsd:element name="channelId" nillable="true" type="xsd:string" />
+          <xsd:element name="validity" nillable="true" type="xsd:string" />
+          <xsd:element name="pre_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="post_balance" nillable="true" type="xsd:string" />
+          <xsd:element name="circleid" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="distributerid" nillable="true" type="xsd:string" />
+          <xsd:element name="authId" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="mobilenumber" nillable="true" type="xsd:string" />
+          <xsd:element name="pinno" nillable="true" type="xsd:string" />
+          <xsd:element name="reason" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPinRedeemResponse">
+    <wsdl:part name="parameters" element="intf:getPinRedeemResponse" />
+  </wsdl:message>
+  <wsdl:message name="mainResponse">
+    <wsdl:part name="parameters" element="intf:mainResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBuyBundleRequest">
+    <wsdl:part name="parameters" element="intf:getBuyBundle" />
+  </wsdl:message>
+  <wsdl:message name="checklengthRequest">
+    <wsdl:part name="parameters" element="intf:checklength" />
+  </wsdl:message>
+  <wsdl:message name="getBalanceResponse">
+    <wsdl:part name="parameters" element="intf:getBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="mainRequest">
+    <wsdl:part name="parameters" element="intf:main" />
+  </wsdl:message>
+  <wsdl:message name="getPinVerifyRequest">
+    <wsdl:part name="parameters" element="intf:getPinVerify" />
+  </wsdl:message>
+  <wsdl:message name="getPinVerifyResponse">
+    <wsdl:part name="parameters" element="intf:getPinVerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="validateMobileNumberResponse">
+    <wsdl:part name="parameters" element="intf:validateMobileNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="isNumericForMobileResponse">
+    <wsdl:part name="parameters" element="intf:isNumericForMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSmileBalanceResponse">
+    <wsdl:part name="parameters" element="intf:getSmileBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopupRequest">
+    <wsdl:part name="parameters" element="intf:getTopup" />
+  </wsdl:message>
+  <wsdl:message name="isNumericForMobileRequest">
+    <wsdl:part name="parameters" element="intf:isNumericForMobile" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionStatusRequest">
+    <wsdl:part name="parameters" element="intf:getTransactionStatus" />
+  </wsdl:message>
+  <wsdl:message name="getFMTopupResponse">
+    <wsdl:part name="parameters" element="intf:getFMTopupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBalanceRequest">
+    <wsdl:part name="parameters" element="intf:getBalance" />
+  </wsdl:message>
+  <wsdl:message name="getBuyBundleResponse">
+    <wsdl:part name="parameters" element="intf:getBuyBundleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNameRequest">
+    <wsdl:part name="parameters" element="intf:getName" />
+  </wsdl:message>
+  <wsdl:message name="getFundsTransferResponse">
+    <wsdl:part name="parameters" element="intf:getFundsTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBankDetailsResponse">
+    <wsdl:part name="parameters" element="intf:getBankDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFMTopupRequest">
+    <wsdl:part name="parameters" element="intf:getFMTopup" />
+  </wsdl:message>
+  <wsdl:message name="checklengthResponse">
+    <wsdl:part name="parameters" element="intf:checklengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBundleListResponse">
+    <wsdl:part name="parameters" element="intf:getBundleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopupResponse">
+    <wsdl:part name="parameters" element="intf:getTopupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionStatusResponse">
+    <wsdl:part name="parameters" element="intf:getTransactionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPinRedeemRequest">
+    <wsdl:part name="parameters" element="intf:getPinRedeem" />
+  </wsdl:message>
+  <wsdl:message name="getBundleListRequest">
+    <wsdl:part name="parameters" element="intf:getBundleList" />
+  </wsdl:message>
+  <wsdl:message name="getSmileBalanceRequest">
+    <wsdl:part name="parameters" element="intf:getSmileBalance" />
+  </wsdl:message>
+  <wsdl:message name="getFundsTransferRequest">
+    <wsdl:part name="parameters" element="intf:getFundsTransfer" />
+  </wsdl:message>
+  <wsdl:message name="getNameResponse">
+    <wsdl:part name="parameters" element="intf:getNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBankDetailsRequest">
+    <wsdl:part name="parameters" element="intf:getBankDetails" />
+  </wsdl:message>
+  <wsdl:message name="validateMobileNumberRequest">
+    <wsdl:part name="parameters" element="intf:validateMobileNumber" />
+  </wsdl:message>
+  <wsdl:portType name="EstelOneCardServices">
+    <wsdl:operation name="main">
+      <wsdl:input name="mainRequest" message="intf:mainRequest" />
+      <wsdl:output name="mainResponse" message="intf:mainResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <wsdl:input name="getNameRequest" message="intf:getNameRequest" />
+      <wsdl:output name="getNameResponse" message="intf:getNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <wsdl:input name="getTransactionStatusRequest" message="intf:getTransactionStatusRequest" />
+      <wsdl:output name="getTransactionStatusResponse" message="intf:getTransactionStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdl:input name="getBalanceRequest" message="intf:getBalanceRequest" />
+      <wsdl:output name="getBalanceResponse" message="intf:getBalanceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopup">
+      <wsdl:input name="getTopupRequest" message="intf:getTopupRequest" />
+      <wsdl:output name="getTopupResponse" message="intf:getTopupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getFundsTransfer">
+      <wsdl:input name="getFundsTransferRequest" message="intf:getFundsTransferRequest" />
+      <wsdl:output name="getFundsTransferResponse" message="intf:getFundsTransferResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPinVerify">
+      <wsdl:input name="getPinVerifyRequest" message="intf:getPinVerifyRequest" />
+      <wsdl:output name="getPinVerifyResponse" message="intf:getPinVerifyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPinRedeem">
+      <wsdl:input name="getPinRedeemRequest" message="intf:getPinRedeemRequest" />
+      <wsdl:output name="getPinRedeemResponse" message="intf:getPinRedeemResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBankDetails">
+      <wsdl:input name="getBankDetailsRequest" message="intf:getBankDetailsRequest" />
+      <wsdl:output name="getBankDetailsResponse" message="intf:getBankDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checklength">
+      <wsdl:input name="checklengthRequest" message="intf:checklengthRequest" />
+      <wsdl:output name="checklengthResponse" message="intf:checklengthResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isNumericForMobile">
+      <wsdl:input name="isNumericForMobileRequest" message="intf:isNumericForMobileRequest" />
+      <wsdl:output name="isNumericForMobileResponse" message="intf:isNumericForMobileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBundleList">
+      <wsdl:input name="getBundleListRequest" message="intf:getBundleListRequest" />
+      <wsdl:output name="getBundleListResponse" message="intf:getBundleListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBuyBundle">
+      <wsdl:input name="getBuyBundleRequest" message="intf:getBuyBundleRequest" />
+      <wsdl:output name="getBuyBundleResponse" message="intf:getBuyBundleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSmileBalance">
+      <wsdl:input name="getSmileBalanceRequest" message="intf:getSmileBalanceRequest" />
+      <wsdl:output name="getSmileBalanceResponse" message="intf:getSmileBalanceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getFMTopup">
+      <wsdl:input name="getFMTopupRequest" message="intf:getFMTopupRequest" />
+      <wsdl:output name="getFMTopupResponse" message="intf:getFMTopupResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="validateMobileNumber">
+      <wsdl:input name="validateMobileNumberRequest" message="intf:validateMobileNumberRequest" />
+      <wsdl:output name="validateMobileNumberResponse" message="intf:validateMobileNumberResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstelOneCardServicesSoapBinding" type="intf:EstelOneCardServices">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="main">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="mainRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="mainResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getNameRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNameResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTransactionStatusRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTransactionStatusResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBalanceRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getBalanceResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopup">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTopupRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTopupResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFundsTransfer">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getFundsTransferRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getFundsTransferResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPinVerify">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPinVerifyRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPinVerifyResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPinRedeem">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPinRedeemRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPinRedeemResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankDetails">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBankDetailsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getBankDetailsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checklength">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checklengthRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checklengthResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isNumericForMobile">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="isNumericForMobileRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="isNumericForMobileResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBundleList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBundleListRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getBundleListResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuyBundle">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBuyBundleRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getBuyBundleResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSmileBalance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSmileBalanceRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSmileBalanceResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFMTopup">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getFMTopupRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getFMTopupResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateMobileNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="validateMobileNumberRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validateMobileNumberResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstelOneCardServicesService">
+    <wsdl:port name="EstelOneCardServices" binding="intf:EstelOneCardServicesSoapBinding">
+      <wsdlsoap:address location="http://180.179.201.98/EstelOneCardServices/services/EstelOneCardServices" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

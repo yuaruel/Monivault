@@ -5,7 +5,7 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Monivault.Models
+namespace Monivault.AppModels
 {
     public class VerificationCode : Entity, IHasCreationTime
     {

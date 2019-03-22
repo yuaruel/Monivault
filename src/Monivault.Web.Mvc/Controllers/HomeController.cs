@@ -14,7 +14,7 @@ namespace Monivault.Web.Controllers
             if (PermissionChecker.IsGranted(PermissionNames.Pages_Admin_Dashboard))
             {
                 return RedirectToAction("Index", "AdminHome");
-            }else if (PermissionChecker.IsGranted(PermissionNames.Pages_Account_Holder_Dashboard))
+            }else if (PermissionChecker.IsGranted(PermissionNames.Pages_AccountHolder_Dashboard))
             {
                 return RedirectToAction("Index", "AccountHolderHome");
             }

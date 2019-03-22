@@ -1,7 +1,6 @@
 $(function(){
-    console.log('script loaded successfully...');
+    
     $('#m_login_signin_submit').click(function(){
-        console.log('about to validate form...');
         var submitBtn = $(this);
         var loginForm = $(this).closest('form');
         
