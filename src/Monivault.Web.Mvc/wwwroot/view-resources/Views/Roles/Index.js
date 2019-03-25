@@ -1,4 +1,60 @@
-﻿(function () {
+﻿$(function(){
+	var roleTable = $('#RoleTable').DataTable({
+		ajax: {
+			url: abp.appPath + 'Roles/AllRoles',
+			dataSrc: 'result'
+		},
+		columnDefs: [
+			{
+				targets: 0,
+				width: '30px'
+			}
+		],
+		columns: [
+
+			{
+				data: 'displayName',
+				width: '50px'
+			},
+			{data: 'createdTime'},
+			{
+				data: 'permissions',
+				render: function(data, type, full, meta){
+					var output = '';
+
+					for(var index in data){
+						output = output.concat(data[index].name, '<span class="m-badge m-badge--brand m-badge--dot"></span>');
+					}
+					
+					return output;
+				}
+			},
+			{
+				data: 'roleKey',
+				render: function(data, type, full, meta){
+					return '<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">'
+							+	'<i class="la la-edit"></i>' + 
+							'</a>'
+				}
+			}
+		]
+	});
+
+	$('#AddNewRoleBtn').click(function (e) {
+
+		e.preventDefault();
+		$.ajax({
+			url: abp.appPath + 'Roles/AddRoleModal',
+			type: 'GET',
+			contentType: 'application/html',
+			success: function (content) {
+				$('#RoleCreateModal div.modal-body').html(content);
+			},
+			error: function (e) { }
+		});
+	});
+});
+(function () {
 	$(function () {
 
 		var _roleService = abp.services.app.role;

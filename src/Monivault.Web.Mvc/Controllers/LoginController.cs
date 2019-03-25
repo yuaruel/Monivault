@@ -82,6 +82,7 @@ namespace Monivault.Web.Controllers
                 case AbpLoginResultType.Success:
                     return loginResult;
                 default:
+                    Logger.Info("Result type: " + loginResult.Result.ToString());
                     throw _abpLoginResultTypeHelper.CreateExceptionForFailedLoginAttempt(loginResult.Result, usernameOrEmailAddress, tenancyName);
             }
         }

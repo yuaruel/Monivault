@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
 using Abp.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Monivault.Authorization.Users
 {
     public class User : AbpUser<User>
     {
-        public const string DefaultPassword = "123qwe";
+        public const string DefaultPassword = "pass1word@";
+
+        public const string SuperAdminUserName = "superadmin";
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid UserKey { get; set; }
 
         public static string CreateRandomPassword()
         {

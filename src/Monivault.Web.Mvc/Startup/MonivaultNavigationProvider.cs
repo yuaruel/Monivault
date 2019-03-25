@@ -32,7 +32,7 @@ namespace Monivault.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Transfers,
                         L("Transfers"),
-                        url: "Roles",
+                        url: "Transfers",
                         icon: "flaticon-diagram",
                         requiredPermissionName: PermissionNames.Pages_Transfer
                     ).AddItem(
@@ -88,9 +88,9 @@ namespace Monivault.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        PageNames.RolesAndPermissions,
-                        L("RolesPermissions"),
-                        url: "",
+                        PageNames.RoleManagement,
+                        L("RoleManagement"),
+                        url: "Roles",
                         icon: "flaticon-web",
                         requiredPermissionName: PermissionNames.Pages_RoleManagement
                     )

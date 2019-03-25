@@ -4,8 +4,9 @@ using Abp.Domain.Entities.Auditing;
 
 namespace Monivault.Roles.Dto
 {
-    public class RoleListDto : EntityDto, IHasCreationTime
+    public class RoleListDto : IHasCreationTime
     {
+        public Guid RoleKey { get; set; }
         public string Name { get; set; }
 
         public string DisplayName { get; set; }

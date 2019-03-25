@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Roles;
 using Monivault.Authorization.Users;
 
@@ -24,5 +26,8 @@ namespace Monivault.Authorization.Roles
 
         [StringLength(MaxDescriptionLength)]
         public string Description {get; set;}
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid RoleKey { get; set; } 
     }
 }

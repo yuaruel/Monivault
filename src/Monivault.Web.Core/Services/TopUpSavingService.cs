@@ -10,7 +10,7 @@ using Castle.Core.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Monivault.AppModels;
-using Monivault.EstelOneCardServicesService;
+//using Monivault.EstelOneCardServicesService;
 using Monivault.Utils;
 using ILogger = Castle.Core.Logging.ILogger;
 
@@ -58,10 +58,10 @@ namespace Monivault.ModelServices
                 };
                 
                 //binding.CreateBindingElements().Add();
-                var endpointAddress = new EndpointAddress("http://180.179.201.98/EstelOneCardServices/services");
-                var factory = new ChannelFactory<EstelOneCardServices>(binding, endpointAddress);
-                factory.Endpoint.EndpointBehaviors.Add(factoryHandlerBehavior);
-                var client = factory.CreateChannel();
+                var endpointAddress = new EndpointAddress("http://180.179.201.98/EstelOneCardServices/services/EstelOneCardServices");
+                //var factory = new ChannelFactory<EstelOneCardServices>(binding, endpointAddress);
+                //factory.Endpoint.EndpointBehaviors.Add(factoryHandlerBehavior);
+                //var client = factory.CreateChannel();
                 
                 
                 //var oneCardServiceClient = new EstelOneCardServicesClient(binding, endpointAddress);
@@ -71,8 +71,8 @@ namespace Monivault.ModelServices
 
                 var agentTransactionId = RandomStringGeneratorUtil.GenerateAgentTransactionId();
                 Logger.Info("Pin no: " + pinno);
-                var pinRedeemRequest = new PinRedeemRequest
-                {
+                //var pinRedeemRequest = new PinRedeemRequest
+                /*{
                     //pin = "APEX_PINRDM",
                     pin = "TPR_AAL_1",
                     //agentcode = "7F1359753577B274D717DC2E41BA1E51",
@@ -81,12 +81,12 @@ namespace Monivault.ModelServices
                     agenttransid = agentTransactionId,
                     serviceid = PinRedeemServiceIds.SavingsTopUp,
                     comments = "just do it"
-                };
+                };*/
 
-                var pinRedeemResponse = client.getPinRedeem(pinRedeemRequest);
+                //var pinRedeemResponse = client.getPinRedeem(pinRedeemRequest);
                 
                 //Log OneCardPinRedeem. Whether successful or not
-                var pinRedeemLog = new OneCardPinRedeemLog();
+/*                var pinRedeemLog = new OneCardPinRedeemLog();
                 pinRedeemLog.Amount = decimal.Parse(pinRedeemResponse.amount);
                 pinRedeemLog.AccountHolder = accountHolder;
                 pinRedeemLog.Comments = comment;
@@ -138,7 +138,7 @@ namespace Monivault.ModelServices
                        
                     default:
                         throw new UserFriendlyException("One card system error. Try again later!");
-                }
+                }*/
             }
             catch (InvalidOperationException ioExc)
             {

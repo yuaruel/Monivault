@@ -34,18 +34,4 @@
     <Folder Include="Services\Dtos" />
     <Folder Include="Utils" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\EstelOneCardServicesService" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EstelOneCardServicesService\EstelOneCardServices.wsdl" />
-    <None Include="Service References\EstelOneCardServicesService\EstelOneCardServicesService.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>EstelOneCardServicesService.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\EstelOneCardServicesService\EstelOneCardServicesService.webref" />
-  </ItemGroup>
 </Project>

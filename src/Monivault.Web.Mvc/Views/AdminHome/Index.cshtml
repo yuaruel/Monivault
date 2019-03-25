@@ -1,13 +1,172 @@
+@using Monivault.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.AdminDashboard;   
+}
 
-<!DOCTYPE html>
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">Dashboard</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item m-nav__item--home">
+                        <a href="#" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-home"></i>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">Administrator Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">System Summary</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+    <!-- END: Subheader -->
+    
+    <div class="m-content">
+        		<!--Begin::Section-->
+		<div class="m-portlet">
+			<div class="m-portlet__body  m-portlet__body--no-padding">
+				<div class="row m-row--no-padding m-row--col-separator-xl">
+					<div class="col-xl-4">
+
+						<!--begin:: Widgets/Stats2-1 -->
+						<div class="m-widget1">
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title">Account Holders</h3>
+										<span class="m-widget1__desc">No. of Account Holders</span>
+									</div>
+									<div class="col m--align-right">
+										<span id="availableBalance" class="m-widget1__number m--font-brand"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title">Total Deposit</h3>
+										<span class="m-widget1__desc">Year 2019</span>
+									</div>
+									<div class="col m--align-right">
+										<span id="interestReceived" class="m-widget1__number m--font-success"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h2 class="m-widget1__title" style="font-size: 0.95rem">Total Withdrawal</h2>
+										<span class="m-widget1__desc">Year 2019</span>
+									</div>
+									<div class="col m--align-right">
+										<span id="amountWithdrawn" class="m-widget1__number m--font-danger"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--end:: Widgets/Stats2-1 -->
+					</div>
+					<div class="col-xl-4">
+
+						<!--begin:: Widgets/Stats2-1 -->
+						<div class="m-widget1">
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-brand"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-success"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-danger"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--end:: Widgets/Stats2-1 -->
+					</div>
+					<div class="col-xl-4">
+
+						<!--begin:: Widgets/Stats2-1 -->
+						<div class="m-widget1">
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-brand"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-success"></span>
+									</div>
+								</div>
+							</div>
+							<div class="m-widget1__item">
+								<div class="row m-row--no-padding align-items-center">
+									<div class="col">
+										<h3 class="m-widget1__title"></h3>
+										<span class="m-widget1__desc"></span>
+									</div>
+									<div class="col m--align-right">
+										<span class="m-widget1__number m--font-danger"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--end:: Widgets/Stats2-1 -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--End::Section-->
+    </div>
 </div>
-</body>
-</html>
+

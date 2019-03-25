@@ -108,5 +108,11 @@
     <text name="AdminDashboard">Admin Dashboard</text>
     <text name="AdminReports">Admin Reports</text>
     <text name="Dashboard">Dashboard</text>
+    <text name="Transfers">Transfers</text>
+    <text name="BankAccount">Bank Account</text>
+    <text name="PayCode">Pay Code</text>
+    <text name="TaxPayment">Tax Payment</text>
+    <text name="AccountHolders">Account Holders</text>
+    <text name="Utilities">Utilities</text>
   </texts>
 </localizationDictionary>
