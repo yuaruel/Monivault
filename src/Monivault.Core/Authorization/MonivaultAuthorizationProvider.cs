@@ -9,31 +9,30 @@ namespace Monivault.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            context.CreatePermission(PermissionNames.Pages_Admin_Dashboard, L("AdminDashboard"), multiTenancySides: MultiTenancySides.Tenant);
-            context.CreatePermission(PermissionNames.Pages_Admin_Reports, L("AdminReports"), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewAdminDashboard, L(PermissionNames.ViewAdminDashboard), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewAdminReports, L(PermissionNames.ViewAdminReports), multiTenancySides: MultiTenancySides.Tenant);
             
-            var userPermission = context.CreatePermission(PermissionNames.Pages_UserManagement, L("UserManagement"), multiTenancySides: MultiTenancySides.Tenant);
-            userPermission.CreateChildPermission(PermissionNames.Pages_UserManagement_Create, L("UserManagementCreate"));
-            userPermission.CreateChildPermission(PermissionNames.Pages_UserManagement_Edit, L("UserManagementEdit"));
-            userPermission.CreateChildPermission(PermissionNames.Pages_UserManagement_Delete, L("UserManagementDelete"));
+            context.CreatePermission(PermissionNames.ViewUsers, L(PermissionNames.ViewUsers), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.CreateUsers, L(PermissionNames.CreateUsers), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.EditUsers, L(PermissionNames.CreateUsers), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.DeleteUsers, L(PermissionNames.DeleteUsers), multiTenancySides: MultiTenancySides.Tenant);
             
-            var rolePermission = context.CreatePermission(PermissionNames.Pages_RoleManagement, L("RoleManagement"), multiTenancySides: MultiTenancySides.Tenant);
-            rolePermission.CreateChildPermission(PermissionNames.Pages_RoleManagement_Create, L("RoleManagementCreate"));
-            rolePermission.CreateChildPermission(PermissionNames.Pages_RoleManagement_Edit, L("RoleManagementEdit"));
-            rolePermission.CreateChildPermission(PermissionNames.Pages_RoleManagement_Delete, L("RoleManagementDelete"));
+ 
+            context.CreatePermission(PermissionNames.ViewRoles, L(PermissionNames.ViewRoles), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.CreateRoles, L(PermissionNames.CreateRoles), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.EditRoles, L(PermissionNames.EditRoles), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.DeleteRoles, L(PermissionNames.DeleteRoles), multiTenancySides: MultiTenancySides.Tenant);
 
-            context.CreatePermission(PermissionNames.Pages_AccountHolder_Dashboard, L("AccountHolderDashboard"), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewAccountHolderDashboard, L(PermissionNames.ViewAccountHolderDashboard), multiTenancySides: MultiTenancySides.Tenant);
 
-            var transferPermission = context.CreatePermission(PermissionNames.Pages_Transfer, L("Transfer"), multiTenancySides: MultiTenancySides.Tenant);
-            transferPermission.CreateChildPermission(PermissionNames.Pages_Transfer_PayCode, L("TransferPayCode"));
-            transferPermission.CreateChildPermission(PermissionNames.Pages_Transfer_BankAccount, L("TransferBankAccount"));
+            context.CreatePermission(PermissionNames.DoPayCodeTransfer, L(PermissionNames.DoPayCodeTransfer), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.DoBankAccountTransfer, L(PermissionNames.DoBankAccountTransfer), multiTenancySides: MultiTenancySides.Tenant);
 
-            var utilitiesPermission = context.CreatePermission(PermissionNames.Pages_Utilities, L("Utilities"), multiTenancySides: MultiTenancySides.Tenant);
-            utilitiesPermission.CreateChildPermission(PermissionNames.Pages_Utilities_TaxPayment, L("UtilitiesTaxPayment"));
+            context.CreatePermission(PermissionNames.DoTaxPayment, L(PermissionNames.DoTaxPayment), multiTenancySides: MultiTenancySides.Tenant);
 
-            context.CreatePermission(PermissionNames.Pages_AccountHolder_Management, L("AccountHoldersManagement"), multiTenancySides: MultiTenancySides.Tenant);
-            context.CreatePermission(PermissionNames.Pages_Settings, L("Settings"),
-                multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewAccountHolders, L(PermissionNames.ViewAccountHolders), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewSettingsPage, L(PermissionNames.ViewSettingsPage), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.TopUpSaving, L(PermissionNames.TopUpSaving), multiTenancySides: MultiTenancySides.Tenant);
         }
 
         private static ILocalizableString L(string name)

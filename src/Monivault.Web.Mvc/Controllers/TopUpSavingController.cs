@@ -7,7 +7,7 @@ using Monivault.Web.Models.TopUpSaving;
 
 namespace Monivault.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_AccountHolder_Dashboard)]
+    [AbpMvcAuthorize(PermissionNames.TopUpSaving)]
     public class TopUpSavingController : MonivaultControllerBase
     {
         private readonly TopUpSavingService _topUpSavingService;

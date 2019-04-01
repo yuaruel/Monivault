@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,10 +22,11 @@ using Monivault.Roles.Dto;
 using Monivault.Users.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Monivault.Users
 {
-    [AbpAuthorize(PermissionNames.Pages_UserManagement)]
+    [AbpAuthorize(PermissionNames.ViewUsers)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedUserResultRequestDto, CreateUserDto, UserDto>, IUserAppService
     {
         private readonly UserManager _userManager;
@@ -60,6 +62,7 @@ namespace Monivault.Users
 
             user.TenantId = AbpSession.TenantId;
             user.IsEmailConfirmed = true;
+            user.UserKey = Guid.NewGuid();
 
             await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
 
@@ -114,6 +117,38 @@ namespace Monivault.Users
             );
         }
 
+        public async Task<ListResultDto<UserListDto>> GetUserList()
+        {
+            var userList = CreateFilteredQuery(new PagedUserResultRequestDto{MaxResultCount = int.MaxValue}).ToList();
+            
+            var userLists = new List<UserListDto>();
+
+            foreach (var user in userList)
+            {
+                var userListDto = new UserListDto
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    UserKey = user.UserKey,
+                    UserName = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    CreationTime = user.CreationTime
+                };
+                
+                foreach (var userRole in user.Roles)
+                {
+                    var roles = _roleManager.Roles.Where(p => user.Roles.Any(pr => pr.RoleId == p.Id))
+                        .Select(p => p.DisplayName);
+                    
+                    userListDto.RoleNames = roles.ToArray();
+                }
+                
+                userLists.Add(userListDto);
+            }
+
+            return new ListResultDto<UserListDto>(userLists);
+        }
+
         protected override User MapToEntity(CreateUserDto createInput)
         {
             var user = ObjectMapper.Map<User>(createInput);
@@ -154,6 +189,31 @@ namespace Monivault.Users
             return user;
         }
 
+        public UserDto GetUserByKey(string key)
+        {
+            var userKey = Guid.Parse(key);
+            var user = Repository.GetAllIncluding(p =>p.Roles).Single(p => p.UserKey == userKey);
+
+            /*var userDto = new UserDto
+            {
+                Id = user.Id,
+                UserKey = user.UserKey,
+                UserName = user.UserName,
+                Name = user.Name,
+                Surname = user.Surname,
+                EmailAddress = user.EmailAddress,
+                PhoneNumber = user.PhoneNumber,
+                IsActive = user.IsActive
+            };
+            
+            
+            var roles = _roleManager.Roles.Where(r => user.Roles.Any(ur => ur.RoleId == r.Id)).Select(r => r.NormalizedName);
+            userDto.RoleNames = roles.ToArray();*/
+            
+            Logger.Info("user detail: " + JsonConvert.SerializeObject(user));
+
+            return MapToEntityDto(user);
+        }
         protected override IQueryable<User> ApplySorting(IQueryable<User> query, PagedUserResultRequestDto input)
         {
             return query.OrderBy(r => r.UserName);

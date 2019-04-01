@@ -10,7 +10,7 @@ using Monivault.EntityFrameworkCore;
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    [Migration("20190323214023_RoleTable_AddRoleKeyColumn")]
+    [Migration("20190326124130_RoleTable_AddRoleKeyColumn")]
     partial class RoleTable_AddRoleKeyColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

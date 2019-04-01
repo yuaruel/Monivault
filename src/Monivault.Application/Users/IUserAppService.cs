@@ -11,5 +11,9 @@ namespace Monivault.Users
         Task<ListResultDto<RoleDto>> GetRoles();
 
         Task ChangeLanguage(ChangeUserLanguageDto input);
+
+        Task<ListResultDto<UserListDto>> GetUserList();
+
+        UserDto GetUserByKey(string key);
     }
 }

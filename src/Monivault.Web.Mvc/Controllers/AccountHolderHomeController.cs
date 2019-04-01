@@ -5,7 +5,7 @@ using Monivault.Controllers;
 
 namespace Monivault.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_AccountHolder_Dashboard)]
+    [AbpMvcAuthorize(PermissionNames.ViewAccountHolderDashboard)]
     public class AccountHolderHomeController : MonivaultControllerBase
     {
         public ViewResult Index()

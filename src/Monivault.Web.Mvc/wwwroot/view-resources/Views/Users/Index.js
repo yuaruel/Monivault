@@ -1,4 +1,87 @@
-﻿(function() {
+﻿$(function(){
+    var userTable = $('#UserTable').DataTable({
+        ajax:{
+            url: abp.appPath + 'Users/UserList',
+            dataSrc: 'result'
+        },
+        columns: [
+            {
+                data: 'name',
+                render: function(data, type, full, meta){
+                    return data + ' ' + full.surname;
+                }
+            },
+            {
+                data: 'userName'
+            },
+            {
+                data: 'roleNames',
+                render: function (data, type, full, meta){
+                    var roles = '';
+                    if(data.length < 2){
+                        roles = data;
+                    }else{
+                        data.forEach(function(element){
+                            roles = roles + element  + ', ';
+                        });
+                    }
+                    
+                    return roles;
+                }
+            },
+            {
+                data: 'phoneNumber'
+            },
+            {
+                data: 'userKey',
+                render: function(data, type, full, meta){
+                    return '<a id="EditUserBtn" href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">'
+                        +	'<i class="la la-edit"></i>' +
+                            '</a>'
+                }
+            }
+        ]
+    });
+
+    $('#UserTable tbody').on('click', '#EditUserBtn', function(e){
+        e.preventDefault();
+        var data = userTable.row($(this).closest('tr')).data();
+
+        $.ajax({
+            url: abp.appPath + 'Users/EditUserModal?userKey=' + data.userKey,
+            type: 'GET',
+            contentType: 'application/html',
+            success: function (content) {
+                $('#_EditUserModal').modal('show');
+                $('#_EditUserModal div.modal-body').html(content);
+            },
+            error: function (e) { }
+        });
+    });
+
+    $('#AddSingleUserBtn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: abp.appPath + 'Users/CreateUserModal',
+            type: 'GET',
+            contentType: 'application/html',
+            success: function (content) {
+                $('#_CreateUserModal div.modal-body').html(content);
+                $('#_CreateUserModal').modal('show');
+            },
+            error: function (e) { }
+        });
+    });
+
+    $('#_CreateUserModal').on('hidden.bs.modal', function(e){
+        userTable.ajax.reload();
+    });
+    $('#_EditUserModal').on('hidden.bs.modal', function(e){
+        userTable.ajax.reload();
+    });
+});
+/*
+(function() {
     $(function() {
 
         var _userService = abp.services.app.user;
@@ -89,4 +172,4 @@
             );
         }
     });
-})();
+})();*/

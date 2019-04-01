@@ -1,4 +1,4 @@
-@model Monivault.Web.Models.Roles.EditRoleModalViewModel
+@model Monivault.Web.Models.Roles.PermissionListViewModel
 
 <ul class="nav nav-tabs  m-tabs-line m-tabs-line--success" role="tablist">
     <li class="nav-item m-tabs__item">
@@ -8,21 +8,19 @@
         <a class="nav-link m-tabs__link" data-toggle="tab" href="#PermissionTab" role="tab"><i class="la la-puzzle-piece"></i>Permissions</a>
     </li>
 </ul>
-<form id="RoleForm" asp-conttoller="Roles" asp-action="UpdateRole">
+<form id="RoleForm" asp-conttoller="Roles" asp-action="CreateRole">
     <div class="tab-content">
         <div class="tab-pane active" id="RoleTab" role="tabpanel">
-            <input type="hidden" name="Id" value="@Model.Role.Id" />
-            <input type="hidden" name="IsStatic" value="@(Model.Role.IsStatic.ToString())" />
             <div class="form-group m-form__group row">
                 <label for="RoleName" class="col-3 col-form-label">Role Name</label>
                 <div class="col-9">
-                    <input id="RoleName" @(Model.Role.IsStatic ? "disabled":"") name="RoleName" value="@Model.Role.DisplayName" maxlength="32" class="form-control m-input"/>
+                    <input id="RoleName" name="RoleName" maxlength="32" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="RoleDescription" class="col-3 col-form-label">Role Description</label>
                 <div class="col-9">
-                    <textarea id="Description" name="Description" class="form-control m-input" rows="3">@Model.Role.Description</textarea>
+                    <textarea id="Description" name="Description" class="form-control m-input" rows="3"></textarea>
                 </div>
             </div>
         </div>
@@ -32,8 +30,8 @@
                 var permission = Model.Permissions[cnt];
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="checkbox" name="permission" value="@permission.Name" class="filled-in" id="@string.Format("permission{0}",permission.Name)" @(Model.HasPermission(permission) ? "checked" : "") @(Model.Role.IsStatic ? "disabled" : "") />
-                        <label for="@string.Format("permission{0}",permission.Name)">@permission.DisplayName</label>
+                        <input type="checkbox" name="permission" value="@permission.Name" class="filled-in" id="permission-@permission.Name"/>
+                        <label for="permission-@permission.Name">@permission.DisplayName</label>
                     </div>
                     
                     @if ((Model.Permissions.Count - cnt) != 1 )
@@ -41,8 +39,8 @@
                         permission = Model.Permissions[++cnt];
 
                         <div class="col-sm-6">
-                            <input type="checkbox" name="permission" value="@permission.Name" class="filled-in" id="@string.Format("permission{0}",permission.Name)" @(Model.HasPermission(permission) ? "checked" : "") @(Model.Role.IsStatic ? "disabled" : "")/>
-                            <label for="@string.Format("permission{0}",permission.Name)">@permission.DisplayName</label>
+                            <input type="checkbox" name="permission" value="@permission.Name" class="filled-in" id="permission-@permission.Name"/>
+                            <label for="permission-@permission.Name">@permission.DisplayName</label>
                         </div>
                     }
                 </div>
@@ -50,3 +48,5 @@
         </div>
     </div>
 </form>
+
+@*<script src="~/view-resources/Views/Roles/_CreateOrEditModal.js"></script>*@

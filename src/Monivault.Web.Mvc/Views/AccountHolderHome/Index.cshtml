@@ -1,3 +1,4 @@
+@using Monivault.Authorization
 
 @section scripts{
 	<script src="~/view-resources/Views/AccountHolderHome/Index.js"></script>
@@ -31,14 +32,17 @@
 					</li>
 				</ul>
 			</div>
-			<div>
-				<a asp-controller="TopUpSaving" asp-action="Index" class="btn btn-primary m-btn m-btn--icon m-btn--pill m-btn--air">
-					<span>
-						<i class="la la-archive"></i>
-						<span>Top up savings</span>
-					</span>
-				</a>
-			</div>
+			@if (IsGranted(PermissionNames.TopUpSaving))
+			{
+				<div>
+					<a asp-controller="TopUpSaving" asp-action="Index" class="btn btn-primary m-btn m-btn--icon m-btn--pill m-btn--air">
+						<span>
+							<i class="la la-archive"></i>
+							<span>Top up savings</span>
+						</span>
+					</a>
+				</div>	
+			}
 		</div>
 	</div>
 

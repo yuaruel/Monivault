@@ -18,7 +18,7 @@ namespace Monivault.Web.Startup
                         L("Dashboard"),
                         url: "",
                         icon: "flaticon-imac",
-                        requiredPermissionName: PermissionNames.Pages_Admin_Dashboard
+                        requiredPermissionName: PermissionNames.ViewAdminDashboard
                     )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -26,26 +26,25 @@ namespace Monivault.Web.Startup
                         L("Dashboard"),
                         url: "AccountHolderHome",
                         icon: "flaticon-imac",
-                        requiredPermissionName: PermissionNames.Pages_AccountHolder_Dashboard
+                        requiredPermissionName: PermissionNames.ViewAccountHolderDashboard
                     )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Transfers,
                         L("Transfers"),
                         url: "Transfers",
-                        icon: "flaticon-diagram",
-                        requiredPermissionName: PermissionNames.Pages_Transfer
+                        icon: "flaticon-diagram"
                     ).AddItem(
                         new MenuItemDefinition(
                             PageNames.BankAccount,
                             L("BankAccount"),
-                            requiredPermissionName: PermissionNames.Pages_Transfer_BankAccount  
+                            requiredPermissionName: PermissionNames.DoBankAccountTransfer  
                         )
                     ).AddItem(
                         new MenuItemDefinition(
                             PageNames.PayCode,
                             L("PayCode"),
-                            requiredPermissionName: PermissionNames.Pages_Transfer_PayCode
+                            requiredPermissionName: PermissionNames.DoPayCodeTransfer
                         )
                     )
                 ).AddItem(
@@ -53,13 +52,12 @@ namespace Monivault.Web.Startup
                         PageNames.Utilities,
                         L("Utilities"),
                         url: "About",
-                        icon: "flaticon-interface-6",
-                        requiredPermissionName: PermissionNames.Pages_Utilities
+                        icon: "flaticon-interface-6"
                     ).AddItem(
                         new MenuItemDefinition(
                             PageNames.TaxPayment,
                             L("TaxPayment"),
-                            requiredPermissionName: PermissionNames.Pages_Utilities_TaxPayment
+                            requiredPermissionName: PermissionNames.DoTaxPayment
                         )
                     )
                 ).AddItem(
@@ -68,7 +66,7 @@ namespace Monivault.Web.Startup
                         L("AccountHolders"),
                         url: "",
                         icon: "flaticon-profile-1",
-                        requiredPermissionName: PermissionNames.Pages_AccountHolder_Management
+                        requiredPermissionName: PermissionNames.ViewAccountHolders
                     )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -76,15 +74,15 @@ namespace Monivault.Web.Startup
                         L("Settings"),
                         url: "",
                         icon: "flaticon-cogwheel-2",
-                        requiredPermissionName: PermissionNames.Pages_Settings
+                        requiredPermissionName: PermissionNames.ViewSettingsPage
                     )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.UserManagement,
                         L("UserManagement"),
-                        url: "",
+                        url: "Users",
                         icon: "flaticon-users",
-                        requiredPermissionName: PermissionNames.Pages_UserManagement
+                        requiredPermissionName: PermissionNames.ViewUsers
                     )
                 ).AddItem(
                     new MenuItemDefinition(
@@ -92,7 +90,7 @@ namespace Monivault.Web.Startup
                         L("RoleManagement"),
                         url: "Roles",
                         icon: "flaticon-web",
-                        requiredPermissionName: PermissionNames.Pages_RoleManagement
+                        requiredPermissionName: PermissionNames.ViewRoles
                     )
                 );
         }

@@ -9,7 +9,7 @@ namespace Monivault.Roles
     {
         Task<ListResultDto<PermissionDto>> GetAllPermissions();
 
-        Task<GetRoleForEditOutput> GetRoleForEdit(EntityDto input);
+        Task<GetRoleForEditOutput> GetRoleForEdit(string roleKey);
 
         Task<ListResultDto<RoleListDto>> GetRolesAsync(GetRolesInput input);
     }

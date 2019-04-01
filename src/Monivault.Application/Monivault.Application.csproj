@@ -9,6 +9,7 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>Monivault</RootNamespace>
+    <LangVersion>7</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monivault.Core\Monivault.Core.csproj" />

@@ -11,10 +11,10 @@ namespace Monivault.Web.Controllers
     {
         public ActionResult Index()
         {
-            if (PermissionChecker.IsGranted(PermissionNames.Pages_Admin_Dashboard))
+            if (PermissionChecker.IsGranted(PermissionNames.ViewAdminDashboard))
             {
                 return RedirectToAction("Index", "AdminHome");
-            }else if (PermissionChecker.IsGranted(PermissionNames.Pages_AccountHolder_Dashboard))
+            }else if (PermissionChecker.IsGranted(PermissionNames.ViewAccountHolderDashboard))
             {
                 return RedirectToAction("Index", "AccountHolderHome");
             }

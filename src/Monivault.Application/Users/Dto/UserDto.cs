@@ -10,6 +10,8 @@ namespace Monivault.Users.Dto
     [AutoMapFrom(typeof(User))]
     public class UserDto : EntityDto<long>
     {
+        public Guid UserKey { get; set; }
+        
         [Required]
         [StringLength(AbpUserBase.MaxUserNameLength)]
         public string UserName { get; set; }
@@ -26,6 +28,9 @@ namespace Monivault.Users.Dto
         [EmailAddress]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
+        
+        [Required]
+        public string PhoneNumber { get; set; }
 
         public bool IsActive { get; set; }
 

@@ -10,7 +10,7 @@ using Monivault.EntityFrameworkCore;
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    [Migration("20190323211626_UserTable_AddUserKeyColumn")]
+    [Migration("20190326124208_UserTable_AddUserKeyColumn")]
     partial class UserTable_AddUserKeyColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1075,6 +1075,9 @@ namespace Monivault.Migrations
                     b.Property<string>("NormalizedName")
                         .IsRequired()
                         .HasMaxLength(32);
+
+                    b.Property<Guid>("RoleKey")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int?>("TenantId");
 

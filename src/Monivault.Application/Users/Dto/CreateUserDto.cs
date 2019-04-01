@@ -21,6 +21,8 @@ namespace Monivault.Users.Dto
         [Required]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
+        
+        public string PhoneNumber { get; set; }
 
         [Required]
         [EmailAddress]
@@ -31,7 +33,6 @@ namespace Monivault.Users.Dto
 
         public string[] RoleNames { get; set; }
 
-        [Required]
         [StringLength(AbpUserBase.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }

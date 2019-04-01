@@ -22,7 +22,7 @@
     <text name="LogIn" value="Log in" />
     <text name="LoginFailed" value="Login failed!" />
     <text name="NameSurname" value="Name surname" />
-    <text name="UserName" value="User name" />
+    <text name="UserName" value="User Name" />
     <text name="Name" value="Name" />
     <text name="Surname" value="Surname" />
     <text name="EmailAddress" value="Email address" />
@@ -46,7 +46,7 @@
     <text name="DatabaseConnectionString" value="Database connection string" />
     <text name="Users" value="Users" />
     <text name="IsActive" value="Is active" />
-    <text name="FullName" value="Full name" />
+    <text name="FullName" value="Full Name" />
     <text name="CreateNewUser" value="Create new user" />
     <text name="Yes" value="Yes" />
     <text name="No" value="No" />
@@ -97,15 +97,17 @@
     <text name="Filter">Filter</text>
     <text name="UserAlreadyExist">User already exist</text>
     <text name="UserManagement">User Management</text>
+    <text name="UserManagementView">User Management View</text>
     <text name="UserManagementCreate">User Management Create</text>
     <text name="UserManagementEdit">User Management Edit</text>
     <text name="UserManagementDelete">User Management Delete</text>
     <text name="RoleManagement">Role Management</text>
+    <text name="RoleManagementView">Role Management View</text>
     <text name="RoleManagementCreate">Role Management Create</text>
     <text name="RoleManagementEdit">Role Management Edit</text>
     <text name="RoleManagementDelete">Role Management Delete</text>
     <text name="AccountHolderDashboard">Account Holder Dashboard</text>
-    <text name="AdminDashboard">Admin Dashboard</text>
+    <text name="ViewAdminDashboard">View Admin Dashboard</text>
     <text name="AdminReports">Admin Reports</text>
     <text name="Dashboard">Dashboard</text>
     <text name="Transfers">Transfers</text>
@@ -114,5 +116,35 @@
     <text name="TaxPayment">Tax Payment</text>
     <text name="AccountHolders">Account Holders</text>
     <text name="Utilities">Utilities</text>
+    <text name="NewRole">New Role</text>
+    <text name="DateAdded">Date Added</text>
+    <text name="RolesAndPermissions">Roles and Permissions</text>
+    <text name="AddRole">Add Role</text>
+    <text name="Close">Close</text>
+    <text name="ViewSettingsPage">View Settings Page</text>
+    <text name="DoBankAccountTransfer">Do Bank Account Transfer</text>
+    <text name="DoPayCodeTransfer">Do PayCode Transfer</text>
+    <text name="DoTaxPayment">Do Tax Payment</text>
+    <text name="ViewAccountHolders">View Account Holders</text>
+    <text name="ViewUsers">View Users</text>
+    <text name="CreateUsers">Create Users</text>
+    <text name="EditUsers">Edit Users</text>
+    <text name="DeleteUsers">Delete Users</text>
+    <text name="ViewRoles">View Roles</text>
+    <text name="CreateRoles">Create Roles</text>
+    <text name="EditRoles">Edit Roles</text>
+    <text name="DeleteRoles">Delete Roles</text>
+    <text name="ViewAccountHolderDashboard">View Account Holder Dashboard</text>
+    <text name="TopUpSaving">TopUpSaving</text>
+    <text name="ViewAdminReports">View Admin Reports</text>
+    <text name="Update">Update</text>  
+    <text name="AddUser">Add User</text>
+    <text name="UserList">User List</text>
+    <text name="AccountID">Account ID</text>
+    <text name="PhoneNumber">Phone Number</text>
+    <text name="NewUser">New User</text>
+    <text name="FirstName">First Name</text>
+    <text name="LastName">Last Name</text>
+    <text name="Enable">Enable</text>
   </texts>
 </localizationDictionary>

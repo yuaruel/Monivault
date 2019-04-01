@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using Abp.AspNetCore.SignalR.Hubs;
 using Hangfire;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.FileProviders;
 
 
 namespace Monivault.Web.Startup
@@ -38,11 +40,14 @@ namespace Monivault.Web.Startup
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
+            
+            //Add IFileProvider service
+            services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
 
             services.AddScoped<IWebResourceManager, WebResourceManager>();
 
             services.AddSignalR();
-            services.AddHangfire(config => config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default")));
+            //services.AddHangfire(config => config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default")));
 
             services.ConfigureApplicationCookie(opt => { opt.LoginPath = "/Login"; });
 
@@ -79,7 +84,7 @@ namespace Monivault.Web.Startup
                 routes.MapHub<AbpCommonHub>("/signalr");
             });
 
-            app.UseHangfireServer();
+            //app.UseHangfireServer();
 
             app.UseMvc(routes =>
             {

@@ -1,51 +1,50 @@
-@model Monivault.Web.Models.Users.EditUserModalViewModel
+@model Monivault.Web.Models.Roles.RoleListViewModel
 
 <ul class="nav nav-tabs  m-tabs-line m-tabs-line--success" role="tablist">
     <li class="nav-item m-tabs__item">
-        <a class="nav-link m-tabs__link active" data-toggle="tab" href="#UserDetailTab" role="tab"><i class="la la-cloud-upload"></i>Role Information</a>
+        <a class="nav-link m-tabs__link active" data-toggle="tab" href="#UserDetailTab" role="tab"><i class="la la-cloud-upload"></i>@L("UserDetails")</a>
     </li>
     <li class="nav-item m-tabs__item">
-        <a class="nav-link m-tabs__link" data-toggle="tab" href="#UserRoleTab" role="tab"><i class="la la-puzzle-piece"></i>Permissions</a>
+        <a class="nav-link m-tabs__link" data-toggle="tab" href="#UserRoleTab" role="tab"><i class="la la-puzzle-piece"></i>@L("UserRoles")</a>
     </li>
 </ul>
-<form id="UserForm" asp-conttoller="Users" asp-action="UpdateUser">
+<form id="UserForm" asp-conttoller="Users" asp-action="CreateUser">
     <div class="tab-content">
         <div class="tab-pane active" id="UserDetailTab" role="tabpanel">
-            <input type="hidden" name="Id" value="@Model.User.Id" />
             <div class="form-group m-form__group row">
                 <label for="UserName" class="col-4 col-form-label">@L("UserName")</label>
                 <div class="col-8">
-                    <input id="UserName" name="UserName" value="@Model.User.UserName" maxlength="32" class="form-control m-input"/>
+                    <input id="UserName" name="UserName" maxlength="32" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="FirstName" class="col-4 col-form-label">@L("FirstName")</label>
                 <div class="col-8">
-                    <input id="FirstName" name="FirstName" value="@Model.User.Name" maxlength="32" class="form-control m-input"/>
+                    <input id="FirstName" name="FirstName" maxlength="32" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="LastName" class="col-4 col-form-label">@L("LastName")</label>
                 <div class="col-8">
-                    <input id="LastName" name="LastName" value="@Model.User.Surname" class="form-control m-input"/>
+                    <input id="LastName" name="LastName" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="EmailAddress" class="col-4 col-form-label">@L("EmailAddress")</label>
                 <div class="col-8">
-                    <input id="EmailAddress" name="EmailAddress" value="@Model.User.EmailAddress" class="form-control m-input"/>
+                    <input id="EmailAddress" name="EmailAddress" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="PhoneNumber" class="col-4 col-form-label">@L("PhoneNumber")</label>
                 <div class="col-8">
-                    <input id="PhoneNumber" name="PhoneNumber" value="@Model.User.PhoneNumber" class="form-control m-input"/>
+                    <input id="PhoneNumber" name="PhoneNumber" class="form-control m-input"/>
                 </div>
             </div>
             <div class="form-group m-form__group row">
                 <label for="Active" class="col-4 col-form-label">@L("Enable")</label>
                 <div class="col-8">
-                    <input type="checkbox" id="Enabled" name="Enabled" checked="@Model.User.IsActive" class="filled-in" />
+                    <input type="checkbox" id="Enabled" name="Enabled" class="filled-in" />
                 </div>
             </div>
         </div>
@@ -55,8 +54,8 @@
                 var role = Model.Roles[cnt];
                 <div class="row">
                     <div class="col-sm-6">
-                        <input type="checkbox" name="role" value="@role.NormalizedName" title="@role.Description" class="filled-in" id="@string.Format("role{0}",role.Id)" @(Model.UserIsInRole(role) ? "checked" : "") />
-                        <label for="@string.Format("role{0}",role.Id)" title="@role.DisplayName">@role.DisplayName</label>
+                        <input type="checkbox" name="role" value="@role.Name" class="filled-in" id="role-@role.Name"/>
+                        <label for="role-@role.Name">@role.DisplayName</label>
                     </div>
                     
                     @if ((Model.Roles.Count - cnt) != 1 )
@@ -64,8 +63,8 @@
                         role = Model.Roles[++cnt];
 
                         <div class="col-sm-6">
-                            <input type="checkbox" name="role" value="@role.NormalizedName" title="@role.Description" class="filled-in" id="@string.Format("role{0}",role.Id)" @(Model.UserIsInRole(role) ? "checked" : "") />
-                            <label for="@string.Format("role{0}",role.Id)" title="@role.DisplayName">@role.DisplayName</label>
+                            <input type="checkbox" name="role" value="@role.Name" class="filled-in" id="role-@role.Name"/>
+                            <label for="role-@role.Name">@role.DisplayName</label>
                         </div>
                     }
                 </div>
@@ -73,3 +72,5 @@
         </div>
     </div>
 </form>
+
+@*<script src="~/view-resources/Views/Roles/_CreateOrEditModal.js"></script>*@

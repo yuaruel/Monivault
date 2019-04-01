@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services;
@@ -17,7 +18,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Monivault.Roles
 {
-    [AbpAuthorize(PermissionNames.Pages_RoleManagement)]
+    [AbpAuthorize(PermissionNames.ViewRoles)]
     public class RoleAppService : AsyncCrudAppService<Role, RoleDto, int, PagedRoleResultRequestDto, CreateRoleDto, RoleDto>, IRoleAppService
     {
         private readonly RoleManager _roleManager;
@@ -36,9 +37,10 @@ namespace Monivault.Roles
 
             var role = ObjectMapper.Map<Role>(input);
             role.SetNormalizedName();
-
+            role.RoleKey = Guid.NewGuid();
+           
             CheckErrors(await _roleManager.CreateAsync(role));
-
+           
             var grantedPermissions = PermissionManager
                 .GetAllPermissions()
                 .Where(p => input.Permissions.Contains(p.Name))
@@ -129,12 +131,24 @@ namespace Monivault.Roles
             identityResult.CheckErrors(LocalizationManager);
         }
 
-        public async Task<GetRoleForEditOutput> GetRoleForEdit(EntityDto input)
+        public async Task<GetRoleForEditOutput> GetRoleForEdit(string roleKey)
         {
             var permissions = PermissionManager.GetAllPermissions();
-            var role = await _roleManager.GetRoleByIdAsync(input.Id);
-            var grantedPermissions = (await _roleManager.GetGrantedPermissionsAsync(role)).ToArray();
-            var roleEditDto = ObjectMapper.Map<RoleEditDto>(role);
+            var grantedPermissions = new Permission[0];
+            RoleEditDto roleEditDto;
+
+            if (string.IsNullOrEmpty(roleKey))
+            {
+                roleEditDto = new RoleEditDto();
+            }
+            else
+            {
+                var role = _roleManager.Roles.First(p => p.RoleKey == Guid.Parse(roleKey));
+                //var role = await _roleManager.GetRoleByIdAsync(input.Id);
+                grantedPermissions = (await _roleManager.GetGrantedPermissionsAsync(role)).ToArray();
+                roleEditDto = ObjectMapper.Map<RoleEditDto>(role); 
+            }
+            
 
             return new GetRoleForEditOutput
             {
