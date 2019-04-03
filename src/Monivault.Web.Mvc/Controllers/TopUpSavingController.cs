@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monivault.Authorization;
@@ -27,10 +28,11 @@ namespace Monivault.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProcessOneCardPin([FromBody]OneCardPinViewModel model)
+        public async Task<JsonResult> ProcessOneCardPin([FromBody]OneCardPinViewModel model)
         {
-            _topUpSavingAppService.RedeemOneCardPin(model.Pin, model.Comment, model.RequestOriginatingPlatform, model.PlatformSpecificDetail);
-            return StatusCode(200);
+            await _topUpSavingAppService.RedeemOneCardPin(model.Pin, model.Comment, model.RequestOriginatingPlatform, model.PlatformSpecificDetail);
+            
+            return Json(new {});
         }
     }
 }

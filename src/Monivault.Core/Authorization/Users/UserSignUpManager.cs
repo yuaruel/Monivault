@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Monivault.Authorization.Roles;
 using Monivault.MultiTenancy;
+using Monivault.Utils;
 
 namespace Monivault.Authorization.Users
 {
@@ -48,7 +49,7 @@ namespace Monivault.Authorization.Users
                 TenantId = tenant.Id,
                 Name = name,
                 Surname = surname,
-                EmailAddress = emailAddress ?? Guid.NewGuid().ToString() + "@fakeemail.com",
+                EmailAddress = emailAddress ?? RandomStringGeneratorUtil.GenerateFakeEmail(),
                 PhoneNumber = phone,
                 IsActive = true,
                 UserName = userName,

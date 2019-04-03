@@ -14,6 +14,7 @@ using Abp.Linq.Extensions;
 using Abp.Localization;
 using Abp.Runtime.Session;
 using Abp.UI;
+using Castle.Core.Logging;
 using Monivault.Authorization;
 using Monivault.Authorization.Accounts;
 using Monivault.Authorization.Roles;
@@ -22,6 +23,7 @@ using Monivault.Roles.Dto;
 using Monivault.Users.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Monivault.Utils;
 using Newtonsoft.Json;
 
 namespace Monivault.Users
@@ -35,6 +37,7 @@ namespace Monivault.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+        private ILogger Logger { get; set; }
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -52,6 +55,7 @@ namespace Monivault.Users
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
+            Logger = NullLogger.Instance;
         }
 
         public override async Task<UserDto> Create(CreateUserDto input)
@@ -86,6 +90,36 @@ namespace Monivault.Users
 
             MapToEntity(input, user);
 
+            CheckErrors(await _userManager.UpdateAsync(user));
+
+            if (input.RoleNames != null)
+            {
+                CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
+            }
+
+            return await Get(input);
+        }
+        
+        public async Task<UserDto> UpdateUser(EditUserDto input)
+        {
+            CheckUpdatePermission();
+
+            if (string.IsNullOrEmpty(input.EmailAddress))
+            {
+                input.EmailAddress = RandomStringGeneratorUtil.GenerateFakeEmail();
+            }
+            
+            var user = await _userManager.GetUserByIdAsync(input.Id);
+
+            //MapEditUserDtoToEntity(input, user);
+            user.EmailAddress = input.EmailAddress;
+            user.Name = input.Name;
+            user.Surname = input.Surname;
+            user.UserName = input.UserName;
+            user.PhoneNumber = input.PhoneNumber;
+            user.IsActive = input.IsActive;
+
+            //Logger.Info("email for user: " + user.EmailAddress);
             CheckErrors(await _userManager.UpdateAsync(user));
 
             if (input.RoleNames != null)
@@ -157,6 +191,12 @@ namespace Monivault.Users
         }
 
         protected override void MapToEntity(UserDto input, User user)
+        {
+            ObjectMapper.Map(input, user);
+            user.SetNormalizedNames();
+        }
+
+        private void MapEditUserDtoToEntity(EditUserDto input, User user)
         {
             ObjectMapper.Map(input, user);
             user.SetNormalizedNames();

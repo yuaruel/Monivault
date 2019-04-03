@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using Abp.Application.Services;
 
 namespace Monivault.TopUpSavings
 {
     public interface ITopUpSavingAppService : IApplicationService
     {
-        void RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific);
+        Task RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific);
     }
 }

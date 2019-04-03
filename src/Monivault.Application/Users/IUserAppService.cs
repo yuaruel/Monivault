@@ -15,5 +15,7 @@ namespace Monivault.Users
         Task<ListResultDto<UserListDto>> GetUserList();
 
         UserDto GetUserByKey(string key);
+
+        Task<UserDto> UpdateUser(EditUserDto input);
     }
 }

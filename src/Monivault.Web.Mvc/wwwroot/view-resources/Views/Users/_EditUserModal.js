@@ -9,20 +9,12 @@
                 UserName: 'required',
                 FirstName: 'required',
                 LastName: 'required',
-                EmailAddress: {
-                    required: true,
-                    email: true
-                },
                 PhoneNumber: 'required'
             },
             messages: {
                 UserName: 'Usewr name is required',
                 FirstName: 'First name is required',
                 LastName: 'Last name is required',
-                EmailAddress: {
-                    required: 'Email address is required',
-                    email: 'Invalid email'
-                },
                 PhoneNumber: 'Phone number is required'
             }
         });

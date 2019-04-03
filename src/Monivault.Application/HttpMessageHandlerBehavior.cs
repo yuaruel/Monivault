@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Monivault
 {
-    public class HttpMessageHandlerBehavior : IEndpointBehavior
+    public class HttpMessageHandlerBehavior /*: IEndpointBehavior*/
     {
-        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+        /*public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
             bindingParameters.Add(new Func<HttpClientHandler, HttpMessageHandler>(GetHttpMessageHandler));
         }
@@ -24,7 +24,7 @@ namespace Monivault
         public HttpMessageHandler GetHttpMessageHandler(HttpClientHandler httpClientHandler)
         {
             return new InterceptingHttpMessageHandler(httpClientHandler, this);
-        }
+        }*/
 
         public Func<HttpRequestMessage, CancellationToken, HttpResponseMessage> OnSending { get; set; }
         public Func<HttpResponseMessage, CancellationToken, HttpResponseMessage> OnSent { get; set; }

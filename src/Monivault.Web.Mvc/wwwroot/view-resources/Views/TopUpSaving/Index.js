@@ -33,14 +33,13 @@ $(function(){
 
         submitBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
         var pinValue = $('#CardPin').inputmask('unmaskedvalue');
-        console.log('pin value: ' + pinValue);
-        console.log('form attribute: ' + pinForm.attr('action'));
+
         abp.ajax({
             url: pinForm.attr('action'),
             data: JSON.stringify({pin: pinValue}),
             abpHandleError: false
         }).done(function(data){
-            console.log(data);
+            swal('')
         }).fail(function(data){
             console.log('an error occurred');
             console.log(JSON.stringify(data));

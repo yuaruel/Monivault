@@ -21,8 +21,6 @@
     <ProjectReference Include="..\Monivault.EntityFrameworkCore\Monivault.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />

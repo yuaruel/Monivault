@@ -73,9 +73,10 @@ namespace Monivault.Web.Controllers
             return Json(new { });
         }
 
-        public async Task<JsonResult> UpdateUser(UserDto userDto)
+        public async Task<JsonResult> UpdateUser(EditUserDto userDto)
         {
-            await _userAppService.Update(userDto);
+            Logger.Info("new email: " + userDto.EmailAddress);
+            await _userAppService.UpdateUser(userDto);
 
             return Json(new { });
         }

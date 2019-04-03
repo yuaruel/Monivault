@@ -7,8 +7,7 @@ using Monivault.Authorization.Users;
 
 namespace Monivault.Users.Dto
 {
-    [AutoMapFrom(typeof(User))]
-    public class UserDto : EntityDto<long>
+    public class EditUserDto : EntityDto<long>
     {
         public Guid UserKey { get; set; }
         
@@ -24,18 +23,10 @@ namespace Monivault.Users.Dto
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
-        [Required]
-        [EmailAddress]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
-        public string EmailAddress { get; set; }
-        
-        public string RealEmailAddress
-        {
-            get
-            {
-                var email = string.IsNullOrEmpty(EmailAddress) ? string.Empty : EmailAddress;
-                return email.Contains("@fakeemailforapp.com") ? "" : EmailAddress;
-            }
+        public string EmailAddress { 
+            get; 
+            set; 
         }
         
         [Required]

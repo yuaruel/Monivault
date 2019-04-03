@@ -31,5 +31,10 @@ namespace Monivault.Utils
 
             return identityBuilder.ToString();
         }
+
+        public static string GenerateFakeEmail()
+        {
+            return Guid.NewGuid() + "@fakeemailforapp.com";
+        }
     }
 }

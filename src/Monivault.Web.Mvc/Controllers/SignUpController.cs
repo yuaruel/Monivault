@@ -86,7 +86,7 @@ namespace Monivault.Web.Controllers
             //If user exists with either phone number or email end verification sending.
             if (signUpUser != null) throw new UserFriendlyException(L("UserAlreadyExist"));
 
-            //await _verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
+            await _verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
 
             return Json(new { });
 

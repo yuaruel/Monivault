@@ -1,5 +1,6 @@
 using System;
 using System.ServiceModel;
+using System.Threading.Tasks;
 using Abp.Domain.Repositories;
 using Abp.Runtime.Session;
 using Abp.UI;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Monivault.AppModels;
 //using Monivault.EstelOneCardServicesService;
 using Monivault.Utils;
+using ServiceReference;
 
 namespace Monivault.TopUpSavings
 {
@@ -31,13 +33,13 @@ namespace Monivault.TopUpSavings
             AbpSession = NullAbpSession.Instance;
         }
         
-        public void RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific)
+        public async Task RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific)
         {
-/*                        try
+            try
             {
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
 
-                var binding = new BasicHttpBinding(BasicHttpSecurityMode.None);
+                /*var binding = new BasicHttpBinding(BasicHttpSecurityMode.None);
                 //var customBinding = new CustomBinding(binding);
                 
                 var factoryHandlerBehavior = new HttpMessageHandlerBehavior();
@@ -52,10 +54,10 @@ namespace Monivault.TopUpSavings
                 var endpointAddress = new EndpointAddress("http://180.179.201.98/EstelOneCardServices/services/EstelOneCardServices");
                 var factory = new ChannelFactory<EstelOneCardServices>(binding, endpointAddress);
                 factory.Endpoint.EndpointBehaviors.Add(factoryHandlerBehavior);
-                var client = factory.CreateChannel();
+                var client = factory.CreateChannel();*/
                 
                 
-                var oneCardServiceClient = new EstelOneCardServicesClient(binding, endpointAddress);
+                var oneCardServiceClient = new EstelOneCardServicesClient();
                
                 
                 var config = _configuration.GetSection("OneCardProperties");
@@ -74,7 +76,7 @@ namespace Monivault.TopUpSavings
                     comments = "just do it"
                 };
 
-                var pinRedeemResponse = client.getPinRedeem(pinRedeemRequest);
+                var pinRedeemResponse = await oneCardServiceClient.getPinRedeemAsync(pinRedeemRequest);
                 
                 //Log OneCardPinRedeem. Whether successful or not
                 var pinRedeemLog = new OneCardPinRedeemLog();
@@ -135,7 +137,7 @@ namespace Monivault.TopUpSavings
             {
                 //An exception needs to be thrown to notify the user, because the user is not an account holder.
                 Logger.Error(ioExc.StackTrace);
-            }*/
+            }
         }
         
         public void LogPinRedeemTransaction()
