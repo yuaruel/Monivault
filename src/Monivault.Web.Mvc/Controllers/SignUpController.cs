@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Abp;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using Abp.UI;
 using Abp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -63,15 +64,15 @@ namespace Monivault.Web.Controllers
                                                     model.Password,
                                     true);
 
-            var accountHolder = await _accountHolderService.CreateAccountHolder(user.Id);
+            var accountHolder = _accountHolderService.CreateAccountHolder(user.Id);
             
             //Send a welcome text and email, with AccountHolder Identity.
             _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
-            
+
             return Json(new AjaxResponse{TargetUrl = "/SignUp/SuccessfulSignUp"});
         }
 
-        public async Task<StatusCodeResult> SendUpVerificationCode(ContactDetailViewModel model)
+        public async Task<JsonResult> SendUpVerificationCode(ContactDetailViewModel model)
         {
             //Check if any user exist that already used the phone number.
             var signUpUser = await _userManager.FindByPhoneNumberAsync(model.PhoneNumber);
@@ -85,9 +86,9 @@ namespace Monivault.Web.Controllers
             //If user exists with either phone number or email end verification sending.
             if (signUpUser != null) throw new UserFriendlyException(L("UserAlreadyExist"));
 
-            _verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
-            
-            return StatusCode(200);
+            //await _verificationCodeService.GenerateAndSendVerificationCode(model.PhoneNumber);
+
+            return Json(new { });
 
         }
 

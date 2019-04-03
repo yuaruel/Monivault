@@ -11,14 +11,19 @@ namespace Monivault.AppModels
     {
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid AccountHolderKey { get; set; }
+        public Guid AccountHolderKey { get; set; } = Guid.NewGuid();
 
+        [Required]
+        [Column(TypeName = "varchar(7)")]
         public string AccountIdentity { get; private set; } = RandomStringGeneratorUtil.GenerateAccountHolderIdentity();
 
+        [Required]
         public decimal AvailableBalance { get; set; }
 
+        [Required]
         public decimal LedgerBalance { get; set; }
 
+        [Required]
         public long UserId { get; set; }
         
         public virtual User User { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
 using Abp.Extensions;
@@ -15,6 +16,14 @@ namespace Monivault.Authorization.Users
         
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid UserKey { get; set; }
+        
+        /// <summary>
+        /// This is the email property that will be used in this application.
+        /// The mail EmailAddress, will contain a fake email if user did not specify any email, this is because
+        /// the aspnetboilerplate framework requires a unique email for all users. But the Monivault requirement allows for no email.
+        /// </summary>
+        [NotMapped]
+        public string RealEmailAddress { get; set; }
 
         public static string CreateRandomPassword()
         {

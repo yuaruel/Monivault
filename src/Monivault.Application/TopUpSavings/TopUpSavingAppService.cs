@@ -1,48 +1,39 @@
 using System;
-using System.Net.Http.Headers;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
-using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Runtime.Session;
 using Abp.UI;
-using Castle.Core.Logging;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Monivault.AppModels;
 //using Monivault.EstelOneCardServicesService;
 using Monivault.Utils;
-using ILogger = Castle.Core.Logging.ILogger;
 
-namespace Monivault.ModelServices
+namespace Monivault.TopUpSavings
 {
-    public class TopUpSavingService : ITransientDependency
+    public class TopUpSavingAppService : MonivaultAppServiceBase, ITopUpSavingAppService
     {
         private readonly IConfiguration _configuration;
         private readonly IRepository<AccountHolder> _accountHolderRepository;
         private readonly IRepository<TransactionLog, long> _transactionLogRepository;
         private readonly IRepository<OneCardPinRedeemLog, long> _pinRedeemLogRepository;
-        public IAbpSession AbpSession { get; set; }
-        public ILogger Logger { set; get; }
-
-        public TopUpSavingService(
-                IConfiguration configuration,
-                IRepository<AccountHolder> accountHolderRepository,
-                IRepository<TransactionLog, long> transactionLogRepository,
-                IRepository<OneCardPinRedeemLog, long> pinRedeemLogRepository
-            )
+        
+        public TopUpSavingAppService(
+            IConfiguration configuration,
+            IRepository<AccountHolder> accountHolderRepository,
+            IRepository<TransactionLog, long> transactionLogRepository,
+            IRepository<OneCardPinRedeemLog, long> pinRedeemLogRepository
+        )
         {
             _configuration = configuration;
             _accountHolderRepository = accountHolderRepository;
             _transactionLogRepository = transactionLogRepository;
             _pinRedeemLogRepository = pinRedeemLogRepository;
             AbpSession = NullAbpSession.Instance;
-            Logger = NullLogger.Instance;
         }
-
+        
         public void RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific)
         {
-            try
+/*                        try
             {
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
 
@@ -59,34 +50,34 @@ namespace Monivault.ModelServices
                 
                 //binding.CreateBindingElements().Add();
                 var endpointAddress = new EndpointAddress("http://180.179.201.98/EstelOneCardServices/services/EstelOneCardServices");
-                //var factory = new ChannelFactory<EstelOneCardServices>(binding, endpointAddress);
-                //factory.Endpoint.EndpointBehaviors.Add(factoryHandlerBehavior);
-                //var client = factory.CreateChannel();
+                var factory = new ChannelFactory<EstelOneCardServices>(binding, endpointAddress);
+                factory.Endpoint.EndpointBehaviors.Add(factoryHandlerBehavior);
+                var client = factory.CreateChannel();
                 
                 
-                //var oneCardServiceClient = new EstelOneCardServicesClient(binding, endpointAddress);
+                var oneCardServiceClient = new EstelOneCardServicesClient(binding, endpointAddress);
                
                 
                 var config = _configuration.GetSection("OneCardProperties");
 
                 var agentTransactionId = RandomStringGeneratorUtil.GenerateAgentTransactionId();
                 Logger.Info("Pin no: " + pinno);
-                //var pinRedeemRequest = new PinRedeemRequest
-                /*{
-                    //pin = "APEX_PINRDM",
-                    pin = "TPR_AAL_1",
-                    //agentcode = "7F1359753577B274D717DC2E41BA1E51",
-                    agentcode = "38EEC49BBE3E155E8E3DCF7FBAB6B6D2",
+                var pinRedeemRequest = new PinRedeemRequest
+                {
+                    pin = "APEX_PINRDM",
+                    //pin = "TPR_AAL_1",
+                    agentcode = "7F1359753577B274D717DC2E41BA1E51",
+                    //agentcode = "38EEC49BBE3E155E8E3DCF7FBAB6B6D2",
                     pinno = pinno,
                     agenttransid = agentTransactionId,
                     serviceid = PinRedeemServiceIds.SavingsTopUp,
                     comments = "just do it"
-                };*/
+                };
 
-                //var pinRedeemResponse = client.getPinRedeem(pinRedeemRequest);
+                var pinRedeemResponse = client.getPinRedeem(pinRedeemRequest);
                 
                 //Log OneCardPinRedeem. Whether successful or not
-/*                var pinRedeemLog = new OneCardPinRedeemLog();
+                var pinRedeemLog = new OneCardPinRedeemLog();
                 pinRedeemLog.Amount = decimal.Parse(pinRedeemResponse.amount);
                 pinRedeemLog.AccountHolder = accountHolder;
                 pinRedeemLog.Comments = comment;
@@ -138,22 +129,23 @@ namespace Monivault.ModelServices
                        
                     default:
                         throw new UserFriendlyException("One card system error. Try again later!");
-                }*/
+                }
             }
             catch (InvalidOperationException ioExc)
             {
                 //An exception needs to be thrown to notify the user, because the user is not an account holder.
                 Logger.Error(ioExc.StackTrace);
-            }
+            }*/
         }
-
+        
         public void LogPinRedeemTransaction()
         {
             
         }
-
     }
-
-
-
+    
+    public class PinRedeemServiceIds
+    {
+        public const string SavingsTopUp = "Savings Top Up";
+    }
 }

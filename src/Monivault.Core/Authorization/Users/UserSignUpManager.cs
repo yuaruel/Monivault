@@ -48,7 +48,7 @@ namespace Monivault.Authorization.Users
                 TenantId = tenant.Id,
                 Name = name,
                 Surname = surname,
-                EmailAddress = emailAddress ?? String.Empty,
+                EmailAddress = emailAddress ?? Guid.NewGuid().ToString() + "@fakeemail.com",
                 PhoneNumber = phone,
                 IsActive = true,
                 UserName = userName,

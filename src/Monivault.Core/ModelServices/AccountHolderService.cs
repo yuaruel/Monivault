@@ -5,6 +5,8 @@ using Abp;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Services;
+using Abp.UI;
+using Microsoft.EntityFrameworkCore;
 using Monivault.AppModels;
 using Monivault.Utils;
 
@@ -19,18 +21,27 @@ namespace Monivault.ModelServices
             _accountHolderRepository = accountHolderRepository;
         }
         
-        public async Task<AccountHolder> CreateAccountHolder(long userId)
+        public AccountHolder CreateAccountHolder(long userId)
         {
-            var accountHolder = new AccountHolder
+            try
             {
-                AvailableBalance = Decimal.Zero,
-                LedgerBalance = Decimal.Zero,
-                UserId = userId
-            };
+                var accountHolder = new AccountHolder
+                {
+                    AvailableBalance = Decimal.Zero,
+                    LedgerBalance = Decimal.Zero,
+                    UserId = userId
+                };
 
-            accountHolder = await _accountHolderRepository.InsertAsync(accountHolder);
-
-            return accountHolder;
+                accountHolder = _accountHolderRepository.Insert(accountHolder);
+                CurrentUnitOfWork.SaveChanges();
+           
+                return accountHolder;
+            }
+            catch (DbUpdateException duExc)
+            {
+                Logger.Error(duExc.InnerException.Message);
+                throw new UserFriendlyException("Unable to complete your sign up at this time. Please try again later!");
+            }
         }
         
     }

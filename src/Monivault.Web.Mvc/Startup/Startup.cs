@@ -47,8 +47,20 @@ namespace Monivault.Web.Startup
             services.AddScoped<IWebResourceManager, WebResourceManager>();
 
             services.AddSignalR();
-            //services.AddHangfire(config => config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default")));
+            services.AddHangfire(config => config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default")));
 
+            //Configure the password options
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 1;
+                options.User.RequireUniqueEmail = false;
+
+            });
+            
             services.ConfigureApplicationCookie(opt => { opt.LoginPath = "/Login"; });
 
             // Configure Abp and Dependency Injection
@@ -84,7 +96,7 @@ namespace Monivault.Web.Startup
                 routes.MapHub<AbpCommonHub>("/signalr");
             });
 
-            //app.UseHangfireServer();
+            app.UseHangfireServer();
 
             app.UseMvc(routes =>
             {
