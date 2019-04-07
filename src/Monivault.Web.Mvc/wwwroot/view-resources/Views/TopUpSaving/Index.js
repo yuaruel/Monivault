@@ -13,6 +13,20 @@ $(function(){
         placeholder: "",
         autoUnmask: true
     });
+
+    $('input[name=TopUpOption]').change(function(){
+        var topUpOption = $(this).val();
+        var oneCardFormDiv = $('#OneCardFormDiv');
+        var debitCardFormDiv = $('#DebitCardFormDiv');
+
+        if (topUpOption == 'OneCard') {
+            oneCardFormDiv.removeClass('m--hide');
+            debitCardFormDiv.addClass('m--hide');
+        } else if (topUpOption == 'DebitCard') {
+            debitCardFormDiv.removeClass('m--hide');
+            oneCardFormDiv.addClass('m--hide');
+        }
+    });
     
     $('#SubmitOneCardPinBtn').click(function(){
         console.log('validate Pin form...');
@@ -23,6 +37,9 @@ $(function(){
             rules: {
                 CardPin: {
                     oneCardPin: true
+                },
+                Comment: {
+                    maxlength: 150
                 }
             }
         });
@@ -36,13 +53,13 @@ $(function(){
 
         abp.ajax({
             url: pinForm.attr('action'),
-            data: JSON.stringify({pin: pinValue}),
+            data: JSON.stringify({pin: pinValue, comment: $('#Comment').val()}),
             abpHandleError: false
         }).done(function(data){
-            swal('')
+            swal('Sucess', 'Pin Redeemed', 'success');
         }).fail(function(data){
-            console.log('an error occurred');
-            console.log(JSON.stringify(data));
+            console.log(data);
+            swal('Oops', data.message, 'error');
         }).always(function(){
             submitBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
         })

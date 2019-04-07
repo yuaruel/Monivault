@@ -5,6 +5,6 @@ namespace Monivault.TopUpSavings
 {
     public interface ITopUpSavingAppService : IApplicationService
     {
-        Task RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific);
+        Task<string> RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific);
     }
 }

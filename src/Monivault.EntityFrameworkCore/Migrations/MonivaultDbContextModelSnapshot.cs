@@ -892,6 +892,14 @@ namespace Monivault.Migrations
 
                     b.Property<decimal>("AvailableBalance");
 
+                    b.Property<string>("BankAccountName")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("BankAccountNumber")
+                        .HasColumnType("varchar(12)");
+
+                    b.Property<int?>("BankId");
+
                     b.Property<DateTime>("CreationTime");
 
                     b.Property<long?>("CreatorUserId");
@@ -912,9 +920,29 @@ namespace Monivault.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BankId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("AccountHolders");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.Bank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid>("BankKey");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("OneCardBankCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Banks");
                 });
 
             modelBuilder.Entity("Monivault.AppModels.OneCardPinRedeemLog", b =>
@@ -950,6 +978,21 @@ namespace Monivault.Migrations
                         .HasColumnType("varchar(15)")
                         .HasMaxLength(15);
 
+                    b.Property<string>("RequestCts")
+                        .HasColumnType("varchar(25)");
+
+                    b.Property<string>("ResponseCts")
+                        .HasColumnType("varchar(25)");
+
+                    b.Property<string>("ResponseValue")
+                        .HasColumnType("varchar(2)");
+
+                    b.Property<string>("ResultCode")
+                        .HasColumnType("varchar(3)");
+
+                    b.Property<string>("ResultDescription")
+                        .HasColumnType("varchar(50)");
+
                     b.Property<string>("SerialNo")
                         .HasColumnType("varchar(20)")
                         .HasMaxLength(20);
@@ -983,6 +1026,8 @@ namespace Monivault.Migrations
                     b.Property<int>("AccountHolderId");
 
                     b.Property<decimal>("Amount");
+
+                    b.Property<decimal>("BalanceAfterTransaction");
 
                     b.Property<DateTime>("CreationTime");
 
@@ -1163,6 +1208,9 @@ namespace Monivault.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(32);
+
+                    b.Property<string>("ProfileImageUrl")
+                        .HasColumnType("varchar(150)");
 
                     b.Property<string>("SecurityStamp")
                         .HasMaxLength(128);
@@ -1367,6 +1415,10 @@ namespace Monivault.Migrations
 
             modelBuilder.Entity("Monivault.AppModels.AccountHolder", b =>
                 {
+                    b.HasOne("Monivault.AppModels.Bank", "Bank")
+                        .WithMany()
+                        .HasForeignKey("BankId");
+
                     b.HasOne("Monivault.Authorization.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")

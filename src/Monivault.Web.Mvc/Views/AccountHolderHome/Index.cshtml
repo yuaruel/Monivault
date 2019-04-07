@@ -1,5 +1,9 @@
 @using Monivault.Authorization
-
+@using Monivault.Web.Startup
+@model Monivault.Web.Models.AccountHolderHome.AccountHolderDashboardViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.AccountHolderDashboard;
+}
 @section scripts{
 	<script src="~/view-resources/Views/AccountHolderHome/Index.js"></script>
 	<script src="~/lib/jquery-number/jquery.number.min.js"></script>
@@ -204,7 +208,9 @@
 			</div>
 			<div class="m-portlet__body">
 				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="300" style="overflow: hidden; height: 300px;">
-					<span>Recent transactions body...</span>
+					<table id="RecentTransactionsTable" class="m_datatable" width="100%">
+						
+					</table>
 				</div>
 			</div>
 		</div>

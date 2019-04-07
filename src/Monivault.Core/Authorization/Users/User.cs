@@ -14,15 +14,18 @@ namespace Monivault.Authorization.Users
         public const string DefaultPassword = "pass1word@";
 
         private string _emailAddress;
-        
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid UserKey { get; set; }
+        public Guid UserKey { get; set; } = Guid.NewGuid();
 
         public override string EmailAddress
         {
             get => _emailAddress;
             set => _emailAddress = string.IsNullOrEmpty(value) ? RandomStringGeneratorUtil.GenerateFakeEmail() : value;
         }
+
+        [Column(TypeName = "varchar(150)")]
+        public string ProfileImageUrl { get; set; }
 
         /// <summary>
         /// This is the email property that will be used in this application.

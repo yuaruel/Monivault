@@ -27,6 +27,16 @@ namespace Monivault.AppModels
         public long UserId { get; set; }
         
         public virtual User User { get; set; }
+
+        public int? BankId { get; set; }
+
+        public Bank Bank { get; set; }
+        
+        [Column(TypeName = "varchar(12)")]
+        public string BankAccountNumber { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string BankAccountName { get; set; }
         
         
     }

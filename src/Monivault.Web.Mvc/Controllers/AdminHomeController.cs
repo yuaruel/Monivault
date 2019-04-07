@@ -8,8 +8,7 @@ namespace Monivault.Web.Controllers
         // GET
         public IActionResult Index()
         {
-            return
-            View();
+            return View();
         }
     }
 }

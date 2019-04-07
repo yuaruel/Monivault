@@ -10,7 +10,7 @@ namespace Monivault.AppModels
     {
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid TransactionKey { get; set; }
+        public Guid TransactionKey { get; set; } = Guid.NewGuid();
 
         [Required]
         public int AccountHolderId { get; set; }
@@ -18,6 +18,9 @@ namespace Monivault.AppModels
         
         [Required]
         public decimal Amount { get; set; }
+
+        [Required]
+        public decimal BalanceAfterTransaction { get; set; }
         
         [Required]
         [Column(TypeName = "varchar(10)")]

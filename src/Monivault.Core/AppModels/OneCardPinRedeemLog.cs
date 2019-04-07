@@ -8,8 +8,9 @@ namespace Monivault.AppModels
 {
     public class OneCardPinRedeemLog : Entity<long>, IHasCreationTime
     {
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid OneCardPinRedeemKey { get; set; }
+        public Guid OneCardPinRedeemKey { get; set; } = Guid.NewGuid();
 
         [Required]
         public int AccountHolderId { get; set; }
@@ -53,8 +54,22 @@ namespace Monivault.AppModels
         [Column(TypeName = "varchar(15)")]
         [StringLength(15)]
         public string ProductCode { get; set; }
-        
-        
+
+        [Column(TypeName = "varchar(3)")]
+        public string ResultCode { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string ResultDescription { get; set; }
+
+        [Column(TypeName = "varchar(2)")]
+        public string ResponseValue { get; set; }
+
+        [Column(TypeName = "varchar(25)")]
+        public string RequestCts { get; set; }
+
+        [Column(TypeName = "varchar(25)")]
+        public string ResponseCts { get; set; }
+
         public DateTime CreationTime { get; set; } = new DateTime();
     }
 }

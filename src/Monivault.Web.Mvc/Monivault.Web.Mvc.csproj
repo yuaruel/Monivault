@@ -317,6 +317,11 @@
     <_ContentIncludedByDefault Remove="Views\Tenants\_EditTenantModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\lib\dropzone\.idea\encodings.xml" />
+    <Content Include="wwwroot\lib\dropzone\.idea\github-dropzone.iml" />
+    <Content Include="wwwroot\lib\dropzone\.idea\modules.xml" />
+    <Content Include="wwwroot\lib\dropzone\.idea\vcs.xml" />
+    <Content Include="wwwroot\lib\dropzone\.idea\workspace.xml" />
     <Content Include="wwwroot\lib\jquery-form\.circleci\config.yml" />
     <Content Include="wwwroot\lib\jquery-form\.github\issue_template.md" />
   </ItemGroup>
