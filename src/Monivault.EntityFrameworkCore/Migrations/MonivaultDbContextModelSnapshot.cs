@@ -1017,6 +1017,28 @@ namespace Monivault.Migrations
                     b.ToTable("OneCardPinRedeemLogs");
                 });
 
+            modelBuilder.Entity("Monivault.AppModels.OtpSession", b =>
+                {
+                    b.Property<int>("Id");
+
+                    b.Property<string>("ActionProperty")
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<string>("PhoneNumberSentTo")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OtpSessions");
+                });
+
             modelBuilder.Entity("Monivault.AppModels.TransactionLog", b =>
                 {
                     b.Property<long>("Id")
@@ -1435,6 +1457,14 @@ namespace Monivault.Migrations
                     b.HasOne("Monivault.AppModels.TransactionLog", "TransactionLog")
                         .WithMany()
                         .HasForeignKey("TransactionLogId");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.OtpSession", b =>
+                {
+                    b.HasOne("Monivault.Authorization.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Monivault.AppModels.TransactionLog", b =>

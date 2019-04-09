@@ -30,14 +30,15 @@ namespace Monivault.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
-                        PageNames.Transfers,
-                        L("Transfers"),
+                        PageNames.MoneyTransfer,
+                        L("MoneyTransfer"),
                         url: "Transfers",
                         icon: "flaticon-diagram"
                     ).AddItem(
                         new MenuItemDefinition(
                             PageNames.BankAccount,
                             L("BankAccount"),
+                            url: "MoneyTransfer/BankAccount",
                             requiredPermissionName: PermissionNames.DoBankAccountTransfer  
                         )
                     ).AddItem(
@@ -72,7 +73,7 @@ namespace Monivault.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Settings,
                         L("Settings"),
-                        url: "",
+                        url: "Settings",
                         icon: "flaticon-cogwheel-2",
                         requiredPermissionName: PermissionNames.ViewSettingsPage
                     )

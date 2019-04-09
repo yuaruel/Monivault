@@ -110,7 +110,7 @@
     <text name="ViewAdminDashboard">View Admin Dashboard</text>
     <text name="AdminReports">Admin Reports</text>
     <text name="Dashboard">Dashboard</text>
-    <text name="Transfers">Transfers</text>
+    <text name="MoneyTransfer">Money Transfer</text>
     <text name="BankAccount">Bank Account</text>
     <text name="PayCode">Pay Code</text>
     <text name="TaxPayment">Tax Payment</text>
@@ -146,5 +146,24 @@
     <text name="FirstName">First Name</text>
     <text name="LastName">Last Name</text>
     <text name="Enable">Enable</text>
+    <text name="Amount">Amount</text>
+    <text name="Comment">Comment</text>
+    <text name="Submit">Submit</text>
+    <text name="ApplicationSettings">Application Settings</text>
+    <text name="ManageAllApplicationSettings">Manage all application settings</text>
+    <text name="General">General</text>
+    <text name="Withdrawal">Withdrawal</text>
+    <text name="Interest">Interest</text>
+    <text name="StopDeposit">Stop Deposit</text>
+    <text name="StopSignUp">Stop SignUp</text>
+    <text name="WithdrawalServiceCharge">Withdrawal Service Charge</text>
+    <text name="StopWithdrawal">Stop WIthdrawal</text>
+    <text name="InterestStatus">Interest Status</text>
+    <text name="InterestType">Interest Type</text>
+    <text name="SimpleInterest">Simple Interest</text>
+    <text name="CompoundInterest">Compound Interest</text>
+    <text name="Rate">Rate</text>
+    <text name="Duration">Duration</text>
+    <text name="PenaltyPercentageDeduction">Penalty Percentage Deduction</text>
   </texts>
 </localizationDictionary>

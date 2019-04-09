@@ -36,5 +36,10 @@ namespace Monivault.Utils
         {
             return Guid.NewGuid() + "@fakeemailforapp.com";
         }
+
+        public static int GenerateOtp()
+        {
+            return RandomHelper.GetRandom(10000, 99999);
+        }
     }
 }

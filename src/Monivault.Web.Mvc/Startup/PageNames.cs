@@ -6,7 +6,7 @@ namespace Monivault.Web.Startup
     {
         public const string AdminDashboard = "Dashboard";
         public const string AccountHolderDashboard = "Dashboard";
-        public const string Transfers = "Transfers";
+        public const string MoneyTransfer = "Money Transfer";
         public const string BankAccount = "Bank Account";
         public const string PayCode = "PayCode";
         public const string Utilities = "Utilities";

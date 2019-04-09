@@ -26,6 +26,11 @@ namespace Monivault.ModelServices
             ScheduleWelcomeEmail(email);
         }
 
+        public void ScheduleOtp(string phoneNumber, string email, string otp)
+        {
+            ScheduleOtpText(phoneNumber, otp);
+        }
+
         private void ScheduleWelcomeText(string phoneNumber, string accountIdentity)
         {
             var message = new StringBuilder();
@@ -33,6 +38,20 @@ namespace Monivault.ModelServices
             message.AppendLine($"Your Account ID is {accountIdentity}.");
             
             Logger.Info($"user phone number: {phoneNumber}");
+            
+            var smsJobArg = new SmsJobArgs
+            {
+                Message = message.ToString(),
+                Recipient = phoneNumber
+            };
+
+            _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(smsJobArg);
+        }
+
+        private void ScheduleOtpText(string phoneNumber, string otp)
+        {
+            var message = new StringBuilder();
+            message.AppendLine($"Monivault OTP: {otp}");
             
             var smsJobArg = new SmsJobArgs
             {

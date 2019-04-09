@@ -1,0 +1,99 @@
+@using Monivault.Web.Startup
+
+@section scripts
+{
+	<script src="~/lib/autonumeric/autonumeric2.js"></script>
+	<script type="text/javascript">
+		var currentBalance = @ViewBag.CurrentBalance 
+	</script>
+	
+	<script src="~/view-resources/Views/MoneyTransfer/BankAccount.js"></script>
+	
+}
+@{
+	ViewBag.CurrentPageName = PageNames.MoneyTransfer;
+}
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">@L("MoneyTransfer")</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item m-nav__item--home">
+                        <a href="#" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-home"></i>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">@L("MoneyTransfer")</span>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">@L("BankAccount")</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->
+    
+    	<div class="m-content">
+
+		<!--Begin::Section-->
+		<div class="m-portlet">
+			<div class="alert m-alert--default" role="alert">
+				<strong>Note: </strong> <span class="m--font-danger">A transfer charge of N100 will be debited to your account!</span>
+			</div>
+			<div class="m-portlet__body">
+				<div class="row m-row--no-padding">
+					<div id="BankAccountTransferDiv" class="col-lg-12">
+						<form id="BankAccountTransferForm" class="m-form" asp-controller="MoneyTransfer" asp-action="GetBankTransferOtpForm">
+							<div class="m-portlet__body">
+								<div class="m-form__section m-form__section--first">
+									<div class="form-group m-form__group row">
+										<label class="col-form-label col-lg-2">@L("Amount")</label>
+										<div class="col-lg-6">
+											<div class="input-group m-input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text">N</span>
+												</div>
+												<input class="form-control m-input" id="TransferAmount" name="TransferAmount"/>
+											</div>
+											<span class="m-form__help">Minimum transferable amount is <strong>N1,000.00</strong></span>
+										</div>
+									</div>
+									<div class="form-group m-form__group row">
+										<label class="col-form-label col-lg-2">@L("Comment")</label>
+										<div class="col-lg-6">
+											<textarea rows="3" cols="5" name="Comment" id="Comment" class="form-control"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="m-portlet__foot m-portlet__foot--fit">
+								<div class="m-form__actions m-form__actions">
+									<div class="row">
+										<div class="col-lg-3"></div>
+										<div class="col-lg-6">
+											<button id="SubmitBankTransferRequestBtn" type="button" class="btn btn-success">@L("Submit")</button>
+											<button type="reset" class="btn btn-secondary">@L("Cancel")</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--End::Section-->
+	</div>
+</div>

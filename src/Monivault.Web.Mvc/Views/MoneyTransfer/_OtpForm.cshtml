@@ -1,0 +1,26 @@
+<script src="~/view-resources/Views/MoneyTransfer/_OtpForm.js"></script>
+
+<form id="OtpForm" class="m-form" asp-controller="MoneyTransfer" asp-action="ValidateOtp">
+    <div class="m-portlet__body">
+        <div class="m-form__section m-form__section--first">
+            <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-2">OTP</label>
+                <div class="col-lg-6">
+                    <input class="form-control m-input" id="OtpCode" name="OtpCode" />
+                    <span class="m-form__help">Enter the OTP sent to your phone</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__foot m-portlet__foot--fit">
+        <div class="m-form__actions m-form__actions">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <button id="ValidateOtpBtn" type="button" class="btn btn-success">Validate</button>
+                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

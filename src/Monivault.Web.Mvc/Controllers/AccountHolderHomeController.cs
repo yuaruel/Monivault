@@ -23,7 +23,7 @@ namespace Monivault.Web.Controllers
             _transactionLogAppService = transactionLogAppService;
         }
         
-        public async Task<ViewResult> Index()
+        public ViewResult Index()
         {
             return View();
         }

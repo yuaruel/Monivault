@@ -315,6 +315,11 @@
     <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Tenants\Index.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Tenants\_EditTenantModal.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\autonumeric\maths\ASTNode.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\autonumeric\maths\Evaluator.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\autonumeric\maths\Lexer.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\autonumeric\maths\Parser.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\lib\autonumeric\maths\Token.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="wwwroot\lib\dropzone\.idea\encodings.xml" />

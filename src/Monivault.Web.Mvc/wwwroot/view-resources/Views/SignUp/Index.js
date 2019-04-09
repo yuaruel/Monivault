@@ -52,7 +52,6 @@ $(function() {
         contactForm.ajaxSubmit({
            success: function(response, status, xhr, $form){
                //Move to the next form for Personal details
-               console.log('returned status: ' + status);
                displayPersonalDetail();
            },
            error: function(jqXHR, textStatus, err){
