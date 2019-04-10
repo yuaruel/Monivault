@@ -29,7 +29,7 @@ $(function(){
     });
     
     $('#SubmitOneCardPinBtn').click(function(){
-        console.log('validate Pin form...');
+ 
         var submitBtn = $(this);
         var pinForm = $(this).closest('form');
         

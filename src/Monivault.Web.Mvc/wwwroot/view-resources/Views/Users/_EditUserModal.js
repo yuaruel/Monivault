@@ -53,7 +53,6 @@
             data: {Name: name, Surname: surname, roleNames: roles, isActive: enabled},
             success: function(response, status, xhr, $form){
                 //Move to the next form for Personal details
-                console.log('returned status: ' + status);
                 $('#_EditUserModal').modal('hide');
             },
             error: function(jqXHR, textStatus, err){

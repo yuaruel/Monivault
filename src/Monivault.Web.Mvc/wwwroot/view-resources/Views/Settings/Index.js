@@ -20,7 +20,8 @@ $(function(){
        
        min: 0,
        max: 100,
-       step: 0.5,
+       step: 0.5, 
+       decimals: 2,
        postfix: '% per yr' 
     });
     $('#InterestDuration').TouchSpin({
@@ -39,8 +40,13 @@ $(function(){
         min: 0,
         max: 100,
         step: 0.5,
+        decimals: 2,
         postfix: '%'
     });
+    
+    if(!$('#InterestStatus').bootstrapSwitch('state')){
+        disableInterestSettingForm();
+    }
     
     function disableInterestSettingForm(){
         $('input[name=InterestType]').prop('disabled', true);
@@ -58,16 +64,67 @@ $(function(){
     
     $('#UpdateGeneralSettingsBtn').click(function(){
         var generalBtn = $(this);
-        var generalForm = $(this).closest('form');
+        
+        var stopDeposit = $('#StopDeposit').bootstrapSwitch('state');
+        var stopSignUp = $('#StopSignUp').bootstrapSwitch('state');
+
+        generalBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
+        abp.ajax({
+            url: abp.appPath + 'Settings/UpdateGeneralSettings',
+            data: JSON.stringify({ StopDeposit: stopDeposit, StopSignUp: stopSignUp })
+        }).done(function(data){
+            swal('', 'Update was successful!', 'success');
+        }).fail(function(data){
+            swal('Oops', 'There was an error completing the update', 'error');
+        }).always(function(){
+            generalBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+        });
     });
     
     $('#UpdateWithdrawalSettingsBtn').click(function(){
         var withdrawalBtn = $(this);
-        var withdrawalForm = $(this).closest('form');
+        
+        var stopWithdrawal = $('#StopWithdrawal').bootstrapSwitch('state');
+        var withdrawalServiceCharge = $('#WithdrawalServiceCharge').val();
+        
+        console.log('service charge: ' + withdrawalServiceCharge);
+
+        withdrawalBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
+        abp.ajax({
+            url: abp.appPath + 'Settings/UpdateWithdrawalSettings',
+            data: JSON.stringify({ StopWithdrawal: stopWithdrawal, WithdrawalServiceCharge: withdrawalServiceCharge })
+        }).done(function(data){
+            swal('', 'Update was successful!', 'success');
+        }).fail(function(data){
+            swal('Oops', 'There was an error completing the update', 'error');
+        }).always(function(){
+            withdrawalBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+        });
     });
     
     $('#UpdateInterestSettingsBtn').click(function(){
         var interestBtn = $(this);
-        var interestForm = $(this).closest('form');
+
+        var interestRunning = $('#InterestStatus').bootstrapSwitch('state');
+        var interestType = $('input[name=InterestType]:checked').val();
+        var interestRate = $('#InterestRate').val();
+        var interestDuration = $('#InterestDuration').val();
+        var penaltyDeduction = $('#PenaltyDeduction').val();
+
+        console.log('interest status: ' + interestRunning);
+        console.log('interestType: ' + interestType);
+
+        interestBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
+        abp.ajax({
+            url: abp.appPath + 'Settings/UpdateInterestSettings',
+            data: JSON.stringify({ InterestStatus: interestRunning, InterestType: interestType, InterestRate: interestRate, 
+                                            InterestDuration: interestDuration, PenaltyDeduction: penaltyDeduction })
+        }).done(function(data){
+            swal('', 'Update was successful!', 'success');
+        }).fail(function(data){
+            swal('Oops', 'There was an error completing the update', 'error');
+        }).always(function(){
+            interestBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+        });
     });
 });
