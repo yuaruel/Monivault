@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Authorization;
+using Abp.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Monivault.Authorization;
+using Monivault.Configuration;
 using Monivault.Controllers;
 using Monivault.TransactionLogs;
 using Monivault.TransactionLogs.Dto;
@@ -25,6 +28,13 @@ namespace Monivault.Web.Controllers
         
         public ViewResult Index()
         {
+            var timeZoneInfos = TimeZoneInfo.GetSystemTimeZones();
+            Logger.Info($"Time zone count: {timeZoneInfos.Count}");
+            foreach (var timeZoneInfo in timeZoneInfos)
+            {
+                Logger.Info($"TimeZoneInfo: {timeZoneInfo.DaylightName}");
+                Logger.Info($"Standard timeZone Name: {timeZoneInfo.StandardName}");
+            }
             return View();
         }
 

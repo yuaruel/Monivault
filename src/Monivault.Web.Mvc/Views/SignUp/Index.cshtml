@@ -1,3 +1,5 @@
+@using Abp.Configuration
+@using Monivault.Configuration
 @{
     Layout = "_OutsideLayout";
 }
@@ -75,10 +77,13 @@
 									<span class="m-form__help"></span>
 								</div>
 							</div>
-							<div class="m-login__form-action">
-								<button id="m_login_signup_submit" type="button" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Sign Up</button>
-								<a asp-controller="Login" asp-action="Index" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">Cancel</a>
-							</div>
+							@if (!SettingManager.GetSettingValue<bool>(AppSettingNames.StopSignUp))
+							{
+								<div class="m-login__form-action">
+									<button id="m_login_signup_submit" type="button" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Sign Up</button>
+									<a asp-controller="Login" asp-action="Index" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">Cancel</a>
+								</div>	
+							}
 						</form>
 					</div>
 				</div>

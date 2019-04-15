@@ -24,6 +24,18 @@ $(function(){
        decimals: 2,
        postfix: '% per yr' 
     });
+    var arrows;
+    if (mUtil.isRTL()) {
+        arrows = {
+            leftArrow: '<i class="la la-angle-right"></i>',
+            rightArrow: '<i class="la la-angle-left"></i>'
+        }
+    } else {
+        arrows = {
+            leftArrow: '<i class="la la-angle-left"></i>',
+            rightArrow: '<i class="la la-angle-right"></i>'
+        }
+    }
     $('#InterestDuration').TouchSpin({
         buttondown_class: 'btn btn-secondary',
         buttonup_class: 'btn btn-secondary',
@@ -52,6 +64,7 @@ $(function(){
         $('input[name=InterestType]').prop('disabled', true);
         $('#InterestRate').prop('disabled', true);
         $('#InterestDuration').prop('disabled', true);
+        /*$('#DurationEndDate').prop('disabled', true);*/
         $('#PenaltyDeduction').prop('disabled', true);
     }
     
@@ -59,19 +72,27 @@ $(function(){
         $('input[name=InterestType]').prop('disabled', false);
         $('#InterestRate').prop('disabled', false);
         $('#InterestDuration').prop('disabled', false);
+        /*$('#DurationEndDate').prop('disabled', false);*/
         $('#PenaltyDeduction').prop('disabled', false);
     }
+
+/*    $('#InterestDuration').datepicker({
+        rtl: mUtil.isRTL(),
+        todayHighlight: true,
+        templates: arrows,
+        format: 'dd/mm/yyyy'
+    });*/
     
     $('#UpdateGeneralSettingsBtn').click(function(){
         var generalBtn = $(this);
         
-        var stopDeposit = $('#StopDeposit').bootstrapSwitch('state');
+        var stopTopUpSaving = $('#StopTopUpSaving').bootstrapSwitch('state');
         var stopSignUp = $('#StopSignUp').bootstrapSwitch('state');
 
         generalBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
         abp.ajax({
             url: abp.appPath + 'Settings/UpdateGeneralSettings',
-            data: JSON.stringify({ StopDeposit: stopDeposit, StopSignUp: stopSignUp })
+            data: JSON.stringify({ StopTopUpSaving: stopTopUpSaving, StopSignUp: stopSignUp })
         }).done(function(data){
             swal('', 'Update was successful!', 'success');
         }).fail(function(data){
@@ -109,6 +130,8 @@ $(function(){
         var interestType = $('input[name=InterestType]:checked').val();
         var interestRate = $('#InterestRate').val();
         var interestDuration = $('#InterestDuration').val();
+        /*var durationStartDate = $('#DurationStartDate').datepicker('getUTCDate');
+        var durationEndDate = $('#DurationEndDate').datepicker('getUTCDate');*/
         var penaltyDeduction = $('#PenaltyDeduction').val();
 
         console.log('interest status: ' + interestRunning);
@@ -118,7 +141,8 @@ $(function(){
         abp.ajax({
             url: abp.appPath + 'Settings/UpdateInterestSettings',
             data: JSON.stringify({ InterestStatus: interestRunning, InterestType: interestType, InterestRate: interestRate, 
-                                            InterestDuration: interestDuration, PenaltyDeduction: penaltyDeduction })
+                                            InterestDuration: interestDuration, /*InterestDurationEndDate: durationEndDate*/ 
+                                            PenaltyDeduction: penaltyDeduction })
         }).done(function(data){
             swal('', 'Update was successful!', 'success');
         }).fail(function(data){

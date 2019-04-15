@@ -154,7 +154,7 @@
     <text name="General">General</text>
     <text name="Withdrawal">Withdrawal</text>
     <text name="Interest">Interest</text>
-    <text name="StopDeposit">Stop Deposit</text>
+    <text name="StopTopUpSaving">Stop TopUpSaving</text>
     <text name="StopSignUp">Stop SignUp</text>
     <text name="WithdrawalServiceCharge">Withdrawal Service Charge</text>
     <text name="StopWithdrawal">Stop WIthdrawal</text>

@@ -1,8 +1,10 @@
+using System;
+
 namespace Monivault.Web.Models.Settings
 {
     public class SettingViewModel
     {
-        public bool StopDeposit { get; set; }
+        public bool StopTopUpSaving { get; set; }
 
         public bool StopSignUp { get; set; }
 
@@ -17,6 +19,10 @@ namespace Monivault.Web.Models.Settings
         public decimal InterestRate { get; set; }
 
         public int InterestDuration { get; set; }
+
+        public DateTime InterestDurationStartDate { get; set; }
+
+        public DateTime InterestDurationEndDate { get; set; }
 
         public decimal PenaltyDeduction { get; set; }
     }

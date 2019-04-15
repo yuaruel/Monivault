@@ -1,4 +1,6 @@
+@using Abp.Configuration
 @using Monivault.Authorization
+@using Monivault.Configuration
 @using Monivault.Web.Startup
 @model Monivault.Web.Models.AccountHolderHome.AccountHolderDashboardViewModel
 @{
@@ -36,7 +38,7 @@
 					</li>
 				</ul>
 			</div>
-			@if (IsGranted(PermissionNames.TopUpSaving))
+			@if (IsGranted(PermissionNames.TopUpSaving) && !SettingManager.GetSettingValue<bool>(AppSettingNames.StopTopUpSaving))
 			{
 				<div>
 					<a asp-controller="TopUpSaving" asp-action="Index" class="btn btn-primary m-btn m-btn--icon m-btn--pill m-btn--air">

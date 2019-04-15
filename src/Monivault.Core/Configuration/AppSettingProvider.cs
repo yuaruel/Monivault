@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Abp.Configuration;
 
 namespace Monivault.Configuration
@@ -10,7 +11,7 @@ namespace Monivault.Configuration
             return new[]
             {
                 new SettingDefinition(AppSettingNames.UiTheme, "red", scopes: SettingScopes.Application | SettingScopes.Tenant | SettingScopes.User, isVisibleToClients: true),
-                new SettingDefinition(AppSettingNames.StopDeposit, "false", scopes: SettingScopes.Tenant), 
+                new SettingDefinition(AppSettingNames.StopTopUpSaving, "false", scopes: SettingScopes.Tenant), 
                 new SettingDefinition(AppSettingNames.StopSignUp, "false", scopes: SettingScopes.Tenant), 
                 new SettingDefinition(AppSettingNames.StopWithdrawal, "false", scopes: SettingScopes.Tenant),
                 new SettingDefinition(AppSettingNames.WithdrawalServiceCharge, "100", scopes: SettingScopes.Tenant),
@@ -18,6 +19,8 @@ namespace Monivault.Configuration
                 new SettingDefinition(AppSettingNames.InterestType, "SimpleInterest", scopes: SettingScopes.Tenant),
                 new SettingDefinition(AppSettingNames.InterestRate, "12", scopes: SettingScopes.Tenant),
                 new SettingDefinition(AppSettingNames.InterestDuration, "30", scopes: SettingScopes.Tenant),
+                new SettingDefinition(AppSettingNames.InterestDurationStartDate, DateTime.UtcNow.ToString(), scopes: SettingScopes.Tenant),
+                new SettingDefinition(AppSettingNames.InterestDurationEndDate, DateTime.UtcNow.ToString(), scopes: SettingScopes.Tenant), 
                 new SettingDefinition(AppSettingNames.PenaltyPercentageDeduction, "50", scopes: SettingScopes.Tenant), 
             };
         }

@@ -1,3 +1,5 @@
+@using Abp.Configuration
+@using Monivault.Configuration
 @using Monivault.Web.Startup
 @{
     ViewBag.CurrentPageName = PageNames.TopUpSaving;
@@ -81,15 +83,18 @@
 								</div>
 							</div>
 							<div class="m-portlet__foot m-portlet__foot--fit">
-								<div class="m-form__actions m-form__actions">
-									<div class="row">
-										<div class="col-lg-3"></div>
-										<div class="col-lg-6">
-											<button id="SubmitOneCardPinBtn" type="button" class="btn btn-success">Submit</button>
-											<button type="reset" class="btn btn-secondary">Cancel</button>
+								@if (!SettingManager.GetSettingValue<bool>(AppSettingNames.StopSignUp))
+								{
+									<div class="m-form__actions m-form__actions">
+										<div class="row">
+											<div class="col-lg-3"></div>
+											<div class="col-lg-6">
+												<button id="SubmitOneCardPinBtn" type="button" class="btn btn-success">Submit</button>
+												<button type="reset" class="btn btn-secondary">Cancel</button>
+											</div>
 										</div>
-									</div>
-								</div>
+									</div>	
+								}
 							</div>
 						</form>
 					</div>

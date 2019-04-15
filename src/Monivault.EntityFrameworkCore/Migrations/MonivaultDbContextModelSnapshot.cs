@@ -1039,6 +1039,64 @@ namespace Monivault.Migrations
                     b.ToTable("OtpSessions");
                 });
 
+            modelBuilder.Entity("Monivault.AppModels.SavingsInterest", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountHolderId");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<decimal>("InterestAccrued");
+
+                    b.Property<decimal>("InterestPrincipal");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountHolderId");
+
+                    b.ToTable("SavingsInterests");
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.SavingsInterestDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("AccruedInterestBeforeToday");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<string>("InterestType")
+                        .IsRequired();
+
+                    b.Property<decimal>("PenaltyCharge");
+
+                    b.Property<decimal>("PrincipalAfterTodayCalculation");
+
+                    b.Property<decimal>("PrincipalBeforeTodayCalculation");
+
+                    b.Property<long>("SavingsInterestId");
+
+                    b.Property<decimal>("TodayInterest");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SavingsInterestId");
+
+                    b.ToTable("SavingsInterestDetails");
+                });
+
             modelBuilder.Entity("Monivault.AppModels.TransactionLog", b =>
                 {
                     b.Property<long>("Id")
@@ -1464,6 +1522,22 @@ namespace Monivault.Migrations
                     b.HasOne("Monivault.Authorization.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.SavingsInterest", b =>
+                {
+                    b.HasOne("Monivault.AppModels.AccountHolder", "AccountHolder")
+                        .WithMany()
+                        .HasForeignKey("AccountHolderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Monivault.AppModels.SavingsInterestDetail", b =>
+                {
+                    b.HasOne("Monivault.AppModels.SavingsInterest", "SavingsInterest")
+                        .WithMany()
+                        .HasForeignKey("SavingsInterestId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

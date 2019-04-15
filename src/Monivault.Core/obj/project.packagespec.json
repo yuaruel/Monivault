@@ -28,11 +28,11 @@
       "dependencies": {
         "Abp.AutoMapper": {
           "target": "Package",
-          "version": "[4.3.0, )"
+          "version": "[4.5.0, )"
         },
         "Abp.ZeroCore.EntityFrameworkCore": {
           "target": "Package",
-          "version": "[4.3.0, )"
+          "version": "[4.5.0, )"
         },
         "Castle.Windsor.MsDependencyInjection": {
           "target": "Package",

@@ -1,15 +1,27 @@
+using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using Abp.Configuration;
 using Abp.Runtime.Session;
 using Microsoft.AspNetCore.Mvc;
 using Monivault.Configuration;
 using Monivault.Controllers;
+using Monivault.SavingsInterests;
 using Monivault.Web.Models.Settings;
 
 namespace Monivault.Web.Controllers
 {
     public class SettingsController : MonivaultControllerBase
     {
+        private readonly SavingsInterestManager _savingsInterestManager;
+
+        public SettingsController(
+                SavingsInterestManager savingsInterestManager
+            )
+        {
+            _savingsInterestManager = savingsInterestManager;
+        }
+        
         // GET
         public async Task<IActionResult> Index()
         {
@@ -20,8 +32,8 @@ namespace Monivault.Web.Controllers
             {
                 switch (setting.Name)
                 {
-                    case AppSettingNames.StopDeposit:
-                        viewModel.StopDeposit = bool.Parse(setting.Value);
+                    case AppSettingNames.StopTopUpSaving:
+                        viewModel.StopTopUpSaving = bool.Parse(setting.Value);
                         break;
                     case AppSettingNames.StopSignUp:
                         viewModel.StopSignUp = bool.Parse(setting.Value);
@@ -44,6 +56,12 @@ namespace Monivault.Web.Controllers
                     case AppSettingNames.InterestDuration:
                         viewModel.InterestDuration = int.Parse(setting.Value);
                         break;
+                    /*case AppSettingNames.InterestDurationStartDate:
+                        viewModel.InterestDurationStartDate = DateTime.ParseExact(setting.Value, "dd/MM/yyyy", new CultureInfo("en-GB"));
+                        break;
+                    case AppSettingNames.InterestDurationEndDate:
+                        viewModel.InterestDurationEndDate = DateTime.ParseExact(setting.Value, "dd/MM/yyyy", new CultureInfo("en-GB"));
+                        break;*/
                     case AppSettingNames.PenaltyPercentageDeduction:
                         viewModel.PenaltyDeduction = decimal.Parse(setting.Value);
                         break;
@@ -56,7 +74,7 @@ namespace Monivault.Web.Controllers
         public JsonResult UpdateGeneralSettings([FromBody]SettingViewModel viewModel)
         {
             //Change general settings
-            SettingManager.ChangeSettingForApplication(AppSettingNames.StopDeposit, viewModel.StopDeposit.ToString());
+            SettingManager.ChangeSettingForApplication(AppSettingNames.StopTopUpSaving, viewModel.StopTopUpSaving.ToString());
             SettingManager.ChangeSettingForApplication(AppSettingNames.StopSignUp, viewModel.StopSignUp.ToString());
             
             return Json(new { });
@@ -72,7 +90,6 @@ namespace Monivault.Web.Controllers
 
         public async Task<JsonResult> UpdateInterestSettings([FromBody]SettingViewModel viewModel)
         {
-            Logger.Info("Interest Status: " + viewModel.InterestStatus);
             await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestStatus,viewModel.InterestStatus.ToString());
             if (!viewModel.InterestStatus) return Json(new { });
             
@@ -82,8 +99,15 @@ namespace Monivault.Web.Controllers
                 viewModel.InterestRate.ToString());
             await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestDuration,
                 viewModel.InterestDuration.ToString());
+            /*await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestDurationStartDate,
+                viewModel.InterestDurationStartDate.ToString("dd/MM/yyyy"));
+            await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestDurationEndDate,
+                viewModel.InterestDurationEndDate.ToString("dd/MM/yyyy"));*/
             await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.PenaltyPercentageDeduction,
                 viewModel.PenaltyDeduction.ToString());
+            
+            //Bootstrap SavingsInterest for all accountHolders.
+            await _savingsInterestManager.BootstrapNewSavingsInterestForAllAccountHolders();
 
             return Json(new { });
         }

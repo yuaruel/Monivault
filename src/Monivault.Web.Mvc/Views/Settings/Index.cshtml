@@ -6,11 +6,14 @@
 }
 @section styles
 {
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
     <link href="~/lib/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
     <link href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
 }
 @section scripts
 {
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="~/js/bootstrap-datepicker.init.js" type="text/javascript"></script>
     <script src="~/lib/bootstrap-switch/dist/js/bootstrap-switch.js" type="text/javascript"></script>
     <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
     <script src="~/view-resources/Views/Settings/Index.js"></script>
@@ -73,9 +76,9 @@
                     <div class="tab-pane active" id="GeneralTabContent" role="tabpanel">
                         <form class="m-form m-form--fit m-form--label-align-right" asp-action="UpdateGeneralSettings">
                             <div class="form-group m-form__group row">
-                                <label class="col-form-label col-lg-3 col-sm-12">@L("StopDeposit")</label>
+                                <label class="col-form-label col-lg-3 col-sm-12">@L("StopTopUpSaving")</label>
                                 <div class="col-lg-9 col-md-9 col-sm-12">
-                                    <input type="checkbox" data-switch="true" id="StopDeposit" checked="@Model.StopDeposit"/>
+                                    <input type="checkbox" data-switch="true" id="StopTopUpSaving" checked="@Model.StopTopUpSaving"/>
                                 </div>
                             </div>
                             <div class="group m-form__group row">
@@ -154,6 +157,18 @@
                                     </div>
                                 </div>
                             </div>
+                            @*<div class="form-group m-form__group row">
+                                <label class="col-form-label col-lg-3 col-sm-12">@L("Duration")</label>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="input-daterange input-group" id="InterestDuration">
+                                        <input type="text" id="DurationStartDate" class="form-control m-input" name="start" value="@Model.InterestDurationStartDate.Date.ToString("dd/MM/yyyy")"/>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                        </div>
+                                        <input type="text"  id="DurationEndDate"class="form-control m-input" name="end" value="@Model.InterestDurationEndDate.Date.ToString("dd/MM/yyyy")"/>
+                                    </div>
+                                </div>
+                            </div>*@
                             <div class="form-group m-form__group row">
                                 <label class="col-form-label col-lg-3 col-sm-12">@L("Duration")</label>
                                 <div class="col-lg-6 col-md-6 col-sm-12">

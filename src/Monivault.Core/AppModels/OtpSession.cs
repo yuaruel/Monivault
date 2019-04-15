@@ -25,6 +25,6 @@ namespace Monivault.AppModels
         [Column(TypeName = "varchar(1000)")]
         public Dictionary<string, string> ActionProperty { get; set; }
         
-        public DateTime CreationTime { get; set; } =  new DateTime();
+        public DateTime CreationTime { get; set; } = DateTime.UtcNow;
     }
 }

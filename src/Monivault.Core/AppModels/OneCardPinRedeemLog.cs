@@ -70,6 +70,6 @@ namespace Monivault.AppModels
         [Column(TypeName = "varchar(25)")]
         public string ResponseCts { get; set; }
 
-        public DateTime CreationTime { get; set; } = new DateTime();
+        public DateTime CreationTime { get; set; } = DateTime.UtcNow;
     }
 }

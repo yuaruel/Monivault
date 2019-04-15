@@ -7,9 +7,12 @@ using Abp.UI;
 using Abp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Monivault.AppModels;
 using Monivault.Authorization.Users;
+using Monivault.Configuration;
 using Monivault.Controllers;
 using Monivault.ModelServices;
+using Monivault.SavingsInterests;
 using Monivault.SignUp;
 using Monivault.Web.Models.SignUp;
 
@@ -23,6 +26,7 @@ namespace Monivault.Web.Controllers
         private readonly UserManager _userManager;
         private readonly AccountHolderService _accountHolderService;
         private readonly NotificationScheduler _notificationScheduler;
+        private readonly SavingsInterestManager _savingsInterestManager;
         
         public SignUpController(
             IVerificationCodeService verificationCodeService,
@@ -30,7 +34,8 @@ namespace Monivault.Web.Controllers
             UserSignUpManager userSignUpManager,
             UserManager userManager,
             AccountHolderService accountHolderService,
-            NotificationScheduler notificationScheduler)
+            NotificationScheduler notificationScheduler,
+            SavingsInterestManager savingsInterestManager)
         {
             _verificationCodeService = verificationCodeService;
             _smsService = smsService;
@@ -38,6 +43,7 @@ namespace Monivault.Web.Controllers
             _userManager = userManager;
             _accountHolderService = accountHolderService;
             _notificationScheduler = notificationScheduler;
+            _savingsInterestManager = savingsInterestManager;
         }
         // GET
         public IActionResult Index()
@@ -65,6 +71,13 @@ namespace Monivault.Web.Controllers
                                     true);
 
             var accountHolder = _accountHolderService.CreateAccountHolder(user.Id);
+            
+            //Check if InterestStatus is running and bootstrap Interest for accountholder.
+            var interestStatus = await SettingManager.GetSettingValueAsync(AppSettingNames.InterestStatus);
+            if (SavingsInterest.StatusTypes.Running.Equals(interestStatus))
+            {
+                await _savingsInterestManager.BootstrapNewSavingsInterestForAccountHolder(accountHolder.Id);
+            }
             
             //Send a welcome text and email, with AccountHolder Identity.
             _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
