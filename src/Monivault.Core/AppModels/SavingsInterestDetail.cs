@@ -10,7 +10,7 @@ namespace Monivault.AppModels
         [Required]
         public long SavingsInterestId { get; set; }
 
-        public SavingsInterest SavingsInterest { get; set; }
+        public virtual SavingsInterest SavingsInterest { get; set; }
 
         [Required] public decimal TodayInterest { get; set; } = decimal.Zero;
 

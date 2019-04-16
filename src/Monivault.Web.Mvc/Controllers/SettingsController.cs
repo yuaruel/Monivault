@@ -91,7 +91,11 @@ namespace Monivault.Web.Controllers
         public async Task<JsonResult> UpdateInterestSettings([FromBody]SettingViewModel viewModel)
         {
             await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestStatus,viewModel.InterestStatus.ToString());
-            if (!viewModel.InterestStatus) return Json(new { });
+            if (!viewModel.InterestStatus)
+            {
+                SavingsInterestManager.StopSavingsInterestProcessing();
+                return Json(new { });
+            }
             
             await SettingManager.ChangeSettingForApplicationAsync(AppSettingNames.InterestType,
                 viewModel.InterestType);
@@ -108,6 +112,7 @@ namespace Monivault.Web.Controllers
             
             //Bootstrap SavingsInterest for all accountHolders.
             await _savingsInterestManager.BootstrapNewSavingsInterestForAllAccountHolders();
+            SavingsInterestManager.StartSavingsInterestProcessing();
 
             return Json(new { });
         }

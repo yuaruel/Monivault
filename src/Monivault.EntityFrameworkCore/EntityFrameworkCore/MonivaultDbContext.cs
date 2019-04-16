@@ -26,8 +26,6 @@ namespace Monivault.EntityFrameworkCore
             : base(options)
         {
         }
-        
-        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,6 +35,12 @@ namespace Monivault.EntityFrameworkCore
                     v => JsonConvert.SerializeObject(v),
                     v => JsonConvert.DeserializeObject<Dictionary<string, string>>(v)
                 );
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            
         }
     }
 }

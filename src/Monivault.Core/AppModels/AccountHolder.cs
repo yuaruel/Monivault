@@ -30,7 +30,7 @@ namespace Monivault.AppModels
 
         public int? BankId { get; set; }
 
-        public Bank Bank { get; set; }
+        public virtual Bank Bank { get; set; }
         
         [Column(TypeName = "varchar(12)")]
         public string BankAccountNumber { get; set; }

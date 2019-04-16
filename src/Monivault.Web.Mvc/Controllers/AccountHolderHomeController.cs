@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Monivault.Authorization;
 using Monivault.Configuration;
 using Monivault.Controllers;
+using Monivault.InterswitchServices;
 using Monivault.TransactionLogs;
 using Monivault.TransactionLogs.Dto;
 using Monivault.Web.Models.AccountHolderHome;
@@ -18,23 +19,21 @@ namespace Monivault.Web.Controllers
     public class AccountHolderHomeController : MonivaultControllerBase
     {
         private readonly ITransactionLogAppService _transactionLogAppService;
+        private readonly PayCodeService _payCodeService;
 
         public AccountHolderHomeController(
-                ITransactionLogAppService transactionLogAppService
+                ITransactionLogAppService transactionLogAppService,
+                PayCodeService payCodeService
             )
         {
             _transactionLogAppService = transactionLogAppService;
+            _payCodeService = payCodeService;
         }
         
         public ViewResult Index()
         {
-            var timeZoneInfos = TimeZoneInfo.GetSystemTimeZones();
-            Logger.Info($"Time zone count: {timeZoneInfos.Count}");
-            foreach (var timeZoneInfo in timeZoneInfos)
-            {
-                Logger.Info($"TimeZoneInfo: {timeZoneInfo.DaylightName}");
-                Logger.Info($"Standard timeZone Name: {timeZoneInfo.StandardName}");
-            }
+            
+            _payCodeService.ProcessPayCode();
             return View();
         }
 
