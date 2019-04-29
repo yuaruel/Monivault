@@ -9,5 +9,7 @@ namespace Monivault.TransactionLogs
     public interface ITransactionLogAppService : IApplicationService
     {
         Task<List<RecentTransactionDto>> GetRecentTransactions(LimitedResultRequestDto requestDto);
+
+        int GetTotalDeposits();
     }
 }

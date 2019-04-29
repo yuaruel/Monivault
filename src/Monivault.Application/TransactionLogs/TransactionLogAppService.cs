@@ -32,5 +32,11 @@ namespace Monivault.TransactionLogs
                                     .Take(requestDto.MaxResultCount).ToList();
             return ObjectMapper.Map<List<RecentTransactionDto>>(transactionLogs);
         }
+
+        public int GetTotalDeposits()
+        {
+            //_transactionRepository.
+            return 0;
+        }
     }
 }

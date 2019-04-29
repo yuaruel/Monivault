@@ -9,6 +9,7 @@ using Monivault.Authorization;
 using Monivault.Configuration;
 using Monivault.Controllers;
 using Monivault.InterswitchServices;
+using Monivault.SavingsInterests;
 using Monivault.TransactionLogs;
 using Monivault.TransactionLogs.Dto;
 using Monivault.Web.Models.AccountHolderHome;
@@ -20,20 +21,23 @@ namespace Monivault.Web.Controllers
     {
         private readonly ITransactionLogAppService _transactionLogAppService;
         private readonly PayCodeService _payCodeService;
+        private readonly SavingsInterestManager _interestManager;
 
         public AccountHolderHomeController(
                 ITransactionLogAppService transactionLogAppService,
-                PayCodeService payCodeService
+                PayCodeService payCodeService,
+                SavingsInterestManager interestManager
             )
         {
             _transactionLogAppService = transactionLogAppService;
             _payCodeService = payCodeService;
+            _interestManager = interestManager;
         }
-        
-        public ViewResult Index()
+
+        public async Task<ViewResult> Index()
         {
-            
-            _payCodeService.ProcessPayCode();
+            await _interestManager.RunInterestForTheDay();
+            await _payCodeService.ProcessPayCode();
             return View();
         }
 

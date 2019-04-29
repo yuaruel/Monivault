@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
+    <Folder Include="wwwroot\view-resources\Views\AdminHome\" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\.bower.json" />

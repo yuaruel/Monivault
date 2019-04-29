@@ -9,5 +9,7 @@ namespace Monivault.AccountHolders
         Task<AccountHolderDto> GetAccountHolderDetail();
 
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
+
+        int GetTotalNumberOfAccountHolders();
     }
 }

@@ -45,6 +45,11 @@ namespace Monivault.AccountHolders
             return accountHolderDto;
         }
 
+        public int GetTotalNumberOfAccountHolders()
+        {
+            return _accountHolderRepository.Count();
+        }
+
         public async Task UpdateBankDetails(string bankKey, string accountNumber, string accountName)
         {
             var bankGuidKey = Guid.Parse(bankKey);

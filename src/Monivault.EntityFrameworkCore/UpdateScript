@@ -1,0 +1,49 @@
+﻿CREATE TABLE [SavingsInterests] (
+    [Id] bigint NOT NULL IDENTITY,
+    [AccountHolderId] int NOT NULL,
+    [InterestPrincipal] decimal(18,2) NOT NULL,
+    [InterestAccrued] decimal(18,2) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [EndDate] datetime2 NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [LastModificationTime] datetime2 NULL,
+    CONSTRAINT [PK_SavingsInterests] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_SavingsInterests_AccountHolders_AccountHolderId] FOREIGN KEY ([AccountHolderId]) REFERENCES [AccountHolders] ([Id]) ON DELETE CASCADE
+);
+
+GO
+
+CREATE INDEX [IX_SavingsInterests_AccountHolderId] ON [SavingsInterests] ([AccountHolderId]);
+
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190414202835_SavingsInterestTable_Create', N'2.2.1-servicing-10028');
+
+GO
+
+CREATE TABLE [SavingsInterestDetails] (
+    [Id] bigint NOT NULL IDENTITY,
+    [SavingsInterestId] bigint NOT NULL,
+    [TodayInterest] decimal(18,2) NOT NULL,
+    [PenaltyCharge] decimal(18,2) NOT NULL,
+    [AccruedInterestBeforeToday] decimal(18,2) NOT NULL,
+    [PrincipalBeforeTodayCalculation] decimal(18,2) NOT NULL,
+    [PrincipalAfterTodayCalculation] decimal(18,2) NOT NULL,
+    [InterestType] nvarchar(max) NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    CONSTRAINT [PK_SavingsInterestDetails] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_SavingsInterestDetails_SavingsInterests_SavingsInterestId] FOREIGN KEY ([SavingsInterestId]) REFERENCES [SavingsInterests] ([Id]) ON DELETE CASCADE
+);
+
+GO
+
+CREATE INDEX [IX_SavingsInterestDetails_SavingsInterestId] ON [SavingsInterestDetails] ([SavingsInterestId]);
+
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190414202927_SavingsInterestDetailTable_Create', N'2.2.1-servicing-10028');
+
+GO
+
