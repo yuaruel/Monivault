@@ -318,7 +318,6 @@ namespace Monivault.Users
 
             return true;
         }
-
     }
 }
 

@@ -25,5 +25,10 @@ namespace Monivault.Web.Controllers
         {
             return Json(new { totalAccountHolders = _accountHolderAppService.GetTotalNumberOfAccountHolders() });
         }
+
+        //public JsonResult TotalDeposits()
+        //{
+
+        //}
     }
 }

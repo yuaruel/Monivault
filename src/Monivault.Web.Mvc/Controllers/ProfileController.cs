@@ -1,12 +1,17 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Abp.Domain.Repositories;
+using Abp.UI;
+using Abp.Web.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Monivault.AccountHolders;
 using Monivault.AppModels;
 using Monivault.Controllers;
 using Monivault.Profiles;
+using Monivault.Profiles.Dto;
 using Monivault.Web.Models.Profile;
 
 namespace Monivault.Web.Controllers
@@ -71,6 +76,43 @@ namespace Monivault.Web.Controllers
                 viewModel.AccountName);
             
             return Json(new { });
+        }
+
+        public async Task<StatusCodeResult> UpdatePersonalDetail(PersonalDetailViewModel viewModel)
+        {
+            await _profileAppService.UpdatePersonalDetail(new PersonalDetailDto
+            {
+                FirstName = viewModel.FirstName,
+                LastName = viewModel.LastName,
+                PhoneNumber = viewModel.PhoneNumber,
+                Email = viewModel.Email
+            });
+            
+            return StatusCode(200);
+        }
+
+        [DontWrapResult]
+        public async Task<ActionResult> UpdatePassword(UpdatePasswordViewModel viewModel)
+        {
+            var updateResult = await _profileAppService.UpdatePassword(new UpdatePasswordDto
+            {
+                CurrentPassword = viewModel.CurrentPassword,
+                NewPassword = viewModel.NewPassword
+            });
+
+            if (updateResult.Succeeded) return Ok();
+
+            
+            var errorDesc = "";
+            foreach (var error in updateResult.Errors)
+            {
+                errorDesc = error.Description;
+                //if (error.Code == "PasswordMismatch") throw new UserFriendlyException(error.Description);
+            }
+
+            return BadRequest(errorDesc);
+
+            //return StatusCode(200);
         }
     }
 }

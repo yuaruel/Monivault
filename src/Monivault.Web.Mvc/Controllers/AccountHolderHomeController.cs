@@ -36,7 +36,7 @@ namespace Monivault.Web.Controllers
 
         public async Task<ViewResult> Index()
         {
-            await _interestManager.RunInterestForTheDay();
+            //await _interestManager.RunInterestForTheDay();
             await _payCodeService.ProcessPayCode();
             return View();
         }

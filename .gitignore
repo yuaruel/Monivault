@@ -1,0 +1,17 @@
+src/Monivault.Web.Mvc/bin/*
+src/Monivault.Web.Mvc/obj/*
+src/Monivault.Web.Host/bin/*
+src/Monivault.Web.Host/obj/*
+src/Monivault.Web.Core/bin/*
+src/Monivault.Web.Core/obj/*
+src/Monivault.Migrator/bin/*
+src/Monivault.Migrator/obj/*
+src/Monivault.EntityFrameworkCore/bin/*
+src/Monivault.EntityFrameworkCore/obj/*
+src/Monivault.Application/bin/*
+src/Monivault.Application/obj/*
+src/Monivault.Core/bin/*
+src/Monivault.Core/obj/*
+src/Monivault.Test/bin/*
+src/Monivault.Test/obj/*
+*.dll

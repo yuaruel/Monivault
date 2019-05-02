@@ -227,7 +227,7 @@
 <div class="tab-content">
 	<div class="tab-pane active" id="profile_detail_tab">
 		<div class="m-portlet__body">
-			<form class="m-form m-form--fit m-form--label-align-right">
+			<form class="m-form m-form--fit m-form--label-align-right" asp-action="UpdatePersonalDetail">
 				<div class="form-group m-form__group m--margin-top-10 m--hide">
 					<div class="alert m-alert m-alert--default" role="alert">
 						The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
@@ -241,13 +241,13 @@
 				<div class="form-group m-form__group row">
 					<label for="example-text-input" class="col-3 col-form-label">First Name</label>
 					<div class="col-7">
-						<input class="form-control m-input" type="text" value="@Model.FirstName">
+						<input class="form-control m-input" type="text" name="FirstName" value="@Model.FirstName">
 					</div>
 				</div>
 				<div class="form-group m-form__group row">
 					<label for="example-text-input" class="col-3 col-form-label">Last Name</label>
 					<div class="col-7">
-						<input class="form-control m-input" type="text" value="@Model.LastName">
+						<input class="form-control m-input" type="text" name="LastName" value="@Model.LastName">
 					</div>
 				</div>
 				<div class="form-group m-form__group row">
@@ -259,7 +259,7 @@
 									<i class="la la-phone-square"></i>
 								</span>
 							</div>
-							<input class="form-control m-input" type="text" value="@Model.PhoneNumber">
+							<input class="form-control m-input" type="text" name="PhoneNumber" value="@Model.PhoneNumber">
 						</div>
 
 					</div>
@@ -273,7 +273,7 @@
 									<i class="la la-envelope"></i>
 								</span>
 							</div>
-							<input class="form-control m-input" type="text" value="@Model.Email">
+							<input class="form-control m-input" type="text" name="Email" value="@Model.Email">
 						</div>
 					</div>
 				</div>
@@ -282,14 +282,14 @@
 						<div class="col-2">
 						</div>
 						<div class="col-7">
-							<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Update Details</button>&nbsp;&nbsp;
+							<button id="UpdatePersonalDetailBtn" type="button" class="btn btn-accent m-btn m-btn--air m-btn--custom">Update Details</button>&nbsp;&nbsp;
 							<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
 						</div>
 					</div>
 				</div>
 				<div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
 			</form>
-			<form class="m-form m-form--fit m-form--label-align-right">
+			<form asp-action="UpdatePassword" class="m-form m-form--fit m-form--label-align-right">
 				<div class="form-group m-form__group row">
 					<div class="col-10 ml-auto">
 						<h3 class="m-form__section">2. Password Update</h3>
@@ -298,19 +298,19 @@
 				<div class="form-group m-form__group row">
 					<label for="example-text-input" class="col-3 col-form-label">Current Password</label>
 					<div class="col-7">
-						<input class="form-control m-input" type="password" value="">
+						<input name="CurrentPassword" class="form-control m-input" type="password" value="">
 					</div>
 				</div>
 				<div class="form-group m-form__group row">
 					<label for="example-text-input" class="col-3 col-form-label">New Password</label>
 					<div class="col-7">
-						<input class="form-control m-input" type="password" value="">
+						<input name="NewPassword" id="NewPassword" class="form-control m-input" type="password" value="">
 					</div>
 				</div>
 				<div class="form-group m-form__group row">
 					<label for="example-text-input" class="col-3 col-form-label">Confirm Password</label>
 					<div class="col-7">
-						<input class="form-control m-input" type="password" value="">
+						<input name="ConfirmPassword" class="form-control m-input" type="password" value="">
 					</div>
 				</div>
 				<div class="m-form__actions">
@@ -318,7 +318,7 @@
 						<div class="col-2">
 						</div>
 						<div class="col-7">
-							<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Update Password</button>&nbsp;&nbsp;
+							<button id="UpdatePasswordBtn" type="button" class="btn btn-accent m-btn m-btn--air m-btn--custom">Update Password</button>&nbsp;&nbsp;
 							<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
 						</div>
 					</div>
