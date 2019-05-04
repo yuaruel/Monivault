@@ -1,12 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Authorization;
 using Abp.Configuration;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Monivault.Authorization;
 using Monivault.Configuration;
+using Monivault.ConfigurationOptions;
 using Monivault.Controllers;
 using Monivault.InterswitchServices;
 using Monivault.SavingsInterests;
@@ -22,21 +28,28 @@ namespace Monivault.Web.Controllers
         private readonly ITransactionLogAppService _transactionLogAppService;
         private readonly PayCodeService _payCodeService;
         private readonly SavingsInterestManager _interestManager;
+        private readonly IConfiguration _tempConfig;
+        //private readonly IOptions<AWSCredentialOptions> _credentialOptions;
 
         public AccountHolderHomeController(
                 ITransactionLogAppService transactionLogAppService,
                 PayCodeService payCodeService,
-                SavingsInterestManager interestManager
+                SavingsInterestManager interestManager,
+                IConfiguration tempConfig
+                //IOptions<AWSCredentialOptions> credentialOptions
             )
         {
             _transactionLogAppService = transactionLogAppService;
             _payCodeService = payCodeService;
             _interestManager = interestManager;
+            _tempConfig = tempConfig;
+            //_credentialOptions = credentialOptions;
         }
 
         public async Task<ViewResult> Index()
         {
-            //await _interestManager.RunInterestForTheDay();
+            var awsCredentialOptions = _tempConfig.GetSection("AWS").Get<AWSCredentialOptions>();
+            Logger.Info($"Fetching from config. The AWS AccessKey: {awsCredentialOptions}");
             await _payCodeService.ProcessPayCode();
             return View();
         }

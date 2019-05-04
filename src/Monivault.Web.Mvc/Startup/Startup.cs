@@ -18,6 +18,7 @@ using Hangfire;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
+using Monivault.ConfigurationOptions;
 
 
 namespace Monivault.Web.Startup
@@ -37,7 +38,7 @@ namespace Monivault.Web.Startup
             services.AddMvc(
                 options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())
             );
-
+            
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
             
@@ -59,6 +60,13 @@ namespace Monivault.Web.Startup
                 options.Password.RequiredLength = 1;
                 options.User.RequireUniqueEmail = false;
 
+            });
+            
+            //Configure AWS Credential Options
+            services.Configure<AWSCredentialOptions>(options =>
+            {
+                options.AccessKey = _appConfiguration["AWS:AccessKey"];
+                options.SecretKey = _appConfiguration["AWS:SecretKey"];
             });
             
             services.ConfigureApplicationCookie(opt => { opt.LoginPath = "/Login"; });

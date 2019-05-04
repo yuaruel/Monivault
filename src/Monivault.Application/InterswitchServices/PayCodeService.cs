@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Mime;
@@ -36,6 +37,7 @@ namespace Monivault.InterswitchServices
         {
             //var oneCardProps = _config.GetSection("OneCardProperties");
             //Logger.Info($"Connection string: {oneCardProps.GetValue<string>("AgentCode")}");
+            
             var timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             Logger.Info($"Timestamp component: {timeStamp}");
             var nonce = RandomStringGeneratorUtil.GenerateNonce();//.NewGuid().ToString().Replace("-", "");

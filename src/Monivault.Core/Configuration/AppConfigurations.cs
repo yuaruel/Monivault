@@ -1,7 +1,9 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Abp.Extensions;
 using Abp.Reflection.Extensions;
+using Castle.Core.Logging;
 
 namespace Monivault.Configuration
 {
@@ -35,7 +37,7 @@ namespace Monivault.Configuration
             }
 
             builder = builder.AddEnvironmentVariables();
-
+            
             if (addUserSecrets)
             {
                 builder.AddUserSecrets(typeof(AppConfigurations).GetAssembly());

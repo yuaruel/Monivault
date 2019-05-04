@@ -7,6 +7,7 @@ namespace Monivault.Configuration
     {
         public static IConfigurationRoot GetAppConfiguration(this IHostingEnvironment env)
         {
+            
             return AppConfigurations.Get(env.ContentRootPath, env.EnvironmentName, env.IsDevelopment());
         }
     }

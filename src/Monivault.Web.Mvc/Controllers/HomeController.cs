@@ -14,11 +14,12 @@ namespace Monivault.Web.Controllers
             if (PermissionChecker.IsGranted(PermissionNames.ViewAdminDashboard))
             {
                 return RedirectToAction("Index", "AdminHome");
-            }else if (PermissionChecker.IsGranted(PermissionNames.ViewAccountHolderDashboard))
+            }
+            if (PermissionChecker.IsGranted(PermissionNames.ViewAccountHolderDashboard))
             {
                 return RedirectToAction("Index", "AccountHolderHome");
             }
-            
+
             return View();
         }
 	}
