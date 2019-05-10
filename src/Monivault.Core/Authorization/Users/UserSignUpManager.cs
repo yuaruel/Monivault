@@ -66,8 +66,19 @@ namespace Monivault.Authorization.Users
 
             await _userManager.InitializeOptionsAsync(tenant.Id);
 
-            CheckErrors(await _userManager.CreateAsync(user, plainPassword));
-            await CurrentUnitOfWork.SaveChangesAsync();
+            try
+            {
+                Logger.Info("About to save new user...");
+                CheckErrors(await _userManager.CreateAsync(user, plainPassword));
+                Logger.Info("Created new user, and next is to save...");
+                await CurrentUnitOfWork.SaveChangesAsync();
+                Logger.Info("S|aved new user.");
+            }
+            catch(Exception exc)
+            {
+                Logger.Error($"Err Message: {exc.Message}");
+                Logger.Error($"StackTrace: {exc.StackTrace}");
+            }
 
             return user;
         }

@@ -21,6 +21,7 @@ namespace Monivault.EntityFrameworkCore
         public virtual DbSet<OtpSession> OtpSessions { get; set; }
         public virtual DbSet<SavingsInterest> SavingsInterests { get; set; }
         public virtual DbSet<SavingsInterestDetail> SavingsInterestDetails { get; set; }
+        public virtual DbSet<AirtimeNetwork> AirtimeNetworks { get; set; }
 
         public MonivaultDbContext(DbContextOptions<MonivaultDbContext> options)
             : base(options)

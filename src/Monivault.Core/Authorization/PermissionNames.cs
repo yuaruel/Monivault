@@ -27,5 +27,7 @@
         public const string ViewAccountHolderDashboard = "ViewAccountHolderDashboard";
         public const string TopUpSaving = "TopUpSaving";
 
+        public const string BuyAirtime = "BuyAirtime";
+
     }
 }
