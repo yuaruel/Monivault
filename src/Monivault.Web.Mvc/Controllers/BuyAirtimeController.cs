@@ -6,6 +6,7 @@ using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Monivault.AppModels;
+using Monivault.BuyAirtime.Dto;
 using Monivault.Controllers;
 using Monivault.TopUpAirtime;
 using Monivault.Web.Models.BuyAirtime;
@@ -36,7 +37,7 @@ namespace Monivault.Web.Mvc.Controllers
 
             foreach(var airtimeNetwork in airtimeNetworks)
             {
-                airtimeNetworkItems.Add(new SelectListItem(airtimeNetwork.NetworkName, airtimeNetwork.Id.ToString()));
+                airtimeNetworkItems.Add(new SelectListItem(airtimeNetwork.NetworkName, airtimeNetwork.NetworkName));
             }
 
             var viewModel = new BuyAirtimeViewModel
@@ -45,6 +46,12 @@ namespace Monivault.Web.Mvc.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public JsonResult PurchaseAirtime(BuyAirtimeViewModel viewModel)
+        {
+            _buyAirtimeAppService.BuyAirtime(ObjectMapper.Map<AirtimePurchaseDto>(viewModel));
+            return Json(new { });
         }
     }
 }

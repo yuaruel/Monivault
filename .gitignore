@@ -18,3 +18,5 @@
 /test/Monivault.Tests/obj/*
 /test/Monivault.Tests/bin/*
 /.vs/*
+/src/Monivault.Web.Mvc/App_Data/Logs/*
+/src/Monivault.Web.Host/App_Data/Logs/*
