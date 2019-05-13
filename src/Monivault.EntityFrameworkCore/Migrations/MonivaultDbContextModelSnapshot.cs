@@ -927,6 +927,23 @@ namespace Monivault.Migrations
                     b.ToTable("AccountHolders");
                 });
 
+            modelBuilder.Entity("Monivault.AppModels.AirtimeNetwork", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NetworkName")
+                        .IsRequired();
+
+                    b.Property<string>("OneCardAirtimePurchaseCode")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AirtimeNetworks");
+                });
+
             modelBuilder.Entity("Monivault.AppModels.Bank", b =>
                 {
                     b.Property<int>("Id")

@@ -60,6 +60,13 @@ namespace Monivault.Web.Startup
                             L("TaxPayment"),
                             requiredPermissionName: PermissionNames.DoTaxPayment
                         )
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            PageNames.BuyAirtime,
+                            L("BuyAirtime"),
+                            url: "BuyAirtime",
+                            requiredPermissionName: PermissionNames.BuyAirtime
+                        )
                     )
                 ).AddItem(
                     new MenuItemDefinition(

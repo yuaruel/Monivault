@@ -41,9 +41,11 @@ namespace Monivault.Web.Controllers
             
             
             var banks = _bankRepository.GetAllList();
-            var bankSelectItems = new List<SelectListItem>();
-            bankSelectItems.Add(new SelectListItem{Value = "-1", Text = "Select Bank"});
-            
+            var bankSelectItems = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "-1", Text = "Select Bank" }
+            };
+
             foreach (var bank in banks)
             {
                 bankSelectItems.Add(new SelectListItem{Value = bank.BankKey.ToString(), Text = bank.Name});

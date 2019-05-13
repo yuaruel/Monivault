@@ -33,6 +33,8 @@ namespace Monivault.Authorization
             context.CreatePermission(PermissionNames.ViewAccountHolders, L(PermissionNames.ViewAccountHolders), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.ViewSettingsPage, L(PermissionNames.ViewSettingsPage), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.TopUpSaving, L(PermissionNames.TopUpSaving), multiTenancySides: MultiTenancySides.Tenant);
+
+            context.CreatePermission(PermissionNames.BuyAirtime, L(PermissionNames.BuyAirtime), multiTenancySides: MultiTenancySides.Tenant);
         }
 
         private static ILocalizableString L(string name)

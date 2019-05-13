@@ -165,5 +165,6 @@
     <text name="Rate">Rate</text>
     <text name="Duration">Duration</text>
     <text name="PenaltyPercentageDeduction">Penalty Percentage Deduction</text>
+    <text name="BuyAirtime">Buy airtime</text>
   </texts>
 </localizationDictionary>

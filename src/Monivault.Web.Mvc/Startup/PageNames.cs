@@ -11,6 +11,7 @@ namespace Monivault.Web.Startup
         public const string PayCode = "PayCode";
         public const string Utilities = "Utilities";
         public const string TaxPayment = "TaxPayment";
+        public const string BuyAirtime = "Buy Airtime";
         public const string AccountHolders = "Account Holders";
         public const string Settings = "Settings";
         public const string UserManagement = "User Management";
