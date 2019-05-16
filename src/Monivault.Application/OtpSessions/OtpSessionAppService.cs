@@ -1,6 +1,8 @@
 using Abp.Domain.Repositories;
 using Monivault.AppModels;
+using Monivault.Exceptions;
 using Monivault.OtpSessions.Dto;
+using System.Threading.Tasks;
 
 namespace Monivault.OtpSessions
 {
@@ -23,6 +25,18 @@ namespace Monivault.OtpSessions
             _otpSessionRepository.Delete(otpSession);
             
             return ObjectMapper.Map<OtpSessionDto>(otpSession);
+        }
+
+        public async Task<OtpSession> ValidateOtp(string otp)
+        {
+            var user = await GetCurrentUserAsync();
+            Logger.Info("About to get the otp entity");
+            var otpSession = _otpSessionRepository.Get(int.Parse(otp));
+            _otpSessionRepository.Delete(otpSession);
+            Logger.Info("Gotten the otp entity");
+            if (otpSession.PhoneNumberSentTo != user.PhoneNumber) throw new InvalidOtpException();
+
+            return otpSession;
         }
     }
 }

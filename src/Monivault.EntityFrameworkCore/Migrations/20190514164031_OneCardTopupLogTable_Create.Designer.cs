@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monivault.EntityFrameworkCore;
 
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    partial class MonivaultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190514164031_OneCardTopupLogTable_Create")]
+    partial class OneCardTopupLogTable_Create
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -962,63 +964,6 @@ namespace Monivault.Migrations
                     b.ToTable("Banks");
                 });
 
-            modelBuilder.Entity("Monivault.AppModels.OneCardFundsTransferLog", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccountHolderId");
-
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Action");
-
-                    b.Property<string>("AgentTransactionId")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<string>("BankCode")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<int>("BankId");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<Guid>("OneCardFundsTransferLogKey");
-
-                    b.Property<string>("ResponseValue")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Responsects")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("ResultCode")
-                        .IsRequired()
-                        .HasColumnType("varchar(3)");
-
-                    b.Property<string>("ResultDescription")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<long?>("TransactionLogId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountHolderId");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("TransactionLogId");
-
-                    b.ToTable("OneCardFundsTransferLogs");
-                });
-
             modelBuilder.Entity("Monivault.AppModels.OneCardPinRedeemLog", b =>
                 {
                     b.Property<long>("Id")
@@ -1636,23 +1581,6 @@ namespace Monivault.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Monivault.AppModels.OneCardFundsTransferLog", b =>
-                {
-                    b.HasOne("Monivault.AppModels.AccountHolder", "AccountHolder")
-                        .WithMany()
-                        .HasForeignKey("AccountHolderId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Monivault.AppModels.Bank", "Bank")
-                        .WithMany()
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Monivault.AppModels.TransactionLog", "TransactionLog")
-                        .WithMany()
-                        .HasForeignKey("TransactionLogId");
                 });
 
             modelBuilder.Entity("Monivault.AppModels.OneCardPinRedeemLog", b =>

@@ -1,18 +1,23 @@
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Configuration;
 using Monivault.AccountHolders;
+using Monivault.Authorization;
 using Monivault.Authorization.Users;
 using Monivault.Controllers;
+using Monivault.Exceptions;
 using Monivault.ModelServices;
 using Monivault.MoneyTransfers;
+using Monivault.MoneyTransfers.Dto;
 using Monivault.OtpSessions;
 using Monivault.Web.Models.MoneyTransfer;
 
 namespace Monivault.Web.Controllers
 {
+    [AbpMvcAuthorize(PermissionNames.DoBankAccountTransfer)]
     public class MoneyTransferController : MonivaultControllerBase
     {
         private readonly IAccountHolderAppService _accountHolderAppService;
@@ -71,7 +76,7 @@ namespace Monivault.Web.Controllers
                 }
 
                 var otp = await _moneyTransferAppService.GenerateBankAccountTransferOtp(viewModel.Amount, viewModel.Comment, user.PhoneNumber);
-                //_notificationScheduler.ScheduleOtp(user.PhoneNumber, user.RealEmailAddress, otp);
+                _notificationScheduler.ScheduleOtp(user.PhoneNumber, user.RealEmailAddress, otp);
                 
             }
             catch (Exception exc)
@@ -88,27 +93,32 @@ namespace Monivault.Web.Controllers
         {
             try
             {
-                var otpSession = _otpSessionAppService.GetOtpSession(viewModel.Otp);
+                //Validate OTP
+                var otpSession = await _otpSessionAppService.ValidateOtp(viewModel.Otp);
 
-                var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
+                var amount = decimal.Parse(otpSession.ActionProperty["Amount"].Split(".")[0].Trim());
 
-                if (otpSession.PhoneNumberSentTo != user.PhoneNumber)
+                //Check if AccountHolder has sufficient balance.
+                var enoughBalance = await _accountHolderAppService.IsAvailableBalanceEnough(amount);
+
+                var transferMoneyInput = new TransferMoneyToAccountInput
                 {
-                    ViewBag.ErrorMessage = "Invalid OTP";
-                    return PartialView("_MoneyTransferError");
-                }
-                
-                var accountHolder = await _accountHolderAppService.GetAccountHolderDetail();
-                if (accountHolder.AvailableBalance < decimal.Parse(otpSession.ActionProperty["Amount"]))
-                {
-                    ViewBag.ErrorMessage = "Insufficient funds. Please top up!";
-                    return PartialView("_MoneyTransferError");
-                }
+                    Amount = amount,
+                    PlatformSpecificDetail = "Firefox",
+                    RequestOrigintingPlatform = "Web"
+                };
+                if(enoughBalance) await _moneyTransferAppService.TransferMoneyToAccountHolderBankAccount(transferMoneyInput);
 
-                var amount = otpSession.ActionProperty["Amount"].Split(".")[0].Trim();
-                await _moneyTransferAppService.TransferMoneyToBankAccount(amount, accountHolder.Bank.OneCardBankCode, accountHolder.BankAccountNumber, 
-                    user.PhoneNumber);
-
+            }
+            catch (InsufficientBalanceException ibExc)
+            {
+                ViewBag.ErrorMessage = "Insufficient funds. Please top up!";
+                return PartialView("_MoneyTransferError");
+            }
+            catch (InvalidOtpException ioExc)
+            {
+                ViewBag.ErrorMessage = "Invalid OTP";
+                return PartialView("_MoneyTransferError");
             }
             catch (Exception exc)
             {

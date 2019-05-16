@@ -8,7 +8,7 @@ namespace Monivault.Utils
     {
         public static string GenerateAgentTransactionId()
         {
-            var transactionIdBuilder = new StringBuilder(15);
+            var transactionIdBuilder = new StringBuilder(7);
             var random = new Random();
             
             for (var cnt = 0; cnt < 3; cnt++)

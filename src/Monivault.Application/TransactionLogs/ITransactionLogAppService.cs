@@ -11,5 +11,7 @@ namespace Monivault.TransactionLogs
         Task<List<RecentTransactionDto>> GetRecentTransactions(LimitedResultRequestDto requestDto);
 
         int GetTotalDeposits();
+
+        void LogTransaction();
     }
 }

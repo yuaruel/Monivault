@@ -9,6 +9,7 @@ using Monivault.Controllers;
 using Monivault.ModelServices;
 using Monivault.TopUpSavings;
 using Monivault.Web.Models.TopUpSaving;
+using Monivault.WebUtils;
 
 namespace Monivault.Web.Controllers
 {
@@ -37,7 +38,7 @@ namespace Monivault.Web.Controllers
         [HttpPost]
         public async Task<JsonResult> ProcessOneCardPin([FromBody]OneCardPinViewModel model)
         {
-            model.RequestOriginatingPlatform = TopUpRequestOriginatingPlatform.Web;
+            model.RequestOriginatingPlatform = ClientRequestOriginatingPlatform.Web;
             model.PlatformSpecificDetail = _httpContextAccessor.HttpContext.Request.Headers["User-Agent"];
             var resultCode = await _topUpSavingAppService.RedeemOneCardPin(model.Pin, model.Comment, model.RequestOriginatingPlatform, model.PlatformSpecificDetail);
             

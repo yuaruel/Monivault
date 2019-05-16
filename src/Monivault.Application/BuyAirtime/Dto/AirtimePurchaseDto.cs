@@ -14,5 +14,7 @@ namespace Monivault.BuyAirtime.Dto
 
         [Required]
         public decimal Amount { get; set; }
+
+        public string RequestOriginatingPlatform { get; set; }
     }
 }

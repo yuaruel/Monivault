@@ -54,5 +54,10 @@ namespace Monivault.AppModels
             public const string Debit = "Debit";
             public const string Credit = "Credit";
         }
+
+        public class TransactionServices
+        {
+            public const string OneCardFundsTransferService = "One Card Funds Transfer Service";
+        }
     }
 }

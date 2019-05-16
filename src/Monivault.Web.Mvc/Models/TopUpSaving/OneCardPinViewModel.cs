@@ -10,10 +10,4 @@ namespace Monivault.Web.Models.TopUpSaving
 
         public string PlatformSpecificDetail { get; set; }      
     }
-
-    public class TopUpRequestOriginatingPlatform
-    {
-        public const string Web = "Web";
-        public const string Mobile = "Mobile";
-    }
 }

@@ -11,5 +11,7 @@ namespace Monivault.AccountHolders
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
 
         int GetTotalNumberOfAccountHolders();
+
+        Task<bool> IsAvailableBalanceEnough(decimal amount);
     }
 }

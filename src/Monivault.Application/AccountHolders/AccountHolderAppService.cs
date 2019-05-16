@@ -5,6 +5,7 @@ using Abp.Domain.Repositories;
 using Monivault.AccountHolders.Dto;
 using Monivault.AppModels;
 using Monivault.Banks.Dto;
+using Monivault.Exceptions;
 
 namespace Monivault.AccountHolders
 {
@@ -48,6 +49,21 @@ namespace Monivault.AccountHolders
         public int GetTotalNumberOfAccountHolders()
         {
             return _accountHolderRepository.Count();
+        }
+
+        /// <summary>
+        /// Checks if the account holder available balance is more than the amount required for the transaction.
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<bool> IsAvailableBalanceEnough(decimal amount)
+        {
+            var user = await GetCurrentUserAsync();
+            var accountHolder = await _accountHolderRepository.SingleAsync(p => p.UserId == user.Id);
+
+            if (accountHolder.AvailableBalance <= amount) throw new InsufficientBalanceException();
+
+            return true;
         }
 
         public async Task UpdateBankDetails(string bankKey, string accountNumber, string accountName)

@@ -33,10 +33,17 @@ namespace Monivault.TransactionLogs
             return ObjectMapper.Map<List<RecentTransactionDto>>(transactionLogs);
         }
 
+        
+
         public int GetTotalDeposits()
         {
             //_transactionRepository.
             return 0;
+        }
+
+        public void LogTransaction()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

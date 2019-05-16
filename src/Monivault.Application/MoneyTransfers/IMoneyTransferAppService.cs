@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
+using Monivault.MoneyTransfers.Dto;
 
 namespace Monivault.MoneyTransfers
 {
@@ -7,6 +8,6 @@ namespace Monivault.MoneyTransfers
     {
         Task<string> GenerateBankAccountTransferOtp(decimal amount, string comment, string phoneNumber);
 
-        Task TransferMoneyToBankAccount(string amount, string productCode, string accountNumber, string phoneNumber);
+        Task TransferMoneyToAccountHolderBankAccount(TransferMoneyToAccountInput input);
     }
 }

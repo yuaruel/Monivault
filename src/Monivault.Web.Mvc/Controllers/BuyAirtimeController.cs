@@ -10,6 +10,7 @@ using Monivault.BuyAirtime.Dto;
 using Monivault.Controllers;
 using Monivault.TopUpAirtime;
 using Monivault.Web.Models.BuyAirtime;
+using Monivault.WebUtils;
 
 namespace Monivault.Web.Mvc.Controllers
 {
@@ -37,7 +38,7 @@ namespace Monivault.Web.Mvc.Controllers
 
             foreach(var airtimeNetwork in airtimeNetworks)
             {
-                airtimeNetworkItems.Add(new SelectListItem(airtimeNetwork.NetworkName, airtimeNetwork.NetworkName));
+                airtimeNetworkItems.Add(new SelectListItem(airtimeNetwork.NetworkName, airtimeNetwork.OneCardAirtimePurchaseCode));
             }
 
             var viewModel = new BuyAirtimeViewModel
@@ -48,9 +49,18 @@ namespace Monivault.Web.Mvc.Controllers
             return View(viewModel);
         }
 
-        public JsonResult PurchaseAirtime(BuyAirtimeViewModel viewModel)
+        public async Task<JsonResult> PurchaseAirtime(BuyAirtimeViewModel viewModel)
         {
-            _buyAirtimeAppService.BuyAirtime(ObjectMapper.Map<AirtimePurchaseDto>(viewModel));
+            var airtimePurchaseDto = new AirtimePurchaseDto
+            {
+                AirtimeNetwork = viewModel.AirtimeNetwork,
+                Amount = viewModel.Amount,
+                PhoneNumber = viewModel.PhoneNumber,
+                RequestOriginatingPlatform = ClientRequestOriginatingPlatform.Web
+            };
+
+            await _buyAirtimeAppService.BuyAirtime(airtimePurchaseDto);
+
             return Json(new { });
         }
     }
