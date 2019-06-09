@@ -13,5 +13,7 @@ namespace Monivault.AccountHolders
         int GetTotalNumberOfAccountHolders();
 
         Task<bool> IsAvailableBalanceEnough(decimal amount);
+
+        decimal GetInterestAccrued();
     }
 }

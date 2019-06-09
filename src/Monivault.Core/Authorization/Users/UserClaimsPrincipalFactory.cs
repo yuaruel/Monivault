@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using Abp.Authorization;
 using Monivault.Authorization.Roles;
+using Microsoft.Extensions.Options;
 
 namespace Monivault.Authorization.Users
 {

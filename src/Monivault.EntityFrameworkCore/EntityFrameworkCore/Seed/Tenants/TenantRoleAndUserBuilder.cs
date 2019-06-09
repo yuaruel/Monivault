@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Authorization.Users;
@@ -9,6 +8,7 @@ using Abp.MultiTenancy;
 using Monivault.Authorization;
 using Monivault.Authorization.Roles;
 using Monivault.Authorization.Users;
+using Microsoft.Extensions.Options;
 
 namespace Monivault.EntityFrameworkCore.Seed.Tenants
 {

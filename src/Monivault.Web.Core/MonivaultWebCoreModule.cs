@@ -41,10 +41,7 @@ namespace Monivault
             // Use database for language management
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
-            Configuration.Modules.AbpAspNetCore()
-                 .CreateControllersForAppServices(
-                     typeof(MonivaultApplicationModule).GetAssembly()
-                 );
+            //Configuration.Modules.AbpAspNetCore().CreateControllersForAppServices(typeof(MonivaultApplicationModule).GetAssembly());
 
             ConfigureTokenAuth();
         }

@@ -14,14 +14,17 @@ namespace Monivault.AccountHolders
     {
         private readonly IRepository<AccountHolder> _accountHolderRepository;
         private readonly IRepository<Bank> _bankRepository;
+        private readonly IRepository<SavingsInterest, long> _savingInterestRepository;
 
         public AccountHolderAppService(
                 IRepository<AccountHolder> accountHolderRepository,
-                IRepository<Bank> bankRepository
+                IRepository<Bank> bankRepository,
+                IRepository<SavingsInterest, long> savingInterestRepository
             )
         {
             _accountHolderRepository = accountHolderRepository;
             _bankRepository = bankRepository;
+            _savingInterestRepository = savingInterestRepository;
         }
         
         public async Task<AccountHolderDto> GetAccountHolderDetail()
@@ -44,6 +47,27 @@ namespace Monivault.AccountHolders
             }
 
             return accountHolderDto;
+        }
+
+        public decimal GetInterestAccrued()
+        {
+            var accruedInterest = 0.0m;
+            try
+            {
+                var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
+                var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Running && p.AccountHolderId == accountHolder.Id);
+
+                if(savingsInterest != null)
+                {
+                    accruedInterest = savingsInterest.InterestAccrued;
+                }
+            }
+            catch(InvalidOperationException ioExc)
+            {
+                Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
+            }
+
+            return accruedInterest;
         }
 
         public int GetTotalNumberOfAccountHolders()
