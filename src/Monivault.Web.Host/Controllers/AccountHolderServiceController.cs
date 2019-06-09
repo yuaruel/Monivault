@@ -1,6 +1,7 @@
 ﻿using Abp.Runtime.Security;
 using Microsoft.AspNetCore.Mvc;
 using Monivault.AccountHolders;
+using Monivault.AccountHolders.Dto;
 using Monivault.Controllers;
 using Monivault.DashboardService;
 using System;
@@ -28,9 +29,9 @@ namespace Monivault.Web.Host.Controllers
         [HttpGet]
         public JsonResult AvailableBalance()
         {
-            var availableBalance = _accountHolderDashboardService.GetUserAvailableBalance();
+            var balance = _accountHolderAppService.GetAccountHolderBalance();
 
-            return Json(new { AvailableBalance = availableBalance });
+            return Json(new { balance.AvailableBalance, balance.LedgerBalance });
         }
 
         [HttpGet]

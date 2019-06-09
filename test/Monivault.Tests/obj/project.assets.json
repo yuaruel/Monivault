@@ -10060,11 +10060,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
+      "projectUniqueName": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
       "projectName": "Monivault.Tests",
-      "projectPath": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
+      "projectPath": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
       "packagesPath": "C:\\Users\\Henry Ezeanya\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\obj\\",
+      "outputPath": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10083,11 +10083,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.Application\\Monivault.Application.csproj": {
-              "projectPath": "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.Application\\Monivault.Application.csproj"
+            "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.Application\\Monivault.Application.csproj": {
+              "projectPath": "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.Application\\Monivault.Application.csproj"
             },
-            "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj": {
-              "projectPath": "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj"
+            "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj": {
+              "projectPath": "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj"
             }
           }
         }

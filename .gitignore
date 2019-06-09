@@ -21,3 +21,4 @@
 /src/Monivault.Web.Mvc/App_Data/Logs/*
 /src/Monivault.Web.Host/App_Data/Logs/*
 /build/outputs
+/build/hostoutputs

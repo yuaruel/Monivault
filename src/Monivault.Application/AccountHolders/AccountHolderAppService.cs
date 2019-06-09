@@ -26,11 +26,45 @@ namespace Monivault.AccountHolders
             _bankRepository = bankRepository;
             _savingInterestRepository = savingInterestRepository;
         }
-        
+
+        public BalanceDto GetAccountHolderBalance()
+        {
+            var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
+
+            var balanceDto = new BalanceDto
+            {
+                AvailableBalance = accountHolder.AvailableBalance,
+                LedgerBalance = accountHolder.LedgerBalance
+            };
+
+            return balanceDto;
+        }
+
         public async Task<AccountHolderDto> GetAccountHolderDetail()
         {
             var user = await GetCurrentUserAsync();
             var accountHolder = _accountHolderRepository.FirstOrDefault(p => p.UserId == user.Id);
+
+            if (accountHolder == null)
+            {
+                return null;
+            }
+
+            var accountHolderDto = ObjectMapper.Map<AccountHolderDto>(accountHolder);
+            if (accountHolder.BankId.HasValue)
+            {
+                var bank = _bankRepository.Single(p => p.Id == accountHolder.BankId);
+                var bankDto = ObjectMapper.Map<BankDto>(bank);
+
+                accountHolderDto.Bank = bankDto;
+            }
+
+            return accountHolderDto;
+        }
+
+        public AccountHolderDto GetAccountHolderDetailByUserId(long userId)
+        {
+            var accountHolder = _accountHolderRepository.FirstOrDefault(p => p.UserId == userId);
 
             if (accountHolder == null)
             {

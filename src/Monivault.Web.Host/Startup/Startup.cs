@@ -21,7 +21,8 @@ namespace Monivault.Web.Host.Startup
 {
     public class Startup
     {
-        private const string _defaultCorsPolicyName = "localhost";
+        //private const string _defaultCorsPolicyName = "localhost";
+        private const string _defaultCorsPolicyName = "134.209.45.118";
 
         private readonly IConfigurationRoot _appConfiguration;
 
@@ -103,6 +104,16 @@ namespace Monivault.Web.Host.Startup
                 routes.MapHub<AbpCommonHub>("/signalr");
             });
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint(_appConfiguration["App:ServerRootAddress"].EnsureEndsWith('/') + "swagger/v1/swagger.json", "Monivault API V1");
+                options.IndexStream = () => Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream("Monivault.Web.Host.wwwroot.swagger.ui.index.html");
+            }); // URL: /swagger
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -114,15 +125,6 @@ namespace Monivault.Web.Host.Startup
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            // Enable middleware to serve generated Swagger as a JSON endpoint
-            app.UseSwagger();
-            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint(_appConfiguration["App:ServerRootAddress"].EnsureEndsWith('/') + "swagger/v1/swagger.json", "Monivault API V1");
-                options.IndexStream = () => Assembly.GetExecutingAssembly()
-                    .GetManifestResourceStream("Monivault.Web.Host.wwwroot.swagger.ui.index.html");
-            }); // URL: /swagger
         }
     }
 }

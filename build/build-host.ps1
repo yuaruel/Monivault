@@ -2,7 +2,7 @@
 
 $buildFolder = (Get-Item -Path "./" -Verbose).FullName
 $slnFolder = Join-Path $buildFolder "../"
-$outputFolder = Join-Path $buildFolder "apioutputs"
+$outputFolder = Join-Path $buildFolder "hostoutputs"
 $webHostFolder = Join-Path $slnFolder "src/Monivault.Web.Host"
 
 ## CLEAR ######################################################################

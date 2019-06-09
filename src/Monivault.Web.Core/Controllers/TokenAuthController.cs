@@ -17,6 +17,7 @@ using Monivault.Authorization;
 using Monivault.Authorization.Users;
 using Monivault.AppModels.TokenAuth;
 using Monivault.MultiTenancy;
+using Monivault.AccountHolders;
 
 namespace Monivault.Controllers
 {
@@ -30,6 +31,7 @@ namespace Monivault.Controllers
         private readonly IExternalAuthConfiguration _externalAuthConfiguration;
         private readonly IExternalAuthManager _externalAuthManager;
         private readonly UserRegistrationManager _userRegistrationManager;
+        private readonly IAccountHolderAppService _accountHolderAppService;
 
         public TokenAuthController(
             LogInManager logInManager,
@@ -38,7 +40,9 @@ namespace Monivault.Controllers
             TokenAuthConfiguration configuration,
             IExternalAuthConfiguration externalAuthConfiguration,
             IExternalAuthManager externalAuthManager,
-            UserRegistrationManager userRegistrationManager)
+            UserRegistrationManager userRegistrationManager,
+            IAccountHolderAppService accountHolderAppService
+            )
         {
             _logInManager = logInManager;
             _tenantCache = tenantCache;
@@ -47,6 +51,7 @@ namespace Monivault.Controllers
             _externalAuthConfiguration = externalAuthConfiguration;
             _externalAuthManager = externalAuthManager;
             _userRegistrationManager = userRegistrationManager;
+            _accountHolderAppService = accountHolderAppService;
         }
 
         [HttpPost]
@@ -57,7 +62,9 @@ namespace Monivault.Controllers
                 model.Password,
                 GetTenancyNameOrNull()
             );
-
+            var user = loginResult.User;
+            var accountHolder = _accountHolderAppService.GetAccountHolderDetailByUserId(user.Id);
+            Logger.Info($"AccountIdentity: {accountHolder.AccountIdentity}");
             var accessToken = CreateAccessToken(CreateJwtClaims(loginResult.Identity));
 
             return new AuthenticateResultModel
@@ -65,7 +72,9 @@ namespace Monivault.Controllers
                 AccessToken = accessToken,
                 EncryptedAccessToken = GetEncrpyedAccessToken(accessToken),
                 ExpireInSeconds = (int)_configuration.Expiration.TotalSeconds,
-                UserId = loginResult.User.Id
+                FirstName = user.Name,
+                LastName = user.Surname,
+                AccountHolderId = accountHolder.AccountIdentity
             };
         }
 

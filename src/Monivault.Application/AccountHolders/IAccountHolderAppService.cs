@@ -8,6 +8,8 @@ namespace Monivault.AccountHolders
     {
         Task<AccountHolderDto> GetAccountHolderDetail();
 
+        AccountHolderDto GetAccountHolderDetailByUserId(long userId);
+
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
 
         int GetTotalNumberOfAccountHolders();
@@ -15,5 +17,7 @@ namespace Monivault.AccountHolders
         Task<bool> IsAvailableBalanceEnough(decimal amount);
 
         decimal GetInterestAccrued();
+
+        BalanceDto GetAccountHolderBalance();
     }
 }
