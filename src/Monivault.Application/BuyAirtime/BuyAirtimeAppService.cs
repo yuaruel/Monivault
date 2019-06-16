@@ -34,18 +34,15 @@ namespace Monivault.TopUpAirtime
         {
             try
             {
+                Logger.Info($"About to process airtime purchase inside App Service...");
                 //Check if account holder has enough balance to buy airtime.
                 var user = await GetCurrentUserAsync();
 
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
-
+                Logger.Info($"AccountHolder ID: {accountHolder.Id}");
                 if (accountHolder.AvailableBalance < input.Amount) throw new UserFriendlyException("Insufficient balance");
 
                 var estelClient = new EstelServicesClient();
-
-                //var balanceRequest = new BalanceRequest();
-                //balanceRequest.agentCode = "TPR_AAL_1";
-                //balanceRequest.mpin = "14287490BC5A9662D60DFCD3333F723B";
 
                 var topupRequest = new TopupRequest
                 {
@@ -59,16 +56,12 @@ namespace Monivault.TopUpAirtime
                     type = "TOPUP"
                 };
 
-                foreach(var timezones in TimeZoneInfo.GetSystemTimeZones())
-                {
-                    Logger.Info($"display name: {timezones.DisplayName}");
-                    Logger.Info($"standard name: {timezones.StandardName}");
-                }
-               
+                Logger.Info("About to send request to the OneCard service server...");
                 var topupResponseAsync = await estelClient.getTopupAsync(topupRequest);
                 var topupResponse = topupResponseAsync.Body.getTopupReturn;
-
+                Logger.Info("Returned from the call to the OneCard service...");
                 //Log airtime purchase
+                Logger.Info("About to store the top up log response");
                 var topupLog = new OneCardTopupLog()
                 {
                     OneCardTopupLogKey = Guid.NewGuid(),
@@ -85,7 +78,7 @@ namespace Monivault.TopUpAirtime
                     ResponseCts = topupResponse.responsects,
                     ResponseValue = topupResponse.responseValue,
                 };
-
+                Logger.Info("Topup Log response properly processed.");
                 topupLog = _oneCardTopupLogRepository.Insert(topupLog);
                 Logger.Info($"result code: {topupResponse.resultcode}");
 
@@ -116,6 +109,10 @@ namespace Monivault.TopUpAirtime
             {
                 Logger.Error(exc.StackTrace);
                 throw new UserFriendlyException("Unable to complete your transaction. Please contact administrator");
+            }catch(Exception exc)
+            {
+                Logger.Error(exc.StackTrace);
+                throw new UserFriendlyException("Unable to complete your transaction.");
             }
             //var fundsTransferRequest = new FundsTransferRequest();
             //fundsTransferRequest.agentCode = "TPR_AAL_1";

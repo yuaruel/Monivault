@@ -35,13 +35,15 @@ namespace Monivault.ModelServices
             query["dnd"] = "5";
 
             urlBuilder.Query = query.ToString();*/
-            
-            var query = new Dictionary<string, string>();
-            query.Add("api_token", "YUqX8aO6YPsdYwcidhnVTkzSyYbTZPdlhVzLhBpqmApQNnEKH9vYVgacNBpI");
-            query.Add("from", "MONIVAULT");
-            query.Add("to", recipient);
-            query.Add("body", message);
-            query.Add("dnd", "5");
+
+            var query = new Dictionary<string, string>
+            {
+                { "api_token", "YUqX8aO6YPsdYwcidhnVTkzSyYbTZPdlhVzLhBpqmApQNnEKH9vYVgacNBpI" },
+                { "from", "MONIVAULT" },
+                { "to", recipient },
+                { "body", message },
+                { "dnd", "5" }
+            };
 
             var content = new FormUrlEncodedContent(query);
             //throw new SmsException("Just throw");

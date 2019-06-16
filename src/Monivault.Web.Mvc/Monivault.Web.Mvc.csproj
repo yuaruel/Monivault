@@ -53,6 +53,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\MoneyTransfer\" />
+    <Folder Include="Models\TopUpSaving\" />
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
     <Folder Include="wwwroot\view-resources\Views\AdminHome\" />
   </ItemGroup>

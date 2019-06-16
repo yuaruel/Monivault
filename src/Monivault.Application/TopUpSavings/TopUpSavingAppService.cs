@@ -35,8 +35,10 @@ namespace Monivault.TopUpSavings
         }
         
         public async Task<string> RedeemOneCardPin(string pinno, string comment, string requestPlatform, string platformSpecific)
-        { 
-            var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
+        {
+            var user = await GetCurrentUserAsync();
+
+            var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
 
             var oneCardServiceClient = new EstelOneCardServicesClient();
 

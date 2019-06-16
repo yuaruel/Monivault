@@ -1,4 +1,4 @@
-namespace Monivault.Web.Models.MoneyTransfer
+namespace Monivault.Models
 {
     public class BankTransferRequestViewModel
     {

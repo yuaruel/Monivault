@@ -1,47 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Abp.AspNetCore.Mvc.Authorization;
-using Abp.Domain.Uow;
 using Abp.UI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Monivault.Authorization;
 using Monivault.Controllers;
-using Monivault.ModelServices;
-using Monivault.TopUpSavings;
 using Monivault.Models;
+using Monivault.TopUpSavings;
 using Monivault.WebUtils;
 
-namespace Monivault.Web.Controllers
+namespace Monivault.Web.Host.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.TopUpSaving)]
-    public class TopUpSavingController : MonivaultControllerBase
+    [Route("api/[controller]/[action]")]
+    public class OneCardPinRedeemServiceController : MonivaultControllerBase
     {
         private readonly ITopUpSavingAppService _topUpSavingAppService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TopUpSavingController(
-            ITopUpSavingAppService topUpSavingAppService,
-            IHttpContextAccessor httpContextAccessor
-        )
+        public OneCardPinRedeemServiceController(
+                ITopUpSavingAppService topUpSavingAppService,
+                IHttpContextAccessor httpContextAccessor
+            )
         {
             _topUpSavingAppService = topUpSavingAppService;
             _httpContextAccessor = httpContextAccessor;
         }
-        
-        // GET
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        [UnitOfWork(isTransactional:false)]
         [HttpPost]
-        public async Task<JsonResult> ProcessOneCardPin([FromBody]OneCardPinViewModel model)
+        public async Task<JsonResult> RedeemPin([FromBody] OneCardPinViewModel model)
         {
-            model.RequestOriginatingPlatform = ClientRequestOriginatingPlatform.Web;
-            model.PlatformSpecificDetail = _httpContextAccessor.HttpContext.Request.Headers["User-Agent"];
+            Logger.Info("Got into the controller to redeem pin");
+            Logger.Info($"Pin: {model.Pin}");
             var resultCode = await _topUpSavingAppService.RedeemOneCardPin(model.Pin, model.Comment, model.RequestOriginatingPlatform, model.PlatformSpecificDetail);
-            
+            Logger.Info($"result code: {resultCode}");
             switch (resultCode)
             {
                 case "0":

@@ -1,25 +1,24 @@
+﻿using Abp.Runtime.Security;
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging.Configuration;
-using Monivault.AccountHolders;
 using Monivault.Authorization;
+using Monivault.AccountHolders;
 using Monivault.Authorization.Users;
 using Monivault.Controllers;
-using Monivault.Exceptions;
 using Monivault.Models;
 using Monivault.ModelServices;
 using Monivault.MoneyTransfers;
-using Monivault.MoneyTransfers.Dto;
 using Monivault.OtpSessions;
-using Monivault.Web.Models.MoneyTransfer;
+using Monivault.MoneyTransfers.Dto;
+using Monivault.Exceptions;
 
-namespace Monivault.Web.Controllers
+namespace Monivault.Web.Host.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.DoBankAccountTransfer)]
-    public class MoneyTransferController : MonivaultControllerBase
+    [Route("api/[controller]/[action]")]
+    public class MoneyTransferServiceController : MonivaultControllerBase
     {
         private readonly IAccountHolderAppService _accountHolderAppService;
         private readonly UserManager _userManager;
@@ -27,7 +26,7 @@ namespace Monivault.Web.Controllers
         private readonly NotificationScheduler _notificationScheduler;
         private readonly IOtpSessionAppService _otpSessionAppService;
 
-        public MoneyTransferController(
+        public MoneyTransferServiceController(
                 IAccountHolderAppService accountHolderAppService,
                 UserManager userManager,
                 IMoneyTransferAppService moneyTransferAppService,
@@ -41,55 +40,48 @@ namespace Monivault.Web.Controllers
             _notificationScheduler = notificationScheduler;
             _otpSessionAppService = otpSessionAppService;
         }
-        
-        // GET
-        public async Task<IActionResult> BankAccount()
-        {
-            ViewBag.CurrentBalance = (await _accountHolderAppService.GetAccountHolderDetail()).AvailableBalance;
-            
-            return View();
-        }
 
-        public async Task<PartialViewResult> GetBankTransferOtpForm(BankTransferRequestViewModel viewModel)
+        [HttpPost]
+        public async Task<JsonResult> RequestTransfer([FromBody] BankTransferRequestViewModel viewModel)
         {
             try
             {
                 var accountHolder = await _accountHolderAppService.GetAccountHolderDetail();
                 if (accountHolder.AvailableBalance < viewModel.Amount)
                 {
-                    ViewBag.ErrorMessage = "Insufficient funds. Please top up!";
-                    return PartialView("_MoneyTransferError");
+                    return Json("Insufficient funds. Please top up!");
                 }
 
                 if (string.IsNullOrEmpty(accountHolder.BankAccountNumber))
                 {
-                    ViewBag.ErrorMessage = "You do not have a bank account in your profile. Kindly specify one.";
-                    return PartialView("_MoneyTransferError");
+                    //ViewBag.ErrorMessage = "You do not have a bank account in your profile. Kindly specify one.";
+                    return Json("You do not have a bank account in your profile. Kindly specify one.");
                 }
                 
-                var user = await _userManager.GetUserByIdAsync(AbpSession.UserId.Value);
+                var user = await _userManager.GetUserByIdAsync(User.Identity.GetUserId().Value);
 
                 if (string.IsNullOrEmpty(user.PhoneNumber))
                 {
-                    ViewBag.ErrorMessage = "Invalid phone number. Please update your phone number";
-                    return PartialView("_MoneyTransferError");
+                    //ViewBag.ErrorMessage = "Invalid phone number. Please update your phone number";
+                    return Json("Invalid phone number. Please update your phone number");
                 }
 
                 var otp = await _moneyTransferAppService.GenerateBankAccountTransferOtp(viewModel.Amount, viewModel.Comment, user.PhoneNumber);
                 await _notificationScheduler.ScheduleOtp(user.PhoneNumber, user.RealEmailAddress, otp);
-                
+
             }
             catch (Exception exc)
             {
                 Logger.Error(exc.StackTrace);
-                ViewBag.ErrorMessage = "An error occurred. Please try again later";
-                return PartialView("_MoneyTransferError");
+                //ViewBag.ErrorMessage = "An error occurred. Please try again later";
+                return Json("An error occurred. Please try again later");
             }
 
-            return PartialView("_OtpForm");
+            return Json(new { });
         }
 
-        public async Task<PartialViewResult> ValidateOtp(OtpViewModel viewModel)
+        [HttpPost]
+        public async Task<JsonResult> ValidateOtp([FromBody] OtpViewModel viewModel)
         {
             try
             {
@@ -104,30 +96,30 @@ namespace Monivault.Web.Controllers
                 var transferMoneyInput = new TransferMoneyToAccountInput
                 {
                     Amount = amount,
-                    PlatformSpecificDetail = "Firefox",
-                    RequestOrigintingPlatform = "Web"
+                    PlatformSpecificDetail = "Android",
+                    RequestOrigintingPlatform = "Mobile"
                 };
-                if(enoughBalance) await _moneyTransferAppService.TransferMoneyToAccountHolderBankAccount(transferMoneyInput);
+                if (enoughBalance) await _moneyTransferAppService.TransferMoneyToAccountHolderBankAccount(transferMoneyInput);
 
             }
             catch (InsufficientBalanceException ibExc)
             {
                 ViewBag.ErrorMessage = "Insufficient funds. Please top up!";
-                return PartialView("_MoneyTransferError");
+                return Json("Insufficient funds. Please top up");
             }
             catch (InvalidOtpException ioExc)
             {
                 ViewBag.ErrorMessage = "Invalid OTP";
-                return PartialView("_MoneyTransferError");
+                return Json("Invalid OTP");
             }
             catch (Exception exc)
             {
                 Logger.Error(exc.StackTrace);
                 ViewBag.ErrorMessage = "An error occurred. Please try again later";
-                return PartialView("_MoneyTransferError");
+                return Json("An error occurred. Please try again later");
             }
 
-            return PartialView("_TransferSuccess");
+            return Json("Successful Transfer");
         }
     }
 }

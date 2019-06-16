@@ -1,4 +1,4 @@
-namespace Monivault.Web.Models.TopUpSaving
+namespace Monivault.Models
 {
     public class OneCardPinViewModel
     {
