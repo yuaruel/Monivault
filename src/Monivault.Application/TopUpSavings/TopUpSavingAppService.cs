@@ -48,12 +48,12 @@ namespace Monivault.TopUpSavings
 
             var pinRedeemRequest = new PinRedeemRequest
             {
-                pin = "7F1359753577B274D717DC2E41BA1E51",
-                agentcode = "APEX_PINRDM",
+                pin = config.GetValue<string>("AgentPin"),
+                agentcode = config.GetValue<string>("AgentCode"),
                 pinno = pinno,
                 agenttransid = agentTransactionId,
                 serviceid = PinRedeemServiceIds.SavingsTopUp,
-                comments = "just do it"
+                comments = comment
             };
 
             var pinRedeemResponse = await oneCardServiceClient.getPinRedeemAsync(pinRedeemRequest);

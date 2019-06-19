@@ -47,14 +47,13 @@ namespace Monivault.SavingsInterests
             var savingsInterests = _savingsInterestRepository.Query(x => x.Where(p => p.Status == SavingsInterest.StatusTypes.Running)
                                                                 .Include(p => p.AccountHolder)
                                                                 .ThenInclude(p => p.User).ToList());
-            Logger.Info($"Savings interest size: {savingsInterests.Count}");
+
                 foreach (var savingsInterest in savingsInterests)
                 {
                     var accountHolder1 = savingsInterest.AccountHolder;
-                    Logger.Info($"the account holder Id: {accountHolder1.AccountIdentity}");
+
                     var user = accountHolder1.User;
-                    Logger.Info($"The user firstname: {user.Name}");
-                    Logger.Info($"Calculating interest for: {savingsInterest.AccountHolder.User.Name}");
+
                     //Check if user performed transaction the previous day. This is because interest calculation runs at 00.05am.
                     var today = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Africa/Lagos"));
 
@@ -69,11 +68,9 @@ namespace Monivault.SavingsInterests
                         switch (log.TransactionType)
                         {
                             case TransactionLog.TransactionTypes.Credit:
-                                Logger.Info($"Credit log: {log.Amount}");
                                 savingsInterest.InterestPrincipal = savingsInterest.InterestPrincipal + log.Amount;
                                 break;
                             case TransactionLog.TransactionTypes.Debit:
-                                Logger.Info($"Debit log: {log.Amount}");
                                 savingsInterest.InterestPrincipal = savingsInterest.InterestPrincipal - log.Amount;
                                 savingsInterest.IsTransactionDebit = true;
                                 break;
@@ -101,36 +98,28 @@ namespace Monivault.SavingsInterests
                     else
                     {
                         var rateCalc = decimal.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.InterestRate)) / 100;
-                        Logger.Info($"Rate calculation: {rateCalc}");
                         var timeCalc = Decimal.Divide(1, 365);
-                        Logger.Info($"Time Calculation: {timeCalc}");
                         var timeRateCalc = rateCalc * timeCalc;
-                        Logger.Info($"TimeRateCalc: {timeRateCalc}");
 
                         var todayInterest = savingsInterest.InterestPrincipal * timeRateCalc;
-                        Logger.Info($"Today Interest: {todayInterest}");
                         var newAccruedInterest = savingsInterest.InterestAccrued + todayInterest;
-                        Logger.Info($"New Accroued Interest: {newAccruedInterest}");
 
                         savingsInterestDetail.TodayInterest = todayInterest;
                         savingsInterestDetail.PrincipalBeforeTodayCalculation = savingsInterest.InterestPrincipal;
 
                         var interestType = await SettingManager.GetSettingValueAsync(AppSettingNames.InterestType);
-                        Logger.Info($"Interest type: {interestType}");
+
                         switch (interestType)
                         {
                             case SavingsInterestDetail.InterestTypes.SimpleInterest:
-                                Logger.Info("Interest type is just simple");
                                 savingsInterest.InterestAccrued = newAccruedInterest;
                                 savingsInterestDetail.PrincipalAfterTodayCalculation =
                                     savingsInterest.InterestPrincipal;
                                 savingsInterestDetail.InterestType = interestType;
                                 break;
                             case SavingsInterestDetail.InterestTypes.CompoundInterest:
-                                Logger.Info("Interest type is just compound");
                                 savingsInterest.InterestAccrued = newAccruedInterest;
                                 var newPrincipal = savingsInterest.InterestPrincipal + todayInterest;
-                                Logger.Info($"New principal: {newPrincipal}");
 
                                 savingsInterest.InterestPrincipal = newPrincipal;
                                 savingsInterestDetail.PrincipalAfterTodayCalculation = newPrincipal;

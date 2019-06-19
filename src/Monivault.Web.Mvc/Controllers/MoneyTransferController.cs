@@ -1,9 +1,7 @@
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging.Configuration;
 using Monivault.AccountHolders;
 using Monivault.Authorization;
 using Monivault.Authorization.Users;
@@ -14,7 +12,6 @@ using Monivault.ModelServices;
 using Monivault.MoneyTransfers;
 using Monivault.MoneyTransfers.Dto;
 using Monivault.OtpSessions;
-using Monivault.Web.Models.MoneyTransfer;
 
 namespace Monivault.Web.Controllers
 {
