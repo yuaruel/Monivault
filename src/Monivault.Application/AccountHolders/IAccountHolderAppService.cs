@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
+using Microsoft.AspNetCore.Http;
 using Monivault.AccountHolders.Dto;
 
 namespace Monivault.AccountHolders
@@ -19,5 +20,7 @@ namespace Monivault.AccountHolders
         decimal GetInterestAccrued();
 
         BalanceDto GetAccountHolderBalance();
+
+        Task UploadAccountHolders(IFormFile uploadFile);
     }
 }

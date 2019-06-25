@@ -72,7 +72,7 @@ namespace Monivault.Web.Startup
                     new MenuItemDefinition(
                         PageNames.AccountHolders,
                         L("AccountHolders"),
-                        url: "",
+                        url: "AccountHolderManagement",
                         icon: "flaticon-profile-1",
                         requiredPermissionName: PermissionNames.ViewAccountHolders
                     )

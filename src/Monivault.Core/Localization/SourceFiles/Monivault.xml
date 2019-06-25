@@ -125,6 +125,7 @@
     <text name="DoBankAccountTransfer">Do Bank Account Transfer</text>
     <text name="DoPayCodeTransfer">Do PayCode Transfer</text>
     <text name="DoTaxPayment">Do Tax Payment</text>
+    <text name="CreateAccountHolder">Create Account Holder</text>
     <text name="ViewAccountHolders">View Account Holders</text>
     <text name="ViewUsers">View Users</text>
     <text name="CreateUsers">Create Users</text>
@@ -166,5 +167,6 @@
     <text name="Duration">Duration</text>
     <text name="PenaltyPercentageDeduction">Penalty Percentage Deduction</text>
     <text name="BuyAirtime">Buy airtime</text>
+    <text name="AddAccountHolder">Add Account Holder</text>
   </texts>
 </localizationDictionary>

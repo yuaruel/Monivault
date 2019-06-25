@@ -11,7 +11,8 @@
         public const string DoPayCodeTransfer = "DoPayCodeTransfer";
         
         public const string DoTaxPayment = "DoTaxPayment";
-        
+
+        public const string CreateAccountHolder = "CreateAccountHolder";
         public const string ViewAccountHolders = "ViewAccountHolders";
 
         public const string ViewUsers = "ViewUsers";

@@ -1,0 +1,105 @@
+﻿@using Monivault.Authorization
+
+@section Scripts{
+    <script src="~/view-resources/Views/AccountHolderManagement/Index.js"></script>
+}
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">Users</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item m-nav__item--home">
+                        <a href="#" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-home"></i>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">Account Holders</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- END: Subheader -->
+
+    <div class="m-content" id="PortletAccountMgr">
+        <div class="m-portlet m-portlet--mobile">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            @L("AccountHolders")
+                        </h3>
+                    </div>
+                </div>
+                <div class="m-portlet__head-tools">
+                    <ul class="m-portlet__nav">
+                        @if (IsGranted(PermissionNames.CreateAccountHolder))
+                        {
+                            <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover">
+                                <a href="#" class="m-portlet__nav-link m-dropdown__toggle dropdown-toggle btn btn-sm btn-metal m-btn m-btn--pill">
+                                    @L("AddAccountHolder")
+                                </a>
+                                <div class="m-dropdown__wrapper">
+                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                    <div class="m-dropdown__inner">
+                                        <div class="m-dropdown__body">
+                                            <div class="m-dropdown__content">
+                                                <ul class="m-nav">
+                                                    <li class="m-nav__section m-nav__section--first">
+                                                        <span class="m-nav__section-text">Actions</span>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a id="AddSingleUserBtn" href=":;" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <span class="m-nav__link-text">Add Account Holder</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="javascript:;" class="m-nav__link" id="OpenUploadBoxBtn">
+                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <span class="m-nav__link-text">Upload Account Holder</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a asp-action="DownloadAccountHolderUploadSampleFile" class="m-nav__link" target="_blank">
+                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <span class="m-nav__link-text">Download Sample File</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m--hide">
+                    <input id="AccountHolderUploadBox" type="file" class="form-control" />
+                </div>
+                <table id="AccountHolderTable" class="table table-striped- table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>@L("AccountID")</th>
+                            <th>@L("FullName")</th>
+                            <th>@L("UserName")</th>
+                            <th>@L("PhoneNumber")</th>
+                            <th>@L("EmailAddress")</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

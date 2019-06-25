@@ -20,17 +20,15 @@ namespace Monivault.Web.Controllers
     {
         private readonly IUserAppService _userAppService;
         private readonly IRoleAppService _roleAppService;
-        private readonly IFileProvider _fileProvider;
 
         public UsersController(
                 IUserAppService userAppService,
-                IFileProvider fileProvider,
                 IRoleAppService roleAppService
             )
         {
             _userAppService = userAppService;
             _roleAppService = roleAppService;
-            _fileProvider = fileProvider;
+
         }
 
         public async Task<ActionResult> Index()
@@ -91,18 +89,6 @@ namespace Monivault.Web.Controllers
                 Roles = roles
             };
             return PartialView("_EditUserModal", model);
-        }
-
-        public FileResult DownloadUserUploadSampleFile()
-        {
-            var fileInfo = _fileProvider.GetFileInfo("wwwroot/user_upload_sample.xlsx");
-
-            var physicalFileResult = new PhysicalFileResult(fileInfo.PhysicalPath, MimeTypeNames.ApplicationOctetStream)
-            {
-                FileDownloadName = "UserUploadFileSample.xlsx"
-            };
-
-            return physicalFileResult;
         }
     }
 }

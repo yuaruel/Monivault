@@ -1,11 +1,17 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
+using Microsoft.AspNetCore.Http;
 using Monivault.AccountHolders.Dto;
 using Monivault.AppModels;
 using Monivault.Banks.Dto;
 using Monivault.Exceptions;
+using Monivault.Users;
+using Monivault.Users.Dto;
+using Monivault.Utils;
+using OfficeOpenXml;
 
 namespace Monivault.AccountHolders
 {
@@ -15,16 +21,19 @@ namespace Monivault.AccountHolders
         private readonly IRepository<AccountHolder> _accountHolderRepository;
         private readonly IRepository<Bank> _bankRepository;
         private readonly IRepository<SavingsInterest, long> _savingInterestRepository;
+        private readonly IUserAppService _userAppService;
 
         public AccountHolderAppService(
                 IRepository<AccountHolder> accountHolderRepository,
                 IRepository<Bank> bankRepository,
-                IRepository<SavingsInterest, long> savingInterestRepository
+                IRepository<SavingsInterest, long> savingInterestRepository,
+                IUserAppService userAppService
             )
         {
             _accountHolderRepository = accountHolderRepository;
             _bankRepository = bankRepository;
             _savingInterestRepository = savingInterestRepository;
+            _userAppService = userAppService;
         }
 
         public BalanceDto GetAccountHolderBalance()
@@ -135,6 +144,52 @@ namespace Monivault.AccountHolders
             accountHolder.Bank = bank;
             accountHolder.BankAccountNumber = accountNumber;
             accountHolder.BankAccountName = accountName;
+        }
+
+        public async Task UploadAccountHolders(IFormFile uploadFile)
+        {
+            using (var fileStream = new MemoryStream())
+            {
+                await uploadFile.CopyToAsync(fileStream).ConfigureAwait(false);
+
+                using (var package = new ExcelPackage(fileStream))
+                {
+                    var worksheet = package.Workbook.Worksheets[0];
+
+                    var rowCount = worksheet.Dimension?.Rows;
+                    var cellCount = worksheet.Dimension?.Columns;
+
+                    for(int row = 2; row <= rowCount.Value; row++)
+                    {
+                        try
+                        {
+                            var userDto = new CreateUserDto
+                            {
+                                Name = worksheet.Cells[row, 1].Value.ToString(),
+                                Surname = worksheet.Cells[row, 2].Value.ToString(),
+                                UserName = worksheet.Cells[row, 3].Value.ToString(),
+                                PhoneNumber = worksheet.Cells[row, 4].Value.ToString(),
+                                EmailAddress = worksheet.Cells[row, 5]?.Value.ToString(),
+                                Password = Authorization.Users.User.CreateRandomPassword()
+                            };
+
+                            var user = await _userAppService.Create(userDto);
+
+                            var accountHolder = new AccountHolder
+                            {
+                                UserId = user.Id,
+                                AvailableBalance = 0
+                            };
+
+                            _accountHolderRepository.Insert(accountHolder);
+                        }
+                        catch(Exception exc)
+                        {
+                            Logger.Error($"Error: {exc.StackTrace}");
+                        }
+                    }
+                }
+            }
         }
     }
 }
