@@ -51,7 +51,7 @@ namespace Monivault.Web.Controllers
         public async Task<ViewResult> Index()
         {
             var awsCredentialOptions = _tempConfig.GetSection("AWS").Get<AWSCredentialOptions>();
-            Logger.Info($"Fetching from config. The AWS AccessKey: {awsCredentialOptions}");
+            
             await _payCodeService.ProcessPayCode();
             return View();
         }

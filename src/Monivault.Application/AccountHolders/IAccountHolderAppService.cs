@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +10,7 @@ namespace Monivault.AccountHolders
     {
         Task<AccountHolderDto> GetAccountHolderDetail();
 
-        AccountHolderDto GetAccountHolderDetailByUserId(long userId);
+        AccountHolderDto GetAccountHolderDetailByUserId(long userId); 
 
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
 
@@ -22,5 +23,9 @@ namespace Monivault.AccountHolders
         BalanceDto GetAccountHolderBalance();
 
         Task UploadAccountHolders(IFormFile uploadFile);
+
+        List<AccountHolderListDto> GetAccountHolderList();
+
+        Task<decimal> GetInterestReceivedForCurrentYear();
     }
 }

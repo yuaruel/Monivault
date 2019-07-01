@@ -5,7 +5,7 @@ using Monivault.AppModels;
 
 namespace Monivault.DashboardService
 {
-    public class AccountHolderDashboardService : ITransientDependency
+    public class AccountHolderDashboardService : MonivaultServiceBase, ITransientDependency
     {
         public IAbpSession AbpSession { get; set; }
         private readonly IRepository<AccountHolder> _accountHolderRepository;

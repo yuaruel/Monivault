@@ -34,12 +34,10 @@ namespace Monivault.TopUpAirtime
         {
             try
             {
-                Logger.Info($"About to process airtime purchase inside App Service...");
                 //Check if account holder has enough balance to buy airtime.
                 var user = await GetCurrentUserAsync();
 
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
-                Logger.Info($"AccountHolder ID: {accountHolder.Id}");
                 if (accountHolder.AvailableBalance < input.Amount) throw new UserFriendlyException("Insufficient balance");
 
                 var estelClient = new EstelServicesClient();
@@ -56,12 +54,10 @@ namespace Monivault.TopUpAirtime
                     type = "TOPUP"
                 };
 
-                Logger.Info("About to send request to the OneCard service server...");
                 var topupResponseAsync = await estelClient.getTopupAsync(topupRequest);
                 var topupResponse = topupResponseAsync.Body.getTopupReturn;
-                Logger.Info("Returned from the call to the OneCard service...");
+
                 //Log airtime purchase
-                Logger.Info("About to store the top up log response");
                 var topupLog = new OneCardTopupLog()
                 {
                     OneCardTopupLogKey = Guid.NewGuid(),
@@ -78,9 +74,8 @@ namespace Monivault.TopUpAirtime
                     ResponseCts = topupResponse.responsects,
                     ResponseValue = topupResponse.responseValue,
                 };
-                Logger.Info("Topup Log response properly processed.");
+
                 topupLog = _oneCardTopupLogRepository.Insert(topupLog);
-                Logger.Info($"result code: {topupResponse.resultcode}");
 
                 switch (int.Parse(topupResponse.resultcode))
                 {
@@ -114,17 +109,6 @@ namespace Monivault.TopUpAirtime
                 Logger.Error(exc.StackTrace);
                 throw new UserFriendlyException("Unable to complete your transaction.");
             }
-            //var fundsTransferRequest = new FundsTransferRequest();
-            //fundsTransferRequest.agentCode = "TPR_AAL_1";
-            //fundsTransferRequest.mpin = "14287490BC5A9662D60DFCD3333F723B";
-            //fundsTransferRequest.amount = "1000";
-            //fundsTransferRequest.destination = "9201876211";
-            //fundsTransferRequest.agenttransid = "34634733654774334";
-            //fundsTransferRequest.mobilenumber = "08032808912";
-            //fundsTransferRequest.productCode = "SIBTC";
-
-            //var fundsTransferResponse = await estelClient.getFundsTransferAsync(fundsTransferRequest);
-            //Logger.Info($"fundstranfer response: {JsonConvert.SerializeObject(fundsTransferResponse.Body)}");
         }
     }
 }

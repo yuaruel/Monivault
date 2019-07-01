@@ -30,6 +30,11 @@ namespace Monivault.Web.Mvc.Controllers
             return View();
         }
 
+        public IActionResult Profile(string id)
+        {
+            return View();
+        }
+
         public FileResult DownloadAccountHolderUploadSampleFile()
         {
             var fileInfo = _fileProvider.GetFileInfo("wwwroot/AccountHolderUploadSample.xlsx");
@@ -48,6 +53,13 @@ namespace Monivault.Web.Mvc.Controllers
 
             await _accountHolderAppService.UploadAccountHolders(uploadedFile);
             return Json(new { });
+        }
+
+        public JsonResult AccountHolderList()
+        {
+            var accountHolderList = _accountHolderAppService.GetAccountHolderList();
+
+            return Json(accountHolderList);
         }
     }
 }

@@ -1,9 +1,10 @@
 $(function(){
     abp.ajax({
-        url: 'AccountHolderDashboardService/AvailableBalance',
+        url: 'AccountHolderDashboardService/AvailableBalanceAndReceivedInterest',
         method: 'GET'
     }).done(function(data){
         $('#availableBalance').text('N' + $.number(data.availableBalance, 2));
+        $('#interestReceived').text('N' + $.number(data.receivedInterest, 2));
     }).fail(function(data){
         console.log(data)
     }).always();

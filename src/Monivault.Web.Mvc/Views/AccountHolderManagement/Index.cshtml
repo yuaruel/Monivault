@@ -1,5 +1,9 @@
-﻿@using Monivault.Authorization
+﻿@using Monivault.Web.Startup
+@using Monivault.Authorization
 
+@{ 
+    ViewBag.CurrentPageName = PageNames.AccountHolders;
+}
 @section Scripts{
     <script src="~/view-resources/Views/AccountHolderManagement/Index.js"></script>
 }
@@ -55,21 +59,21 @@
                                                     <li class="m-nav__section m-nav__section--first">
                                                         <span class="m-nav__section-text">Actions</span>
                                                     </li>
-                                                    <li class="m-nav__item">
+                                                    @*<li class="m-nav__item">
                                                         <a id="AddSingleUserBtn" href=":;" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <i class="m-nav__link-icon flaticon-user-add"></i>
                                                             <span class="m-nav__link-text">Add Account Holder</span>
                                                         </a>
-                                                    </li>
+                                                    </li>*@
                                                     <li class="m-nav__item">
                                                         <a href="javascript:;" class="m-nav__link" id="OpenUploadBoxBtn">
-                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <i class="m-nav__link-icon flaticon-paper-plane-1"></i>
                                                             <span class="m-nav__link-text">Upload Account Holder</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a asp-action="DownloadAccountHolderUploadSampleFile" class="m-nav__link" target="_blank">
-                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <i class="m-nav__link-icon flaticon-download-1"></i>
                                                             <span class="m-nav__link-text">Download Sample File</span>
                                                         </a>
                                                     </li>

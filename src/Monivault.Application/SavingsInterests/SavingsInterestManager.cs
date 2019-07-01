@@ -1,22 +1,13 @@
-using System;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Linq.Dynamic.Core;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Abp.Configuration;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
-using Abp.Domain.Uow;
-using Abp.Extensions;
-using Abp.Linq.Extensions;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Monivault.AppModels;
 using Monivault.Configuration;
-using Monivault.Profiles.Dto;
-using ILogger = Castle.Core.Logging.ILogger;
+using System;
+using System.Linq;
+using System.Linq.Dynamic.Core;
+using System.Threading.Tasks;
 
 namespace Monivault.SavingsInterests
 {

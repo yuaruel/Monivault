@@ -1,5 +1,22 @@
 ﻿$(function(){
-    $('#AccountHolderTable').DataTable({});
+    var accountHolderTable = $('#AccountHolderTable').DataTable({
+        ajax: {
+            url: abp.appPath + 'AccountHolderManagement/AccountHolderList',
+            dataSrc: 'result'
+        },
+        columns: [
+            {
+                data: 'accountIdentity',
+                render: function (data, type, full, meta) {
+                    return '<a href="AccountHolderManagement/Profile/' + data + '">' + data + '</a<>';
+                }
+            },
+            { data: 'firstName' },
+            { data: 'lastName' },
+            { data: 'phoneNumber' },
+            { data: 'email' }
+        ]
+    });
     $('#OpenUploadBoxBtn').click(function(){
         $('#AccountHolderUploadBox').trigger('click');
     });
@@ -28,13 +45,12 @@
                 processData: false,
                 contentType: false,
                 success: function (data, textStatus, jqXhr) {
-                    console.log('this upload was successful...');
+                    accountHolderTable.ajax.reload();
                 },
                 error: function (jqXHR, textStatus, err) {
-                    console.log('this upload failed...');
+                    swal('Oops', 'There was an error completing your upload', 'error');
                 },
-                complete: function (jqXHR, textStatus) {
-                    console.log('this upload is complete.');
+                complete: function (jqXHR, textStatus) {           
                     mApp.unblock('#PortletAccountMgr');
                 }
             });

@@ -168,5 +168,6 @@
     <text name="PenaltyPercentageDeduction">Penalty Percentage Deduction</text>
     <text name="BuyAirtime">Buy airtime</text>
     <text name="AddAccountHolder">Add Account Holder</text>
+    <text name="Profile">Profile</text>
   </texts>
 </localizationDictionary>

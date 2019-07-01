@@ -30,10 +30,10 @@ namespace Monivault.OtpSessions
         public async Task<OtpSession> ValidateOtp(string otp)
         {
             var user = await GetCurrentUserAsync();
-            Logger.Info("About to get the otp entity");
+
             var otpSession = _otpSessionRepository.Get(int.Parse(otp));
             _otpSessionRepository.Delete(otpSession);
-            Logger.Info("Gotten the otp entity");
+
             if (otpSession.PhoneNumberSentTo != user.PhoneNumber) throw new InvalidOtpException();
 
             return otpSession;

@@ -1,17 +1,19 @@
-using System;
-using System.IO;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Monivault.AccountHolders.Dto;
 using Monivault.AppModels;
 using Monivault.Banks.Dto;
 using Monivault.Exceptions;
 using Monivault.Users;
 using Monivault.Users.Dto;
-using Monivault.Utils;
 using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Monivault.AccountHolders
 {
@@ -92,6 +94,31 @@ namespace Monivault.AccountHolders
             return accountHolderDto;
         }
 
+        public List<AccountHolderListDto> GetAccountHolderList()
+        {
+            var accountHolders = _accountHolderRepository.Query(qm => qm.Include(ac => ac.User)).ToList();
+            var accountHolderList = new List<AccountHolderListDto>();
+
+            foreach(var accountHolder in accountHolders)
+            {
+                var user = accountHolder.User;
+
+                var accountHolderListDto = new AccountHolderListDto
+                {
+                    AccountHolderKey = accountHolder.AccountHolderKey,
+                    AccountIdentity = accountHolder.AccountIdentity,
+                    FirstName = user.Name,
+                    LastName = user.Surname,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.RealEmailAddress
+                };
+
+                accountHolderList.Add(accountHolderListDto);
+            }
+
+            return accountHolderList;
+        }
+
         public decimal GetInterestAccrued()
         {
             var accruedInterest = 0.0m;
@@ -111,6 +138,29 @@ namespace Monivault.AccountHolders
             }
 
             return accruedInterest;
+        }
+
+        public async Task<decimal> GetInterestReceivedForCurrentYear()
+        {
+            var interestRecieved = 0.0m;
+
+            try
+            {
+                var user = await GetCurrentUserAsync();
+                var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
+                var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Completed && p.AccountHolderId == accountHolder.Id);
+
+                if (savingsInterest != null)
+                {
+                    interestRecieved = savingsInterest.InterestAccrued;
+                }
+            }
+            catch(InvalidOperationException ioExc)
+            {
+                Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
+            }
+
+            return interestRecieved;
         }
 
         public int GetTotalNumberOfAccountHolders()
