@@ -6,7 +6,10 @@
 }
 
 @section Scripts{
-
+    <script type="text/javascript">
+        var accountHolderKey = '@Model.AccountHolderKey';
+    </script>
+    <script src="~/lib/jquery-number/jquery.number.min.js"></script>
     <script src="~/view-resources/Views/AccountHolderManagement/Profile.js"></script>
 }
 
@@ -52,12 +55,12 @@
                             <div class="m-card-profile__details">
                                 <span class="m-card-profile__name">@Model.FullName</span>
                                 <span class="m-card-profile__email">@Model.IdentityNumber</span><br />
-                                <a href="" class="m-card-profile__email m-link">@Model.PhoneNumber</a><br/>
+                                <a href="" class="m-card-profile__email m-link">@Model.PhoneNumber</a><br />
                                 <a href="" class="m-card-profile__email m-link">@Model.EmailAddress</a>
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="col-xl-9 col-lg-8">
                 <div class="m-portlet m-portlet--full-height m-portlet--tabs">
@@ -90,14 +93,14 @@
                                                         <div class="m-widget16__body"></div>
                                                     </div>
                                                 </div>
-                                                <div class="m-widget16__item">
+                                                @*<div class="m-widget16__item">
                                                     <span class="m-widget16__date">
                                                         Last Seen
                                                     </span>
                                                     <span class="m-widget16__price m--align-right m--font-brand">
                                                         @Model.DateJoined.ToLongDateString()
                                                     </span>
-                                                </div>
+                                                </div>*@
                                                 <div class="m-widget16__item">
                                                     <span class="m-widget16__date">
                                                         Date Joined

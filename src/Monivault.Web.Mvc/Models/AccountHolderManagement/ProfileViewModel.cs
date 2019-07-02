@@ -7,6 +7,8 @@ namespace Monivault.Web.Models.AccountHolderManagement
 {
     public class ProfileViewModel
     {
+        public string AccountHolderKey { get; set; }
+
         public string IdentityNumber { get; set; }
 
         public string FullName { get; set; }

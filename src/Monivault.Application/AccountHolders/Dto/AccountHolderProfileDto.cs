@@ -6,6 +6,8 @@ namespace Monivault.AccountHolders.Dto
 {
     public class AccountHolderProfileDto
     {
+        public string AccountHolderKey { get; set; }
+
         public string IdentityNumber { get; set; }
 
         public string FullName { get; set; }

@@ -82,6 +82,7 @@ namespace Monivault.AccountHolders
 
             var profileDto = new AccountHolderProfileDto
             {
+                AccountHolderKey = accountHolder.AccountHolderKey.ToString(),
                 IdentityNumber = accountHolder.AccountIdentity,
                 FullName = user.FullName,
                 PhoneNumber = user.PhoneNumber,

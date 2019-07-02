@@ -37,6 +37,7 @@ namespace Monivault.Web.Mvc.Controllers
 
             var viewModel = new ProfileViewModel
             {
+                AccountHolderKey = accountHolderProfile.AccountHolderKey,
                 IdentityNumber = accountHolderProfile.IdentityNumber,
                 FullName = accountHolderProfile.FullName,
                 PhoneNumber = accountHolderProfile.PhoneNumber,

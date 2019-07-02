@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -6,6 +7,7 @@ using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
 using Monivault.AppModels;
 using Monivault.TransactionLogs.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace Monivault.TransactionLogs
 {
@@ -33,7 +35,16 @@ namespace Monivault.TransactionLogs
             return ObjectMapper.Map<List<RecentTransactionDto>>(transactionLogs);
         }
 
-        
+        public List<ProfileViewTransactionDto> GetTransactionsForProfileView(string accountHolderKey)
+        {
+            var ahKey = Guid.Parse(accountHolderKey);
+            var accountHolder = _accountHolderRepository.Query(qm => qm.Where(p => p.AccountHolderKey == ahKey).Include(p => p.User)
+                                                            .Single(p => p.AccountHolderKey == ahKey));
+
+            var transactionLogs = _transactionRepository.GetAllList(p => p.AccountHolderId == accountHolder.Id).OrderByDescending(p => p.CreationTime);
+
+            return ObjectMapper.Map<List<ProfileViewTransactionDto>>(transactionLogs);
+        }
 
         public int GetTotalDeposits()
         {
