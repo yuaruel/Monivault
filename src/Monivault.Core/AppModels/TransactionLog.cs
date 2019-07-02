@@ -37,8 +37,8 @@ namespace Monivault.AppModels
         public string RequestOriginatingPlatform { get; set; }
         
         [Required]
-        [Column(TypeName = "varchar(100)")]
-        [StringLength(100)]
+        [Column(TypeName = "varchar(300)")]
+        [StringLength(300)]
         public string PlatformSpecificDetail { get; set; }
         
         [Required]

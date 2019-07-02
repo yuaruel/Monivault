@@ -52,7 +52,7 @@ namespace Monivault.Web.Controllers
         {
             var awsCredentialOptions = _tempConfig.GetSection("AWS").Get<AWSCredentialOptions>();
             
-            await _payCodeService.ProcessPayCode();
+            //await _payCodeService.ProcessPayCode();
             return View();
         }
 

@@ -8,7 +8,7 @@
             {
                 data: 'accountIdentity',
                 render: function (data, type, full, meta) {
-                    return '<a href="AccountHolderManagement/Profile/' + data + '">' + data + '</a<>';
+                    return '<a href="AccountHolderManagement/Profile/' + full.accountHolderKey + '">' + data + '</a<>';
                 }
             },
             { data: 'firstName' },

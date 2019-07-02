@@ -95,6 +95,7 @@ namespace Monivault.TopUpSavings
                     //Update AccountHolders balance.
                     accountHolder.AvailableBalance = currentBalance;
                     _accountHolderRepository.Update(accountHolder);
+                    CurrentUnitOfWork.SaveChanges();
 
                     //Log transaction
                     var transactionLog = new TransactionLog();

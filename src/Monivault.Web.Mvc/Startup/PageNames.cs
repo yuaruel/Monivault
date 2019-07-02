@@ -18,5 +18,6 @@ namespace Monivault.Web.Startup
         public const string RoleManagement = "Role Management";
         public const string TopUpSaving = "Top Up Saving";
         public const string MyProfile = "My Profile";
+        public const string AccountHolderProfile = "Account Holder Profile";
     }
 }

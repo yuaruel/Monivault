@@ -73,6 +73,25 @@ namespace Monivault.AccountHolders
             return accountHolderDto;
         }
 
+        public AccountHolderProfileDto GetAccountHolderProfile(string key)
+        {
+            var accountHolderKey = Guid.Parse(key);
+
+            var accountHolder = _accountHolderRepository.Query(qm => qm.Where(p => p.AccountHolderKey == accountHolderKey).Include(ac => ac.User)).Single();
+            var user = accountHolder.User;
+
+            var profileDto = new AccountHolderProfileDto
+            {
+                IdentityNumber = accountHolder.AccountIdentity,
+                FullName = user.FullName,
+                PhoneNumber = user.PhoneNumber,
+                EmailAddress = user.RealEmailAddress,
+                DateJoined = user.CreationTime
+            };
+
+            return profileDto;
+        }
+
         public AccountHolderDto GetAccountHolderDetailByUserId(long userId)
         {
             var accountHolder = _accountHolderRepository.FirstOrDefault(p => p.UserId == userId);

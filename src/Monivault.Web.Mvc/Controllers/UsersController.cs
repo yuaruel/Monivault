@@ -44,10 +44,10 @@ namespace Monivault.Web.Controllers
             return View(model);
         }
 
-        public async Task<JsonResult> UserList()
+        public JsonResult UserList()
         {
             //var users = (await _userAppService.GetAll(new PagedUserResultRequestDto {MaxResultCount = int.MaxValue})).Items;
-            var users = await _userAppService.GetUserList();
+            var users = _userAppService.GetUserList();
             
             return Json(users.Items);
         }

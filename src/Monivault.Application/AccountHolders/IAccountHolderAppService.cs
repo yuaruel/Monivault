@@ -10,7 +10,9 @@ namespace Monivault.AccountHolders
     {
         Task<AccountHolderDto> GetAccountHolderDetail();
 
-        AccountHolderDto GetAccountHolderDetailByUserId(long userId); 
+        AccountHolderDto GetAccountHolderDetailByUserId(long userId);
+
+        AccountHolderProfileDto GetAccountHolderProfile(string key);
 
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
 

@@ -151,7 +151,7 @@ namespace Monivault.Users
             );
         }
 
-        public async Task<ListResultDto<UserListDto>> GetUserList()
+        public ListResultDto<UserListDto> GetUserList()
         {
             var userList = CreateFilteredQuery(new PagedUserResultRequestDto{MaxResultCount = int.MaxValue}).ToList();
             
@@ -168,14 +168,10 @@ namespace Monivault.Users
                     PhoneNumber = user.PhoneNumber,
                     CreationTime = user.CreationTime
                 };
-                
-                foreach (var userRole in user.Roles)
-                {
-                    var roles = _roleManager.Roles.Where(p => user.Roles.Any(pr => pr.RoleId == p.Id))
-                        .Select(p => p.DisplayName);
-                    
-                    userListDto.RoleNames = roles.ToArray();
-                }
+
+                var roles = _roleManager.Roles.Where(p => user.Roles.Any(pr => pr.RoleId == p.Id)).Select(p => p.DisplayName);
+
+                userListDto.RoleNames = roles.ToArray();
                 
                 userLists.Add(userListDto);
             }
