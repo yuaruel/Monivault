@@ -23,15 +23,18 @@ namespace Monivault.Authorization
             context.CreatePermission(PermissionNames.EditRoles, L(PermissionNames.EditRoles), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.DeleteRoles, L(PermissionNames.DeleteRoles), multiTenancySides: MultiTenancySides.Tenant);
 
+            //AccountHolder Permissions {Start}
             context.CreatePermission(PermissionNames.ViewAccountHolderDashboard, L(PermissionNames.ViewAccountHolderDashboard), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.CreateAccountHolder, L(PermissionNames.CreateAccountHolder), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ViewAccountHolders, L(PermissionNames.ViewAccountHolders), multiTenancySides: MultiTenancySides.Tenant);
+            context.CreatePermission(PermissionNames.ChangeAccountOfficer, L(PermissionNames.ChangeAccountOfficer), multiTenancySides: MultiTenancySides.Tenant);
+            //AccountHolder Permissions {End}
 
             context.CreatePermission(PermissionNames.DoPayCodeTransfer, L(PermissionNames.DoPayCodeTransfer), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.DoBankAccountTransfer, L(PermissionNames.DoBankAccountTransfer), multiTenancySides: MultiTenancySides.Tenant);
 
             context.CreatePermission(PermissionNames.DoTaxPayment, L(PermissionNames.DoTaxPayment), multiTenancySides: MultiTenancySides.Tenant);
 
-            context.CreatePermission(PermissionNames.CreateAccountHolder, L(PermissionNames.CreateAccountHolder), multiTenancySides: MultiTenancySides.Tenant);
-            context.CreatePermission(PermissionNames.ViewAccountHolders, L(PermissionNames.ViewAccountHolders), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.ViewSettingsPage, L(PermissionNames.ViewSettingsPage), multiTenancySides: MultiTenancySides.Tenant);
             context.CreatePermission(PermissionNames.TopUpSaving, L(PermissionNames.TopUpSaving), multiTenancySides: MultiTenancySides.Tenant);
 

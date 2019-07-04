@@ -12,9 +12,13 @@ namespace Monivault.AccountHolders
 
         AccountHolderDto GetAccountHolderDetailByUserId(long userId);
 
-        AccountHolderProfileDto GetAccountHolderProfile(string key);
+        Task<AccountHolderProfileDto> GetAccountHolderProfile(string key);
+
+        AccountHolderEditProfileDto GetAccountHolderProfileForEdit(string key);
 
         Task UpdateBankDetails(string bankKey, string accountNumber, string accountName);
+
+        void UpdateAccountHolder(AccountHolderEditProfileDto profileDto);
 
         int GetTotalNumberOfAccountHolders();
 
@@ -26,7 +30,7 @@ namespace Monivault.AccountHolders
 
         Task UploadAccountHolders(IFormFile uploadFile);
 
-        List<AccountHolderListDto> GetAccountHolderList();
+        Task<List<AccountHolderListDto>> GetAccountHolderList();
 
         Task<decimal> GetInterestReceivedForCurrentYear();
     }

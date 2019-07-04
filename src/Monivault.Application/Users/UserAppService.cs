@@ -245,8 +245,6 @@ namespace Monivault.Users
             
             var roles = _roleManager.Roles.Where(r => user.Roles.Any(ur => ur.RoleId == r.Id)).Select(r => r.NormalizedName);
             userDto.RoleNames = roles.ToArray();*/
-            
-            Logger.Info("user detail: " + JsonConvert.SerializeObject(user));
 
             return MapToEntityDto(user);
         }

@@ -19,5 +19,7 @@ namespace Monivault.AccountHolders.Dto
         public DateTime DateJoined { get; set; }
 
         public DateTime LastSeen { get; set; }
+
+        public string AccountOfficerName { get; set; }
     }
 }

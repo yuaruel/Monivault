@@ -14,6 +14,7 @@
 
         public const string CreateAccountHolder = "CreateAccountHolder";
         public const string ViewAccountHolders = "ViewAccountHolders";
+        public const string ChangeAccountOfficer = "ChangeAccountOfficer";
 
         public const string ViewUsers = "ViewUsers";
         public const string CreateUsers = "CreateUsers";

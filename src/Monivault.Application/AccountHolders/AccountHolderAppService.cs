@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Monivault.AccountHolders.Dto;
 using Monivault.AppModels;
+using Monivault.Authorization.Roles;
+using Monivault.Authorization.Users;
 using Monivault.Banks.Dto;
 using Monivault.Exceptions;
 using Monivault.Users;
@@ -24,18 +26,21 @@ namespace Monivault.AccountHolders
         private readonly IRepository<Bank> _bankRepository;
         private readonly IRepository<SavingsInterest, long> _savingInterestRepository;
         private readonly IUserAppService _userAppService;
+        private readonly UserManager _userManager;
 
         public AccountHolderAppService(
                 IRepository<AccountHolder> accountHolderRepository,
                 IRepository<Bank> bankRepository,
                 IRepository<SavingsInterest, long> savingInterestRepository,
-                IUserAppService userAppService
+                IUserAppService userAppService,
+                UserManager userManager
             )
         {
             _accountHolderRepository = accountHolderRepository;
             _bankRepository = bankRepository;
             _savingInterestRepository = savingInterestRepository;
             _userAppService = userAppService;
+            _userManager = userManager;
         }
 
         public BalanceDto GetAccountHolderBalance()
@@ -73,12 +78,16 @@ namespace Monivault.AccountHolders
             return accountHolderDto;
         }
 
-        public AccountHolderProfileDto GetAccountHolderProfile(string key)
+        public async Task<AccountHolderProfileDto> GetAccountHolderProfile(string key)
         {
             var accountHolderKey = Guid.Parse(key);
 
             var accountHolder = _accountHolderRepository.Query(qm => qm.Where(p => p.AccountHolderKey == accountHolderKey).Include(ac => ac.User)).Single();
             var user = accountHolder.User;
+
+            //Get account officer if there is any
+            var accountOfficerId = accountHolder.AccountOfficerId == null ? 0 : accountHolder.AccountOfficerId.Value;
+            var accountOfficer = await _userManager.FindByIdAsync(accountOfficerId.ToString());
 
             var profileDto = new AccountHolderProfileDto
             {
@@ -87,7 +96,28 @@ namespace Monivault.AccountHolders
                 FullName = user.FullName,
                 PhoneNumber = user.PhoneNumber,
                 EmailAddress = user.RealEmailAddress,
-                DateJoined = user.CreationTime
+                DateJoined = user.CreationTime,
+                AccountOfficerName = $"{accountOfficer?.Name ?? "Not Assigned"} {accountOfficer?.Surname ?? ""}"
+            };
+
+            return profileDto;
+        }
+
+        public AccountHolderEditProfileDto GetAccountHolderProfileForEdit(string key)
+        {
+            var accountHolderKey = Guid.Parse(key);
+
+            var accountHolder = _accountHolderRepository.Query(qm => qm.Where(p => p.AccountHolderKey == accountHolderKey).Include(ac => ac.User)).Single();
+            var user = accountHolder.User;
+
+            var profileDto = new AccountHolderEditProfileDto
+            {
+                AccountHolderKey = accountHolder.AccountHolderKey.ToString(),
+                FirstName = user.Name,
+                LastName = user.Surname,
+                PhoneNumber = user.PhoneNumber,
+                EmailAddress = user.RealEmailAddress,
+                AccountOfficerId = accountHolder.AccountOfficerId
             };
 
             return profileDto;
@@ -114,9 +144,23 @@ namespace Monivault.AccountHolders
             return accountHolderDto;
         }
 
-        public List<AccountHolderListDto> GetAccountHolderList()
+        public async Task<List<AccountHolderListDto>> GetAccountHolderList()
         {
-            var accountHolders = _accountHolderRepository.Query(qm => qm.Include(ac => ac.User)).ToList();
+            //Check if the current user is admin
+            var currentUser = await GetCurrentUserAsync();
+
+            var isUserAdmin = await _userManager.IsInRoleAsync(currentUser, StaticRoleNames.Tenants.Admin);
+            List<AccountHolder> accountHolders = null;
+
+            if (isUserAdmin)
+            {
+                accountHolders = _accountHolderRepository.Query(qm => qm.Include(ac => ac.User)).ToList();
+            }
+            else
+            {
+                accountHolders = _accountHolderRepository.Query(qm => qm.Where(p => p.AccountOfficerId == currentUser.Id).Include(ac => ac.User)).ToList();
+            }
+            
             var accountHolderList = new List<AccountHolderListDto>();
 
             foreach(var accountHolder in accountHolders)
@@ -216,6 +260,8 @@ namespace Monivault.AccountHolders
             accountHolder.BankAccountName = accountName;
         }
 
+        
+
         public async Task UploadAccountHolders(IFormFile uploadFile)
         {
             using (var fileStream = new MemoryStream())
@@ -260,6 +306,16 @@ namespace Monivault.AccountHolders
                     }
                 }
             }
+        }
+
+        public void UpdateAccountHolder(AccountHolderEditProfileDto profileDto)
+        {
+            var accountHolderKey = Guid.Parse(profileDto.AccountHolderKey);
+
+            var accountHolder = _accountHolderRepository.Single(p => p.AccountHolderKey == accountHolderKey);
+
+            accountHolder.AccountOfficerId = profileDto.AccountOfficerId;
+            _accountHolderRepository.Update(accountHolder);
         }
     }
 }

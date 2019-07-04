@@ -1,0 +1,39 @@
+﻿@model Monivault.Web.Models.AccountHolderManagement.EditAccountHolderModalViewModel
+
+<form id="EditAccountHolderForm" asp-action="UpdateAccountHolder" class="m-form m-form--label-align-right">
+    <input type="hidden" value="@Model.AccountHolderKey" name="AccountHolderKey" />
+    <div class="m-form__section m-form__section--first">
+        <div class="form-group m-form__group row">
+            <label for="FirstName" class="col-lg-3 col-form-label">@L("FirstName")</label>
+            <div class="col-lg-6">
+                <input id="FirstName" name="FirstName" value="@Model.FirstName" maxlength="32" class="form-control m-input" readonly="readonly" />
+            </div>
+
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="LastName" class="col-lg-3 col-form-label">@L("LastName")</label>
+            <div class="col-lg-6">
+                <input id="LastName" name="LastName" value="@Model.LastName" maxlength="32" class="form-control m-input" readonly="readonly" />
+            </div>
+
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="PhoneNumber" class="col-lg-3 col-form-label">@L("PhoneNumber")</label>
+            <div class="col-lg-6">
+                <input id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" maxlength="32" class="form-control m-input" readonly="readonly" />
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="EmailAddress" class="col-lg-3 col-form-label">@L("EmailAddress")</label>
+            <div class="col-lg-6">
+                <input id="EmailAddress" name="FirstName" value="@Model.EmailAddress" maxlength="32" class="form-control m-input" readonly="readonly" />
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <label for="AccountOfficer" class="col-lg-3 col-form-label">@L("AccountOfficer")</label>
+            <div class="col-lg-6">
+                <select id="AccountOfficer" name="AccountOfficer" class="form-control m-bootstrap-select m_selectpicker" asp-items="@Model.AccountOfficers" asp-for="AccountOfficer"></select>
+            </div>
+        </div>
+    </div>
+</form>

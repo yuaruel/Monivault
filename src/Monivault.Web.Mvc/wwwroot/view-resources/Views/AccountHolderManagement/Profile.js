@@ -1,4 +1,6 @@
 ﻿$(function () {
+    $('.m_selectpicker').selectpicker();
+
     var transactionsTable = $('#Transactions').DataTable({
         ajax: {
             url: abp.appPath + 'Transaction/AccountHolderTransactions/' + accountHolderKey,
@@ -30,5 +32,30 @@
                 }
             }
         ]
+    });
+
+    $('#EditAccountHolder').click(function (e) {
+        e.preventDefault();
+        mApp.blockPage({
+            overlayColor: '#000000',
+            type: 'loader',
+            state: 'success',
+            message: 'Please wait...'
+        });
+        $.ajax({
+            url: abp.appPath + 'AccountHolderManagement/EditAccountHolderModal?accountHolderKey=' + accountHolderKey,
+            type: 'GET',
+            contentType: 'application/html',
+            success: function (content) {
+                mApp.unblockPage();
+                $('#_EditAccountHolderModal div.modal-body').html(content);
+                $('#_EditAccountHolderModal').modal('show');
+
+                $('.m_selectpicker').selectpicker();
+            },
+            error: function (e) {}
+
+        });
+        $('#EditAccountHolderModal').modal('show');
     });
 });

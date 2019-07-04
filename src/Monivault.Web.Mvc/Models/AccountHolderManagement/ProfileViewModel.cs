@@ -20,5 +20,7 @@ namespace Monivault.Web.Models.AccountHolderManagement
         public DateTime DateJoined { get; set; }
 
         public DateTime LastSeen { get; set; }
+
+        public string AccountOfficerName { get; set; }
     }
 }

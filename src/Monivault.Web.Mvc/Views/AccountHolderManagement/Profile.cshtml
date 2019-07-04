@@ -1,5 +1,6 @@
 ﻿@model Monivault.Web.Models.AccountHolderManagement.ProfileViewModel
 @using Monivault.Web.Startup
+@using Monivault.Authorization
 
 @{
     ViewBag.CurrentPageName = PageNames.AccountHolderProfile;
@@ -11,6 +12,7 @@
     </script>
     <script src="~/lib/jquery-number/jquery.number.min.js"></script>
     <script src="~/view-resources/Views/AccountHolderManagement/Profile.js"></script>
+    <script src="~/view-resources/Views/AccountHolderManagement/_EditAccountHolderModal.js"></script>
 }
 
 <div class="m-grid__item m-grid__item--fluid m-wrapper">
@@ -59,6 +61,17 @@
                                 <a href="" class="m-card-profile__email m-link">@Model.EmailAddress</a>
                             </div>
                         </div>
+                        <div class="m-portlet__body-separator"></div>
+                        <div class="m-widget1 m-widget1--paddingless">
+                            <div class="m-widget1__item">
+                                <div class="row m-row--no-padding align-items-center">
+                                    <div class="col">
+                                        <h3 class="m-widget1__title">Account Officer</h3>
+                                        <span class="m-widget1__desc">@Model.AccountOfficerName</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +79,7 @@
                 <div class="m-portlet m-portlet--full-height m-portlet--tabs">
                     <div class="m-portlet__head">
                         <div class="m-portlet__head-tools">
-                            <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
+                            <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--left m-tabs-line--primary" role="tablist">
                                 <li class="nav-item m-tabs__item">
                                     <a class="nav-link m-tabs__link active" data-toggle="tab" href="#ActivityTab" role="tab">
                                         <i class="flaticon-share m--hide"></i>
@@ -80,6 +93,16 @@
                                 </li>
                             </ul>
                         </div>
+                        @if (IsGranted(PermissionNames.ChangeAccountOfficer))
+                        {
+                            <div class="m-portlet__head-tools">
+                                <ul class="m-portlet__nav">
+                                    <li class="m-portlet__nav-item">
+                                        <a id="EditAccountHolder" href="javascript:;" class="m-portlet__nav-link m-portlet__nav-link--icon"><i class="la la-pencil"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active" id="ActivityTab">
@@ -94,13 +117,13 @@
                                                     </div>
                                                 </div>
                                                 @*<div class="m-widget16__item">
-                                                    <span class="m-widget16__date">
-                                                        Last Seen
-                                                    </span>
-                                                    <span class="m-widget16__price m--align-right m--font-brand">
-                                                        @Model.DateJoined.ToLongDateString()
-                                                    </span>
-                                                </div>*@
+                                                        <span class="m-widget16__date">
+                                                            Last Seen
+                                                        </span>
+                                                        <span class="m-widget16__price m--align-right m--font-brand">
+                                                            @Model.DateJoined.ToLongDateString()
+                                                        </span>
+                                                    </div>*@
                                                 <div class="m-widget16__item">
                                                     <span class="m-widget16__date">
                                                         Date Joined
@@ -142,3 +165,25 @@
         </div>
     </div>
 </div>
+<!--begin::EditModal-->
+<div class="modal fade" id="_EditAccountHolderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">@L("EditAccountHolder")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Please wait...</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@L("Close")</button>
+                <button id="UpdateAccountHolderBtn" type="button" class="btn btn-primary">@L("Update")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--end::EditModal-->

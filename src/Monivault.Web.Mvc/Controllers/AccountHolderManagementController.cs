@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.FileProviders;
 using Monivault.AccountHolders;
+using Monivault.AccountHolders.Dto;
+using Monivault.AccountOfficers;
+using Monivault.Authorization;
+using Monivault.Authorization.Roles;
 using Monivault.Controllers;
 using Monivault.Net.MimeTypes;
 using Monivault.Web.Models.AccountHolderManagement;
@@ -16,14 +22,17 @@ namespace Monivault.Web.Mvc.Controllers
     {
         private readonly IFileProvider _fileProvider;
         private readonly IAccountHolderAppService _accountHolderAppService;
+        private readonly IAccountOfficerAppService _accountOfficerAppService;
 
         public AccountHolderManagementController(
                 IFileProvider fileProvider,
-                IAccountHolderAppService accountHolderAppService
+                IAccountHolderAppService accountHolderAppService,
+                IAccountOfficerAppService accountOfficerAppService
             )
         {
             _fileProvider = fileProvider;
             _accountHolderAppService = accountHolderAppService;
+            _accountOfficerAppService = accountOfficerAppService;
         }
 
         public IActionResult Index()
@@ -31,9 +40,9 @@ namespace Monivault.Web.Mvc.Controllers
             return View();
         }
 
-        public IActionResult Profile(string id)
+        public async Task<IActionResult> Profile(string id)
         {
-            var accountHolderProfile = _accountHolderAppService.GetAccountHolderProfile(id);
+            var accountHolderProfile = await _accountHolderAppService.GetAccountHolderProfile(id);
 
             var viewModel = new ProfileViewModel
             {
@@ -42,7 +51,8 @@ namespace Monivault.Web.Mvc.Controllers
                 FullName = accountHolderProfile.FullName,
                 PhoneNumber = accountHolderProfile.PhoneNumber,
                 EmailAddress = accountHolderProfile.EmailAddress,
-                DateJoined = accountHolderProfile.DateJoined
+                DateJoined = accountHolderProfile.DateJoined,
+                AccountOfficerName = accountHolderProfile.AccountOfficerName
             };
 
             return View(viewModel);
@@ -68,11 +78,51 @@ namespace Monivault.Web.Mvc.Controllers
             return Json(new { });
         }
 
-        public JsonResult AccountHolderList()
+        public async Task<JsonResult> AccountHolderList()
         {
-            var accountHolderList = _accountHolderAppService.GetAccountHolderList();
+            var accountHolderList = await _accountHolderAppService.GetAccountHolderList();
 
             return Json(accountHolderList);
+        }
+
+        [AbpMvcAuthorize(PermissionNames.ChangeAccountOfficer)]
+        public async Task<ActionResult> EditAccountHolderModal(string accountHolderKey)
+        {
+            var profileDto = _accountHolderAppService.GetAccountHolderProfileForEdit(accountHolderKey);
+            var accountOfficers = await _accountOfficerAppService.GetAccountOfficers();
+
+            var viewModel = new EditAccountHolderModalViewModel
+            {
+                AccountHolderKey = profileDto.AccountHolderKey,
+                FirstName = profileDto.FirstName,
+                LastName = profileDto.LastName,
+                PhoneNumber = profileDto.PhoneNumber,
+                EmailAddress = profileDto.EmailAddress,
+                AccountOfficer = profileDto.AccountOfficerId?.ToString(),
+                AccountOfficers = new List<SelectListItem>()
+            };
+
+            //Add a default SelectListItem
+            viewModel.AccountOfficers.Add(new SelectListItem { Text = "Select Account Officer", Value = "-1" });
+            foreach(var accountOfficer in accountOfficers)
+            {
+                viewModel.AccountOfficers.Add(new SelectListItem { Text = $"{accountOfficer.FirstName} {accountOfficer.LastName}", Value = accountOfficer.AccountOfficerId.ToString() });
+            }
+
+            return PartialView("_EditAccountHolderModal", viewModel);
+        }
+
+        public JsonResult UpdateAccountHolder(EditAccountHolderModalViewModel viewModel)
+        {
+            var profileDto = new AccountHolderEditProfileDto
+            {
+                AccountHolderKey = viewModel.AccountHolderKey,
+                AccountOfficerId = long.Parse(viewModel.AccountOfficer)
+            };
+
+            _accountHolderAppService.UpdateAccountHolder(profileDto);
+
+            return Json(new { });
         }
     }
 }

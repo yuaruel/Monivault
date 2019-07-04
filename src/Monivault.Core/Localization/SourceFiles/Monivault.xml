@@ -124,9 +124,7 @@
     <text name="ViewSettingsPage">View Settings Page</text>
     <text name="DoBankAccountTransfer">Do Bank Account Transfer</text>
     <text name="DoPayCodeTransfer">Do PayCode Transfer</text>
-    <text name="DoTaxPayment">Do Tax Payment</text>
-    <text name="CreateAccountHolder">Create Account Holder</text>
-    <text name="ViewAccountHolders">View Account Holders</text>
+    <text name="DoTaxPayment">Do Tax Payment</text> 
     <text name="ViewUsers">View Users</text>
     <text name="CreateUsers">Create Users</text>
     <text name="EditUsers">Edit Users</text>
@@ -135,7 +133,12 @@
     <text name="CreateRoles">Create Roles</text>
     <text name="EditRoles">Edit Roles</text>
     <text name="DeleteRoles">Delete Roles</text>
+    <!-- AccountHolder Permissions {Start}-->
     <text name="ViewAccountHolderDashboard">View Account Holder Dashboard</text>
+    <text name="ViewAccountHolders">View Account Holders</text>
+    <text name="CreateAccountHolder">Create Account Holder</text>
+    <text name="ChangeAccountOfficer">Change Account Officer</text>
+    <!-- AccountHolder Permissions {End}-->
     <text name="TopUpSaving">TopUpSaving</text>
     <text name="ViewAdminReports">View Admin Reports</text>
     <text name="Update">Update</text>  
@@ -173,5 +176,9 @@
     <text name="Description">Description</text>
     <text name="TransactionDate">Transaction Date</text>
     <text name="Balance">Balance</text>
+    <text name="EditAccountHolder">Edit Account Holder</text>
+    <text name="AccountOfficer">Account Officer</text>
+    <text name="WelcomePage_Title">Welcome</text>
+    <text name="WelcomePage_Info"> to the application. You can use the menu to start using the application. If you don't see any menu item, probably you don't have permission to see any page. Consider to ask system administration for permissions.</text>
   </texts>
 </localizationDictionary>

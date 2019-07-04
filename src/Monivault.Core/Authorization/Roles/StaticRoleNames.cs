@@ -11,6 +11,7 @@ namespace Monivault.Authorization.Roles
         {
             public const string Admin = "SuperAdmin";
             public const string AccountHolder = "AccountHolder";
+            public const string AccountOfficer = "AccountOfficer";
         }
     }
 }

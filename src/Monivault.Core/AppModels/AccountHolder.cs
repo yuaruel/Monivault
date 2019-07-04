@@ -37,7 +37,10 @@ namespace Monivault.AppModels
 
         [Column(TypeName = "varchar(50)")]
         public string BankAccountName { get; set; }
-        
-        
+
+        public long? AccountOfficerId { get; set; }
+
+        public virtual User AccountOfficer { get; set; }
+
     }
 }
