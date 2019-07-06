@@ -1,0 +1,110 @@
+﻿@model Monivault.Web.Models.Tax.TaxProfileViewModel
+
+@{ 
+    ViewBag.CurrentPageName = L("TaxProfile");
+}
+
+@section Scripts{ 
+    <script type="text/javascript" src="~/view-resources/Views/Tax/Profile.js"></script>
+}
+
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">@L("Tax")</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item m-nav__item--home">
+                        <a href="#" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-home"></i>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">-</li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">@L("TaxProfile")</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->
+
+    <div class="m-content">
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <span class="m-portlet__head-icon">
+                            <i class="flaticon-list-2"></i>
+                        </span>
+                        <h3 class="m-portlet__head-text">
+                            @L("TaxProfile")
+                        </h3>
+                    </div>
+                </div>
+                <div class="m-portlet__head-tools">
+                    <ul class="m-portlet__nav">
+                        <li class="m-portlet__nav-item">
+                            <!--<a href="#" m-portlet-tool="fullscreen" class="m-portlet__nav-link m-portlet__nav-link--icon"><i class="la la-expand"></i></a>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-portlet__body" m-portlet="true">
+                <div class="row m-row--no-padding">
+                    <div class="col-lg-12">
+                        <form id="TaxProfileForm" class="m-form" asp-action="UpdateProfile">
+                            <div class="m-portlet__body">
+                                <div class="m-form__section m-form__section--first">
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-2">@L("TaxIdentificationNumber")</label>
+                                        <div class="col-lg-6">
+                                            <input rows="3" cols="5" name="Tin" id="Tin" value="@Model.Tin" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-2">@L("FullName")</label>
+                                        <div class="col-lg-6">
+                                            <input rows="3" cols="5" name="FullName" id="FullName" value="@Model.FullName" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-2">@L("ReconcilliationPVNumber")</label>
+                                        <div class="col-lg-6">
+                                            <input rows="3" cols="5" name="ReconcilliationPVNumber" id="ReconcilliationPVNumber" value="@Model.ReconcilliationPvNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-2">@L("EmailAddress")</label>
+                                        <div class="col-lg-6">
+                                            <input rows="3" cols="5" name="Email" id="Email" value="@Model.Email" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-2">@L("PhoneNumber")</label>
+                                        <div class="col-lg-6">
+                                            <input rows="3" cols="5" name="PhoneNumber" id="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions m-form__actions">
+                                    <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-6">
+                                            <button id="UpdateTaxProfileBtn" type="button" class="btn btn-success">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Monivault.Authorization;
+using Monivault.SavingsInterests;
 
 namespace Monivault
 {
@@ -26,5 +27,13 @@ namespace Monivault
                 cfg => cfg.AddProfiles(thisAssembly)
             );
         }
+
+
+        //public async override void PostInitialize()
+        //{
+        //    var savingInterestManager = IocManager.IocContainer.Resolve<SavingsInterestManager>();
+
+        //    await savingInterestManager.CheckSavingsInterestProcessingStatus();
+        //}
     }
 }

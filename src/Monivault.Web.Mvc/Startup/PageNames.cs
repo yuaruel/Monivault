@@ -10,7 +10,9 @@ namespace Monivault.Web.Startup
         public const string BankAccount = "Bank Account";
         public const string PayCode = "PayCode";
         public const string Utilities = "Utilities";
-        public const string TaxPayment = "TaxPayment";
+        public const string Tax = "Tax";
+        public const string Profile = "Profile";
+        public const string Payment = "Payment";
         public const string BuyAirtime = "Buy Airtime";
         public const string AccountHolders = "Account Holders";
         public const string Settings = "Settings";

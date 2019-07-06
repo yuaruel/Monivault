@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monivault.EntityFrameworkCore;
 
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    partial class MonivaultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190706133431_TaxTypeTable_Create")]
+    partial class TaxTypeTable_Create
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1234,52 +1236,6 @@ namespace Monivault.Migrations
                     b.ToTable("SavingsInterestDetails");
                 });
 
-            modelBuilder.Entity("Monivault.AppModels.TaxPayment", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccountHolderId");
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<string>("EmailAddress")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType(" varchar(100)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("ReconcilliationPvNumber")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<Guid>("TaxPaymentKey");
-
-                    b.Property<DateTimeOffset>("TaxPeriod");
-
-                    b.Property<int>("TaxTypeId");
-
-                    b.Property<string>("Tin")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountHolderId");
-
-                    b.HasIndex("TaxTypeId");
-
-                    b.ToTable("TaxPayments");
-                });
-
             modelBuilder.Entity("Monivault.AppModels.TaxProfile", b =>
                 {
                     b.Property<long>("Id")
@@ -1811,19 +1767,6 @@ namespace Monivault.Migrations
                     b.HasOne("Monivault.AppModels.SavingsInterest", "SavingsInterest")
                         .WithMany()
                         .HasForeignKey("SavingsInterestId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Monivault.AppModels.TaxPayment", b =>
-                {
-                    b.HasOne("Monivault.AppModels.AccountHolder", "AccountHolder")
-                        .WithMany()
-                        .HasForeignKey("AccountHolderId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Monivault.AppModels.TaxType", "TaxType")
-                        .WithMany()
-                        .HasForeignKey("TaxTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

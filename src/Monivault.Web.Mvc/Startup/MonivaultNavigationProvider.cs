@@ -56,9 +56,23 @@ namespace Monivault.Web.Startup
                         icon: "flaticon-interface-6"
                     ).AddItem(
                         new MenuItemDefinition(
-                            PageNames.TaxPayment,
-                            L("TaxPayment"),
+                            PageNames.Tax,
+                            L(PageNames.Tax),
                             requiredPermissionName: PermissionNames.DoTaxPayment
+                        ).AddItem(
+                            new MenuItemDefinition(
+                                PageNames.Profile,
+                                L(PageNames.Profile),
+                                url: "Tax/Profile",
+                                icon: "flaticon-avatar"
+                            )
+                        ).AddItem(
+                            new MenuItemDefinition(
+                                PageNames.Payment,
+                                L(PageNames.Payment),
+                                url: "Tax/Payment",
+                                icon: "flaticon-feed"
+                            )
                         )
                     ).AddItem(
                         new MenuItemDefinition(

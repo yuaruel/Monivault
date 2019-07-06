@@ -44,14 +44,39 @@
                         <ul class="m-menu__subnav">
                             @foreach (var subMenuItem in menuItem.Items)
                             {
-                                <li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1">
+                            <li class="m-menu__item @(subMenuItem.Items.IsNullOrEmpty() ? "" : "m-menu__item--submenu")" aria-haspopup="true" subMenuItem>
+                                @if (subMenuItem.Items.IsNullOrEmpty())
+                                {
                                     <a href="@calculateMenuUrl(subMenuItem.Url)" class="m-menu__link ">
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
                                         <span class="m-menu__link-text">@subMenuItem.DisplayName</span>
                                     </a>
-                                </li>   
+                                }
+                                else
+                                {
+                                    <a href="javascript:void(0);" class="m-menu__link m-menu__toggle">
+                                        <i class="m-menu__link-icon @subMenuItem.Icon"></i>
+                                        <span class="m-menu__link-text">@subMenuItem.DisplayName</span>
+                                        <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                    </a>
+                                    <div class="m-menu__submenu">
+                                        <span class="m-menu__arrow"></span>
+                                        <ul class="m-menu__subnav">
+                                            @foreach(var secondLevelSub in subMenuItem.Items)
+                                            {
+                                                <li class="m-menu__item" aria-haspopup="true">
+                                                    <a href="@calculateMenuUrl(secondLevelSub.Url)" class="m-menu__link ">
+                                                        <i class="m-menu__link-icon @secondLevelSub.Icon"></i>
+                                                        <span class="m-menu__link-text">@secondLevelSub.DisplayName</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </li>   
                             }
                         </ul>
                     </div>

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "36a8f57483ec5511b5354dc0ac720ce368b04183"
+    "signature": "c80d8d4665c85e6f583e05b0a1c3b103f159f34f"
   },
   "compilationOptions": {},
   "targets": {
@@ -44,7 +44,7 @@
           "System.Security.Claims": "4.3.0",
           "System.Threading": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
-          "TimeZoneConverter": "2.5.1"
+          "TimeZoneConverter": "3.2.0"
         },
         "runtime": {
           "lib/netstandard2.0/Abp.dll": {
@@ -2672,11 +2672,11 @@
           }
         }
       },
-      "TimeZoneConverter/2.5.1": {
+      "TimeZoneConverter/3.2.0": {
         "runtime": {
           "lib/netstandard2.0/TimeZoneConverter.dll": {
-            "assemblyVersion": "2.5.1.0",
-            "fileVersion": "2.5.1.0"
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
           }
         }
       },
@@ -2747,7 +2747,8 @@
           "System.ServiceModel.Duplex": "4.4.4",
           "System.ServiceModel.Http": "4.4.4",
           "System.ServiceModel.NetTcp": "4.4.4",
-          "System.ServiceModel.Security": "4.4.4"
+          "System.ServiceModel.Security": "4.4.4",
+          "TimeZoneConverter": "3.2.0"
         },
         "runtime": {
           "Monivault.Application.dll": {}
@@ -4241,12 +4242,12 @@
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
-    "TimeZoneConverter/2.5.1": {
+    "TimeZoneConverter/3.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-InBmVfMm1ClqdFjwkM7emdNoskKi5VVE+YUNhv+GXtrggBJdK2le42cp0AsEI59847F5T0vtWNlzrAYVvizAEg==",
-      "path": "timezoneconverter/2.5.1",
-      "hashPath": "timezoneconverter.2.5.1.nupkg.sha512"
+      "sha512": "sha512-f0UpF9H+ylj3qjO/l2+Yt0R77FFR327efJwsoXAys6J1fSYFcQPrPVhaGVVWoN79+PVutj0qzj79kuhSPN70gA==",
+      "path": "timezoneconverter/3.2.0",
+      "hashPath": "timezoneconverter.3.2.0.nupkg.sha512"
     },
     "xunit/2.4.1": {
       "type": "package",

@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
+using TimeZoneConverter;
 
 namespace Monivault.SavingsInterests
 {
@@ -173,26 +174,26 @@ namespace Monivault.SavingsInterests
             CurrentUnitOfWork.SaveChanges();
         }
 
-        /*public async Task CheckSavingsInterestProcessingStatus()
+        public async Task CheckSavingsInterestProcessingStatus()
         {
-            Logger.Info("About to check if InterestStatus is running...");
-            var savingsInterestStatus = await SettingManager.GetSettingValueForApplicationAsync<bool>(AppSettingNames.InterestStatus);
-            Logger.Info("Interest status: " + savingsInterestStatus);
+            //Logger.Info("About to check if InterestStatus is running...");
+            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueForApplicationAsync(AppSettingNames.InterestStatus));
+            //Logger.Info("Interest status: " + savingsInterestStatus);
             if (savingsInterestStatus)
             {
-                Logger.Info("Interest status is running");
-                Logger.Info("Savings interest processing about to be started...");
+                //Logger.Info("Interest status is running");
+                //Logger.Info("Savings interest processing about to be started...");
                 RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5), 
-                    TimeZoneInfo.FindSystemTimeZoneById("Africa/Lagos"));
-                Logger.Info("Savings interest processing started.");
+                    TZConvert.GetTimeZoneInfo("Africa/Lagos"));
+                //Logger.Info("Savings interest processing started.");
             }
-        }*/
+        }
 
         public static void StartSavingsInterestProcessing()
         {
             //Startup Hangfire RecurringJob that processes SavingInterest calculation every midnight
-            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 10), 
-                TimeZoneInfo.FindSystemTimeZoneById("Africa/Lagos"));
+            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 10),
+                TZConvert.GetTimeZoneInfo("Africa/Lagos"));
         }
 
         public static void StopSavingsInterestProcessing()

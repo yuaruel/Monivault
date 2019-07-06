@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
   <texts>
+    <!-- General {Start}-->
+    <text name="DatePaid">Date Paid</text>
+    <text name="Payment">Payment</text>
+    <text name="MakePayment">Make Payment</text>
+    <!-- General {End}-->
+    
     <text name="HomePage" value="Home page" />
     <text name="About" value="About" />
     <text name="WelcomeMessage" value="Welcome to Monivault!" />
@@ -12,7 +18,7 @@
     <text name="UserIsNotActiveAndCanNotLogin" value="User {0} is not active and can not log in." />
     <text name="UserEmailIsNotConfirmedAndCanNotLogin">Your email address is not confirmed. You can not login.</text>
     <text name="UserLockedOutMessage">The user account has been locked out. Please try again later.</text>
-    <text name="PleaseEnterLoginInformation" value="Please enter login information" />
+    <text name="PleaseEnterLoginInformation" value="Please enter login information" /> 
     <text name="TenancyName" value="Tenancy name" />
     <text name="UserNameOrEmail" value="User name or email" />
     <text name="Password" value="Password" />
@@ -112,19 +118,31 @@
     <text name="Dashboard">Dashboard</text>
     <text name="MoneyTransfer">Money Transfer</text>
     <text name="BankAccount">Bank Account</text>
-    <text name="PayCode">Pay Code</text>
-    <text name="TaxPayment">Tax Payment</text>
+    <text name="PayCode">Pay Code</text>   
     <text name="AccountHolders">Account Holders</text>
     <text name="Utilities">Utilities</text>
     <text name="NewRole">New Role</text>
     <text name="DateAdded">Date Added</text>
     <text name="RolesAndPermissions">Roles and Permissions</text>
-    <text name="AddRole">Add Role</text>
+    <text name="AddRole">Add Role</text>P
     <text name="Close">Close</text>
     <text name="ViewSettingsPage">View Settings Page</text>
     <text name="DoBankAccountTransfer">Do Bank Account Transfer</text>
     <text name="DoPayCodeTransfer">Do PayCode Transfer</text>
+    
+    <!-- Tax {Start}-->
+    <text name="Tax">Tax</text>
     <text name="DoTaxPayment">Do Tax Payment</text> 
+    <text name="TaxProfile">Tax Profile</text>
+    <text name="TaxPayment">Tax Payment</text>
+    <text name="TaxType">Tax Type</text>
+    <text name="TaxPeriod">Tax Period</text>
+    <text name="ReconcilliationPVNumber">Reconcilliation PV Number</text>
+    <text name="TaxIdentificationNumber">Tax Identification Number</text>
+    <text name="UpdateTaxProfile">Update Tax Profile!</text>
+    <text name="TaxProfileUpdateAlert">You need to update your tax profile before making payment!</text>
+    <!-- Tax {End}-->
+    
     <text name="ViewUsers">View Users</text>
     <text name="CreateUsers">Create Users</text>
     <text name="EditUsers">Edit Users</text>

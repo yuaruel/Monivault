@@ -3534,7 +3534,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "TimeZoneConverter/2.5.1": {
+      "TimeZoneConverter/3.2.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/TimeZoneConverter.dll": {}
@@ -3637,7 +3637,8 @@
           "System.ServiceModel.Duplex": "4.4.0",
           "System.ServiceModel.Http": "4.4.0",
           "System.ServiceModel.NetTcp": "4.4.0",
-          "System.ServiceModel.Security": "4.4.0"
+          "System.ServiceModel.Security": "4.4.0",
+          "TimeZoneConverter": "3.2.0"
         },
         "compile": {
           "bin/placeholder/Monivault.Application.dll": {}
@@ -10831,10 +10832,10 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "TimeZoneConverter/2.5.1": {
-      "sha512": "InBmVfMm1ClqdFjwkM7emdNoskKi5VVE+YUNhv+GXtrggBJdK2le42cp0AsEI59847F5T0vtWNlzrAYVvizAEg==",
+    "TimeZoneConverter/3.2.0": {
+      "sha512": "f0UpF9H+ylj3qjO/l2+Yt0R77FFR327efJwsoXAys6J1fSYFcQPrPVhaGVVWoN79+PVutj0qzj79kuhSPN70gA==",
       "type": "package",
-      "path": "timezoneconverter/2.5.1",
+      "path": "timezoneconverter/3.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10844,6 +10845,8 @@
         "lib/net40/TimeZoneConverter.xml",
         "lib/net45/TimeZoneConverter.dll",
         "lib/net45/TimeZoneConverter.xml",
+        "lib/net461/TimeZoneConverter.dll",
+        "lib/net461/TimeZoneConverter.xml",
         "lib/net471/TimeZoneConverter.dll",
         "lib/net471/TimeZoneConverter.xml",
         "lib/netstandard1.1/TimeZoneConverter.dll",
@@ -10852,7 +10855,7 @@
         "lib/netstandard1.3/TimeZoneConverter.xml",
         "lib/netstandard2.0/TimeZoneConverter.dll",
         "lib/netstandard2.0/TimeZoneConverter.xml",
-        "timezoneconverter.2.5.1.nupkg.sha512",
+        "timezoneconverter.3.2.0.nupkg.sha512",
         "timezoneconverter.nuspec"
       ]
     },
@@ -11029,11 +11032,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
+      "projectUniqueName": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
       "projectName": "Monivault.Tests",
-      "projectPath": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
+      "projectPath": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\Monivault.Tests.csproj",
       "packagesPath": "C:\\Users\\Henry Ezeanya\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\DevCodes\\Monivault\\test\\Monivault.Tests\\obj\\",
+      "outputPath": "D:\\Projects\\DevCodes\\monivault\\test\\Monivault.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11052,11 +11055,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.Application\\Monivault.Application.csproj": {
-              "projectPath": "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.Application\\Monivault.Application.csproj"
+            "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.Application\\Monivault.Application.csproj": {
+              "projectPath": "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.Application\\Monivault.Application.csproj"
             },
-            "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj": {
-              "projectPath": "D:\\Projects\\DevCodes\\Monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj"
+            "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj": {
+              "projectPath": "D:\\Projects\\DevCodes\\monivault\\src\\Monivault.EntityFrameworkCore\\Monivault.EntityFrameworkCore.csproj"
             }
           }
         }

@@ -14,6 +14,10 @@
     <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
     <Compile Remove="Migrations\20190508045405_TopUpProductTable_Create.cs" />
     <Compile Remove="Migrations\20190508045706_TopUpProductPriceTable_Create.cs" />
+    <Compile Remove="Migrations\20190705103005_TaxProfileTable_Create.cs" />
+    <Compile Remove="Migrations\20190705205736_TaxProfileTable_Create.cs" />
+    <Compile Remove="Migrations\20190705205946_TaxTypeTable_Create.cs" />
+    <Compile Remove="Migrations\20190705210159_TaxPaymentTable_Create.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
