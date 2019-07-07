@@ -29,6 +29,7 @@
                 success: function (response, status, xhr, $form) {
                     //Move to the next form for Personal details
                     $('#_TaxPaymentModal').modal('hide');
+                    taxPaymentTable.ajax.reload();
                     swal("Success", "Your tax payment is successful", "success");
                     
                 },

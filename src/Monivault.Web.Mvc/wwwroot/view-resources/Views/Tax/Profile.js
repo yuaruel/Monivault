@@ -31,7 +31,7 @@
                 swal("Oops", "There was an error updating your tax profile", "error");
             },
             complete: function (jqXHR, textStatus) {
-                userBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
+                updateBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
             }
         });
     });

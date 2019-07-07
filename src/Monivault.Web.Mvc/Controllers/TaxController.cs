@@ -80,5 +80,12 @@ namespace Monivault.Web.Controllers
 
             return Json(new { });
         }
+
+        public async Task<JsonResult> GetTaxPaymentList()
+        {
+            var taxPayments = await _taxAppService.GetTaxPayments();
+
+            return Json(taxPayments);
+        }
     }
 }

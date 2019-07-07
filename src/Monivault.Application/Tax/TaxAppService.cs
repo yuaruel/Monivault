@@ -96,20 +96,39 @@ namespace Monivault.Tax
             var currentUser = await GetCurrentUserAsync();
 
             var accountHolder = _accountHolderRepository.Single(p => p.UserId == currentUser.Id);
+            var taxProfile = _taxProfileRepository.FirstOrDefault(p => p.AccountHolderId == accountHolder.Id) ?? new TaxProfile{ AccountHolderId = accountHolder.Id };
 
-            var taxPofile = new TaxProfile
-            {
-                AccountHolderId = accountHolder.Id,
-                Tin = input.Tin,
-                FullName = input.FullName,
-                ReconcilliationPvNumber = input.ReconcilliationPvNumber,
-                PhoneNumber = input.PhoneNumber,
-                Email = input.Email
-            };
+            taxProfile.Tin = input.Tin;
+            taxProfile.FullName = input.FullName;
+            taxProfile.ReconcilliationPvNumber = input.ReconcilliationPvNumber;
+            taxProfile.PhoneNumber = input.PhoneNumber;
+            taxProfile.Email = input.Email;
 
-            _taxProfileRepository.Insert(taxPofile);
+            _taxProfileRepository.InsertOrUpdate(taxProfile);
         }
 
-        
+        public async Task<List<TaxPaymentDto>> GetTaxPayments()
+        {
+            var currentUser = await GetCurrentUserAsync();
+            var accountHolder = _accountHolderRepository.Single(p => p.UserId == currentUser.Id);
+
+            var taxPayments = _taxPaymentRepository.GetAllList(p => p.AccountHolderId == accountHolder.Id);
+
+            var taxPaymentDtos = new List<TaxPaymentDto>();
+
+            foreach(var taxPayment in taxPayments)
+            {
+                var taxType = _taxTypeRepository.Single(p => p.Id == taxPayment.TaxTypeId);
+                taxPaymentDtos.Add(new TaxPaymentDto
+                {
+                    Amount = taxPayment.Amount,
+                    TaxPeriod = taxPayment.TaxPeriod.ToString(),
+                    TaxType = taxType.Name,
+                    DatePaid = taxPayment.CreationTime.ToString()
+                });
+            }
+
+            return taxPaymentDtos;
+        }
     }
 }

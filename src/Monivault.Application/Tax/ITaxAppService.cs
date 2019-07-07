@@ -13,5 +13,6 @@ namespace Monivault.Tax
         Task UpdateTaxProfile(UpdateTaxProfileInput input);
         List<TaxTypeDto> GetTaxTypes();
         Task MakePayment(MakePaymentInput input);
+        Task<List<TaxPaymentDto>> GetTaxPayments();
     }
 }
