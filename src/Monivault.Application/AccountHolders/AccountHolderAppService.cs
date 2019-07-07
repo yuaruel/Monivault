@@ -212,7 +212,9 @@ namespace Monivault.AccountHolders
             {
                 var user = await GetCurrentUserAsync();
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
-                var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Completed && p.AccountHolderId == accountHolder.Id);
+
+                //TODO Modify this, to get a sum of all the interest that has accrued for the year, both running and completed.
+                var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Running && p.AccountHolderId == accountHolder.Id);
 
                 if (savingsInterest != null)
                 {

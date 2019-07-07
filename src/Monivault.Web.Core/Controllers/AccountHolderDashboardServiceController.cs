@@ -34,7 +34,7 @@ namespace Monivault.Controllers
             var receivedInterest = await _accountHolderAppService.GetInterestReceivedForCurrentYear();
             var availableBalance = _accountHolderDashboardService.GetUserAvailableBalance();
 
-            return Json(new { RecievedInterest = receivedInterest, AvailableBalance = availableBalance });
+            return Json(new { ReceivedInterest = receivedInterest, AvailableBalance = availableBalance });
         }
     }
 }

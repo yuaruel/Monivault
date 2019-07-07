@@ -19,7 +19,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
 using Monivault.ConfigurationOptions;
-
+using Monivault.SavingsInterests;
+using TimeZoneConverter;
 
 namespace Monivault.Web.Startup
 {
@@ -105,6 +106,8 @@ namespace Monivault.Web.Startup
             });
 
             app.UseHangfireServer();
+            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestManager.SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5),
+                TZConvert.GetTimeZoneInfo("Africa/Lagos"));
 
             app.UseMvc(routes =>
             {

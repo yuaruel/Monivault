@@ -14,7 +14,7 @@ namespace Monivault.SavingsInterests
 {
     public class SavingsInterestManager : MonivaultServiceBase, ISingletonDependency
     {
-        private const string SavingsInterestJobId = "Monivault-SavingInterestProcessor";
+        public const string SavingsInterestJobId = "Monivault-SavingInterestProcessor";
         private readonly IRepository<SavingsInterest, long> _savingsInterestRepository;
         private readonly IRepository<TransactionLog, long> _transactionLogRepository;
         private readonly IRepository<SavingsInterestDetail, long> _savingInterestDetailRepository;
@@ -36,9 +36,14 @@ namespace Monivault.SavingsInterests
        
         public async Task RunInterestForTheDay()
         {
-            var savingsInterests = _savingsInterestRepository.Query(x => x.Where(p => p.Status == SavingsInterest.StatusTypes.Running)
-                                                                .Include(p => p.AccountHolder)
-                                                                .ThenInclude(p => p.User).ToList());
+            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueForApplicationAsync(AppSettingNames.InterestStatus));
+
+            if (savingsInterestStatus)
+            {
+                Logger.Info($"Running interest calculation for the day at {DateTimeOffset.UtcNow}");
+                var savingsInterests = _savingsInterestRepository.Query(x => x.Where(p => p.Status == SavingsInterest.StatusTypes.Running)
+                                                    .Include(p => p.AccountHolder)
+                                                    .ThenInclude(p => p.User).ToList());
 
                 foreach (var savingsInterest in savingsInterests)
                 {
@@ -47,7 +52,7 @@ namespace Monivault.SavingsInterests
                     var user = accountHolder1.User;
 
                     //Check if user performed transaction the previous day. This is because interest calculation runs at 00.05am.
-                    var today = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Africa/Lagos"));
+                    var today = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TZConvert.GetTimeZoneInfo("Africa/Lagos"));
 
                     var yesterday = today.AddHours(-2);
                     var yesterdaysTransactions = _transactionLogRepository.Query(x =>
@@ -80,7 +85,7 @@ namespace Monivault.SavingsInterests
                         var penaltyCharge = savingsInterest.InterestAccrued * penaltyChargeRate;
                         var newInterest = savingsInterest.InterestAccrued - penaltyCharge;
 
-                        
+
                         savingsInterestDetail.PenaltyCharge = penaltyCharge;
                         savingsInterestDetail.PrincipalAfterTodayCalculation = savingsInterest.InterestPrincipal;
                         savingsInterestDetail.PrincipalBeforeTodayCalculation = principalBeforeCalculation;
@@ -120,21 +125,30 @@ namespace Monivault.SavingsInterests
                         }
                     }
 
+                    //Update SavingsInterest
+                    _savingsInterestRepository.Update(savingsInterest);
+
                     savingsInterestDetail.SavingsInterestId = savingsInterest.Id;
                     _savingInterestDetailRepository.Insert(savingsInterestDetail);
-                    
+
                     //Check if Interest EndDate has reached, for payout.
                     if (DateTime.UtcNow.Date.CompareTo(savingsInterest.EndDate.Date) < 0) continue;
-                    
+
                     var accountHolder = savingsInterest.AccountHolder;
                     accountHolder.AvailableBalance += savingsInterest.InterestAccrued;
 
                     savingsInterest.Status = SavingsInterest.StatusTypes.Completed;
                     CurrentUnitOfWork.SaveChanges();
-                        
+
                     //Create a new savings Interest
                     await BootstrapNewSavingsInterestForAccountHolder(accountHolder.Id);
                 }
+            }
+            else
+            {
+                Logger.Info("Interest calculation is on pause.");
+                RecurringJob.RemoveIfExists(SavingsInterestJobId);
+            }
         }
 
         public async Task BootstrapNewSavingsInterestForAllAccountHolders()
@@ -192,7 +206,7 @@ namespace Monivault.SavingsInterests
         public static void StartSavingsInterestProcessing()
         {
             //Startup Hangfire RecurringJob that processes SavingInterest calculation every midnight
-            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 10),
+            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5),
                 TZConvert.GetTimeZoneInfo("Africa/Lagos"));
         }
 
