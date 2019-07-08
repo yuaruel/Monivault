@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Abp.MailKit;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Monivault.Authorization;
@@ -8,6 +9,7 @@ namespace Monivault
 {
     [DependsOn(
         typeof(MonivaultCoreModule), 
+        typeof(AbpMailKitModule),
         typeof(AbpAutoMapperModule))]
     public class MonivaultApplicationModule : AbpModule
     {

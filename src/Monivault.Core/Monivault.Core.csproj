@@ -16,6 +16,12 @@
     <EmbeddedResource Include="Localization\SourceFiles\*.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Emailing\EmailTemplates\sample.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Emailing\EmailTemplates\sample.html" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Abp.AutoMapper" Version="4.5.0" />
     <PackageReference Include="Abp.ZeroCore.EntityFrameworkCore" Version="4.5.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.0" />
