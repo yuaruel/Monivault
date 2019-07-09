@@ -32,15 +32,13 @@ namespace Monivault.Web.Controllers
         private readonly PayCodeService _payCodeService;
         private readonly SavingsInterestManager _interestManager;
         private readonly IConfiguration _tempConfig;
-        private readonly IMonivaultMailSender _monivaultMailSender;
         //private readonly IOptions<AWSCredentialOptions> _credentialOptions;
 
         public AccountHolderHomeController(
                 ITransactionLogAppService transactionLogAppService,
                 PayCodeService payCodeService,
                 SavingsInterestManager interestManager,
-                IConfiguration tempConfig,
-                IMonivaultMailSender monivaultMailSender
+                IConfiguration tempConfig
                 //IOptions<AWSCredentialOptions> credentialOptions
             )
         {
@@ -49,13 +47,12 @@ namespace Monivault.Web.Controllers
             _interestManager = interestManager;
             _tempConfig = tempConfig;
             //_credentialOptions = credentialOptions;
-            _monivaultMailSender = monivaultMailSender;
         }
 
         public async Task<ViewResult> Index()
         {
             var awsCredentialOptions = _tempConfig.GetSection("AWS").Get<AWSCredentialOptions>();
-            _monivaultMailSender.SendSampleEmail();
+            
             //await _payCodeService.ProcessPayCode();
             return View();
         }
