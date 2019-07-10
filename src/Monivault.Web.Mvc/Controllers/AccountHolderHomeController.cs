@@ -17,6 +17,7 @@ using Monivault.ConfigurationOptions;
 using Monivault.Controllers;
 using Monivault.Emailing;
 using Monivault.InterswitchServices;
+using Monivault.Net.MimeTypes;
 using Monivault.SavingsInterests;
 using Monivault.TransactionLogs;
 using Monivault.TransactionLogs.Dto;
@@ -62,6 +63,20 @@ namespace Monivault.Web.Controllers
             var transactionLogs = await _transactionLogAppService.GetRecentTransactions(new LimitedResultRequestDto());
 
             return Json(transactionLogs);
+        }
+
+        public async Task<PhysicalFileResult> DownloadRecentTransactions()
+        {
+            var transactionHistoryFile = await _transactionLogAppService.CreateRecentTransactionsHistory();
+
+            var physicalFileResult = new PhysicalFileResult(transactionHistoryFile.FullName, MimeTypeNames.ApplicationOctetStream)
+            {
+                FileDownloadName = transactionHistoryFile.Name
+            };
+
+            
+
+            return physicalFileResult;
         }
     }
 }

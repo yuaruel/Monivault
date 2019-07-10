@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
@@ -10,6 +11,7 @@ namespace Monivault.TransactionLogs
     {
         Task<List<RecentTransactionDto>> GetRecentTransactions(LimitedResultRequestDto requestDto);
         List<ProfileViewTransactionDto> GetTransactionsForProfileView(string accountHolderKey);
+        Task<FileInfo> CreateRecentTransactionsHistory();
 
         int GetTotalDeposits();
 
