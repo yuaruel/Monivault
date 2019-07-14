@@ -1,5 +1,4 @@
 $(function(){
-    console.log('current balance: ' + currentBalance);
     $.validator.addMethod("withinBalance", function (value, element) {
         var deductableAmount = parseInt($(element).autoNumeric('get'));
 
@@ -54,20 +53,8 @@ $(function(){
                 swal('Oops', 'There was an error processing your request', 'error');
             },
             complete: function(jqXHR, textStatus){
-                console.log('this is complete');
                 submitBtn.removeClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
             }
         });
-/*        abp.ajax({
-            url: abp.appPath + 'MoneyTransfer/GetBankTransferOtpForm',
-            data: JSON.stringify({amount: $('#Amount').autoNumeric('get'), comment: $('#Comment').val()}),
-            abpHandleError: false
-        }).done(function(data){
-            $('#BankAccountTransferDiv').html(data)
-        }).fail(function(data){
-            swal('Oops', data.message, 'error');
-        }).always(function(){
-            submitBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', false);
-        });*/
     });
 });

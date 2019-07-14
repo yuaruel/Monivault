@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Monivault.Profiles.Dto;
 
@@ -12,5 +13,7 @@ namespace Monivault.Profiles
         Task UpdatePersonalDetail(PersonalDetailDto input);
 
         Task<IdentityResult> UpdatePassword(UpdatePasswordDto input);
+
+        Task UpdateProfilePicture(IFormFile imageFile);
     }
 }

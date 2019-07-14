@@ -1,9 +1,8 @@
 ﻿$(function () {
     $.validator.addMethod("networkProvider", function (value, element, params) {
         //The value passed in, is same with the realVal processed below. I just felt like using the processed realVal.
-        console.log('sent value: ' + value);
         var realVal = $(element).selectpicker('val');
-        console.log('netowrk provider value: ' + realVal);
+
         return realVal.length >= 3;
     }, "Select a network");
 

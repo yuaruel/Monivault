@@ -52,7 +52,7 @@ $(function(){
         if (_$roleCheckboxes) {
             for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
                 var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-                console.log('role value: ' + _$roleCheckbox.val());
+
                 roles.push(_$roleCheckbox.val());
             }
         }
@@ -62,7 +62,7 @@ $(function(){
             data: {Name: name, Surname: surname, roleNames: roles, isActive: enabled},
             success: function(response, status, xhr, $form){
                 //Move to the next form for Personal details
-                console.log('returned status: ' + status);
+
                 $('#_CreateUserModal').modal('hide');
             },
             error: function(jqXHR, textStatus, err){

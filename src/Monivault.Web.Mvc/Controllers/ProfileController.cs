@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Abp.Domain.Repositories;
 using Abp.UI;
 using Abp.Web.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -60,7 +61,8 @@ namespace Monivault.Web.Controllers
                 Bank = "-1",
                 Banks = bankSelectItems,
                 AccountNumber = accountHolderDto.BankAccountNumber,
-                AccountName = accountHolderDto.BankAccountName
+                AccountName = accountHolderDto.BankAccountName,
+                ProfilePictureUrl = profileDto.ProfileImageUrl
             };
             
             if (accountHolderDto.Bank != null)
@@ -115,6 +117,12 @@ namespace Monivault.Web.Controllers
             return BadRequest(errorDesc);
 
             //return StatusCode(200);
+        }
+
+        public async Task<IActionResult> UploadProfilePicture(IFormFile imageFile)
+        {
+            await _profileAppService.UpdateProfilePicture(imageFile);
+            return Ok();
         }
     }
 }

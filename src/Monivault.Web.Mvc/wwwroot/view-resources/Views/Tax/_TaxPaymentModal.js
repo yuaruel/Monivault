@@ -21,9 +21,9 @@
             }
 
             paymentBtn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
-            console.log('the tax period: ' + $('#TaxPeriod').datepicker('getUTCDate'));
+
             var momentTime = moment($('#TaxPeriod').datepicker('getUTCDate'));
-            console.log('iso date from moment: ' + momentTime.toISOString());
+
             paymentForm.ajaxSubmit({
                 data: { taxPeriod: momentTime.toISOString(), amount: $('#Amount').autoNumeric('get') },
                 success: function (response, status, xhr, $form) {
@@ -42,7 +42,7 @@
                 }
             });
         } else {
-            console.log('tax identification did not indicate null');
+
         }
     });
 });

@@ -15,9 +15,6 @@ namespace Monivault.BackgroundJobs
             _smsService = smsService;
         }
         
-        protected override async Task ExecuteAsync(SmsJobArgs args)
-        {
-            await _smsService.SendSms(args.Message, args.Recipient);
-        }
+        protected override async Task ExecuteAsync(SmsJobArgs args) => await _smsService.SendSms(args.Message, args.Recipient);
     }
 }

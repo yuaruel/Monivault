@@ -203,16 +203,9 @@ namespace Monivault.SavingsInterests
             }
         }
 
-        public static void StartSavingsInterestProcessing()
-        {
-            //Startup Hangfire RecurringJob that processes SavingInterest calculation every midnight
-            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5),
-                TZConvert.GetTimeZoneInfo("Africa/Lagos"));
-        }
+        //Startup Hangfire RecurringJob that processes SavingInterest calculation every midnight
+        public static void StartSavingsInterestProcessing() => RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5), TZConvert.GetTimeZoneInfo("Africa/Lagos"));
 
-        public static void StopSavingsInterestProcessing()
-        {
-            RecurringJob.RemoveIfExists(SavingsInterestJobId);
-        }
+        public static void StopSavingsInterestProcessing() => RecurringJob.RemoveIfExists(SavingsInterestJobId);
     }
 }

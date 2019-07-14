@@ -6,39 +6,9 @@ $(function(){
         $('#availableBalance').text('N' + $.number(data.availableBalance, 2));
         $('#interestReceived').text('N' + $.number(data.receivedInterest, 2));
     }).fail(function(data){
-        console.log(data)
+
     }).always();
-    
-/*    $('#RecentTransactionsTable').DataTable({
-        ajax: {
-            url: abp.appPath + 'AccountHolderHome/RecentTransactions',
-            dataSrc: 'result'
-        },
-        paging: false,
-        ordering: false,
-        info: false,
-        columns: [
-            {
-                data: 'amount',
-                render: function(data, type, full, meta){
-                    if(full.transactionType === 'Credit'){
-                        return '<span class="m--font-success">' + 'N' + $.number(data, 2) + '</span>';
-                    }else{
-                        return '<span class="m--font-danger">' + 'N' + $.number(data, 2) + '</span>';
-                    }
-                }
-            },
-            {data: 'transactionType'},
-            {data: 'description'},
-            {data: 'creationTime'},
-            {
-                data: 'balanceAfterTransaction',
-                render: function(data, type, full, meta){
-                    return 'N' + $.number(data, 2);
-                }
-            }
-        ]
-    });*/
+
     $('.m_datatable').mDatatable({
         data: {
             type: 'remote',
@@ -46,11 +16,10 @@ $(function(){
                 read: {
                     url: abp.appPath + 'AccountHolderHome/RecentTransactions',
                     map: function(raw) {
-                        console.log('raw data: ' + JSON.stringify(raw.result));
+
                         // sample data mapping
                         var dataSet = raw;
                         if (typeof raw.result !== 'undefined') {
-                            console.log('result is defined');
                             dataSet = raw.result;
                         }
                         return dataSet;

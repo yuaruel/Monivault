@@ -189,11 +189,11 @@ namespace Monivault.AccountHolders
             try
             {
                 var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
-                var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Running && p.AccountHolderId == accountHolder.Id);
+                var savingsInterests = _savingInterestRepository.GetAllList(p => p.CreationTime.Year == DateTime.Now.Year && p.AccountHolderId == accountHolder.Id);
 
-                if(savingsInterest != null)
+                foreach(var savingsInterest in savingsInterests)
                 {
-                    accruedInterest = savingsInterest.InterestAccrued;
+                    accruedInterest += savingsInterest.InterestAccrued;
                 }
             }
             catch(InvalidOperationException ioExc)
@@ -229,11 +229,8 @@ namespace Monivault.AccountHolders
             return interestRecieved;
         }
 
-        public int GetTotalNumberOfAccountHolders()
-        {
-            return _accountHolderRepository.Count();
-        }
-
+        public int GetTotalNumberOfAccountHolders() => _accountHolderRepository.Count();
+        
         /// <summary>
         /// Checks if the account holder available balance is more than the amount required for the transaction.
         /// </summary>
