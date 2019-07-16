@@ -13,7 +13,7 @@ namespace Monivault.TransactionLogs
         List<ProfileViewTransactionDto> GetTransactionsForProfileView(string accountHolderKey);
         Task<FileInfo> CreateRecentTransactionsHistory();
 
-        int GetTotalDeposits();
+        (decimal totalCredit, decimal totalDebit) GetTotalCreditAndDebit();
 
         void LogTransaction();
     }

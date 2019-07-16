@@ -50,10 +50,25 @@ namespace Monivault.TransactionLogs
             return ObjectMapper.Map<List<ProfileViewTransactionDto>>(transactionLogs);
         }
 
-        public int GetTotalDeposits()
+        public (decimal totalCredit, decimal totalDebit) GetTotalCreditAndDebit()
         {
-            //_transactionRepository.
-            return 0;
+            var totalCredit = 0m;
+            var totalDebit = 0m;
+
+            var creditTransactions = _transactionRepository.GetAllList(p => p.CreationTime.Year == DateTime.UtcNow.Year && p.TransactionType == TransactionLog.TransactionTypes.Credit);
+            foreach (var creditTransaction in creditTransactions)
+            {
+                totalCredit += creditTransaction.Amount;
+            }
+
+            var debitTransactions = _transactionRepository.GetAllList(p => p.CreationTime.Year == DateTime.UtcNow.Year && p.TransactionType == TransactionLog.TransactionTypes.Debit);
+
+            foreach (var debitTransaction in debitTransactions)
+            {
+                totalDebit += debitTransaction.Amount;
+            }
+
+            return (totalCredit, totalDebit);
         }
 
         public void LogTransaction()

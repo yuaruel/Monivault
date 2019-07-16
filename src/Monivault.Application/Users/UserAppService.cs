@@ -37,6 +37,7 @@ namespace Monivault.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+        //private readonly IBackgroundManager
         private ILogger Logger { get; set; }
 
         public UserAppService(
@@ -78,6 +79,8 @@ namespace Monivault.Users
             }
 
             CurrentUnitOfWork.SaveChanges();
+
+            //Send mail to user.
 
             return MapToEntityDto(user);
         }

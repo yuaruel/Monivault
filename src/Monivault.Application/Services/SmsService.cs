@@ -48,23 +48,20 @@ namespace Monivault.ModelServices
             var content = new FormUrlEncodedContent(query);
             //throw new SmsException("Just throw");
             var httpClient = new HttpClient();
-            Logger.Info("Sending sms...");
+
             var response = await httpClient.PostAsync("https://www.bulksmsnigeria.com/api/v1/sms/create", content);
-            Logger.Info($"Sms send response status: {response.StatusCode}");
+
             var responseString = await response.Content.ReadAsStringAsync();
-            Logger.Info($"response string: {responseString}");
+
             var respObj = JsonConvert.DeserializeObject<IDictionary<string, object>>(responseString);
 
             if (respObj.ContainsKey("error"))
             {
-                Logger.Error("An error occurred sending SMS");
                 var errorMsg =
                     JsonConvert.DeserializeObject<IDictionary<string, string>>(respObj["error"].ToJsonString())[
                         "message"];
                 throw new SmsException(errorMsg);
             }
-
-            Logger.Info("Sms sent!");
         }
     }
 }
