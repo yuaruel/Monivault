@@ -17,9 +17,9 @@ namespace Monivault.Emailing
             Logger = NullLogger.Instance;
         }
 
-        public string GetSampleEmail()
+        public string GetUserAccountCreatedTemplate()
         {
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Monivault.Emailing.EmailTemplates.sample.html"))
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Monivault.Emailing.EmailTemplates.userAccountCreated.html"))
             {
                 try
                 {

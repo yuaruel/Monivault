@@ -4,7 +4,7 @@ using Abp.Dependency;
 using Monivault.Exceptions;
 using Monivault.ModelServices;
 
-namespace Monivault.BackgroundJobs
+namespace Monivault.BackgroundJobs.Sms
 {
     public class SmsJob : AsyncBackgroundJob<SmsJobArgs>, ITransientDependency
     {
@@ -14,7 +14,25 @@ namespace Monivault.BackgroundJobs
         {
             _smsService = smsService;
         }
-        
-        protected override async Task ExecuteAsync(SmsJobArgs args) => await _smsService.SendSms(args.Message, args.Recipient);
+
+        protected override async Task ExecuteAsync(SmsJobArgs args)
+        {
+            switch (args.SmsType)
+            {
+                case SmsType.NonTransactionalSms:
+                    await _smsService.SendSms(args.Message, args.RecipientPhone);
+                    break;
+
+                case SmsType.CreditSms:
+                    await _smsService.SendCreditMessage(args.Amount, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
+                    break;
+
+                case SmsType.DebitSms:
+
+                    await _smsService.SendDebitMessage(args.Amount, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
+                    break;
+            }
+            
+        }
     }
 }

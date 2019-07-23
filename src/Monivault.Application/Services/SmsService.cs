@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -7,6 +8,7 @@ using Abp.Dependency;
 using Abp.Domain.Services;
 using Abp.Json;
 using Castle.Core.Logging;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Monivault.Exceptions;
 using Newtonsoft.Json;
@@ -16,33 +18,57 @@ namespace Monivault.ModelServices
 {
     public class SmsService : ISingletonDependency
     {
+        private readonly IConfiguration _configuration;
+        private readonly string SmsApiToken = string.Empty;
+
         public ILogger Logger { get; set; }
-        
-        public SmsService()
+
+        private const string SenderName = "MONIVAULT";
+        private const string DndNumber = "5";
+
+
+        public SmsService(IConfiguration configuration)
         {
+            _configuration = configuration;
+            SmsApiToken = _configuration.GetValue<string>("SmsApiToken");
             Logger = NullLogger.Instance;
         }
 
         public async Task SendSms(string message, string recipient)
         {
-            /*var urlBuilder = new UriBuilder("ttps://www.bulksmsnigeria.com/api/v1/sms/create");
+            //Check that recipient is a valid phone GSM phone number.
+            await SendMessage(message, recipient);
+        }
 
-            var query = HttpUtility.ParseQueryString(urlBuilder.Query);
-            query["api_token"] = "YUqX8aO6YPsdYwcidhnVTkzSyYbTZPdlhVzLhBpqmApQNnEKH9vYVgacNBpI";
-            query["from"] = "MONIVAULT";
-            query["to"] = recipient;
-            query["body"] = message;
-            query["dnd"] = "5";
+        public async Task SendCreditMessage(decimal amount, string recipientPhone, string creditType, string transactionDate, int accountHolderId)
+        {
+            string amountStr = amount.ToString("C2", new CultureInfo("ig-NG"));
+            var message = $"A credit of {amountStr} was done to your account on {transactionDate}. {creditType}";
 
-            urlBuilder.Query = query.ToString();*/
+            await SendMessage(message, recipientPhone);
 
+            //Log sms usage for account holder.
+        }
+
+        public async Task SendDebitMessage(decimal amount, string recipientPhone, string debitType, string transactionDate, int accountHolderId)
+        {
+            string amountStr = amount.ToString("C2", new CultureInfo("ig-NG"));
+            var message = $"A debit of {amountStr} was done to your account on {transactionDate}. {debitType}";
+
+            await SendMessage(message, recipientPhone);
+
+            //Log sms usage for account holder.
+        }
+
+        private async Task SendMessage(string message, string recipientPhone)
+        {
             var query = new Dictionary<string, string>
             {
-                { "api_token", "YUqX8aO6YPsdYwcidhnVTkzSyYbTZPdlhVzLhBpqmApQNnEKH9vYVgacNBpI" },
-                { "from", "MONIVAULT" },
-                { "to", recipient },
+                { "api_token",  SmsApiToken},
+                { "from", SenderName },
+                { "to", recipientPhone },
                 { "body", message },
-                { "dnd", "5" }
+                { "dnd", DndNumber }
             };
 
             var content = new FormUrlEncodedContent(query);

@@ -6,6 +6,6 @@ namespace Monivault.Emailing
 {
     public interface IMonivaultEmailTemplateProvider
     {
-        string GetSampleEmail();
+        string GetUserAccountCreatedTemplate();
     }
 }

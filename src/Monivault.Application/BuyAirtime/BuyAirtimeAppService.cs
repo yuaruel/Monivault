@@ -17,17 +17,17 @@ namespace Monivault.TopUpAirtime
     {
         private readonly IConfiguration _configuration;
         private readonly IRepository<AccountHolder> _accountHolderRepository;
-        private readonly IRepository<OneCardTopupLog, long> _oneCardTopupLogRepository;
+        private readonly IRepository<TransactionLog, long> _transactionLogRepository;
 
         public BuyAirtimeAppService(
                 IConfiguration configuration,
                 IRepository<AccountHolder> accountHolderRepository,
-                IRepository<OneCardTopupLog, long> oneCardTopupLogRepository
+                IRepository<TransactionLog, long> transactionLogRepository
             )
         {
             _configuration = configuration;
             _accountHolderRepository = accountHolderRepository;
-            _oneCardTopupLogRepository = oneCardTopupLogRepository;
+            _transactionLogRepository = transactionLogRepository;
         }
 
         public async Task BuyAirtime(AirtimePurchaseDto input)
@@ -56,42 +56,36 @@ namespace Monivault.TopUpAirtime
 
                 var topupResponseAsync = await estelClient.getTopupAsync(topupRequest);
                 var topupResponse = topupResponseAsync.Body.getTopupReturn;
-
-                //Log airtime purchase
-                var topupLog = new OneCardTopupLog()
-                {
-                    OneCardTopupLogKey = Guid.NewGuid(),
-                    Amount = input.Amount,
-                    AgentTransactionId = topupResponse.agenttransid,
-                    Destination = topupResponse.destination,
-                    MobileNumber = topupResponse.mobilenumber,
-                    ProductCode = topupResponse.productcode,
-                    AccountHolderId = accountHolder.Id,
-                    ResultCode = topupResponse.resultcode,
-                    ResultDescription = topupResponse.resultdescription,
-                    RequestCts = topupResponse.requestcts,
-                    Type = topupResponse.type,
-                    ResponseCts = topupResponse.responsects,
-                    ResponseValue = topupResponse.responseValue,
-                };
-
-                topupLog = _oneCardTopupLogRepository.Insert(topupLog);
-
+                
                 switch (int.Parse(topupResponse.resultcode))
                 {
                     case 0:
                         //I used UnitOfWorkManager to update the account holder's available balance, since airtime has been processed successfully.
                         //This is in case there is an error during transaction log, causing a roll back including the available balance update. This means the account holder's
                         //available balance wont be updated, and account holder gets a free airtime. So quickly update account holders available balance.
-                        using(var _unitOfWork = UnitOfWorkManager.Begin())
+
+                        accountHolder.AvailableBalance -= input.Amount;
+                        CurrentUnitOfWork.SaveChanges();
+
+                        //Send SMS notification.
+
+                        //Send Email notification
+
+                        var transactionLog = new TransactionLog
                         {
-                            //Subtract the airtime amount from users avaialble balance.
-                            accountHolder.AvailableBalance -= input.Amount;
+                            AccountHolderId = accountHolder.Id,
+                            Amount = input.Amount,
+                            BalanceAfterTransaction = accountHolder.AvailableBalance,
+                            TransactionType = TransactionLog.TransactionTypes.Debit,
+                            TransactionService = TransactionServiceNames.OneCardAirtimeTopUp,
+                            RequestOriginatingPlatform = input.RequestOriginatingPlatform,
+                            PlatformSpecificDetail = string.Empty,
 
-                            _unitOfWork.Complete();
-                        }
+                            //TODO Get the network name and add it to the description
+                            Description = "Airtime purchase"
+                        };
 
-                        //Log transaction
+                        _transactionLogRepository.Insert(transactionLog);
                         break;
 
                     default:

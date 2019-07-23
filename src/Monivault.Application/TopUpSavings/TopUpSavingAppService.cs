@@ -1,15 +1,19 @@
 using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
+using Abp.BackgroundJobs;
 using Abp.Domain.Repositories;
 using Abp.Runtime.Session;
 using Abp.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Monivault.AppModels;
+using Monivault.BackgroundJobs.Sms;
+using Monivault.ModelServices;
 //using Monivault.EstelOneCardServicesService;
 using Monivault.Utils;
 using ServiceReference;
+using TimeZoneConverter;
 
 namespace Monivault.TopUpSavings
 {
@@ -19,18 +23,21 @@ namespace Monivault.TopUpSavings
         private readonly IRepository<AccountHolder> _accountHolderRepository;
         private readonly IRepository<TransactionLog, long> _transactionLogRepository;
         private readonly IRepository<OneCardPinRedeemLog, long> _pinRedeemLogRepository;
+        private readonly NotificationScheduler _notificationScheduler;
         
         public TopUpSavingAppService(
             IConfiguration configuration,
             IRepository<AccountHolder> accountHolderRepository,
             IRepository<TransactionLog, long> transactionLogRepository,
-            IRepository<OneCardPinRedeemLog, long> pinRedeemLogRepository
+            IRepository<OneCardPinRedeemLog, long> pinRedeemLogRepository,
+            NotificationScheduler notificationScheduler
         )
         {
             _configuration = configuration;
             _accountHolderRepository = accountHolderRepository;
             _transactionLogRepository = transactionLogRepository;
             _pinRedeemLogRepository = pinRedeemLogRepository;
+            _notificationScheduler = notificationScheduler;
             AbpSession = NullAbpSession.Instance;
         }
         
@@ -58,12 +65,14 @@ namespace Monivault.TopUpSavings
 
             var pinRedeemResponse = await oneCardServiceClient.getPinRedeemAsync(pinRedeemRequest);
 
+            //Check if the PinRedeem service call was successful, and update account holder alance.
+
             var pinRedeemLog = new OneCardPinRedeemLog();
 
             try
             {
                 //Log OneCardPinRedeem. Whether successful or not
-                Logger.Info("About to prepare pin redeem log");
+
                 pinRedeemLog.Amount = decimal.Parse(string.IsNullOrEmpty(pinRedeemResponse.amount) ? decimal.Zero.ToString() : pinRedeemResponse.amount);
                 pinRedeemLog.AccountHolder = accountHolder;
                 pinRedeemLog.Comments = comment;
@@ -81,7 +90,7 @@ namespace Monivault.TopUpSavings
             }
             catch(Exception exc)
             {
-                Logger.Error(exc.StackTrace);
+                Logger.Error($"Error in log entity: {exc.StackTrace}");
                 //Send an error log email to my inbox. For Monitoring.
             }
 
@@ -96,6 +105,10 @@ namespace Monivault.TopUpSavings
                     accountHolder.AvailableBalance = currentBalance;
                     _accountHolderRepository.Update(accountHolder);
                     CurrentUnitOfWork.SaveChanges();
+
+                    //SendSms.
+                    var transctionDate = new DateTimeOffset(DateTime.Now, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
+                    _notificationScheduler.SchedulePinRedeemMessage(accountHolder.Id, pinAmount, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber);
 
                     //Log transaction
                     var transactionLog = new TransactionLog();

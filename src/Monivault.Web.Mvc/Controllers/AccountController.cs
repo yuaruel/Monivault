@@ -277,7 +277,7 @@ namespace Monivault.Web.Controllers
                 });
 
             return Challenge(
-                // TODO: ...?
+                
                 // new Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties
                 // {
                 //     Items = { { "LoginProvider", provider } },

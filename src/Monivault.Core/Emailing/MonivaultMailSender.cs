@@ -20,13 +20,16 @@ namespace Monivault.Emailing
             _monivaultEmailTemplateProvider = monivaultEmailTemplateProvider;
         }
 
-        public void SendSampleEmail()
+        public void SendUserAccountCreatedMail(string userEmail, string userName, string userPassword, string fullName)
         {
             try
             {
-                var emailTemplate = new StringBuilder(_monivaultEmailTemplateProvider.GetSampleEmail());
+                var emailTemplate = new StringBuilder(_monivaultEmailTemplateProvider.GetUserAccountCreatedTemplate());
+                emailTemplate.Replace("{FullName}", fullName);
+                emailTemplate.Replace("{UserName}", userName);
+                emailTemplate.Replace("{TemporaryPassword}", userPassword);
 
-                _mailSender.Send("henryezeanya@gmail.com", "Sample Email", emailTemplate.ToString());
+                _mailSender.Send(userEmail, "Monivault User Accounnt", emailTemplate.ToString());
             }catch(Exception exc)
             {
                 Logger.Error($"Mail sending error: {exc.StackTrace}");

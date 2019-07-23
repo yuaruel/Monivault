@@ -12,6 +12,8 @@ using Monivault.Users;
 using Monivault.Web.Models.Users;
 using Monivault.Users.Dto;
 using Monivault.Web.Models.Roles;
+using Abp.BackgroundJobs;
+using Monivault.BackgroundJobs.Email;
 
 namespace Monivault.Web.Controllers
 {
@@ -20,15 +22,17 @@ namespace Monivault.Web.Controllers
     {
         private readonly IUserAppService _userAppService;
         private readonly IRoleAppService _roleAppService;
+        private readonly IBackgroundJobManager _backgroundJobManager;
 
         public UsersController(
                 IUserAppService userAppService,
-                IRoleAppService roleAppService
+                IRoleAppService roleAppService,
+                IBackgroundJobManager backgroundJobManager
             )
         {
             _userAppService = userAppService;
             _roleAppService = roleAppService;
-
+            _backgroundJobManager = backgroundJobManager;
         }
 
         public async Task<ActionResult> Index()
@@ -67,6 +71,15 @@ namespace Monivault.Web.Controllers
         {
             input.Password = Authorization.Users.User.CreateRandomPassword();
             await _userAppService.Create(input);
+
+            //Queue email job
+            await _backgroundJobManager.EnqueueAsync<UserAccountCreatedEmailJob, UserAccountCreatedEmailJobArgs>(new UserAccountCreatedEmailJobArgs
+            {
+                UserEmail = input.EmailAddress,
+                UserPassword = input.Password,
+                UserName = input.UserName,
+                FullName = $"{input.Name} {input.Surname}"
+            });
 
             return Json(new { });
         }

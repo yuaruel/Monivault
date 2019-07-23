@@ -113,7 +113,6 @@ namespace Monivault.MoneyTransfers
                         unitOfWork.Complete();
                     }
 
-                    //ToDo Log transaction
                     var transactionLog = new TransactionLog
                     {
                         AccountHolderId = accountHolder.Id,

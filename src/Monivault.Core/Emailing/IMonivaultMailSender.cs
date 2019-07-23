@@ -6,6 +6,6 @@ namespace Monivault.Emailing
 {
     public interface IMonivaultMailSender
     {
-        void SendSampleEmail();
+        void SendUserAccountCreatedMail(string userEmail, string userName, string userPassword, string fullName);
     }
 }

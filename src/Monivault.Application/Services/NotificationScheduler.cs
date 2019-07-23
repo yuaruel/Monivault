@@ -5,6 +5,7 @@ using Abp.Dependency;
 using Castle.Core.Logging;
 using Hangfire;
 using Monivault.BackgroundJobs;
+using Monivault.BackgroundJobs.Sms;
 
 namespace Monivault.ModelServices
 {
@@ -26,6 +27,19 @@ namespace Monivault.ModelServices
             ScheduleWelcomeEmail(email);
         }
 
+        public void SchedulePinRedeemMessage(int accountHolderId, decimal amount, string transactionDate, string recipientPhone)
+        {
+            _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(new SmsJobArgs
+            {
+                SmsType = SmsType.CreditSms,
+                TransactionServiceName = TransactionServiceNames.OneCardPinRedeem,
+                AccountHolderId = accountHolderId,
+                Amount = amount,
+                TransactionDate = transactionDate,
+                RecipientPhone = recipientPhone
+            });
+        }
+
         public async Task ScheduleOtp(string phoneNumber, string email, string otp)
         {
             await ScheduleOtpText(phoneNumber, otp);
@@ -42,7 +56,7 @@ namespace Monivault.ModelServices
             var smsJobArg = new SmsJobArgs
             {
                 Message = message.ToString(),
-                Recipient = phoneNumber
+                RecipientPhone = phoneNumber
             };
 
             _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(smsJobArg);
@@ -56,7 +70,7 @@ namespace Monivault.ModelServices
             var smsJobArg = new SmsJobArgs
             {
                 Message = message.ToString(),
-                Recipient = phoneNumber
+                RecipientPhone = phoneNumber
             };
 
             await _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(smsJobArg);

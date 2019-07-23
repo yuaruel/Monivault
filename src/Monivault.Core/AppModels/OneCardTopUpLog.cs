@@ -10,7 +10,7 @@ namespace Monivault.AppModels
 {
     public class OneCardTopupLog : Entity<long>, IHasCreationTime
     {
-        public Guid OneCardTopupLogKey { get; set; }
+        public Guid OneCardTopupLogKey { get; set; } = Guid.NewGuid();
 
         [Required]
         public int AccountHolderId { get; set; }
@@ -21,12 +21,12 @@ namespace Monivault.AppModels
 
         public virtual TransactionLog TransactionLog { get; set; }
 
-        [Required]
+        //[Required]
         [Column(TypeName = "varchar(15)")]
         [StringLength(15)]
         public string AgentTransactionId { get; set; }
 
-        [Required]
+        //[Required]
         [Column(TypeName = "varchar(11)")]
         public string Destination { get; set; }
 
@@ -36,7 +36,7 @@ namespace Monivault.AppModels
         [Column(TypeName = "varchar(20)")]
         public string Type { get; set; }
 
-        [Required]
+        //[Required]
         public decimal Amount { get; set; }
 
         [Column(TypeName = "varchar(15)")]
