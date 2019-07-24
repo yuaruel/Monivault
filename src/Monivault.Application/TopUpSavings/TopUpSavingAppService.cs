@@ -72,7 +72,7 @@ namespace Monivault.TopUpSavings
             try
             {
                 //Log OneCardPinRedeem. Whether successful or not
-
+                
                 pinRedeemLog.Amount = decimal.Parse(string.IsNullOrEmpty(pinRedeemResponse.amount) ? decimal.Zero.ToString() : pinRedeemResponse.amount);
                 pinRedeemLog.AccountHolder = accountHolder;
                 pinRedeemLog.Comments = comment;
@@ -107,7 +107,8 @@ namespace Monivault.TopUpSavings
                     CurrentUnitOfWork.SaveChanges();
 
                     //SendSms.
-                    var transctionDate = new DateTimeOffset(DateTime.Now, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
+                    var currentDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
+                    var transctionDate = new DateTimeOffset(currentDate, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
                     _notificationScheduler.SchedulePinRedeemMessage(accountHolder.Id, pinAmount, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber);
 
                     //Log transaction

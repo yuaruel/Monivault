@@ -43,7 +43,7 @@ namespace Monivault.ModelServices
         public async Task SendCreditMessage(decimal amount, string recipientPhone, string creditType, string transactionDate, int accountHolderId)
         {
             string amountStr = amount.ToString("C2", new CultureInfo("ig-NG"));
-            var message = $"A credit of {amountStr} was done to your account on {transactionDate}. {creditType}";
+            var message = $"A credit of N{amountStr} was made to your account on {transactionDate}. {creditType}";
 
             await SendMessage(message, recipientPhone);
 
@@ -53,7 +53,7 @@ namespace Monivault.ModelServices
         public async Task SendDebitMessage(decimal amount, string recipientPhone, string debitType, string transactionDate, int accountHolderId)
         {
             string amountStr = amount.ToString("C2", new CultureInfo("ig-NG"));
-            var message = $"A debit of {amountStr} was done to your account on {transactionDate}. {debitType}";
+            var message = $"A debit of N{amountStr} was done on your account on {transactionDate}. {debitType}";
 
             await SendMessage(message, recipientPhone);
 
