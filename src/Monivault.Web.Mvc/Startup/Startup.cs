@@ -106,8 +106,7 @@ namespace Monivault.Web.Startup
             });
 
             app.UseHangfireServer();
-            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestManager.SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5),
-                TZConvert.GetTimeZoneInfo("Africa/Lagos"));
+            RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestManager.SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(1, 5), TZConvert.GetTimeZoneInfo("Africa/Lagos"));
 
             app.UseMvc(routes =>
             {

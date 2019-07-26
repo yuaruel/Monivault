@@ -27,14 +27,15 @@ namespace Monivault.ModelServices
             ScheduleWelcomeEmail(email);
         }
 
-        public void SchedulePinRedeemMessage(int accountHolderId, decimal amount, string transactionDate, string recipientPhone)
+        public void ScheduleCreditMessage(int accountHolderId, decimal amount, decimal newBalance, string transactionDate, string recipientPhone, string transactionServiceName)
         {
             _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(new SmsJobArgs
             {
                 SmsType = SmsType.CreditSms,
-                TransactionServiceName = TransactionServiceNames.OneCardPinRedeem,
+                TransactionServiceName = transactionServiceName,
                 AccountHolderId = accountHolderId,
-                Amount = amount,
+                CreditAmount = amount,
+                NewBalance = newBalance,
                 TransactionDate = transactionDate,
                 RecipientPhone = recipientPhone
             });

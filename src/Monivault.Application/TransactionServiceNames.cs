@@ -6,6 +6,7 @@ namespace Monivault
         public const string OneCardPinRedeem = "OneCard Pin Redeem";
         public const string InterswitchPaycode = "Interswitch Paycode";
         public const string OneCardFundTransfer = "OneCard Fund Transfer";
+        public const string InterestPayout = "Interest Payout";
 
         public const string ServiceCharge = "Withdrawal channel service charge";
     }

@@ -4,6 +4,7 @@ using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using Monivault.AppModels;
 using Monivault.Configuration;
+using Monivault.ModelServices;
 using System;
 using System.Linq;
 using System.Linq.Dynamic.Core;
@@ -19,18 +20,21 @@ namespace Monivault.SavingsInterests
         private readonly IRepository<TransactionLog, long> _transactionLogRepository;
         private readonly IRepository<SavingsInterestDetail, long> _savingInterestDetailRepository;
         private readonly IRepository<AccountHolder> _accountHolderRepository;
+        private readonly NotificationScheduler _notificationScheduler;
 
         public SavingsInterestManager(
                 IRepository<SavingsInterest, long> savingsInterestRepository,
                 IRepository<TransactionLog, long> transactionLogRepository,
                 IRepository<SavingsInterestDetail, long> savingInterestDetailRepository,
-                IRepository<AccountHolder> accountHolderRepository
+                IRepository<AccountHolder> accountHolderRepository,
+                NotificationScheduler notificationScheduler
             )
         {
             _savingsInterestRepository = savingsInterestRepository;
             _transactionLogRepository = transactionLogRepository;
             _savingInterestDetailRepository = savingInterestDetailRepository;
             _accountHolderRepository = accountHolderRepository;
+            _notificationScheduler = notificationScheduler;
         }
         
        
@@ -135,10 +139,34 @@ namespace Monivault.SavingsInterests
                     if (DateTime.UtcNow.Date.CompareTo(savingsInterest.EndDate.Date) < 0) continue;
 
                     var accountHolder = savingsInterest.AccountHolder;
-                    accountHolder.AvailableBalance += savingsInterest.InterestAccrued;
+                    var accruedInterest = savingsInterest.InterestAccrued;
+                    var newBalance = accountHolder.AvailableBalance + accruedInterest;
+                    accountHolder.AvailableBalance = newBalance;
+                    _accountHolderRepository.Update(accountHolder);
 
                     savingsInterest.Status = SavingsInterest.StatusTypes.Completed;
-                    CurrentUnitOfWork.SaveChanges();
+                    _savingsInterestRepository.Update(savingsInterest);
+
+                    //Insert transacion Log
+                    var creditTransactionLog = new TransactionLog
+                    {
+                        AccountHolderId = accountHolder.Id,
+                        BalanceAfterTransaction = newBalance,
+                        TransactionService = TransactionServiceNames.InterestPayout,
+                        TransactionType = TransactionLog.TransactionTypes.Credit,
+                        PlatformSpecificDetail = TransactionServiceNames.InterestPayout,
+                        Description = TransactionServiceNames.InterestPayout,
+                        Amount = accruedInterest,
+                        RequestOriginatingPlatform = "Server"
+                    };
+
+                    _transactionLogRepository.Insert(creditTransactionLog);
+
+                    //Send an SMS to user indicating interest credit.
+                    var currentDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
+                    var transctionDate = new DateTimeOffset(currentDate, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
+                    _notificationScheduler.ScheduleCreditMessage(accountHolder.Id, accruedInterest, newBalance, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber, TransactionServiceNames.InterestPayout);
+                    //CurrentUnitOfWork.SaveChanges();
 
                     //Create a new savings Interest
                     await BootstrapNewSavingsInterestForAccountHolder(accountHolder.Id);
@@ -185,7 +213,7 @@ namespace Monivault.SavingsInterests
             };
 
             _savingsInterestRepository.Insert(savingsInterest);
-            CurrentUnitOfWork.SaveChanges();
+            //CurrentUnitOfWork.SaveChanges();
         }
 
         public async Task CheckSavingsInterestProcessingStatus()

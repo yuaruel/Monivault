@@ -185,33 +185,30 @@ namespace Monivault.AccountHolders
 
         public decimal GetInterestAccrued()
         {
-            var accruedInterest = 0.0m;
-            try
-            {
-                var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
-                var savingsInterests = _savingInterestRepository.GetAllList(p => p.CreationTime.Year == DateTime.Now.Year && p.AccountHolderId == accountHolder.Id);
+            //var accruedInterest = 0.0m;
+            //try
+            //{
+            //    var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId);
+            //    var savingsInterests = _savingInterestRepository.GetAllList(p => p.CreationTime.Year == DateTime.Now.Year && p.AccountHolderId == accountHolder.Id);
 
-                foreach(var savingsInterest in savingsInterests)
-                {
-                    accruedInterest += savingsInterest.InterestAccrued;
-                }
-            }
-            catch(InvalidOperationException ioExc)
-            {
-                Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
-            }
+            //    foreach(var savingsInterest in savingsInterests)
+            //    {
+            //        accruedInterest += savingsInterest.InterestAccrued;
+            //    }
+            //}
+            //catch(InvalidOperationException ioExc)
+            //{
+            //    Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
+            //}
 
-            return accruedInterest;
-        }
+            //return accruedInterest;
 
-        public async Task<decimal> GetInterestReceivedForCurrentYear()
-        {
             var interestRecieved = 0.0m;
 
             try
             {
-                var user = await GetCurrentUserAsync();
-                var accountHolder = _accountHolderRepository.Single(p => p.UserId == user.Id);
+                //var user = await GetCurrentUserAsync();
+                var accountHolder = _accountHolderRepository.Single(p => p.UserId == AbpSession.UserId); ;
 
                 //TODO Modify this, to get a sum of all the interest that has accrued for the year, both running and completed.
                 var savingsInterest = _savingInterestRepository.FirstOrDefault(p => p.Status == SavingsInterest.StatusTypes.Running && p.AccountHolderId == accountHolder.Id);
@@ -221,12 +218,33 @@ namespace Monivault.AccountHolders
                     interestRecieved = savingsInterest.InterestAccrued;
                 }
             }
-            catch(InvalidOperationException ioExc)
+            catch (InvalidOperationException ioExc)
             {
                 Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
             }
 
             return interestRecieved;
+        }
+
+        public async Task<decimal> GetInterestReceivedForCurrentYear()
+        {
+            var accruedInterest = 0.0m;
+            try
+            {
+                var accountHolder = await _accountHolderRepository.SingleAsync(p => p.UserId == AbpSession.UserId);
+                var savingsInterests = _savingInterestRepository.GetAllList(p => p.CreationTime.Year == DateTime.Now.Year && p.AccountHolderId == accountHolder.Id);
+
+                foreach (var savingsInterest in savingsInterests)
+                {
+                    accruedInterest += savingsInterest.InterestAccrued;
+                }
+            }
+            catch (InvalidOperationException ioExc)
+            {
+                Logger.Error($"Interest accrued exception: {ioExc.StackTrace}");
+            }
+
+            return accruedInterest;
         }
 
         public int GetTotalNumberOfAccountHolders() => _accountHolderRepository.Count();

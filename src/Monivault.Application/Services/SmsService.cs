@@ -40,10 +40,11 @@ namespace Monivault.ModelServices
             await SendMessage(message, recipient);
         }
 
-        public async Task SendCreditMessage(decimal amount, string recipientPhone, string creditType, string transactionDate, int accountHolderId)
+        public async Task SendCreditMessage(decimal creditAmount, decimal newBalance, string recipientPhone, string creditType, string transactionDate, int accountHolderId)
         {
-            string amountStr = amount.ToString("C2", new CultureInfo("ig-NG"));
-            var message = $"A credit of N{amountStr} was made to your account on {transactionDate}. {creditType}";
+            string amountStr = creditAmount.ToString("C2", new CultureInfo("ig-NG"));
+            string newBalanceStr = 'N'+ newBalance.ToString("C2", new CultureInfo("ig-NG"));
+            var message = $"A credit of N{amountStr} was made to your account on {transactionDate}. {creditType}. Balance: {newBalanceStr}";
 
             await SendMessage(message, recipientPhone);
 

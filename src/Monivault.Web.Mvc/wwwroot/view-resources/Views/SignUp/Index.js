@@ -22,7 +22,8 @@ $(function() {
             rules: {
                 PhoneNumber: {
                     required: true,
-                    minlength: 11
+                    digits: true,
+                    rangelength: [11,11]
                 },
                 Email: {
                     email: {
@@ -38,7 +39,8 @@ $(function() {
                     email: 'Invalid email'
                 },
                 PhoneNumber: {
-                    required: 'Phone is required'
+                    required: 'Phone is required',
+                    digits: 'Invalid phone number'
                 }
             }
         });

@@ -29,9 +29,9 @@ namespace Monivault.Controllers
             return Json(new { AvailableBalance = availableBalance});
         }
 
-        public async Task<JsonResult> AvailableBalanceAndReceivedInterest()
+        public JsonResult AvailableBalanceAndReceivedInterest()
         {
-            var receivedInterest = await _accountHolderAppService.GetInterestReceivedForCurrentYear();
+            var receivedInterest = _accountHolderAppService.GetInterestAccrued();
             var availableBalance = _accountHolderDashboardService.GetUserAvailableBalance();
 
             return Json(new { ReceivedInterest = receivedInterest, AvailableBalance = availableBalance });

@@ -107,9 +107,10 @@ namespace Monivault.TopUpSavings
                     CurrentUnitOfWork.SaveChanges();
 
                     //SendSms.
+                    //TODO The date is not adding the offset to get the needed local date.
                     var currentDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
                     var transctionDate = new DateTimeOffset(currentDate, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
-                    _notificationScheduler.SchedulePinRedeemMessage(accountHolder.Id, pinAmount, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber);
+                    _notificationScheduler.ScheduleCreditMessage(accountHolder.Id, pinAmount, currentBalance, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber, TransactionServiceNames.OneCardPinRedeem);
 
                     //Log transaction
                     var transactionLog = new TransactionLog();

@@ -24,12 +24,12 @@ namespace Monivault.BackgroundJobs.Sms
                     break;
 
                 case SmsType.CreditSms:
-                    await _smsService.SendCreditMessage(args.Amount, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
+                    await _smsService.SendCreditMessage(args.CreditAmount, args.NewBalance, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
                     break;
 
                 case SmsType.DebitSms:
 
-                    await _smsService.SendDebitMessage(args.Amount, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
+                    await _smsService.SendDebitMessage(args.CreditAmount, args.RecipientPhone, args.TransactionServiceName, args.TransactionDate, args.AccountHolderId);
                     break;
             }
             
