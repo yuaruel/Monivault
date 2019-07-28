@@ -27,6 +27,7 @@ namespace Monivault.EntityFrameworkCore
         public virtual DbSet<TaxProfile> TaxProfiles { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }
         public virtual DbSet<TaxPayment> TaxPayments { get; set; }
+        public virtual DbSet<ResetPasswordToken> ResetPasswordTokens { get; set; }
 
         public MonivaultDbContext(DbContextOptions<MonivaultDbContext> options)
             : base(options)

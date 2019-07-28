@@ -58,11 +58,63 @@ namespace Monivault.Utils
             return randomCharacterBuilder.ToString();
         }
 
+        public static string GeneratePasswordResetToken()
+        {
+            var randomizer = new Random();
+            var randomCharacterBuilder = new StringBuilder(25);
+
+            for (var i = 0; i < 25; i++)
+            {
+                var caseSelector = randomizer.Next(1, 4);
+
+                switch (caseSelector)
+                {
+                    case 1:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(48, 58)));
+                        break;
+                    case 2:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(65, 91)));
+                        break;
+                    case 3:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(97, 123)));
+                        break;
+                }
+            }
+
+            return randomCharacterBuilder.ToString();
+        }
+
         public static string GenerateFakeEmail()
         {
             return Guid.NewGuid() + "@fakeemailforapp.com";
         }
 
+
+        public static string GeneratePassword()
+        {
+            var randomizer = new Random();
+            var randomCharacterBuilder = new StringBuilder(10);
+
+            for (var i = 0; i < 10; i++)
+            {
+                var caseSelector = randomizer.Next(1, 4);
+
+                switch (caseSelector)
+                {
+                    case 1:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(48, 58)));
+                        break;
+                    case 2:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(65, 91)));
+                        break;
+                    case 3:
+                        randomCharacterBuilder.Append(Convert.ToChar(randomizer.Next(97, 123)));
+                        break;
+                }
+            }
+
+            return randomCharacterBuilder.ToString();
+        }
         public static int GenerateOtp()
         {
             return RandomHelper.GetRandom(10000, 99999);

@@ -7,5 +7,7 @@ namespace Monivault.Emailing
     public interface IMonivaultEmailTemplateProvider
     {
         string GetUserAccountCreatedTemplate();
+        string GetPasswordResetTemplate();
+        string GetTemporaryPasswordTemplate();
     }
 }

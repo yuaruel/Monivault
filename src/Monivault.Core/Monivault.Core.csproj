@@ -16,9 +16,13 @@
     <EmbeddedResource Include="Localization\SourceFiles\*.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Emailing\EmailTemplates\accountPasswordReset.html" />
+    <None Remove="Emailing\EmailTemplates\accountTemporaryPassword.html" />
     <None Remove="Emailing\EmailTemplates\userAccountCreated.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Emailing\EmailTemplates\accountPasswordReset.html" />
+    <EmbeddedResource Include="Emailing\EmailTemplates\accountTemporaryPassword.html" />
     <EmbeddedResource Include="Emailing\EmailTemplates\userAccountCreated.html" />
   </ItemGroup>
   <ItemGroup>

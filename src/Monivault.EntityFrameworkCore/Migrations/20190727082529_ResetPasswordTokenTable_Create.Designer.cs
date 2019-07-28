@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monivault.EntityFrameworkCore;
 
 namespace Monivault.Migrations
 {
     [DbContext(typeof(MonivaultDbContext))]
-    partial class MonivaultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190727082529_ResetPasswordTokenTable_Create")]
+    partial class ResetPasswordTokenTable_Create
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

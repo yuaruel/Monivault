@@ -20,6 +20,39 @@ namespace Monivault.Emailing
             _monivaultEmailTemplateProvider = monivaultEmailTemplateProvider;
         }
 
+        public void SendResetPasswordLink(string userEmail, string resetLink)
+        {
+            try
+            {
+                var emailTemplate = new StringBuilder(_monivaultEmailTemplateProvider.GetPasswordResetTemplate());
+                emailTemplate.Replace("{ResetLink}", resetLink);
+
+                _mailSender.Send(userEmail, "Monivault Password Reset", emailTemplate.ToString());
+            }
+            catch(Exception exc)
+            {
+                Logger.Error($"Mail sending error: {exc.StackTrace}");
+            }
+
+
+
+        }
+
+        public void SendTemporaryPassword(string userEmail, string temporaryPassword)
+        {
+            try
+            {
+                var emailTemplate = new StringBuilder(_monivaultEmailTemplateProvider.GetTemporaryPasswordTemplate());
+                emailTemplate.Replace("{TemporaryPassword}", temporaryPassword);
+
+                _mailSender.Send(userEmail, "Monivault Temporary Password", emailTemplate.ToString());
+            }
+            catch (Exception exc)
+            {
+                Logger.Error($"Mail sending error: {exc.StackTrace}");
+            }
+        }
+
         public void SendUserAccountCreatedMail(string userEmail, string userName, string userPassword, string fullName)
         {
             try

@@ -33,5 +33,41 @@ namespace Monivault.Emailing
                 }
             }
         }
+
+        public string GetPasswordResetTemplate()
+        {
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Monivault.Emailing.EmailTemplates.accountPasswordReset.html"))
+            {
+                try
+                {
+                    var bytes = stream.GetAllBytes();
+                    var template = Encoding.UTF8.GetString(bytes, 3, bytes.Length - 3);
+
+                    return template;
+                }
+                catch (Exception exc)
+                {
+                    throw exc;
+                }
+            }
+        }
+
+        public string GetTemporaryPasswordTemplate()
+        {
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Monivault.Emailing.EmailTemplates.accountTemporaryPassword.html"))
+            {
+                try
+                {
+                    var bytes = stream.GetAllBytes();
+                    var template = Encoding.UTF8.GetString(bytes, 3, bytes.Length - 3);
+
+                    return template;
+                }
+                catch (Exception exc)
+                {
+                    throw exc;
+                }
+            }
+        }
     }
 }
