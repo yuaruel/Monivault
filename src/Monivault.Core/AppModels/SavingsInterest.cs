@@ -16,7 +16,7 @@ namespace Monivault.AppModels
 
         public decimal InterestPrincipal { get; set; } = decimal.Zero;
 
-        public decimal InterestAccrued { get; set; }
+        public decimal InterestAccrued { get; set; } = decimal.Zero;
 
         [Required]
         public string Status { get; set; }

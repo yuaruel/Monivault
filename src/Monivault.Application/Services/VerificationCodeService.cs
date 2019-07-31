@@ -41,7 +41,7 @@ namespace Monivault.ModelServices
             
             _verificationCodeRepository.Insert(signUpVerificationCode);
             
-            _smsService.SendSms("Monivault VC: " + verificationCode, phoneNumber);
+            await _smsService.SendSms("Monivault VC: " + verificationCode, phoneNumber);
         }
 
         public async Task<VerificationCode> GetVerificationCode(int code, string phoneNumber)

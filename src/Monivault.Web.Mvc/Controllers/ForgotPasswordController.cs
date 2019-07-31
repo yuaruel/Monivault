@@ -34,6 +34,8 @@ namespace Monivault.Web.Controllers
                 {
                     return RedirectToAction("ResetLinkSent");
                 }
+
+                //TODO Display the sent email in the form including the error shown.
                 
             }catch(EntityNotFoundException enfExc)
             {

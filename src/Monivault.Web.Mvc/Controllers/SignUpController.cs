@@ -80,7 +80,7 @@ namespace Monivault.Web.Controllers
             }
             
             //Send a welcome text and email, with AccountHolder Identity.
-            _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
+            await _notificationScheduler.ScheduleWelcomeMessage(user.PhoneNumber, user.EmailAddress, accountHolder.AccountIdentity);
 
             return Json(new AjaxResponse{TargetUrl = "/SignUp/SuccessfulSignUp"});
         }

@@ -85,7 +85,7 @@ namespace Monivault.TransactionLogs
 
             if(accountHolder != null)
             {
-                var transactionLogs = _transactionRepository.GetAllList(p => p.AccountHolderId == accountHolder.Id);
+                var transactionLogs = _transactionRepository.GetAllList(p => p.AccountHolderId == accountHolder.Id).OrderByDescending(p => p.CreationTime);
 
                 var worksheetRow = 2;
                 var templateFileName = "TransactionHistory_Template.xlsx";
@@ -108,7 +108,8 @@ namespace Monivault.TransactionLogs
                         worksheet.Cells[worksheetRow, 1].Value = transactionLog.Amount.ToString("C2", new CultureInfo("ig-NG"));
                         worksheet.Cells[worksheetRow, 2].Value = transactionLog.TransactionType;
                         worksheet.Cells[worksheetRow, 3].Value = transactionLog.Description;
-                        worksheet.Cells[worksheetRow++, 4].Value = transactionLog.CreationTime.ToShortDateString();
+                        worksheet.Cells[worksheetRow, 4].Value = transactionLog.CreationTime.ToShortDateString();
+                        worksheet.Cells[worksheetRow++, 5].Value = transactionLog.BalanceAfterTransaction.ToString("C2", new CultureInfo("ig-NG"));
                     }
 
                     excelFile.Save();

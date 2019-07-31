@@ -1,10 +1,12 @@
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Monivault.AccountHolders;
 using Monivault.Authorization;
 using Monivault.Authorization.Users;
+using Monivault.Configuration;
 using Monivault.Controllers;
 using Monivault.Exceptions;
 using Monivault.Models;
@@ -43,7 +45,9 @@ namespace Monivault.Web.Controllers
         public async Task<IActionResult> BankAccount()
         {
             ViewBag.CurrentBalance = (await _accountHolderAppService.GetAccountHolderDetail()).AvailableBalance;
-            
+            var transferCharge = decimal.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.WithdrawalServiceCharge));
+            ViewBag.TransferCharge = transferCharge.ToString("C2", new CultureInfo("ig-NG"));
+
             return View();
         }
 

@@ -10,6 +10,7 @@ using Abp.UI;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Monivault.Authorization.Roles;
+using Monivault.Exceptions;
 using Monivault.MultiTenancy;
 using Monivault.Utils;
 
@@ -73,6 +74,15 @@ namespace Monivault.Authorization.Users
                 Logger.Info("Created new user, and next is to save...");
                 await CurrentUnitOfWork.SaveChangesAsync();
                 Logger.Info("S|aved new user.");
+            }
+            catch(UserFriendlyException ufExc)
+            {
+                if(ufExc.Message.Contains("User name"))
+                {
+                    throw new DuplicateUserNameException();
+                }
+                Logger.Error($"Base exception: {ufExc.GetBaseException().ToString()}");
+                Logger.Error($"Error: {ufExc.Message}");
             }
             catch(Exception exc)
             {

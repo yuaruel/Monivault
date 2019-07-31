@@ -7,6 +7,7 @@ using Monivault.AppModels;
 using Monivault.Authorization.Roles;
 using Monivault.Authorization.Users;
 using Monivault.Banks.Dto;
+using Monivault.Configuration;
 using Monivault.Exceptions;
 using Monivault.Users;
 using Monivault.Users.Dto;
@@ -259,7 +260,9 @@ namespace Monivault.AccountHolders
             var user = await GetCurrentUserAsync();
             var accountHolder = await _accountHolderRepository.SingleAsync(p => p.UserId == user.Id);
 
-            if (accountHolder.AvailableBalance <= amount) throw new InsufficientBalanceException();
+            var transferCharge = decimal.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.WithdrawalServiceCharge));
+
+            if (accountHolder.AvailableBalance < (amount + transferCharge)) throw new InsufficientBalanceException();
 
             return true;
         }

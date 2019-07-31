@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Abp.UI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Monivault.Configuration;
 using Monivault.Controllers;
 using Monivault.Models;
 using Monivault.TopUpSavings;
@@ -30,6 +31,10 @@ namespace Monivault.Web.Host.Controllers
         [HttpPost]
         public async Task<JsonResult> RedeemPin([FromBody] OneCardPinViewModel model)
         {
+            var pinRedeemDisabled = bool.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.StopTopUpSaving));
+
+            if (pinRedeemDisabled) throw new UserFriendlyException("PinRedeemDisbaled");
+
             Logger.Info("Got into the controller to redeem pin");
             Logger.Info($"Pin: {model.Pin}");
             var resultCode = await _topUpSavingAppService.RedeemOneCardPin(model.Pin, model.Comment, model.RequestOriginatingPlatform, model.PlatformSpecificDetail);

@@ -5,6 +5,7 @@ using Abp.Domain.Repositories;
 using Estel;
 using Microsoft.Extensions.Configuration;
 using Monivault.AppModels;
+using Monivault.Configuration;
 using Monivault.Exceptions;
 using Monivault.MoneyTransfers.Dto;
 using Monivault.Utils;
@@ -108,7 +109,8 @@ namespace Monivault.MoneyTransfers
                 case "0":
                     var currentBalance = accountHolder.AvailableBalance;
                     using(var unitOfWork = UnitOfWorkManager.Begin()) {
-                        accountHolder.AvailableBalance -= input.Amount;
+                        var transferCharge = decimal.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.WithdrawalServiceCharge));
+                        accountHolder.AvailableBalance -= (input.Amount + transferCharge);
 
                         unitOfWork.Complete();
                     }

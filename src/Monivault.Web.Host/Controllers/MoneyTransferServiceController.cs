@@ -14,6 +14,8 @@ using Monivault.MoneyTransfers;
 using Monivault.OtpSessions;
 using Monivault.MoneyTransfers.Dto;
 using Monivault.Exceptions;
+using Monivault.Configuration;
+using Abp.UI;
 
 namespace Monivault.Web.Host.Controllers
 {
@@ -44,6 +46,10 @@ namespace Monivault.Web.Host.Controllers
         [HttpPost]
         public async Task<JsonResult> RequestTransfer([FromBody] BankTransferRequestViewModel viewModel)
         {
+            var transferDisabled = bool.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.StopWithdrawal));
+
+            if (transferDisabled) throw new UserFriendlyException("TransferDisbaled");
+
             try
             {
                 var accountHolder = await _accountHolderAppService.GetAccountHolderDetail();

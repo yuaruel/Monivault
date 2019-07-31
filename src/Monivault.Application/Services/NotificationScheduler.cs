@@ -20,10 +20,10 @@ namespace Monivault.ModelServices
             Logger = NullLogger.Instance;
         }
         
-        public void ScheduleWelcomeMessage(string phoneNumber, string email, string accountIdentity)
+        public async Task ScheduleWelcomeMessage(string phoneNumber, string email, string accountIdentity)
         {
             Logger.Info("About to set sms notification job");
-            ScheduleWelcomeText(phoneNumber, accountIdentity);
+            await ScheduleWelcomeText(phoneNumber, accountIdentity);
             ScheduleWelcomeEmail(email);
         }
 
@@ -46,7 +46,7 @@ namespace Monivault.ModelServices
             await ScheduleOtpText(phoneNumber, otp);
         }
 
-        private void ScheduleWelcomeText(string phoneNumber, string accountIdentity)
+        private async Task ScheduleWelcomeText(string phoneNumber, string accountIdentity)
         {
             var message = new StringBuilder();
             message.AppendLine("Welcome to Monivault.");
@@ -60,7 +60,7 @@ namespace Monivault.ModelServices
                 RecipientPhone = phoneNumber
             };
 
-            _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(smsJobArg);
+            await _backgroundJobManager.EnqueueAsync<SmsJob, SmsJobArgs>(smsJobArg);
         }
 
         private async Task ScheduleOtpText(string phoneNumber, string otp)

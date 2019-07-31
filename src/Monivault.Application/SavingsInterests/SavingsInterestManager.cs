@@ -40,7 +40,7 @@ namespace Monivault.SavingsInterests
        
         public async Task RunInterestForTheDay()
         {
-            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueForApplicationAsync(AppSettingNames.InterestStatus));
+            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.InterestStatus));
 
             if (savingsInterestStatus)
             {
@@ -87,7 +87,8 @@ namespace Monivault.SavingsInterests
                     {
                         var penaltyChargeRate = decimal.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.PenaltyPercentageDeduction)) / 100;
                         var penaltyCharge = savingsInterest.InterestAccrued * penaltyChargeRate;
-                        var newInterest = savingsInterest.InterestAccrued - penaltyCharge;
+                        decimal interestAfterCharge = savingsInterest.InterestAccrued - penaltyCharge;
+                        decimal newInterest = interestAfterCharge < 0 ? 0 : interestAfterCharge;
 
 
                         savingsInterestDetail.PenaltyCharge = penaltyCharge;
@@ -137,36 +138,43 @@ namespace Monivault.SavingsInterests
 
                     //Check if Interest EndDate has reached, for payout.
                     if (DateTime.UtcNow.Date.CompareTo(savingsInterest.EndDate.Date) < 0) continue;
-
-                    var accountHolder = savingsInterest.AccountHolder;
+                    
                     var accruedInterest = savingsInterest.InterestAccrued;
-                    var newBalance = accountHolder.AvailableBalance + accruedInterest;
-                    accountHolder.AvailableBalance = newBalance;
-                    _accountHolderRepository.Update(accountHolder);
 
                     savingsInterest.Status = SavingsInterest.StatusTypes.Completed;
                     _savingsInterestRepository.Update(savingsInterest);
 
-                    //Insert transacion Log
-                    var creditTransactionLog = new TransactionLog
+                    var accountHolder = savingsInterest.AccountHolder;
+
+                    //If accrued interest is N0.00, no need to add it to the account holder's available balance, and no need sending an SMS because there was no transaction.
+                    if (accruedInterest > 0)
                     {
-                        AccountHolderId = accountHolder.Id,
-                        BalanceAfterTransaction = newBalance,
-                        TransactionService = TransactionServiceNames.InterestPayout,
-                        TransactionType = TransactionLog.TransactionTypes.Credit,
-                        PlatformSpecificDetail = TransactionServiceNames.InterestPayout,
-                        Description = TransactionServiceNames.InterestPayout,
-                        Amount = accruedInterest,
-                        RequestOriginatingPlatform = "Server"
-                    };
+                        
+                        var newBalance = accountHolder.AvailableBalance + accruedInterest;
+                        accountHolder.AvailableBalance = newBalance;
+                        _accountHolderRepository.Update(accountHolder);
 
-                    _transactionLogRepository.Insert(creditTransactionLog);
+                        //Insert transacion Log
+                        var creditTransactionLog = new TransactionLog
+                        {
+                            AccountHolderId = accountHolder.Id,
+                            BalanceAfterTransaction = newBalance,
+                            TransactionService = TransactionServiceNames.InterestPayout,
+                            TransactionType = TransactionLog.TransactionTypes.Credit,
+                            PlatformSpecificDetail = TransactionServiceNames.InterestPayout,
+                            Description = TransactionServiceNames.InterestPayout,
+                            Amount = accruedInterest,
+                            RequestOriginatingPlatform = "Server"
+                        };
 
-                    //Send an SMS to user indicating interest credit.
-                    var currentDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
-                    var transctionDate = new DateTimeOffset(currentDate, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
-                    _notificationScheduler.ScheduleCreditMessage(accountHolder.Id, accruedInterest, newBalance, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber, TransactionServiceNames.InterestPayout);
-                    //CurrentUnitOfWork.SaveChanges();
+                        _transactionLogRepository.Insert(creditTransactionLog);
+
+                        //Send an SMS to user indicating interest credit.
+                        var currentDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
+                        var transctionDate = new DateTimeOffset(currentDate, TZConvert.GetTimeZoneInfo("Africa/Lagos").BaseUtcOffset);
+
+                        _notificationScheduler.ScheduleCreditMessage(accountHolder.Id, accruedInterest, newBalance, transctionDate.ToString("dd-MM-yyyy HH:mm:ss"), user.PhoneNumber, TransactionServiceNames.InterestPayout);
+                    }
 
                     //Create a new savings Interest
                     await BootstrapNewSavingsInterestForAccountHolder(accountHolder.Id);
@@ -219,7 +227,7 @@ namespace Monivault.SavingsInterests
         public async Task CheckSavingsInterestProcessingStatus()
         {
             //Logger.Info("About to check if InterestStatus is running...");
-            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueForApplicationAsync(AppSettingNames.InterestStatus));
+            var savingsInterestStatus = bool.Parse(await SettingManager.GetSettingValueAsync(AppSettingNames.InterestStatus));
             //Logger.Info("Interest status: " + savingsInterestStatus);
             if (savingsInterestStatus)
             {
