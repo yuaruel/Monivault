@@ -39,10 +39,10 @@ namespace Monivault.Web.Startup
             services.AddMvc(
                 options => options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())
             );
-            
+
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
-            
+
             //Add IFileProvider service
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
 
@@ -62,14 +62,14 @@ namespace Monivault.Web.Startup
                 options.User.RequireUniqueEmail = false;
 
             });
-            
+
             //Configure AWS Credential Options
             services.Configure<AWSCredentialOptions>(options =>
             {
                 options.AccessKey = _appConfiguration["AWS:AccessKey"];
                 options.SecretKey = _appConfiguration["AWS:SecretKey"];
             });
-            
+
             services.ConfigureApplicationCookie(opt => { opt.LoginPath = "/Login"; });
 
             // Configure Abp and Dependency Injection
@@ -106,7 +106,9 @@ namespace Monivault.Web.Startup
             });
 
             app.UseHangfireServer();
+            app.UseHangfireDashboard();
             RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestManager.SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(1, 5), TZConvert.GetTimeZoneInfo("Africa/Lagos"));
+            //RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestManager.SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(13, 55));
 
             app.UseMvc(routes =>
             {

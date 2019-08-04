@@ -45,10 +45,10 @@ namespace Monivault.Profiles
         public async Task UpdatePersonalDetail(PersonalDetailDto input)
         {
             var user = await GetCurrentUserAsync();
-            user.Name = input.FirstName;
-            user.Surname = input.LastName;
+            //user.Name = input.FirstName;
+            //user.Surname = input.LastName;
             user.PhoneNumber = input.PhoneNumber;
-            user.EmailAddress = input.Email ?? RandomStringGeneratorUtil.GenerateFakeEmail();
+            //user.EmailAddress = input.Email ?? RandomStringGeneratorUtil.GenerateFakeEmail();
 
             await _userManager.UpdateAsync(user);
         }
