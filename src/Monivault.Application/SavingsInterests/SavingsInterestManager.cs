@@ -84,11 +84,15 @@ namespace Monivault.SavingsInterests
                             switch (log.TransactionType)
                             {
                                 case TransactionLog.TransactionTypes.Credit:
-                                    savingsInterest.InterestPrincipal = savingsInterest.InterestPrincipal + log.Amount;
+                                    //Check if the transction is not an interest payout. If it is an interest payout, it was already added to the available balance, before a new savings interest
+                                    //process was started for the AccountHolder.
+                                    if (TransactionServiceNames.InterestPayout.Equals(log.Description)) break;
+
+                                    savingsInterest.InterestPrincipal += log.Amount;
                                     Logger.Info($"interest principal after credit transaction: {savingsInterest.InterestPrincipal}");
                                     break;
                                 case TransactionLog.TransactionTypes.Debit:
-                                    savingsInterest.InterestPrincipal = savingsInterest.InterestPrincipal - log.Amount;
+                                    savingsInterest.InterestPrincipal -= log.Amount;
                                     Logger.Info($"interest principal after debit transaction: {savingsInterest.InterestPrincipal}");
                                     savingsInterest.IsTransactionDebit = true;
                                     break;
