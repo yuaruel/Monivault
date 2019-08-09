@@ -274,14 +274,14 @@ namespace Monivault.SavingsInterests
             {
                 //Logger.Info("Interest status is running");
                 //Logger.Info("Savings interest processing about to be started...");
-                RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5), 
+                RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(1, 5), 
                     TZConvert.GetTimeZoneInfo("Africa/Lagos"));
                 //Logger.Info("Savings interest processing started.");
             }
         }
 
         //Startup Hangfire RecurringJob that processes SavingInterest calculation every midnight
-        public static void StartSavingsInterestProcessing() => RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(0, 5), TZConvert.GetTimeZoneInfo("Africa/Lagos"));
+        public static void StartSavingsInterestProcessing() => RecurringJob.AddOrUpdate<SavingsInterestManager>(SavingsInterestJobId, sm => sm.RunInterestForTheDay(), Cron.Daily(1, 5), TZConvert.GetTimeZoneInfo("Africa/Lagos"));
 
         public static void StopSavingsInterestProcessing() => RecurringJob.RemoveIfExists(SavingsInterestJobId);
     }
