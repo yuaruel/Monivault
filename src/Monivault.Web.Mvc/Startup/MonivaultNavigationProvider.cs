@@ -41,13 +41,13 @@ namespace Monivault.Web.Startup
                             url: "MoneyTransfer/BankAccount",
                             requiredPermissionName: PermissionNames.DoBankAccountTransfer  
                         )
-                    ).AddItem(
-                        new MenuItemDefinition(
-                            PageNames.PayCode,
-                            L("PayCode"),
-                            requiredPermissionName: PermissionNames.DoPayCodeTransfer
-                        )
-                    )
+                    )//.AddItem(
+                    //    new MenuItemDefinition(
+                    //        PageNames.PayCode,
+                    //        L("PayCode"),
+                    //        requiredPermissionName: PermissionNames.DoPayCodeTransfer
+                    //    )
+                    //)
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Utilities,
