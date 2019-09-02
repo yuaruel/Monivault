@@ -23,5 +23,7 @@ namespace Monivault.Web.Models.Profile
         public string AccountName { get; set; }
 
         public string ProfilePictureUrl { get; set; }
+
+        public string AccountIdentity { get; set; }
     }
 }

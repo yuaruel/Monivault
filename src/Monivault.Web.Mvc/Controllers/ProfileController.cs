@@ -62,7 +62,8 @@ namespace Monivault.Web.Controllers
                 Banks = bankSelectItems,
                 AccountNumber = accountHolderDto.BankAccountNumber,
                 AccountName = accountHolderDto.BankAccountName,
-                ProfilePictureUrl = profileDto.ProfileImageUrl
+                ProfilePictureUrl = profileDto.ProfileImageUrl,
+                AccountIdentity = accountHolderDto.AccountIdentity
             };
             
             if (accountHolderDto.Bank != null)
